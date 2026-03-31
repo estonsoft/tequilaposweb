@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tequila POS - Smart POS Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <!-- Optional: Default Theme -->
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/style/dark.css" />
+  </head>
+  <body class="bg-[#1C1C1C] font-inter text-sm">
+    <!-- Navigation -->
+    <nav class="navbar md:block hidden">
+      <div class="navbar-container container mx-auto">
+        <!-- Logo -->
+        <div class="logo-container">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo"
+            alt="Logo"
+          />
+          <div class="nav-links ml-4">
+            <div class="nav-item dropdown">
+              <a href="#business-type" class="nav-link">Business Type</a>
+              <!-- Mega Menu -->
+              <div class="mega-menu">
+                <div class="mega-menu-grid">
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Product Features</h3>
+                    <ul class="mega-menu-list">
+                      <li><a href="#" class="mega-menu-link">Feature 1</a></li>
+                      <li><a href="#" class="mega-menu-link">Feature 2</a></li>
+                      <li><a href="#" class="mega-menu-link">Feature 3</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Resources</h3>
+                    <ul class="mega-menu-list">
+                      <li>
+                        <a href="#" class="mega-menu-link">Documentation</a>
+                      </li>
+                      <li><a href="#" class="mega-menu-link">FAQs</a></li>
+                      <li><a href="#" class="mega-menu-link">Tutorials</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Support</h3>
+                    <ul class="mega-menu-list">
+                      <li><a href="#" class="mega-menu-link">Contact Us</a></li>
+                      <li><a href="#" class="mega-menu-link">Live Chat</a></li>
+                      <li>
+                        <a href="#" class="mega-menu-link">Knowledge Base</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Links -->
+            <a href="#features" class="nav-link">Feature</a>
+            <a href="#hardware" class="nav-link">Hardware</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#resources" class="nav-link">Resources</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-extra-links">
+          <div class="language-selector">
+            <span class="language-text">ENGLISH</span>
+            <img
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+
+          <a href="#signin" class="nav-link">Sign in</a>
+
+          <button class="demo-btn">
+            <span>Free Demo</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar md:hidden bg-black shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-4"
+      >
+        <!-- Logo -->
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Close Icon -->
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 bg-[#1C1C1C] text-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50"
+      >
+        <div class="p-4 space-y-4">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 bg-gray-800 rounded hover:bg-gray-700"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 text-gray-400 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
+            11.94l3.72-3.72a.75.75 0 1 1 
+            1.06 1.06l-4.25 4.25a.75.75 0 
+            0 1-1.06 0L5.22 9.28a.75.75 
+            0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 bg-gray-900 rounded shadow-lg overflow-hidden"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Duplicate</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Delete</a
+              >
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="#features" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Features</a
+          >
+          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Hardware</a
+          >
+          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Pricing</a
+          >
+          <a href="#resources" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Resources</a
+          >
+
+          <!-- Language Switcher -->
+          <div
+            class="flex items-center justify-between px-4 py-2 bg-gray-800 rounded"
+          >
+            <span class="text-sm">EN</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-gray-500 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+              ></div>
+            </label>
+            <span class="text-sm">BN</span>
+          </div>
+
+          <!-- Sign in -->
+          <a href="#signin" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Sign In</a
+          >
+
+          <!-- CTA Button -->
+          <a
+            href="#demo"
+            class="block text-center bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-2 rounded shadow hover:from-yellow-400 hover:to-yellow-500"
+          >
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="bg-transparent-100 py-8 md:py-16">
+      <div
+        class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12"
+      >
+        <div class="text-left">
+          <h1
+            class="text-[20px] md:text-[64px] lg:text-7xl font-bold text-[#C98633] mb-4 md:mb-2"
+          >
+            Food and
+            <span class="text-white"> Beverages</span>
+          </h1>
+
+          <p
+            class="md:w-[611px] w-full text-[#CDCDCD] md:text-[20px] text-[10px] md:leading-[25.20px] leading-normal md:mb-8"
+          >
+            Streamline billing, orders, and inventory with one powerful POS
+            solution.
+          </p>
+
+          <button
+            class="inline-flex mb-8 items-center justify-center px-8 py-3 text-lg font-semibold text-white bg-[#C98633] rounded-full shadow-lg hover:bg-[#b3762a] focus:outline-none focus:ring-2 focus:ring-[#C98633] focus:ring-offset-2 transition-colors duration-300 ease-in-out whitespace-nowrap min-w-[180px] max-w-full text-center"
+          >
+            GET IN TOUCH
+          </button>
+        </div>
+
+        <div class="w-full flex justify-center lg:justify-end">
+          <img
+            src="/assets/images/retail/hero-image.png"
+            alt=""
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Book Your Free Demo Today -->
+    <section class="md:py-6 py-4">
+      <div
+        class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12"
+      >
+        <div class="w-full md:w-[700px] text-left">
+          <h1
+            class="text-[20px] md:text-[64px] lg:text-7xl font-bold text-[#C98633] mb-4 md:mb-2"
+          >
+            Smarter Tools for
+            <span class="text-white">Modern Retail </span>
+          </h1>
+
+          <p
+            class="md:w-[611px] w-full text-[#CDCDCD] md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal md:mb-4"
+          >
+            From bakeries to bars, manage operations with tools tailored to your
+            style.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Card 1: Smart Inventory Management -->
+          <div class="p-6 rounded-lg flex flex-col items-center text-center">
+            <img
+              src="/assets/images/retail/smart-inventory-dark.png"
+              alt="Inventory Icon"
+              class="w-16 h-16 mb-4"
+            />
+            <h3 class="text-xl font-bold text-white mb-4">
+              Smart Inventory Management
+            </h3>
+            <ul
+              class="list-none text-left w-full max-w-xs mx-auto text-[#CDCDCD] space-y-2"
+            >
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Real-time stock
+                tracking
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Low-stock and expiry
+                alerts
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Barcode scanning and
+                batch management
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Automatic reordering
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Fast Billing & Checkout -->
+          <div class="p-6 rounded-lg flex flex-col items-center text-center">
+            <img
+              src="/assets/images/retail/fast-billing-dark.png"
+              alt="Billing Icon"
+              class="w-16 h-16 mb-4"
+            />
+            <h3 class="text-xl font-bold text-white mb-4">
+              Fast Billing & Checkout
+            </h3>
+            <ul
+              class="list-none text-left w-full max-w-xs mx-auto text-[#CDCDCD] space-y-2"
+            >
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Scan barcodes, apply
+                discounts
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Accept cards, UPI,
+                mobile wallets
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Custom receipts
+                (digital/print)
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Offline billing
+                support
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Discounts, Offers & Loyalty -->
+          <div class="p-6 rounded-lg flex flex-col items-center text-center">
+            <img
+              src="/assets/images/retail/discounts-dark.png"
+              alt="Discounts Icon"
+              class="w-16 h-16 mb-4"
+            />
+            <h3 class="text-xl font-bold text-white mb-4">
+              Discounts, Offers & Loyalty
+            </h3>
+            <ul
+              class="list-none text-left w-full max-w-xs mx-auto text-[#CDCDCD] space-y-2"
+            >
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Bulk pricing and
+                seasonal offers
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Coupons, combos, BOGO
+              </li>
+              <li class="flex items-start">
+                <span class="mr-2 text-gray-400">•</span> Customer loyalty
+                points and rewards
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="md:py-6 py-4">
+      <div
+        class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12"
+      >
+        <div class="w-full md:w-[800px] text-left">
+          <h1
+            class="text-[20px] md:text-[64px] lg:text-7xl font-bold text-[#C98633] mb-4 md:mb-2"
+          >
+            Benefits That Go
+            <span class="text-white"> Beyond the Counter </span>
+          </h1>
+
+          <p
+            class="md:w-[611px] w-full text-[#CDCDCD] md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal md:mb-4"
+          >
+            Get the speed, control, and insights you need—without the
+            complexity.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-72 md:pt-10 pt-6 max-w-4xl mx-auto"
+        >
+          <!-- Feature item -->
+          <div class="flex items-start gap-3 sm:gap-4">
+            <img
+              src="/assets/images/free-demo/card-1-dark.png"
+              alt=""
+              aria-hidden="true"
+              class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 shrink-0"
+            />
+            <div>
+              <h3
+                class="font-semibold text-white text-[15px] sm:text-[16px] md:text-[17px]"
+              >
+                Real-Time Inventory Visibility
+              </h3>
+              <p
+                class="text-[#CDCDCD] text-xs sm:text-[13px] md:text-[14px] leading-snug mt-1"
+              >
+                Know what's in stock, what's low, and what's selling —
+                instantly.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 sm:gap-4">
+            <img
+              src="/assets/images/retail/card-2-dark.png"
+              alt=""
+              aria-hidden="true"
+              class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 shrink-0"
+            />
+            <div>
+              <h3
+                class="font-semibold text-white text-[15px] sm:text-[16px] md:text-[17px]"
+              >
+                Works Offline Too
+              </h3>
+              <p
+                class="text-[#CDCDCD] text-xs sm:text-[13px] md:text-[14px] leading-snug mt-1"
+              >
+                Keep selling even when the internet goes down.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 sm:gap-4">
+            <img
+              src="/assets/images/retail/card-3-dark.png"
+              alt=""
+              aria-hidden="true"
+              class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 shrink-0"
+            />
+            <div>
+              <h3
+                class="font-semibold text-white text-[15px] sm:text-[16px] md:text-[17px]"
+              >
+                Fast Checkout with Barcode Scanning
+              </h3>
+              <p
+                class="text-[#CDCDCD] text-xs sm:text-[13px] md:text-[14px] leading-snug mt-1"
+              >
+                Speed up sales and reduce queues with quick, accurate billing.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 sm:gap-4">
+            <img
+              src="/assets/images/retail/card-4-dark.png"
+              alt=""
+              aria-hidden="true"
+              class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 shrink-0"
+            />
+            <div>
+              <h3
+                class="font-semibold text-white text-[15px] sm:text-[16px] md:text-[17px]"
+              >
+                Easy to Use, Easy to Train
+              </h3>
+              <p
+                class="text-[#CDCDCD] text-xs sm:text-[13px] md:text-[14px] leading-snug mt-1"
+              >
+                Easy to Use, Easy to Train
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 sm:gap-4">
+            <img
+              src="/assets/images/retail/card-5-dark.png"
+              alt=""
+              aria-hidden="true"
+              class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 shrink-0"
+            />
+            <div>
+              <h3
+                class="font-semibold text-white text-[15px] sm:text-[16px] md:text-[17px]"
+              >
+                Scales with Your Store — or Chain
+              </h3>
+              <p
+                class="text-[#CDCDCD] text-xs sm:text-[13px] md:text-[14px] leading-snug mt-1"
+              >
+                Whether it's one outlet or 50, manage everything from one
+                dashboard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dark py-10">
+      <div class="container mx-auto px-4">
+        <!-- Top Logo + Switch -->
+        <div
+          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
+        >
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class=""
+            alt=""
+          />
+
+          <div class="flex items-center space-x-2">
+            <p class="text-[#CDCDCD] text-[11px] font-normal select-none">
+              Switch to dark mode
+            </p>
+
+            <!-- Toggle Switch -->
+            <label
+              for="dark-mode-toggle"
+              class="relative inline-flex items-center cursor-pointer"
+            >
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
+              <div
+                class="w-9 h-5 bg-white rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+              ></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-gray-300 pt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
+          >
+            <!-- Company -->
+            <div>
+              <!-- Accordion Header Button -->
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="company-links"
+                onclick="toggleAccordion(this)"
+              >
+                Company
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links Container -->
+              <div
+                id="company-links"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >About Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Contact Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Hardware</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="products"
+                onclick="toggleAccordion(this)"
+              >
+                Products
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="products"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A920</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A35</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >MagTek DynaFlex</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX Elys Workstation</a
+                >
+              </div>
+            </div>
+
+            <!-- Resources -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="resources"
+                onclick="toggleAccordion(this)"
+              >
+                Resources
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="resources"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Product Guides & Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Video Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="legal"
+                onclick="toggleAccordion(this)"
+              >
+                Legal
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="legal"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms & Condition</a
+                >
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="social"
+                onclick="toggleAccordion(this)"
+              >
+                Social
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="social"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Youtube</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscribe -->
+          <div class="border-t border-gray-300 pt-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <div>
+                <h4
+                  class="font-roboto font-medium text-[#CDCDCD] text-xl sm:text-2xl mb-2"
+                >
+                  Subscribe
+                </h4>
+                <p class="text-[#CDCDCD] text-sm sm:text-100e mb-1">
+                  Join our community to receive updates
+                </p>
+              </div>
+
+              <div>
+                <p class="text-[#CDCDCD] text-xs ps-3 pb-1">Stay up to date</p>
+                <div class="flex w-full sm:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-white text-base border-0 outline-none"
+                  />
+                  <button
+                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-100 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/footer-accordion.js"></script>
+    <script src="../assets/js/slider.js"></script>
+
+    <script>
+      function toggleFaq(element) {
+        element.classList.toggle("active");
+      }
+
+      let isEnglish = true;
+
+      function toggleLanguage() {
+        const textEl = document.getElementById("language-text");
+        const flagEl = document.getElementById("flag-icon");
+
+        if (isEnglish) {
+          textEl.textContent = "ESPAÑOL";
+          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
+          flagEl.alt = "Spain Flag";
+        } else {
+          textEl.textContent = "ENGLISH";
+          flagEl.src = "/assets/images/flags/usa.png";
+          flagEl.alt = "USA Flag";
+        }
+
+        isEnglish = !isEnglish; // flip state
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tequila POS - Smart POS Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <!-- Optional: Default Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
+    />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/style/global.css" />
+
+    <style>
+      /* Custom CSS for the progress bar */
+      .my-slider-progress {
+        /* This is the background/track of the progress bar */
+        height: 4px;
+        background: #e5e7eb; /* Tailwind gray-200 */
+      }
+
+      .my-slider-progress-bar {
+        /* This is the actual progress fill */
+        background: #1f2937; /* Tailwind gray-800 for the fill color */
+        height: 100%;
+        width: 0; /* Starts at 0, JavaScript changes this */
+        transition: width 0.5s ease-in-out; /* Match slider transition speed */
+      }
+
+      /* Hide default pagination dots that Splide includes */
+      .splide__pagination {
+        display: none;
+      }
+
+      .splide__arrow {
+        -ms-flex-align: center;
+        align-items: center;
+        background: transparent !important;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        display: -ms-flexbox;
+        display: flex;
+        height: 2em;
+        -ms-flex-pack: center;
+        justify-content: center;
+        opacity: 0.7;
+        padding: 0;
+        position: absolute;
+        top: 89%;
+        transform: translateY(-53%) !important;
+        width: 2em;
+        z-index: 1;
+      }
+
+      .splide__arrow--next {
+        right: 37em;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .splide__arrow--next {
+          right: 1em;
+        }
+
+        .splide__arrow {
+          top: 108%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white font-inter text-sm">
+    <!-- Navigation -->
+    <nav class="navbar md:block hidden">
+      <div class="navbar-container container mx-auto">
+        <!-- Logo -->
+        <div class="logo-container">
+          <a href="/light/index.html">
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent.png"
+              class="logo"
+              alt="Logo"
+            />
+          </a>
+
+          <div class="nav-links ml-4">
+            <div class="nav-item relative group">
+              <a href="#business-type" class="nav-link">Business Type</a>
+
+              <!-- Mega Menu -->
+              <div
+                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
+                onmouseleave="clearActive()"
+              >
+                <div class="flex flex-nowrap gap-10">
+                  <!-- LEFT: categories -->
+                  <div
+                    class="flex flex-col p-10 gap-4"
+                    id="categoryList"
+                    data-aos="fade-left"
+                  >
+                    <a
+                      href="#"
+                      class="text-black text-[26px] font-bold hover:underline"
+                      data-cat="food"
+                      onmouseenter="setActive('food')"
+                      onfocus="setActive('food')"
+                    >
+                      Food &amp; Beverage
+                    </a>
+
+                    <a
+                      href="#"
+                      class="text-black text-[26px] font-bold hover:underline"
+                      data-cat="retail"
+                      onmouseenter="setActive('retail')"
+                      onfocus="setActive('retail')"
+                    >
+                      Retail
+                    </a>
+                  </div>
+
+                  <!-- RIGHT: panels -->
+                  <div class="flex gap-16 p-10">
+                    <!-- FOOD panel -->
+                    <div class="flex justify-between gap-10" data-panel="food">
+                      <div>
+                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                          Capacity
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Manage order from one place</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Take payment</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Keep customer coming back</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Scale your business</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Improve operation</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Schedule and pay your team</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Manage your cash flow</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- RETAIL panel -->
+                    <div class="space-y-6 hidden" data-panel="retail">
+                      <div class="gap-10">
+                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Links -->
+            <a href="/light/feature.html" class="nav-link">Feature</a>
+            <a href="/light/hardware.html" class="nav-link">Hardware</a>
+            <a href="/light/pricing.html" class="nav-link">Pricing</a>
+            <a href="/light/resourse.html" class="nav-link">Resources</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-extra-links">
+          <div
+            class="language-selector cursor-pointers"
+            onclick="toggleLanguage()"
+          >
+            <span id="language-text">ENGLISH</span>
+            <img
+              id="flag-icon"
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+
+          <a href="#signin" class="nav-link">Sign in</a>
+
+          <button class="demo-btn">
+            <span>Free Demo</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar md:hidden bg-white shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-4"
+      >
+        <!-- Logo -->
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Close Icon -->
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <!-- Mobile Menu (White Version) -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+      >
+        <div class="p-4 space-y-4">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
+        11.94l3.72-3.72a.75.75 0 1 1 
+        1.06 1.06l-4.25 4.25a.75.75 0 
+        0 1-1.06 0L5.22 9.28a.75.75 
+        0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Duplicate</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Delete</a
+              >
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Features</a
+          >
+          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Hardware</a
+          >
+          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Pricing</a
+          >
+          <a
+            href="/light/resourse.html"
+            class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Resources</a
+          >
+
+          <!-- Language Switcher -->
+          <div
+            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
+          >
+            <span class="text-sm">EN</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+              ></div>
+            </label>
+            <span class="text-sm">ES</span>
+          </div>
+
+          <!-- Sign in -->
+          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Sign In</a
+          >
+
+          <!-- CTA Button -->
+          <a
+            href="#demo"
+            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
+          >
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="bg-transparent-100 py-16">
+      <div class="container mx-auto md:px-2 px-4">
+        <h1
+          class="md:w-[1052px] md:text-8xl text-6xl font-bold md:leading-[126.03px] leading-normal w-full"
+        >
+          <span class="text-[#4f4f4f]">Employee Clock-In & </span
+          ><span class="text-black"> Permission Control</span>
+        </h1>
+
+        <p
+          class="md:w-[655px] w-full md:text-xl text-[#4f4f4f] text-sm font-normal"
+        >
+          Track Attendance & Manage Staff Access with Ease
+        </p>
+      </div>
+    </section>
+
+    <!--behind  Section -->
+    <section class="bg-white py-16">
+      <div
+        class="container mx-auto px-4 md:px-2 grid grid-cols-1 md:grid-cols-6 gap-10 items-center md:items-start"
+      >
+        <!-- Left Content -->
+        <div class="order-2 md:order-1 md:col-span-4">
+          <h2
+            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal"
+          >
+            <span class="text-[#4f4f4f]">Understanding What It Is </span
+            ><span class="text-black">Permission Control</span>
+          </h2>
+          <p
+            class="md:w-[512px] md:text-[15px] w-full text-sm text-[#4f4f4f] md:mb-10 mb-6"
+          >
+            A reliable system to log staff hours and enforce role-based access
+            across your POS platform.
+          </p>
+          <p class="text-xl md:text-2xl text-[#4f4f4f] leading-relaxed">
+            Employee Clock-In & Permission Control is a feature in POS systems
+            that allows staff to log their working hours directly through the
+            system and ensures that only authorized personnel can access
+            specific functions. It helps track attendance, manage shift timings,
+            and control access to sensitive data or operations—like refunds,
+            discounts, or reports—based on roles or permissions.
+          </p>
+        </div>
+
+        <!-- Right Images -->
+        <div class="order-1 md:order-2 md:col-span-2 h-full">
+          <img
+            src="/assets/images/feature-one/feature-4-section-1.png"
+            alt="POS System"
+            class="w-full h-full"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!--slider-->
+    <section class="bg-white py-16">
+      <div class="container mx-auto px-4">
+        <section id="main-slider" class="splide" aria-label="Splide Slider">
+          <div class="flex justify-end p-4">
+            <div class="splide__arrows flex space-x-4">
+              <button
+                class="splide__arrow splide__arrow--prev text-4xl bg-slate-300 text-gray-900 hover:text-gray-900 transition"
+                aria-label="Previous Slide"
+              >
+                <img src="/assets/images/feature-one/Left.png" alt="" />
+              </button>
+              <button
+                class="splide__arrow splide__arrow--next text-4xl text-gray-900 bg-slate-300 hover:text-gray-900 transition"
+                aria-label="Next Slide"
+              >
+                <img src="/assets/images/feature-one/Right.png" alt="" />
+              </button>
+            </div>
+          </div>
+
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide relative">
+                <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                    <h1
+                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                    >
+                      Secure Clock-In
+                    </h1>
+
+                    <p
+                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                    >
+                      Employees clock in using a unique PIN, QR code, or
+                      fingerprint—preventing buddy punching and ensuring
+                      accurate time tracking. Each entry is logged with the
+                      exact time and user ID, improving attendance accuracy and
+                      payroll reliability.
+                    </p>
+                  </div>
+                  <div class="col-span-1 md:col-span-4">
+                    <img
+                      src="/assets/images/feature-one/feature-4-carousel-1.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </li>
+
+              <li class="splide__slide relative">
+                <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                    <h1
+                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                    >
+                      Role-Based Access
+                    </h1>
+
+                    <p
+                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                    >
+                      Each employee is given access only to the functions they
+                      need. For example, cashiers can take orders and payments,
+                      while only managers can issue refunds or view reports.
+                      This limits errors, protects sensitive data, and keeps
+                      operations secure.
+                    </p>
+                  </div>
+                  <div class="col-span-1 md:col-span-4">
+                    <img
+                      src="/assets/images/feature-one/feature-4-carousel-2.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </li>
+
+              <li class="splide__slide relative">
+                <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                    <h1
+                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                    >
+                      Action Logging
+                    </h1>
+
+                    <p
+                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                    >
+                      All critical actions—such as voids, refunds, and
+                      clock-outs—are automatically recorded with the employee’s
+                      ID and timestamp. This creates a clear, auditable trail
+                      that improves accountability and helps resolve disputes or
+                      errors quickly.
+                    </p>
+                  </div>
+                  <div class="col-span-1 md:col-span-4">
+                    <img
+                      src="/assets/images/feature-one/feature-4-carousel-3.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </li>
+
+              <li class="splide__slide relative">
+                <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                    <h1
+                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                    >
+                      Instant Alerts
+                    </h1>
+
+                    <p
+                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                    >
+                      Managers receive real-time alerts for sensitive actions
+                      like refunds, voids, or opening the cash drawer without a
+                      sale. These notifications help spot unusual activity
+                      quickly and maintain better control over daily operations.
+                    </p>
+                  </div>
+                  <div class="col-span-1 md:col-span-4">
+                    <img
+                      src="/assets/images/feature-one/feature-4-carousel-4.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </li>
+
+              <li class="splide__slide relative">
+                <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                    <h1
+                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                    >
+                      Sensitive Action Alerts
+                    </h1>
+
+                    <p
+                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                    >
+                      Actions like refunds, voids, manual labor edits, or
+                      unauthorized discounts trigger instant alerts to managers
+                      via email or mobile—ensuring quick response to potential
+                      misuse or irregularities.
+                    </p>
+
+                    <p class="text-gray-600">Common alert triggers include:</p>
+                    <ul class="list-disc list-inside text-gray-600">
+                      <li>Voiding tickets</li>
+                      <li>Issuing refunds</li>
+                      <li>Applying unauthorized discounts</li>
+                    </ul>
+                  </div>
+                  <div class="col-span-1 md:col-span-4">
+                    <img
+                      src="/assets/images/feature-one/feature-4-carousel-5.png"
+                      alt=""
+                    />
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- why choose us -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="mb-12 md:text-left text-center">
+          <h2
+            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal md:w-[880px] w-full"
+          >
+            <span class="text-[#4f4f4f]">Why it </span
+            ><span class="text-black">matters</span>
+          </h2>
+          <p
+            class="text-sm md:text-[15px] text-[#4f4f4f] leading-relaxed md:w-[512px] w-full"
+          >
+            Ensure accurate time tracking and limit access to sensitive
+            functions, reducing errors and misuse.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
+        >
+          <div
+            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-1">
+              <img
+                src="/assets/images/feature-one/feature-4-card-1.png"
+                class="object-cover"
+                alt=""
+              />
+            </div>
+            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+              Reduces Theft & Misuse
+            </h3>
+            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+              By limiting access and tracking every action, the system helps
+              prevent internal theft, unauthorized discounts, and accidental
+              errors—keeping your operations secure.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-1">
+              <img
+                src="/assets/images/feature-one/feature-4-card-2.png"
+                class="object-cover"
+                alt=""
+              />
+            </div>
+            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+              Improves Time Tracking
+            </h3>
+            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+              Accurate clock-ins and automated logs ensure reliable attendance
+              records, making payroll processing faster, easier, and error-free.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-1">
+              <img
+                src="/assets/images/feature-one/feature-4-card-3.png"
+                alt="taquila-pos"
+                class="object-cover"
+              />
+            </div>
+            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+              Protects Business Data
+            </h3>
+            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+              Role-based access ensures that only authorized staff can view or
+              perform sensitive actions, keeping your financial and operational
+              data secure.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-1">
+              <img
+                src="/assets/images/feature-one/feature-4-card-4.png"
+                alt="taquila-pos"
+                class="object-cover"
+              />
+            </div>
+            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+              Builds Accountability
+            </h3>
+            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+              Every action is tied to an individual user, encouraging
+              responsible behavior and making it easy to trace and resolve any
+              issues.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-1">
+              <img
+                src="/assets/images/feature-one/feature-4-card-5.png"
+                alt="taquila-pos"
+                class="object-cover"
+              />
+            </div>
+            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+              Peace of Mind for Owners
+            </h3>
+            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+              With real-time alerts and complete activity logs, owners can stay
+              informed and in control—even when they’re away from the business.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Makes Us Different Section -->
+
+    <!-- Footer -->
+    <footer class="bg-white py-10">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+        <!-- Top Logo + Switch -->
+        <div
+          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
+        >
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="w-10 md:w-40 h-auto"
+            alt=""
+          />
+
+          <div class="flex items-center space-x-2">
+            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+              Switch to dark mode
+            </p>
+
+            <!-- Toggle Switch -->
+            <label
+              for="dark-mode-toggle"
+              class="relative inline-flex items-center cursor-pointer"
+            >
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
+              <div
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+              ></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-gray-300 pt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
+          >
+            <!-- Company -->
+            <div>
+              <!-- Accordion Header Button -->
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="company-links"
+                onclick="toggleAccordion(this)"
+              >
+                Company
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links Container -->
+              <div
+                id="company-links"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >About Us</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Contact Us</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Hardware</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="products"
+                onclick="toggleAccordion(this)"
+              >
+                Products
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="products"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >PAX A920</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >PAX A35</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >MagTek DynaFlex</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >PAX Elys Workstation</a
+                >
+              </div>
+            </div>
+
+            <!-- Resources -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="resources"
+                onclick="toggleAccordion(this)"
+              >
+                Resources
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="resources"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Product Guides & Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Video Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="legal"
+                onclick="toggleAccordion(this)"
+              >
+                Legal
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="legal"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Terms & Condition</a
+                >
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="social"
+                onclick="toggleAccordion(this)"
+              >
+                Social
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="social"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Youtube</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscribe -->
+          <div class="border-t border-gray-300 pt-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <div>
+                <h4
+                  class="font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-2"
+                >
+                  Subscribe
+                </h4>
+                <p class="text-gray-500 text-sm sm:text-base mb-1">
+                  Join our community to receive updates
+                </p>
+              </div>
+              <div>
+                <p class="text-gray-800 text-xs ps-3 pb-1">Stay up to date</p>
+                <div class="flex w-full sm:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-gray-600 text-base border-0 outline-none"
+                  />
+                  <button
+                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-800 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/slider.js"></script>
+    <script src="../assets/js/footer-accordion.js"></script>
+
+    <script>
+      function toggleFaq(element) {
+        element.classList.toggle("active");
+      }
+
+      let isEnglish = true;
+
+      function toggleLanguage() {
+        const textEl = document.getElementById("language-text");
+        const flagEl = document.getElementById("flag-icon");
+
+        if (isEnglish) {
+          textEl.textContent = "ESPAÑOL";
+          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
+          flagEl.alt = "Spain Flag";
+        } else {
+          textEl.textContent = "ENGLISH";
+          flagEl.src = "/assets/images/flags/usa.png";
+          flagEl.alt = "USA Flag";
+        }
+
+        isEnglish = !isEnglish; // flip state
+      }
+    </script>
+  </body>
+</html>

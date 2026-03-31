@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tequila POS - Smart POS Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <!-- Optional: Default Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
+    />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/style/dark.css" />
+  </head>
+
+  <body class="bg-[#1c1c1c] font-inter text-sm">
+    <!-- Navigation -->
+    <nav class="navbar md:block hidden">
+      <div class="navbar-container container mx-auto">
+        <!-- Logo -->
+        <div class="logo-container">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo"
+            alt="Logo"
+          />
+
+          <div class="nav-links ml-4">
+            <div class="nav-item relative group">
+              <a href="#business-type" class="nav-link">Business Type</a>
+
+              <!-- Mega Menu -->
+              <div
+                class="mega-menu mega-anim absolute left-0 top-full bg-black pt-10"
+                onmouseleave="clearActive()"
+              >
+                <div class="flex flex-nowrap gap-10">
+                  <!-- LEFT: categories -->
+                  <div
+                    class="flex flex-col p-10 gap-4"
+                    id="categoryList"
+                    data-aos="fade-left"
+                  >
+                    <a
+                      href="#"
+                      class="text-white text-[26px] font-bold hover:underline"
+                      data-cat="food"
+                      onmouseenter="setActive('food')"
+                      onfocus="setActive('food')"
+                    >
+                      Food &amp; Beverage
+                    </a>
+
+                    <a
+                      href="#"
+                      class="text-white text-[26px] font-bold hover:underline"
+                      data-cat="retail"
+                      onmouseenter="setActive('retail')"
+                      onfocus="setActive('retail')"
+                    >
+                      Retail
+                    </a>
+                  </div>
+
+                  <!-- RIGHT: panels -->
+                  <div class="flex gap-16 p-10">
+                    <!-- FOOD panel -->
+                    <div class="flex justify-between gap-10" data-panel="food">
+                      <div>
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Capacity
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Manage order from one place</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Take payment</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Keep customer coming back</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Scale your business</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Improve operation</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Schedule and pay your team</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Manage your cash flow</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- RETAIL panel -->
+                    <div class="space-y-6 hidden" data-panel="retail">
+                      <div class="gap-10">
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Links -->
+            <a href="#features" class="nav-link">Feature</a>
+            <a href="#hardware" class="nav-link">Hardware</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#resources" class="nav-link">Resources</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-extra-links">
+          <div
+            class="language-selector cursor-pointers"
+            onclick="toggleLanguage()"
+          >
+            <span id="language-text" class="text-white">ENGLISH</span>
+            <img
+              id="flag-icon"
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+
+          <a href="#signin" class="nav-link">Sign in</a>
+
+          <button class="demo-btn">
+            <span>Free Demo</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar md:hidden bg-black shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-4"
+      >
+        <!-- Logo -->
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Close Icon -->
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <!-- Mobile Menu (White Version) -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+      >
+        <div class="p-4 space-y-4">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
+        11.94l3.72-3.72a.75.75 0 1 1 
+        1.06 1.06l-4.25 4.25a.75.75 0 
+        0 1-1.06 0L5.22 9.28a.75.75 
+        0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Duplicate</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Delete</a
+              >
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Features</a
+          >
+          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Hardware</a
+          >
+          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Pricing</a
+          >
+          <a href="#resources" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Resources</a
+          >
+
+          <!-- Language Switcher -->
+          <div
+            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
+          >
+            <span class="text-sm">EN</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+              ></div>
+            </label>
+            <span class="text-sm">ES</span>
+          </div>
+
+          <!-- Sign in -->
+          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Sign In</a
+          >
+
+          <!-- CTA Button -->
+          <a
+            href="#demo"
+            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
+          >
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="md:pb-20 pb-9">
+      <div class="container mx-auto px-4 md:px-2 md:mt-12 mt-8">
+        <div class="text-center md:mb-14 mb-3">
+          <h2
+            class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
+          >
+            <span class="text-[#C89633]">Plans That Fit Every </span>
+
+            <span class="text-white">
+              Stage of <br />
+              Your Business</span
+            >
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#cdcdcd] md:text-[15px] text-[10px] font-normal"
+            >
+              Get started with features that scale as you grow.
+            </p>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="1000">
+          <img
+            src="/assets/images/pricing/pricing-hero.png"
+            class="object-cover w-full"
+            alt="pricing"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- pricing Section -->
+    <section class="bg-[#1c1c1c] md:pb-20 pb-9">
+      <div class="container mx-auto md:px-4 px-2">
+        <!-- Toggle Switch -->
+        <div class="flex justify-center">
+          <div
+            class="inline-flex bg-gray-200 rounded-full p-1"
+            id="pricing-toggle"
+          >
+            <button
+              id="monthlyBtn"
+              class="md:px-10 px-6 py-3 md:py-4 rounded-full md:text-2xl text-sm font-medium transition-all duration-300 bg-black text-white"
+            >
+              Monthly
+            </button>
+            <button
+              id="annuallyBtn"
+              class="md:px-10 md:py-4 px-6 py-3 rounded-full md:text-2xl text-sm font-medium transition-all duration-300 text-gray-700"
+            >
+              Annually
+            </button>
+          </div>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+          <div
+            class="md:h-[392px] h-full md:rounded-[38px] rounded-2xl shadow-[0px_4px_18.9px_rgba(0,0,0,0.25)] border-[0.5px] border-[#dbdbdb] md:px-8 px-4 py-6 flex flex-col"
+          >
+            <!-- Icon -->
+            <div
+              class="md:w-[60px] md:h-[60px] w-[27px] h-[27px] bg-[#e4e4e4] rounded-full flex items-center justify-center md:mb-4 mb-2"
+            >
+              <img
+                src="/assets/images/pricing/free-pack.svg"
+                class="object-cover md:w-[50px] md:h-[50px]"
+                alt="free pack"
+              />
+            </div>
+
+            <!-- Title -->
+            <p class="text-white md:text-2xl text-sm font-medium">Personal</p>
+
+            <!-- Description -->
+            <p
+              class="md:w-[319px] w-full text-[#cdcdcd] md:text-[15px] text-[8px] font-normal md:mt-5 mt-2 leading-tight"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <!-- Price -->
+            <p
+              id="personalPrice"
+              class="text-white md:text-[32px] text-xs font-medium md:mt-6 mt-2"
+            >
+              Free
+            </p>
+
+            <!-- Button (stays at bottom) -->
+            <button
+              class="w-full md:py-4 py-1 bg-white rounded-[32px] mt-auto hover:bg-gray-400 transition"
+            >
+              <span class="text-black md:text-base text-[11px] font-normal"
+                >Try Now</span
+              >
+            </button>
+          </div>
+
+          <div
+            class="md:h-[392px] h-full md:rounded-[38px] rounded-2xl shadow-[0px_4px_18.9px_rgba(0,0,0,0.25)] border-[0.5px] border-[#dbdbdb] md:px-8 px-4 py-6 flex flex-col"
+          >
+            <!-- Icon -->
+            <div
+              class="md:w-[60px] md:h-[60px] w-[27px] h-[27px] bg-[#e4e4e4] rounded-full flex items-center justify-center mb-4"
+            >
+              <img
+                src="/assets/images/pricing/starter-.svg"
+                class="object-cover md:w-[40px] md:h-[40px] h-5 w-5"
+                alt="free pack"
+              />
+            </div>
+
+            <!-- Title -->
+            <p class="text-white md:text-2xl text-sm font-medium">Starter</p>
+
+            <!-- Description -->
+            <p
+              class="md:w-[319px] w-full text-[#cdcdcd] md:text-[15px] text-[8px] font-normal md:mt-5 mt-2 leading-tight"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <!-- Price -->
+            <p
+              id="starterPrice"
+              class="text-white md:text-[32px] text-xs font-medium md:mt-6 mt-2"
+            >
+              Free
+            </p>
+
+            <!-- Button (stays at bottom) -->
+            <button
+              class="w-full md:py-4 py-1 bg-white rounded-[32px] mt-auto hover:bg-gray-400 transition"
+            >
+              <span class="text-black md:text-base text-[11px] font-normal"
+                >Try Now</span
+              >
+            </button>
+          </div>
+
+          <div
+            class="md:h-[392px] h-full md:rounded-[38px] rounded-2xl shadow-[0px_4px_18.9px_rgba(0,0,0,0.25)] border-[0.5px] border-[#dbdbdb] md:px-8 px-4 py-6 flex flex-col"
+          >
+            <!-- Icon -->
+            <div
+              class="md:w-[60px] md:h-[60px] w-[27px] h-[27px] bg-[#e4e4e4] rounded-full flex items-center justify-center mb-4"
+            >
+              <img
+                src="/assets/images/pricing/premimum-.svg"
+                class="object-cover md:w-[40px] md:h-[40px] h-5 w-5"
+                alt="free pack"
+              />
+            </div>
+
+            <!-- Title -->
+            <p class="text-white md:text-2xl text-sm font-medium">Premium</p>
+
+            <!-- Description -->
+            <p
+              class="md:w-[319px] w-full text-[#cdcdcd] md:text-[15px] text-[8px] font-normal md:mt-5 mt-2 leading-tight"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+
+            <!-- Price -->
+            <p
+              id="premiumPrice"
+              class="text-white md:text-[32px] text-xs font-medium md:mt-6 mt-2"
+            >
+              Free
+            </p>
+
+            <!-- Button (stays at bottom) -->
+            <button
+              class="w-full md:py-4 py-1 bg-white rounded-[32px] mt-auto hover:bg-gray-400 transition"
+            >
+              <span class="text-black md:text-base text-[11px] font-normal"
+                >Try Now</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- smarter soluitons -->
+    <section class="bg-[#1c1c1c] md:pb-20 pb-9">
+      <div class="container mx-auto px-4 md:px-2">
+        <!-- Section Header -->
+        <div class="text-center md:mb-10 mb-6">
+          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
+            <span class="text-[#C89633]">What our</span>
+            <span class="text-white">clients say!</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#cdcdcd] md:text-[15px] text-[10px] font-normal"
+            >
+              Our clients praise us for our reliable systems, fast service, and
+              dependable support that help their business grow.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:mt-0 mt-5">
+          <div
+            class="md:h-[420px] md:rounded-[38px] rounded-[17px] border border-[#c5c5c5] overflow-hidden"
+            data-aos="fade-up-right"
+          >
+            <div class="pt-[10px] pb-[15px] md:px-10 md:py-10 px-2">
+              <div class="flex items-center justify-center pt-[10px]">
+                <img
+                  src="/assets/images/pricing/client-1.png"
+                  class="object-cover md:w-[60px] md:h-[60px] rounded-full"
+                  alt="taqila pos"
+                />
+              </div>
+
+              <p class="text-center text-white md:text-xl text-xs font-medium">
+                Cian Rayes
+              </p>
+              <svg
+                class="mx-auto"
+                xmlns="http://www.w3.org/2000/svg"
+                width="84"
+                height="16"
+                viewBox="0 0 84 16"
+                fill="none"
+              >
+                <path
+                  d="M7.52447 1.46352C7.67415 1.00287 8.32585 1.00287 8.47553 1.46353L9.68386 5.18237C9.75079 5.38838 9.94277 5.52786 10.1594 5.52786H14.0696C14.554 5.52786 14.7554 6.14767 14.3635 6.43237L11.2001 8.73075C11.0248 8.85807 10.9515 9.08375 11.0184 9.28976L12.2268 13.0086C12.3764 13.4693 11.8492 13.8523 11.4573 13.5676L8.29389 11.2693C8.11865 11.1419 7.88135 11.1419 7.70611 11.2693L4.54267 13.5676C4.15081 13.8523 3.62357 13.4693 3.77325 13.0086L4.98157 9.28976C5.04851 9.08375 4.97518 8.85807 4.79994 8.73075L1.6365 6.43237C1.24464 6.14767 1.44603 5.52786 1.93039 5.52786H5.84062C6.05723 5.52786 6.24921 5.38838 6.31614 5.18237L7.52447 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M24.5245 1.46352C24.6741 1.00287 25.3259 1.00287 25.4755 1.46353L26.6839 5.18237C26.7508 5.38838 26.9428 5.52786 27.1594 5.52786H31.0696C31.554 5.52786 31.7554 6.14767 31.3635 6.43237L28.2001 8.73075C28.0248 8.85807 27.9515 9.08375 28.0184 9.28976L29.2268 13.0086C29.3764 13.4693 28.8492 13.8523 28.4573 13.5676L25.2939 11.2693C25.1186 11.1419 24.8814 11.1419 24.7061 11.2693L21.5427 13.5676C21.1508 13.8523 20.6236 13.4693 20.7732 13.0086L21.9816 9.28976C22.0485 9.08375 21.9752 8.85807 21.7999 8.73075L18.6365 6.43237C18.2446 6.14767 18.446 5.52786 18.9304 5.52786H22.8406C23.0572 5.52786 23.2492 5.38838 23.3161 5.18237L24.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M41.5245 1.46352C41.6741 1.00287 42.3259 1.00287 42.4755 1.46353L43.6839 5.18237C43.7508 5.38838 43.9428 5.52786 44.1594 5.52786H48.0696C48.554 5.52786 48.7554 6.14767 48.3635 6.43237L45.2001 8.73075C45.0248 8.85807 44.9515 9.08375 45.0184 9.28976L46.2268 13.0086C46.3764 13.4693 45.8492 13.8523 45.4573 13.5676L42.2939 11.2693C42.1186 11.1419 41.8814 11.1419 41.7061 11.2693L38.5427 13.5676C38.1508 13.8523 37.6236 13.4693 37.7732 13.0086L38.9816 9.28976C39.0485 9.08375 38.9752 8.85807 38.7999 8.73075L35.6365 6.43237C35.2446 6.14767 35.446 5.52786 35.9304 5.52786H39.8406C40.0572 5.52786 40.2492 5.38838 40.3161 5.18237L41.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M58.5245 1.46352C58.6741 1.00287 59.3259 1.00287 59.4755 1.46353L60.6839 5.18237C60.7508 5.38838 60.9428 5.52786 61.1594 5.52786H65.0696C65.554 5.52786 65.7554 6.14767 65.3635 6.43237L62.2001 8.73075C62.0248 8.85807 61.9515 9.08375 62.0184 9.28976L63.2268 13.0086C63.3764 13.4693 62.8492 13.8523 62.4573 13.5676L59.2939 11.2693C59.1186 11.1419 58.8814 11.1419 58.7061 11.2693L55.5427 13.5676C55.1508 13.8523 54.6236 13.4693 54.7732 13.0086L55.9816 9.28976C56.0485 9.08375 55.9752 8.85807 55.7999 8.73075L52.6365 6.43237C52.2446 6.14767 52.446 5.52786 52.9304 5.52786H56.8406C57.0572 5.52786 57.2492 5.38838 57.3161 5.18237L58.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M75.5245 1.46352C75.6741 1.00287 76.3259 1.00287 76.4755 1.46353L77.6839 5.18237C77.7508 5.38838 77.9428 5.52786 78.1594 5.52786H82.0696C82.554 5.52786 82.7554 6.14767 82.3635 6.43237L79.2001 8.73075C79.0248 8.85807 78.9515 9.08375 79.0184 9.28976L80.2268 13.0086C80.3764 13.4693 79.8492 13.8523 79.4573 13.5676L76.2939 11.2693C76.1186 11.1419 75.8814 11.1419 75.7061 11.2693L72.5427 13.5676C72.1508 13.8523 71.6236 13.4693 71.7732 13.0086L72.9816 9.28976C73.0485 9.08375 72.9752 8.85807 72.7999 8.73075L69.6365 6.43237C69.2446 6.14767 69.446 5.52786 69.9304 5.52786H73.8406C74.0572 5.52786 74.2492 5.38838 74.3161 5.18237L75.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+              </svg>
+
+              <div class="">
+                <img
+                  src="/assets/images/pricing/up-qoute.svg"
+                  class="md:w-[60px] md:h-[60px] rounded-full"
+                  alt=""
+                />
+
+                <p
+                  class="text-white md:text-lg text-[10px] font-normal leading-normal"
+                >
+                  This POS system has completely streamlined our billing and
+                  inventory—fast, reliable, and easy to use!
+                </p>
+
+                <div class="flex justify-end">
+                  <img
+                    src="/assets/images/pricing/quote-down-.svg"
+                    class="md:w-[60px] md:h-[60px]"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <p class="text-center">
+                <span class="text-white md:text-base text-[8px] font-medium"
+                  >Restaurant name: </span
+                ><span class="text-white md:text-base text-[8px] font-normal"
+                  >Spicy & Grill</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <!-- client -2 -->
+          <div
+            class="md:h-[420px] md:rounded-[38px] rounded-[17px] border border-[#c5c5c5] overflow-hidden"
+            data-aos="fade-up"
+          >
+            <div class="pt-[10px] pb-[15px] md:px-10 md:py-10 px-2">
+              <div class="flex items-center justify-center pt-[10px]">
+                <img
+                  src="/assets/images/pricing/client-2.png"
+                  class="object-cover md:w-[60px] md:h-[60px] rounded-full"
+                  alt="taqila pos"
+                />
+              </div>
+
+              <p class="text-center text-white md:text-xl text-xs font-medium">
+                Cian Rayes
+              </p>
+              <svg
+                class="mx-auto"
+                xmlns="http://www.w3.org/2000/svg"
+                width="84"
+                height="16"
+                viewBox="0 0 84 16"
+                fill="none"
+              >
+                <path
+                  d="M7.52447 1.46352C7.67415 1.00287 8.32585 1.00287 8.47553 1.46353L9.68386 5.18237C9.75079 5.38838 9.94277 5.52786 10.1594 5.52786H14.0696C14.554 5.52786 14.7554 6.14767 14.3635 6.43237L11.2001 8.73075C11.0248 8.85807 10.9515 9.08375 11.0184 9.28976L12.2268 13.0086C12.3764 13.4693 11.8492 13.8523 11.4573 13.5676L8.29389 11.2693C8.11865 11.1419 7.88135 11.1419 7.70611 11.2693L4.54267 13.5676C4.15081 13.8523 3.62357 13.4693 3.77325 13.0086L4.98157 9.28976C5.04851 9.08375 4.97518 8.85807 4.79994 8.73075L1.6365 6.43237C1.24464 6.14767 1.44603 5.52786 1.93039 5.52786H5.84062C6.05723 5.52786 6.24921 5.38838 6.31614 5.18237L7.52447 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M24.5245 1.46352C24.6741 1.00287 25.3259 1.00287 25.4755 1.46353L26.6839 5.18237C26.7508 5.38838 26.9428 5.52786 27.1594 5.52786H31.0696C31.554 5.52786 31.7554 6.14767 31.3635 6.43237L28.2001 8.73075C28.0248 8.85807 27.9515 9.08375 28.0184 9.28976L29.2268 13.0086C29.3764 13.4693 28.8492 13.8523 28.4573 13.5676L25.2939 11.2693C25.1186 11.1419 24.8814 11.1419 24.7061 11.2693L21.5427 13.5676C21.1508 13.8523 20.6236 13.4693 20.7732 13.0086L21.9816 9.28976C22.0485 9.08375 21.9752 8.85807 21.7999 8.73075L18.6365 6.43237C18.2446 6.14767 18.446 5.52786 18.9304 5.52786H22.8406C23.0572 5.52786 23.2492 5.38838 23.3161 5.18237L24.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M41.5245 1.46352C41.6741 1.00287 42.3259 1.00287 42.4755 1.46353L43.6839 5.18237C43.7508 5.38838 43.9428 5.52786 44.1594 5.52786H48.0696C48.554 5.52786 48.7554 6.14767 48.3635 6.43237L45.2001 8.73075C45.0248 8.85807 44.9515 9.08375 45.0184 9.28976L46.2268 13.0086C46.3764 13.4693 45.8492 13.8523 45.4573 13.5676L42.2939 11.2693C42.1186 11.1419 41.8814 11.1419 41.7061 11.2693L38.5427 13.5676C38.1508 13.8523 37.6236 13.4693 37.7732 13.0086L38.9816 9.28976C39.0485 9.08375 38.9752 8.85807 38.7999 8.73075L35.6365 6.43237C35.2446 6.14767 35.446 5.52786 35.9304 5.52786H39.8406C40.0572 5.52786 40.2492 5.38838 40.3161 5.18237L41.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M58.5245 1.46352C58.6741 1.00287 59.3259 1.00287 59.4755 1.46353L60.6839 5.18237C60.7508 5.38838 60.9428 5.52786 61.1594 5.52786H65.0696C65.554 5.52786 65.7554 6.14767 65.3635 6.43237L62.2001 8.73075C62.0248 8.85807 61.9515 9.08375 62.0184 9.28976L63.2268 13.0086C63.3764 13.4693 62.8492 13.8523 62.4573 13.5676L59.2939 11.2693C59.1186 11.1419 58.8814 11.1419 58.7061 11.2693L55.5427 13.5676C55.1508 13.8523 54.6236 13.4693 54.7732 13.0086L55.9816 9.28976C56.0485 9.08375 55.9752 8.85807 55.7999 8.73075L52.6365 6.43237C52.2446 6.14767 52.446 5.52786 52.9304 5.52786H56.8406C57.0572 5.52786 57.2492 5.38838 57.3161 5.18237L58.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M75.5245 1.46352C75.6741 1.00287 76.3259 1.00287 76.4755 1.46353L77.6839 5.18237C77.7508 5.38838 77.9428 5.52786 78.1594 5.52786H82.0696C82.554 5.52786 82.7554 6.14767 82.3635 6.43237L79.2001 8.73075C79.0248 8.85807 78.9515 9.08375 79.0184 9.28976L80.2268 13.0086C80.3764 13.4693 79.8492 13.8523 79.4573 13.5676L76.2939 11.2693C76.1186 11.1419 75.8814 11.1419 75.7061 11.2693L72.5427 13.5676C72.1508 13.8523 71.6236 13.4693 71.7732 13.0086L72.9816 9.28976C73.0485 9.08375 72.9752 8.85807 72.7999 8.73075L69.6365 6.43237C69.2446 6.14767 69.446 5.52786 69.9304 5.52786H73.8406C74.0572 5.52786 74.2492 5.38838 74.3161 5.18237L75.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+              </svg>
+
+              <div class="">
+                <img
+                  src="/assets/images/pricing/up-qoute.svg"
+                  class="md:w-[60px] md:h-[60px] rounded-full"
+                  alt=""
+                />
+
+                <p
+                  class="text-white md:text-lg text-[10px] font-normal leading-normal"
+                >
+                  The cloud-based system lets me track sales from
+                  anywhere—perfect for managing multiple locations!
+                </p>
+
+                <div class="flex justify-end">
+                  <img
+                    src="/assets/images/pricing/quote-down-.svg"
+                    class="md:w-[60px] md:h-[60px]"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <p class="text-center">
+                <span class="text-white md:text-base text-[8px] font-medium"
+                  >Restaurant name: </span
+                ><span class="text-white md:text-base text-[8px] font-normal"
+                  >Spicy & Grill</span
+                >
+              </p>
+            </div>
+          </div>
+
+          <!-- client 3 -->
+          <div
+            class="md:h-[420px] md:rounded-[38px] rounded-[17px] border border-[#c5c5c5] overflow-hidden"
+            data-aos="fade-up-left"
+          >
+            <div class="pt-[10px] pb-[15px] md:px-10 md:py-10 px-2">
+              <div class="flex items-center justify-center pt-[10px]">
+                <img
+                  src="/assets/images/pricing/client-2.png"
+                  class="object-cover md:w-[60px] md:h-[60px] rounded-full"
+                  alt="taqila pos"
+                />
+              </div>
+
+              <p class="text-center text-white md:text-xl text-xs font-medium">
+                Cian Rayes
+              </p>
+              <svg
+                class="mx-auto"
+                xmlns="http://www.w3.org/2000/svg"
+                width="84"
+                height="16"
+                viewBox="0 0 84 16"
+                fill="none"
+              >
+                <path
+                  d="M7.52447 1.46352C7.67415 1.00287 8.32585 1.00287 8.47553 1.46353L9.68386 5.18237C9.75079 5.38838 9.94277 5.52786 10.1594 5.52786H14.0696C14.554 5.52786 14.7554 6.14767 14.3635 6.43237L11.2001 8.73075C11.0248 8.85807 10.9515 9.08375 11.0184 9.28976L12.2268 13.0086C12.3764 13.4693 11.8492 13.8523 11.4573 13.5676L8.29389 11.2693C8.11865 11.1419 7.88135 11.1419 7.70611 11.2693L4.54267 13.5676C4.15081 13.8523 3.62357 13.4693 3.77325 13.0086L4.98157 9.28976C5.04851 9.08375 4.97518 8.85807 4.79994 8.73075L1.6365 6.43237C1.24464 6.14767 1.44603 5.52786 1.93039 5.52786H5.84062C6.05723 5.52786 6.24921 5.38838 6.31614 5.18237L7.52447 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M24.5245 1.46352C24.6741 1.00287 25.3259 1.00287 25.4755 1.46353L26.6839 5.18237C26.7508 5.38838 26.9428 5.52786 27.1594 5.52786H31.0696C31.554 5.52786 31.7554 6.14767 31.3635 6.43237L28.2001 8.73075C28.0248 8.85807 27.9515 9.08375 28.0184 9.28976L29.2268 13.0086C29.3764 13.4693 28.8492 13.8523 28.4573 13.5676L25.2939 11.2693C25.1186 11.1419 24.8814 11.1419 24.7061 11.2693L21.5427 13.5676C21.1508 13.8523 20.6236 13.4693 20.7732 13.0086L21.9816 9.28976C22.0485 9.08375 21.9752 8.85807 21.7999 8.73075L18.6365 6.43237C18.2446 6.14767 18.446 5.52786 18.9304 5.52786H22.8406C23.0572 5.52786 23.2492 5.38838 23.3161 5.18237L24.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M41.5245 1.46352C41.6741 1.00287 42.3259 1.00287 42.4755 1.46353L43.6839 5.18237C43.7508 5.38838 43.9428 5.52786 44.1594 5.52786H48.0696C48.554 5.52786 48.7554 6.14767 48.3635 6.43237L45.2001 8.73075C45.0248 8.85807 44.9515 9.08375 45.0184 9.28976L46.2268 13.0086C46.3764 13.4693 45.8492 13.8523 45.4573 13.5676L42.2939 11.2693C42.1186 11.1419 41.8814 11.1419 41.7061 11.2693L38.5427 13.5676C38.1508 13.8523 37.6236 13.4693 37.7732 13.0086L38.9816 9.28976C39.0485 9.08375 38.9752 8.85807 38.7999 8.73075L35.6365 6.43237C35.2446 6.14767 35.446 5.52786 35.9304 5.52786H39.8406C40.0572 5.52786 40.2492 5.38838 40.3161 5.18237L41.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M58.5245 1.46352C58.6741 1.00287 59.3259 1.00287 59.4755 1.46353L60.6839 5.18237C60.7508 5.38838 60.9428 5.52786 61.1594 5.52786H65.0696C65.554 5.52786 65.7554 6.14767 65.3635 6.43237L62.2001 8.73075C62.0248 8.85807 61.9515 9.08375 62.0184 9.28976L63.2268 13.0086C63.3764 13.4693 62.8492 13.8523 62.4573 13.5676L59.2939 11.2693C59.1186 11.1419 58.8814 11.1419 58.7061 11.2693L55.5427 13.5676C55.1508 13.8523 54.6236 13.4693 54.7732 13.0086L55.9816 9.28976C56.0485 9.08375 55.9752 8.85807 55.7999 8.73075L52.6365 6.43237C52.2446 6.14767 52.446 5.52786 52.9304 5.52786H56.8406C57.0572 5.52786 57.2492 5.38838 57.3161 5.18237L58.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+                <path
+                  d="M75.5245 1.46352C75.6741 1.00287 76.3259 1.00287 76.4755 1.46353L77.6839 5.18237C77.7508 5.38838 77.9428 5.52786 78.1594 5.52786H82.0696C82.554 5.52786 82.7554 6.14767 82.3635 6.43237L79.2001 8.73075C79.0248 8.85807 78.9515 9.08375 79.0184 9.28976L80.2268 13.0086C80.3764 13.4693 79.8492 13.8523 79.4573 13.5676L76.2939 11.2693C76.1186 11.1419 75.8814 11.1419 75.7061 11.2693L72.5427 13.5676C72.1508 13.8523 71.6236 13.4693 71.7732 13.0086L72.9816 9.28976C73.0485 9.08375 72.9752 8.85807 72.7999 8.73075L69.6365 6.43237C69.2446 6.14767 69.446 5.52786 69.9304 5.52786H73.8406C74.0572 5.52786 74.2492 5.38838 74.3161 5.18237L75.5245 1.46352Z"
+                  fill="#F7B500"
+                />
+              </svg>
+
+              <div class="">
+                <img
+                  src="/assets/images/pricing/up-qoute.svg"
+                  class="md:w-[60px] md:h-[60px] rounded-full"
+                  alt=""
+                />
+
+                <p
+                  class="text-white md:text-lg text-[10px] font-normal leading-normal"
+                >
+                  Support is always responsive and helpful. We’ve never felt
+                  stuck thanks to their amazing team.
+                </p>
+
+                <div class="flex justify-end">
+                  <img
+                    src="/assets/images/pricing/quote-down-.svg"
+                    class="md:w-[60px] md:h-[60px]"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <p class="text-center">
+                <span class="text-white md:text-base text-[8px] font-medium"
+                  >Restaurant name: </span
+                ><span class="text-white md:text-base text-[8px] font-normal"
+                  >Spicy & Grill</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="md:pb-20 pb-9">
+      <div class="text-center md:mb-10 mb-6">
+        <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
+          <span class="text-white">How real restaurants use Tequila</span>
+        </h2>
+        <div class="flex justify-center">
+          <p
+            class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+          >
+            Real restaurants rely on our POS to streamline orders, speed up
+            service, and manage operations—all in one place.
+          </p>
+        </div>
+      </div>
+
+      <!-- splide carousel start here -->
+      <div class="splide px-4 md:px-0" id="restaurant-carousel-dark">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <!-- Slide 1 -->
+            <li class="splide__slide">
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4 items-center"
+              >
+                <!-- Image -->
+                <figure
+                  class="relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-[#1a1a1a]"
+                >
+                  <img
+                    src="/assets/images/pricing/spice-and-grill.png"
+                    alt="Restaurant showcase"
+                    class="w-full h-full object-cover"
+                  />
+                </figure>
+
+                <!-- Content -->
+                <div class="md:pl-2">
+                  <dl class="space-y-4 md:text-base text-sm">
+                    <div class="flex gap-2">
+                      <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
+                        Name of Restaurants :
+                      </dt>
+                      <dd class="text-white">Spice & Grill</dd>
+                    </div>
+
+                    <div class="flex gap-2">
+                      <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
+                        Types of product :
+                      </dt>
+                      <dd class="text-white">mobile POS, kiosk, cloud POS</dd>
+                    </div>
+
+                    <div class="flex gap-2">
+                      <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
+                        Location :
+                      </dt>
+                      <dd class="text-white">Cityview (sales–cordelia)</dd>
+                    </div>
+                  </dl>
+
+                  <a
+                    href="#"
+                    class="inline-flex items-center gap-1 mt-6 text-white underline hover:no-underline md:text-base text-sm"
+                  >
+                    Learn More
+                    <span aria-hidden>›</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+            <!-- Slide 2 -->
+            <li class="splide__slide">
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4 items-center"
+              >
+                <figure
+                  class="relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-[#1a1a1a]"
+                >
+                  <img
+                    src="/assets/images/pricing/spice-and-grill-2.png"
+                    alt="Restaurant showcase"
+                    class="w-full h-full object-cover"
+                  />
+                </figure>
+
+                <div class="md:pl-2">
+                  <dl class="space-y-4 md:text-base text-sm">
+                    <div class="flex gap-2">
+                      <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
+                        Name of Restaurants :
+                      </dt>
+                      <dd class="text-white">Harbor Kitchen</dd>
+                    </div>
+
+                    <div class="flex gap-2">
+                      <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
+                        Types of product :
+                      </dt>
+                      <dd class="text-white">
+                        table ordering, QR pay, kitchen display
+                      </dd>
+                    </div>
+
+                    <div class="flex gap-2">
+                      <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
+                        Location :
+                      </dt>
+                      <dd class="text-white">Bay District</dd>
+                    </div>
+                  </dl>
+
+                  <a
+                    href="#"
+                    class="inline-flex items-center gap-1 mt-6 text-white underline hover:no-underline md:text-base text-sm"
+                  >
+                    Learn More <span aria-hidden>›</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+
+            <!-- Slide 3 -->
+            <li class="splide__slide">
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4 items-center"
+              >
+                <figure
+                  class="relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-[#1a1a1a]"
+                >
+                  <img
+                    src="/assets/images/pricing/spice-and-grill-3.png"
+                    alt="Restaurant showcase"
+                    class="w-full h-full object-cover"
+                  />
+                </figure>
+
+                <div class="md:pl-2">
+                  <dl class="space-y-4 md:text-base text-sm">
+                    <div class="flex gap-2">
+                      <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
+                        Name of Restaurants :
+                      </dt>
+                      <dd class="text-white">Urban Noodles</dd>
+                    </div>
+
+                    <div class="flex gap-2">
+                      <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
+                        Types of product :
+                      </dt>
+                      <dd class="text-white">
+                        handheld POS, inventory, loyalty
+                      </dd>
+                    </div>
+
+                    <div class="flex gap-2">
+                      <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
+                        Location :
+                      </dt>
+                      <dd class="text-white">Downtown</dd>
+                    </div>
+                  </dl>
+
+                  <a
+                    href="#"
+                    class="inline-flex items-center gap-1 mt-6 text-white underline hover:no-underline md:text-base text-sm"
+                  >
+                    Learn More <span aria-hidden>›</span>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- splide carousel end -->
+    </section>
+
+    <!-- contact section -->
+    <section class="md:pb-20 pb-9">
+      <div class="container mx-auto px-4 md:px-2 md:mt-12 mt-8">
+        <div class="text-center md:mb-14 mb-3">
+          <h2
+            class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
+          >
+            <span class="text-[#C89633]">Contact </span>
+
+            <span class="text-white"> Us</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#cdcdcd] md:text-[15px] text-[10px] font-normal"
+            >
+              Have questions or ready to get started? Connect with us—we’re here
+              to help.
+            </p>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-duration="1000">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+              <h2
+                class="text-center text-white md:text-[32px] text-base font-bold"
+              >
+                Chat to our team
+              </h2>
+              <p
+                class="md:w-[540px] w-full mx-auto text-center justify-start text-[#CDCDCD] md:text-base text-sm font-normal mb-14 mt-4"
+              >
+                Need help with something? Want a demo? Get in touch with our
+                friendly team and we'll get in touch within few hours.
+              </p>
+              <form>
+                <div class="flex flex-col md:flex-row gap-4 mb-4">
+                  <input
+                    type="text"
+                    placeholder="First name"
+                    class="flex-1 p-2 border-b border-[#333]"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Last name"
+                    class="flex-1 p-2 border-b border-[#333]"
+                  />
+                </div>
+                <input
+                  type="email"
+                  placeholder="Work email"
+                  class="w-full p-2 border-b border-[#333] mb-4"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone no."
+                  class="w-full p-2 border-b border-[#333] mb-6"
+                />
+                <button
+                  type="submit"
+                  class="px-11 py-2 bg-white text-[#1c1c1c] rounded-full mt-[88px]"
+                >
+                  Get in Touch
+                </button>
+              </form>
+            </div>
+
+            <div>
+              <img
+                src="/assets/images/pricing/connect-with-us.png"
+                class="object-cover w-full"
+                alt="pricing"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dark py-10">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+        <!-- Top Logo + Switch -->
+        <div
+          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
+        >
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class=""
+            alt=""
+          />
+
+          <div class="flex items-center space-x-2">
+            <p class="text-[#CDCDCD] text-[11px] font-normal select-none">
+              Switch to dark mode
+            </p>
+
+            <!-- Toggle Switch -->
+            <label
+              for="dark-mode-toggle"
+              class="relative inline-flex items-center cursor-pointer"
+            >
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
+              <div
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+              ></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-gray-300 pt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
+          >
+            <!-- Company -->
+            <div>
+              <!-- Accordion Header Button -->
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="company-links"
+                onclick="toggleAccordion(this)"
+              >
+                Company
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links Container -->
+              <div
+                id="company-links"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >About Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Contact Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Hardware</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="products"
+                onclick="toggleAccordion(this)"
+              >
+                Products
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="products"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A920</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A35</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >MagTek DynaFlex</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX Elys Workstation</a
+                >
+              </div>
+            </div>
+
+            <!-- Resources -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="resources"
+                onclick="toggleAccordion(this)"
+              >
+                Resources
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="resources"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Product Guides & Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Video Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="legal"
+                onclick="toggleAccordion(this)"
+              >
+                Legal
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="legal"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms & Condition</a
+                >
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="social"
+                onclick="toggleAccordion(this)"
+              >
+                Social
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="social"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Youtube</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscribe -->
+          <div class="border-t border-gray-300 pt-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <div>
+                <h4
+                  class="font-roboto font-medium text-[#CDCDCD] text-xl sm:text-2xl mb-2"
+                >
+                  Subscribe
+                </h4>
+                <p class="text-[#CDCDCD] text-sm sm:text-100e mb-1">
+                  Join our community to receive updates
+                </p>
+              </div>
+
+              <div>
+                <p class="text-[#CDCDCD] text-xs ps-3 pb-1">Stay up to date</p>
+                <div class="flex w-full sm:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-white text-base border-0 outline-none"
+                  />
+                  <button
+                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-100 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/pricingSwitch.js"></script>
+    <script src="../assets/js/footer-accordion.js"></script>
+
+    <script>
+      AOS.init();
+      document.addEventListener("DOMContentLoaded", function () {
+        new Splide("#restaurant-carousel-dark", {
+          type: "loop",
+          perPage: 1,
+          gap: "1rem",
+          autoplay: false,
+          pagination: false,
+        }).mount();
+      });
+      function toggleFaq(element) {
+        element.classList.toggle("active");
+      }
+
+      let isEnglish = true;
+
+      function toggleLanguage() {
+        const textEl = document.getElementById("language-text");
+        const flagEl = document.getElementById("flag-icon");
+
+        if (isEnglish) {
+          textEl.textContent = "ESPAÑOL";
+          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
+          flagEl.alt = "Spain Flag";
+        } else {
+          textEl.textContent = "ENGLISH";
+          flagEl.src = "/assets/images/flags/usa.png";
+          flagEl.alt = "USA Flag";
+        }
+
+        isEnglish = !isEnglish; // flip state
+      }
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

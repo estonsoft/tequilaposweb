@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tequila POS - Smart POS Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <!-- Optional: Default Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
+    />
+
+    <link rel="stylesheet" href="/assets/style/dark.css" />
+  </head>
+  <body class="bg-[#1C1C1C]">
+    <!-- Navigation -->
+    <nav class="navbar md:block hidden">
+      <div class="navbar-container container mx-auto">
+        <!-- Logo -->
+        <div class="logo-container">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo"
+            alt="Logo"
+          />
+
+          <div class="nav-links ml-4">
+            <div class="nav-item dropdown">
+              <a href="#business-type" class="nav-link">Business Type</a>
+              <!-- Mega Menu -->
+              <div class="mega-menu">
+                <div class="mega-menu-grid">
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Product Features</h3>
+                    <ul class="mega-menu-list">
+                      <li><a href="#" class="mega-menu-link">Feature 1</a></li>
+                      <li><a href="#" class="mega-menu-link">Feature 2</a></li>
+                      <li><a href="#" class="mega-menu-link">Feature 3</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Resources</h3>
+                    <ul class="mega-menu-list">
+                      <li>
+                        <a href="#" class="mega-menu-link">Documentation</a>
+                      </li>
+                      <li><a href="#" class="mega-menu-link">FAQs</a></li>
+                      <li><a href="#" class="mega-menu-link">Tutorials</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Support</h3>
+                    <ul class="mega-menu-list">
+                      <li><a href="#" class="mega-menu-link">Contact Us</a></li>
+                      <li><a href="#" class="mega-menu-link">Live Chat</a></li>
+                      <li>
+                        <a href="#" class="mega-menu-link">Knowledge Base</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Links -->
+            <a href="#features" class="nav-link">Feature</a>
+            <a href="#hardware" class="nav-link">Hardware</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#resources" class="nav-link">Resources</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-extra-links">
+          <div class="language-selector">
+            <span class="language-text">ENGLISH</span>
+            <img
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+
+          <a href="#signin" class="nav-link">Sign in</a>
+
+          <button class="demo-btn">
+            <span>Free Demo</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar md:hidden bg-black shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-4"
+      >
+        <!-- Logo -->
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo h-10"
+            alt="Logo"
+          />
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Close Icon -->
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 bg-[#1C1C1C] text-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50"
+      >
+        <div class="p-4 space-y-4">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 bg-gray-800 rounded hover:bg-gray-700"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 text-gray-400 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
+            11.94l3.72-3.72a.75.75 0 1 1 
+            1.06 1.06l-4.25 4.25a.75.75 0 
+            0 1-1.06 0L5.22 9.28a.75.75 
+            0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 bg-gray-900 rounded shadow-lg overflow-hidden"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Duplicate</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Delete</a
+              >
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="#features" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Features</a
+          >
+          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Hardware</a
+          >
+          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Pricing</a
+          >
+          <a href="#resources" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Resources</a
+          >
+
+          <!-- Language Switcher -->
+          <div
+            class="flex items-center justify-between px-4 py-2 bg-gray-800 rounded"
+          >
+            <span class="text-sm">EN</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-gray-500 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+              ></div>
+            </label>
+            <span class="text-sm">BN</span>
+          </div>
+
+          <!-- Sign in -->
+          <a href="#signin" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Sign In</a
+          >
+
+          <!-- CTA Button -->
+          <a
+            href="#demo"
+            class="block text-center bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-2 rounded shadow hover:from-yellow-400 hover:to-yellow-500"
+          >
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="md:pb-20 pb-9">
+      <div class="container mx-auto px-4 md:px-2 md:mt-12 mt-8">
+        <h1 class="md:w-[651px] w-full">
+          <span
+            class="text-[#C89633] md:text-8xl text-4xl font-semibold md:leading-[92.32px] flex gap-5 leading-normal"
+          >
+            Tequila
+            <span>
+              <h6
+                class="md:w-[331px] text-[#CDCDCD] text-[10px] md:text-base font-semibold"
+              >
+                The Resources page offers guides, tips, and industry insights to
+                help you make the most of your POS system and grow your
+                business.
+              </h6>
+            </span>
+          </span>
+          <span
+            class="text-white md:text-8xl text-4xl font-semibold md:leading-[92.32px]"
+            >Resources</span
+          >
+        </h1>
+      </div>
+    </section>
+
+    <!-- blog card -->
+    <section class="md:pb-20 pb-9">
+      <div class="container mx-auto px-4 md:px-2">
+        <!-- bento section is here -->
+
+        <div class="hidden md:block">
+          <div class="flex gap-4">
+            <div class="w-[33.33333333%]">
+              <div class="bento-card-one-wrapper">
+                <img
+                  src="/assets/images/resource/bento-1.png"
+                  class="w-full object-cover"
+                  alt="taqila pos"
+                />
+
+                <div class="p-4">
+                  <p
+                    class="text-white text-2xl font-semibold leading-7 tracking-wide mt-4"
+                  >
+                    Top POS Feature Every Restaurant Needs
+                  </p>
+
+                  <p class="text-[#CDCDCD] text-[15px] font-normal mt-6">
+                    Discover the top POS features every restaurant needs—from
+                    fast billing and table management to real-time inventory
+                    tracking and integrated.......
+                  </p>
+
+                  <div class="text-center">
+                    <button
+                      type="button"
+                      class="border w-full rounded-full px-6 py-2 mt-6 font-semibold text-white text-sm hover:bg-gray-900 underline"
+                    >
+                      EXPLORE MORE
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="relative w-full mx-auto rounded-[38px] overflow-hidden shadow-lg mt-[21px]"
+              >
+                <img
+                  src="/assets/images/resource/bento-4.png"
+                  alt="POS Solution"
+                  class="w-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-[#878787]/0 via-[#3f3f3f]/70 to-[#212121]"
+                ></div>
+                <p
+                  class="absolute top-5 left-5 text-white text-[11px] font-semibold md:leading-[12.98px] tracking-tight"
+                >
+                  Uploaded Aug 10,2025
+                </p>
+                <div
+                  class="absolute bottom-5 left-5 flex items-center justify-center text-start"
+                >
+                  <div class="text-white">
+                    <p
+                      class="justify-start text-white text-[11px] font-semibold leading-[12.98px] tracking-tight"
+                    ></p>
+                    <p
+                      class="text-white text-2xl font-semibold leading-7 tracking-wide"
+                    >
+                      Step By Step Guides to Generate GST Invoice
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-[33.33333333%]">
+              <div
+                class="relative w-full mx-auto rounded-[38px] overflow-hidden shadow-lg"
+              >
+                <img
+                  src="/assets/images/resource/bento-2.png"
+                  alt="POS Solution"
+                  class="w-full h-64 object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-[#878787]/0 via-[#3f3f3f]/70 to-[#212121]"
+                ></div>
+                <p
+                  class="absolute top-5 left-5 text-white text-[11px] font-semibold md:leading-[12.98px] tracking-tight"
+                >
+                  Uploaded Aug 10,2025
+                </p>
+                <div
+                  class="absolute bottom-5 left-5 flex items-center justify-center text-start"
+                >
+                  <div class="text-white">
+                    <p
+                      class="justify-start text-white text-[11px] font-semibold leading-[12.98px] tracking-tight"
+                    >
+                      POS Solution
+                    </p>
+                    <p
+                      class="text-white text-2xl font-semibold leading-7 tracking-wide"
+                    >
+                      How to Setup Your POS Solution in Minutes?
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bento-card-one-wrapper-five mt-4">
+                <div class="p-4">
+                  <p
+                    class="text-white text-2xl font-semibold leading-7 tracking-wide mt-1"
+                  >
+                    5 Underrated POS Solution that can Boost Efficiency
+                  </p>
+
+                  <p class="text-[#fcfcfc] text-[15px] font-normal mt-2">
+                    Explore 5 underrated POS features—like smart inventory
+                    alerts, staff performance tracking, kitchen display
+                    integration, split billing, and customer feedback tool....
+                  </p>
+
+                  <div class="text-center">
+                    <button
+                      type="button"
+                      class="border w-full rounded-full px-6 py-2 mt-6 font-semibold text-white text-sm hover:bg-gray-900 underline"
+                    >
+                      EXPLORE MORE
+                    </button>
+                  </div>
+                </div>
+                <img
+                  src="/assets/images/resource/bento-5.png"
+                  class="w-full object-cover"
+                  alt="taqila pos"
+                />
+              </div>
+            </div>
+            <div class="w-[33.33333333%]">
+              <div
+                class="relative w-full mx-auto rounded-[38px] overflow-hidden shadow-lg"
+              >
+                <img
+                  src="/assets/images/resource/bento-3.png"
+                  alt="POS Solution"
+                  class="w-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-[#878787]/0 via-[#3f3f3f]/70 to-[#212121]"
+                ></div>
+                <p
+                  class="absolute top-5 left-5 text-white text-[11px] font-semibold md:leading-[12.98px] tracking-tight"
+                >
+                  Uploaded Aug 10,2025
+                </p>
+                <div
+                  class="absolute bottom-5 left-5 flex items-center justify-center text-start"
+                >
+                  <div class="text-white">
+                    <p
+                      class="justify-start text-white text-[11px] font-semibold leading-[12.98px] tracking-tight"
+                    ></p>
+                    <p
+                      class="text-white text-2xl font-semibold leading-7 tracking-wide"
+                    >
+                      How Spicy & Grill Restaurant Increase Sales by 40% Using
+                      Our POS ?
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bento-card-one-wrapper-five mt-4">
+                <img
+                  src="/assets/images/resource/bento-6.png"
+                  class="w-full object-cover"
+                  alt="taqila pos"
+                />
+
+                <div class="p-4">
+                  <p
+                    class="text-white text-2xl font-semibold leading-7 tracking-wide mt-1"
+                  >
+                    Why Data Security Should be a Priority in POS Solution?
+                  </p>
+
+                  <p class="text-[#fcfcfc] text-[15px] font-normal mt-4">
+                    Data security is critical in any POS solution because it
+                    protects customer information, prevents financial fraud, and
+                    ensures business continuity. A secure system buil....
+                  </p>
+
+                  <div class="text-center">
+                    <button
+                      type="button"
+                      class="border w-full rounded-full px-6 py-2 mt-6 font-semibold text-white text-sm hover:bg-gray-900 underline"
+                    >
+                      EXPLORE MORE
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
+          <div class="bento-card-one-wrapper">
+            <img
+              src="/assets/images/resource/bento-1.png"
+              class="w-full object-cover"
+              alt="taqila pos"
+            />
+
+            <div class="p-4">
+              <p
+                class="text-white md:text-2xl text-sm font-semibold leading-7 tracking-wide md:mt-4 mt-1"
+              >
+                Top POS Feature Every Restaurant Needs
+              </p>
+
+              <p
+                class="text-[#CDCDCD] md:text-[15px] text-xs font-normal md:mt-6 mt-2"
+              >
+                Discover the top POS features every restaurant needs—from fast
+                billing and table management to real-time inventory tracking and
+                integrated.......
+              </p>
+
+              <div class="text-center">
+                <button
+                  type="button"
+                  class="border w-full rounded-full md:px-6 px-2 md:py-2 py-1 mt-2 font-semibold text-white md:text-sm text-xs hover:bg-gray-900 underline"
+                >
+                  EXPLORE MORE
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative w-full mx-auto rounded-[38px] overflow-hidden shadow-lg"
+          >
+            <img
+              src="/assets/images/resource/bento-2.png"
+              alt="POS Solution"
+              class="w-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-[#878787]/0 via-[#3f3f3f]/70 to-[#212121]"
+            ></div>
+            <p
+              class="absolute top-5 left-5 text-white text-[11px] font-semibold md:leading-[12.98px] tracking-tight"
+            >
+              Uploaded Aug 10,2025
+            </p>
+            <div
+              class="absolute bottom-5 left-5 flex items-center justify-center text-start"
+            >
+              <div class="text-white">
+                <p
+                  class="justify-start text-white md:text-[11px] text-[9px] font-semibold leading-[12.98px] tracking-tight"
+                >
+                  POS Solution
+                </p>
+                <p
+                  class="text-white text-xs font-semibold leading-7 tracking-wide"
+                >
+                  How to Setup Your POS Solution in Minutes?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative w-full mx-auto rounded-[38px] overflow-hidden shadow-lg"
+          >
+            <img
+              src="/assets/images/resource/bento-3.png"
+              alt="POS Solution"
+              class="w-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-[#878787]/0 via-[#3f3f3f]/70 to-[#212121]"
+            ></div>
+            <p
+              class="absolute top-5 left-5 text-white text-[11px] font-semibold md:leading-[12.98px] tracking-tight"
+            >
+              Uploaded Aug 10,2025
+            </p>
+            <div
+              class="absolute bottom-5 left-5 flex items-center justify-center text-start"
+            >
+              <div class="text-white">
+                <p
+                  class="justify-start text-white text-[11px] font-semibold leading-[12.98px] tracking-tight"
+                ></p>
+                <p
+                  class="text-white text-xs font-semibold leading-normal tracking-wide"
+                >
+                  How Spicy & Grill Restaurant Increase Sales by 40% Using Our
+                  POS ?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative w-full mx-auto rounded-[38px] overflow-hidden shadow-lg mt-[21px]"
+          >
+            <img
+              src="/assets/images/resource/bento-4.png"
+              alt="POS Solution"
+              class="w-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-[#878787]/0 via-[#3f3f3f]/70 to-[#212121]"
+            ></div>
+            <p
+              class="absolute top-5 left-5 text-white text-[11px] font-semibold md:leading-[12.98px] tracking-tight"
+            >
+              Uploaded Aug 10,2025
+            </p>
+            <div
+              class="absolute bottom-5 left-5 flex items-center justify-center text-start"
+            >
+              <div class="text-white">
+                <p
+                  class="justify-start text-white text-[11px] font-semibold leading-[12.98px] tracking-tight"
+                ></p>
+                <p
+                  class="text-white text-xs font-semibold leading-7 tracking-wide"
+                >
+                  Step By Step Guides to Generate GST Invoice
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card-one-wrapper-five mt-4">
+            <div class="p-4">
+              <p
+                class="text-white text-sm font-semibold leading-normal tracking-wide mt-1"
+              >
+                5 Underrated POS Solution that can Boost Efficiency
+              </p>
+
+              <p class="text-[#fcfcfc] text-xs font-normal mt-2">
+                Explore 5 underrated POS features—like smart inventory alerts,
+                staff performance tracking, kitchen display integration, split
+                billing, and customer feedback tool....
+              </p>
+
+              <div class="text-center">
+                <button
+                  type="button"
+                  class="border w-full rounded-full px-2 py-1 mt-2 font-semibold text-white text-xs hover:bg-gray-900 underline"
+                >
+                  EXPLORE MORE
+                </button>
+              </div>
+            </div>
+            <img
+              src="/assets/images/resource/bento-5.png"
+              class="w-full object-cover"
+              alt="taqila pos"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- sucscri -->
+    <section class="md:pb-20 pb-9">
+      <div class="container mx-auto px-4 md:px-2">
+        <div class="flex justify-between items-center flex-col md:flex-row">
+          <p
+            class="md:w-[636px] w-full text-white md:text-4xl text-sm font-semibold"
+          >
+            Join our resources and get the latest activity updates into your
+            inbox monthly
+          </p>
+          <!-- input box -->
+
+          <!-- From Uiverse.io by vinodjangid07 -->
+          <div class="w-full md:w-auto bg-white rounded-full">
+            <!-- Input -->
+            <div class="flex items-center overflow-hidden p-1">
+              <input
+                type="email"
+                placeholder="i.e. your@mail.com"
+                class="flex-1 px-4 py-2 text-sm text-gray-700 placeholder-gray-400 focus:outline-none rounded-full"
+              />
+
+              <!-- Button -->
+              <button
+                type="button"
+                class="bg-black text-white text-sm font-semibold px-6 py-2 rounded-full hover:bg-gray-800 transition"
+              >
+                Let's go!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- cards section -->
+    <section class="md:pb-20 pb-9 bg-[#373737] py-12">
+      <div class="container mx-auto px-4 md:px-2">
+        <p
+          class="justify-start text-[#FFFFFF] md:text-base text-[11px] font-normal"
+        >
+          Product Guides & Manuals
+        </p>
+
+        <div
+          class="main-layer-wrapper grid grid-cols-1 md:grid-cols-12 md:mt-6 mt-3 md:gap-32"
+        >
+          <!-- text box -->
+          <div class="md:col-span-6 col-span-12">
+            <div
+              class="flex justify-between items-start border-b border-gray-600 pb-3"
+            >
+              <div>
+                <p
+                  class="justify-start text-white md:text-2xl text-sm font-semibold md:leading-7 tracking-wide"
+                >
+                  Setup and Installation Manual
+                </p>
+                <p
+                  class="text-[#CDCDCD] text-xs font-normal md:mt-2 text-[10px] mt-1"
+                >
+                  Publishes Sep 12,2025
+                </p>
+
+                <p
+                  class="md:w-[659px] w-full text-[#CDCDCD] md:text-base font-normal text-[10px] md:mt-3 mt-2"
+                >
+                  Our Setup and Installation Manual provides a step-by-step
+                  guide to get your POS system up and running quickly. From
+                  hardware connections to software configuration, it ensures a
+                  smooth and hassle-free start.
+                </p>
+              </div>
+              <div>
+                <img src="/assets/images/resource/Rectangle 125.png" alt="" />
+              </div>
+            </div>
+
+            <div
+              class="flex justify-between items-start border-b border-gray-600 pb-3 md:mt-8 mt-4"
+            >
+              <div>
+                <p
+                  class="justify-start text-white md:text-2xl text-sm font-semibold md:leading-7 tracking-wide"
+                >
+                  Hardware Integration Instructions (Printer, Barcode, Etc.)
+                </p>
+                <p
+                  class="text-[#CDCDCD] text-xs font-normal md:mt-2 text-[10px] mt-1"
+                >
+                  Publishes Sep 12,2025
+                </p>
+
+                <p
+                  class="md:w-[659px] w-full text-[#CDCDCD] md:text-base font-normal text-[10px] md:mt-3 mt-2"
+                >
+                  The Hardware Integration section offers clear instructions to
+                  connect and configure devices like receipt printers, barcode
+                  scanners, and cash drawers, ensuring seamless operation with
+                  your POS system.
+                </p>
+              </div>
+              <div>
+                <img src="/assets/images/resource/Rectangle 125.png" alt="" />
+              </div>
+            </div>
+
+            <div
+              class="flex justify-between items-start border-b border-gray-600 pb-3 md:mt-8 mt-4"
+            >
+              <div>
+                <p
+                  class="justify-start text-white md:text-2xl text-sm font-semibold md:leading-7 tracking-wide"
+                >
+                  Steps Your POS Takes to Ensure Security
+                </p>
+                <p
+                  class="text-[#CDCDCD] text-xs font-normal md:mt-2 text-[10px] mt-1"
+                >
+                  Publishes Sep 12,2025
+                </p>
+
+                <p
+                  class="md:w-[659px] w-full text-[#CDCDCD] md:text-base font-normal text-[10px] md:mt-3 mt-2"
+                >
+                  Our POS system ensures security through data encryption, user
+                  access controls, secure cloud backups, regular activity logs,
+                  and compliance with industry standards like PCI-DSS—protecting
+                  your business at every level.
+                </p>
+              </div>
+              <div>
+                <img src="/assets/images/resource/Rectangle 125.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <!-- input area -->
+          <div class="md:col-span-6 col-span-12 hidden md:block">
+            <div class="flex justify-end">
+              <div
+                class="p-6 max-w-xl w-full bg-[#1C1C1C] rounded-[38px] border border-[#d1d1d1]"
+              >
+                <form class="space-y-6">
+                  <!-- Name -->
+                  <input
+                    type="text"
+                    placeholder="Enter your name here"
+                    class="w-full border-b border-gray-400 focus:outline-none focus:border-black py-2 bg-transparent"
+                  />
+
+                  <!-- Email -->
+                  <input
+                    type="email"
+                    placeholder="Enter your email here"
+                    class="w-full border-b border-gray-400 focus:outline-none focus:border-black py-2 bg-transparent"
+                  />
+
+                  <!-- Business Name -->
+                  <input
+                    type="text"
+                    placeholder="Business name"
+                    class="w-full border-b border-gray-400 focus:outline-none focus:border-black py-2 bg-transparent"
+                  />
+
+                  <!-- Phone -->
+                  <input
+                    type="tel"
+                    placeholder="Phone no."
+                    class="w-full border-b border-gray-400 focus:outline-none focus:border-black py-2 bg-transparent"
+                  />
+
+                  <!-- Product -->
+                  <input
+                    type="text"
+                    placeholder="Product you want"
+                    class="w-full border-b border-gray-400 focus:outline-none focus:border-black py-2 bg-transparent"
+                  />
+
+                  <!-- Question -->
+                  <textarea
+                    placeholder="Have any question?"
+                    rows="3"
+                    class="w-full border border-gray-400 rounded-md focus:outline-none focus:border-black p-3 bg-transparent"
+                  ></textarea>
+
+                  <!-- Submit -->
+                  <button
+                    type="submit"
+                    class="w-full text-center font-semibold text-[#CDCDCD] mt-4 underline"
+                  >
+                    CONNECT TO US
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learn to Use -->
+    <section class="md:mt-10 mt-5">
+      <div class="md:mt-[15px] mt-[10px]">
+        <div class="container mx-auto md:px-4 px-2 md:pt-9 pt-5">
+          <div
+            class="md:mb-10 mb-6 flex justify-between items-center gap-4 flex-col md:flex-row"
+          >
+            <h1
+              class="text-white md:w-[597px] w-full md:text-[40px] text-[20px] font-medium leading-tight"
+            >
+              Adding & Managing Customers in the POS
+            </h1>
+
+            <p class="text-[#Cdcdcd] md:text-[15px] text-[12px] font-normal">
+              From the moment you sign in, we guide yiu through every step,
+              helping you harness you the potential of real- time, human-like AL
+              communication
+            </p>
+          </div>
+          <!-- video section -->
+          <div class="relative w-full mx-auto overflow-hidden rounded-xl">
+            <!-- Thumbnail -->
+            <img
+              src="/assets/images/resource/video-thumbnail.png"
+              alt="Video Thumbnail"
+              class="w-full block"
+              id="videoThumbnail"
+            />
+
+            <!-- Play Button -->
+            <div
+              id="playVideoBtn"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 flex items-center justify-center rounded-full border-2 border-[#c39337] bg-white/20 backdrop-blur-sm cursor-pointer transition hover:bg-white/40"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-10 h-10 fill-[#c39337]"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+
+            <!-- Video -->
+            <iframe
+              id="videoFrame"
+              class="hidden w-full aspect-video border-0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dark py-10">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+        <!-- Top Logo + Switch -->
+        <div
+          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
+        >
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class=""
+            alt=""
+          />
+
+          <div class="flex items-center space-x-2">
+            <p class="text-[#CDCDCD] text-[11px] font-normal select-none">
+              Switch to dark mode
+            </p>
+
+            <!-- Toggle Switch -->
+            <label
+              for="dark-mode-toggle"
+              class="relative inline-flex items-center cursor-pointer"
+            >
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
+              <div
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute left-[2px] top-[2px] w-4 h-4 bg-[#1C1C1C] rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+              ></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-gray-300 pt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
+          >
+            <!-- Company -->
+            <div>
+              <!-- Accordion Header Button -->
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="company-links"
+                onclick="toggleAccordion(this)"
+              >
+                Company
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links Container -->
+              <div
+                id="company-links"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >About Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Contact Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Hardware</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="products"
+                onclick="toggleAccordion(this)"
+              >
+                Products
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="products"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A920</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A35</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >MagTek DynaFlex</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX Elys Workstation</a
+                >
+              </div>
+            </div>
+
+            <!-- Resources -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="resources"
+                onclick="toggleAccordion(this)"
+              >
+                Resources
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="resources"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Product Guides & Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Video Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="legal"
+                onclick="toggleAccordion(this)"
+              >
+                Legal
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="legal"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms & Condition</a
+                >
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="social"
+                onclick="toggleAccordion(this)"
+              >
+                Social
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="social"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Youtube</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscribe -->
+          <div class="border-t border-gray-300 pt-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <div>
+                <h4
+                  class="font-roboto font-medium text-[#CDCDCD] text-xl sm:text-2xl mb-2"
+                >
+                  Subscribe
+                </h4>
+                <p class="text-[#CDCDCD] text-sm sm:text-100e mb-1">
+                  Join our community to receive updates
+                </p>
+              </div>
+
+              <div>
+                <p class="text-[#CDCDCD] text-xs ps-3 pb-1">Stay up to date</p>
+                <div class="flex w-full sm:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-white text-base border-0 outline-none"
+                  />
+                  <button
+                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-100 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/footer-accordion.js"></script>
+    <script src="../assets/js/tabDark.js"></script>
+    <script src="../assets/js/videoPlay.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new Splide("#image-carousel", {
+          type: "loop",
+          perPage: 1,
+          gap: "1rem",
+          autoplay: false,
+          pagination: false,
+        }).mount();
+      });
+      function toggleFaq(element) {
+        element.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
