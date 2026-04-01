@@ -1,1307 +1,937 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tequila POS - Smart POS Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com"></script>
-    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
-    <script src="/Components/Common/header.js" defer></script>
-    
-    <!-- Splide CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
-    />
 
-    <!-- Optional: Default Theme -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
-    />
+<head>
 
-    <!-- aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tequila POS - Smart POS Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com"></script>
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
+  <script src="/Components/Common/header.js" defer></script>
+  <script src="index.js" defer></script>
 
-    <link rel="stylesheet" href="/assets/style/global.css" />
-    <style>
-      /* Custom CSS for 3D Flip Effect */
 
-      /* 1. Container for 3D space (Responsive Aspect Ratio) */
-      .flip-card {
-        background-color: transparent;
-        position: relative;
-        padding-bottom: 100%; /* CRITICAL: Creates a square container (1:1 aspect ratio) */
-        perspective: 1000px;
-        border-radius: 0.75rem;
-        width: 100%;
-        /* Added subtle transition for scale effect on hover */
-        transition: transform 0.3s ease-in-out;
-      }
+  <!-- Splide CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
 
-      /* 2. Inner container for rotation - Absolutely positioned to fill the aspect ratio space */
-      .flip-card-inner {
-        position: absolute; /* CRITICAL: Fills the space defined by padding-bottom */
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        text-align: center;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-          0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        border-radius: 0.75rem;
-      }
+  <!-- Optional: Default Theme -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css" />
 
-      /* 3. The actual flip action on hover */
-      .flip-card:hover .flip-card-inner {
-        transform: rotateY(180deg);
-      }
+  <!-- aos -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-      /* 4. Position front and back faces */
-      .flip-card-front,
-      .flip-card-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        border-radius: 0.75rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 2.5rem;
-        text-align: left;
-      }
+  <!-- Font family -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-      /* 5. Style the back face's starting position (rotated 180 degrees initially) */
-      .flip-card-back {
-        transform: rotateY(180deg);
-      }
-    </style>
-    
-  </head>
-  <body class="bg-white font-inter text-sm">
-    <!-- Navigation -->
-     <!--Mobile-->
-    <nav class="navbar md:hidden bg-white shadow-md relative z-[100]">
-      <div class="container mx-auto flex items-center justify-between py-3 px-4">
-        <!-- Logo -->
-        <a href="/" class="flex items-center">
-          <img src="/assets/images/logo/tequila_pos_logo_transparent.png" class="h-10" alt="Logo" />
-        </a>
+  <link rel="stylesheet" href="/assets/style/global.css" />
+  <link rel="stylesheet" href="style.css">
 
-        <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="p-2 text-black focus:outline-none">
-          <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+</head>
 
-      <!-- Sidebar Menu Overlay -->
-      <div id="mobile-menu" class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-2xl overflow-y-auto">
-        <div class="p-6 space-y-4">
-          
-          <!-- Dropdown Section -->
-          <div class="relative">
-            <button id="dropdownBtn" class="flex justify-between items-center w-full px-4 py-3 bg-gray-50 rounded-lg font-bold text-gray-800 transition-colors">
-              Business Type
-              <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-gray-500 transition-transform duration-200">
-                <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-              </svg>
-            </button>
+<body class="bg-white font-inter text-sm">
+  <!-- Navigation -->
+  <!--Mobile-->
+  <nav class="navbar md:hidden bg-white shadow-md relative z-[100]">
+    <div class="container mx-auto flex items-center justify-between py-3 px-4">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="/assets/images/logo/tequila_pos_logo_transparent.png" class="h-20" alt="Logo" />
+      </a>
 
-            <div id="dropdownMenu" class="hidden mt-1 bg-white rounded-lg overflow-hidden border border-gray-100 ml-2">
-              <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 border-l-4 border-transparent hover:border-blue-500 font-medium">Food & Beverage</a>
-              <a href="#" class="block px-4 py-3 text-gray-700 hover:bg-blue-50 border-l-4 border-transparent hover:border-blue-500 font-medium">Retail</a>
-            </div>
-          </div>
+      <!-- Hamburger Button -->
+      <button id="mobile-menu-btn" class="p-2 text-black focus:outline-none">
+        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 hidden" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
 
-          <!-- Links -->
-          <div class="space-y-1">
-            <a href="#features" class="block px-4 py-3 hover:bg-gray-50 rounded-lg font-bold text-gray-800">Features</a>
-            <a href="#hardware" class="block px-4 py-3 hover:bg-gray-50 rounded-lg font-bold text-gray-800">Hardware</a>
-            <a href="#pricing" class="block px-4 py-3 hover:bg-gray-50 rounded-lg font-bold text-gray-800">Pricing</a>
-            <a href="/light/resourse.html" class="block px-4 py-3 hover:bg-gray-50 rounded-lg font-bold text-gray-800">Resources</a>
-          </div>
+    <!-- Sidebar Menu Overlay -->
+    <div id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-2xl overflow-y-auto">
+      <div class="p-6 space-y-4">
 
-          <hr class="border-gray-100">
-
-          <!-- Language Switcher -->
-          <div class="flex items-center justify-between px-4 py-3 bg-gray-50 rounded-lg">
-            <span class="text-sm font-bold">EN</span>
-            <label class="inline-flex items-center cursor-pointer">
-              <input type="checkbox" class="sr-only peer" />
-              <div class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-600 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"></div>
-            </label>
-            <span class="text-sm font-bold">ES</span>
-          </div>
-
-          <!-- Footer Actions -->
-          <div class="pt-4 space-y-3">
-             <a href="#signin" class="block text-center px-4 py-3 font-bold text-gray-800 hover:text-blue-600">Sign In</a>
-             <a href="#demo" class="block text-center bg-black text-white font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform">
-              Free Demo
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Backdrop (to close menu when clicking outside) -->
-      <div id="menu-backdrop" class="fixed inset-0 bg-black/20 hidden z-40"></div>
-    </nav>
-    <!--Web-->
-    <nav class="bg-white sticky top-0 z-50 w-full">
-      <div class="container mx-auto flex items-center justify-between py-2 px-4">
-        
-        <!-- Left: Logo & Nav -->
-        <div class="flex items-center gap-8">
-          <a href="/light/index.html">
-            <img src="/assets/images/logo/tequila_pos_logo_transparent.png" alt="Logo" class="h-20 w-auto object-contain" />
-          </a>
-
-          <div class="flex items-center gap-6">
-            <div class="relative group py-4">
-              <a href="#business-type" class="font-bold text-gray-800 hover:text-blue-600">Business Type</a>
-              
-              <!-- Mega Menu -->
-              <div class="absolute left-[-100px] top-full bg-white shadow-2xl border-t opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 min-w-[850px] flex">
-                
-                <!-- Category List -->
-                <div class="w-1/3 bg-gray-50 p-8 border-r">
-                  <div class="flex flex-col gap-6">
-                    <button class="text-2xl font-bold text-left hover:text-blue-600 transition underline text-blue-600" data-cat="food">Food & Beverage</button>
-                    <button class="text-2xl font-bold text-left hover:text-blue-600 transition" data-cat="retail">Retail</button>
-                  </div>
-                </div>
-
-                <!-- Panels Content -->
-                <div class="w-2/3 p-10">
-                  ${this.renderPanels()}
-                </div>
-              </div>
-            </div>
-
-            <a href="/light/feature.html" class="font-bold text-gray-800 hover:text-blue-600">Feature</a>
-            <a href="/light/hardware.html" class="font-bold text-gray-800 hover:text-blue-600">Hardware</a>
-            <a href="/light/pricing.html" class="font-bold text-gray-800 hover:text-blue-600">Pricing</a>
-            <a href="/light/resourse.html" class="font-bold text-gray-800 hover:text-blue-600">Resources</a>
-          </div>
-        </div>
-
-        <!-- Right: Actions -->
-        <div class="flex items-center gap-6">
-          <div class="flex items-center gap-2 cursor-pointer group">
-            <span class="text-sm font-bold">ENGLISH</span>
-            <img src="/assets/images/flags/usa.png" alt="USA" class="w-6 h-4 object-cover shadow-sm" />
-          </div>
-          <a href="#signin" class="font-bold text-gray-800">Sign in</a>
-          <button class="bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-gray-900 transition">
-            Free Demo
+        <!-- Dropdown Section -->
+        <div class="relative">
+          <button id="dropdownBtn"
+            class="flex justify-between items-center w-full px-4 py-3 bg-gray-50 rounded-lg font-bold text-gray-800 transition-colors">
+            Business Type
+            <svg viewBox="0 0 20 20" fill="currentColor"
+              class="w-5 h-5 text-gray-500 transition-transform duration-200">
+              <path fill-rule="evenodd"
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd" />
+            </svg>
           </button>
-        </div>
-      </div>
-    </nav>
-    
-    <!-- hero section -->
-    <section>
-      <div class="px-4 md:px-0 mx-auto">
-        <!-- MOBILE (stacked) -->
-        <div class="md:hidden text-center">
-          <dotlottie-wc  
-              id="hoverPlayer"
-              class="border-none outline-none" 
-              src="/assets/animation/homepagelogo.json" 
-              autoplay >
-            </dotlottie-wc>
-          <h2 data-aos="fade-up" class="mt-4 text-2xl font-bold">
-            <span class="text-[#4f4f4f]">Smarter POS </span
-            ><span>Solutions for Modern</span
-            ><span class="text-[#4f4f4f]"> businesses</span>
-          </h2>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="100"
-            class="mt-2 text-sm text-[#4f4f4f] max-w-md mx-auto"
-          >
-            Our Point of Sale system simplifies how you sell, manage inventory,
-            and handle payments - all from one easy-to-use platform. Whether
-            you're running a store, cafe or salon, our POS helps streamline
-            operations and boost customer satisfaction.
-          </p>
-          <div class="mt-6">
-            <a
-              data-aos="fade-up"
-              data-aos-delay="150"
-              href="#contact"
-              class="inline-flex items-center justify-center rounded-[38px] border border-black px-6 py-2 text-xs font-medium hover:bg-black hover:text-white transition"
-            >
-              GET IN TOUCH
-            </a>
-          </div>
-        </div>
 
-        <!-- DESKTOP (exact UI) -->
-        <div
-          class="relative bg-white overflow-hidden hidden md:block md:w-[1440px] md:h-[649px] mx-auto"
-          data-aos="fade-up"
-            data-aos-delay="100"
-        >
-          <dotlottie-wc 
-            class="border-none outline-none" 
-            src="https://lottie.host/1f5f17c8-a0a7-4921-bab0-345c47ecb0a2/JXjlte1V8J.lottie"
-            stateMachineId="StateMachine1"
-            style="margin-top: -110px;"
-          >
-          </dotlottie-wc>
-          <div
-            class="absolute left-[337px] top-[414px] text-center"
-            
-          >
-            <span class="text-[#4f4f4f] text-4xl font-bold">Smarter POS </span>
-            <span class="text-[#090909] text-4xl font-bold"
-              >Solutions for Modern</span
-            >
-            <span class="text-[#4f4f4f] text-4xl font-bold"> businesses</span>
-          </div>
-
-          <div
-            class="absolute w-[654px] left-[393px] top-[456px] text-center text-[#4f4f4f] text-[15px]"
-          >
-            Our Point of Sale system simplifies how you sell, manage inventory,
-            and handle payments - all from one easy-to-use platform. Whether
-            You're running a store, cafe or salon, our POS helps streamline
-            operations and boost customersatisfaction.
-          </div>
-
-          <div
-            class="absolute w-[935px] h-0 left-[237px] top-[576px] outline outline-1 outline-offset-[-0.50px] outline-black"
-            data-aos="fade"
-          ></div>
-
-          <div
-            class="absolute w-[165px] h-[49px] left-[1207px] top=[552px]"
-          ></div>
-          <a
-            href="#contact"
-            class="absolute left-[1207px] top-[552px] inline-flex items-center justify-center w-[165px] h-[49px] bg-black rounded-[38px] hover:bg-neutral-900 transition"
-            data-aos="fade-left"
-            data-aos-delay="150"
-          >
-            <span class="text-white text-base font-medium">GET IN TOUCH</span>
-          </a>
-
-          <div
-            class="absolute w-3 h-3 left-[1177px] top-[570px] bg-black rounded-full"
-            data-aos="fade"
-          ></div>
-          <div
-            class="absolute w-3 h-3 left-[222px] top-[570px] bg-black rounded-full"
-            data-aos="fade"
-          ></div>
-
-          <div
-            class="absolute w-[155px] left-[68px] top-[535px] text-center text-black text-base"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Run your restaurant smarter with TequilaPOS—fast, easy, and built to
-            grow your business.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="bg-white">
-      <div class="container mx-auto px-4 md:px-2">
-        <!-- Section Header -->
-        <div class="text-center md:mb-20 mb-6">
-          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#4f4f4f]">Articulating the</span>
-
-            <span class="text-black"> core functionality</span>
-          </h2>
-          <div class="flex justify-center">
-            <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
-            >
-              A POS website streamlines sales with real-time inventory tracking,
-              secure payment processing, customer management, and insightful
-              analytics.
-            </p>
-          </div>
-        </div>
-
-        <!-- Feature Cards -->
-        <div class="">
-          <div class="bg-white overflow-hidden">
-            <div
-              class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-8 lg:p-12"
-            >
-              <div class="flex flex-col justify-center">
-                <h1
-                  class="text-black text-4xl md:text-5xl font-bold mb-6"
-                  data-aos="fade-up"
-                >
-                  Real-Time Inventory Management
-                </h1>
-                <p
-                  class="text-[#4f4f4f] text-base md:text-lg font-normal"
-                  data-aos="fade-right"
-                >
-                  Real-time customer inventory management enables businesses to
-                  monitor and update stock levels instantly as sales or
-                  restocking occurs. This ensures accurate product availability,
-                  reduces overstocking or stockouts, and enhances customer
-                  satisfaction by providing up-to-date inventory data across all
-                  channels. It also supports faster decision-making and improves
-                  operational efficiency.
-                </p>
-              </div>
-              <div class="flex justify-end items-center" data-aos="fade-left">
-                <img
-                  class="w-full max-w-[397px] h-auto rounded-[48px]"
-                  src="/assets/images/home/real-time.png"
-                  alt="Inventory Management"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Market We Cater Section -->
-    <section class="md:mt-10 mt-5">
-      <div class="container px-4 md:px-2 mx-auto">
-        <div class="text-center md:mb-10 mb-6">
-          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#4f4f4f]">Market we</span>
-            <span class="text-black"> cater to</span>
-          </h2>
-          <div class="flex justify-center">
-            <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
-            >
-              From bustling cafes to retail chains, our POS adapts to every
-              business. Tailored solutions for food, fashion, wellness, and
-              beyond.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex justify-center">
-          <img
-            src="/assets/images/home/market-we-cater.png"
-            class="object-cover w-full"
-            alt="market we cater"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- why choose us -->
-    <section class="md:mt-28 mt-20">
-      <div class="container px-4 md:px-2 mx-auto">
-        <div class="text-center md:mb-10 mb-6">
-          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#4f4f4f]">Why to</span>
-            <span class="text-black"> choose us</span>
-          </h2>
-          <div class="flex justify-center">
-            <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
-            >
-              Fast. Simple. Reliable. Our POS system boosts sales, tracks stock
-              in real time, and works with your favorite tools—all backed by
-              24/7 support.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="container px-4 md:px-2 mx-auto max-w-[1920px]">
-        <div class="grid grid-cols-2 md:grid-cols-4">
-          <div class="hover:scale-[1.03] transition-transform duration-300">
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
-                <div class="flip-card-front bg-white overflow-hidden p-0">
-                  <img
-                    src="/assets/images/home/grid-1.png"
-                    class="object-cover w-full h-full"
-                    alt="Payment Terminal"
-                  />
-                </div>
-
-                <!-- BACK FACE: Content -->
-                <div class="flip-card-back bg-gray-200 text-black shadow-xl">
-                  <h2
-                    class="font-extrabold text-[14px] md:text-[20px] leading-tight"
-                  >
-                    <span class="block"> Lightning-Fast </span>
-                    <span class="block"> Transactions — </span>
-                    <span class="block text-[#505050] font-normal">
-                      No delays, just smooth
-                    </span>
-                    <span class="block text-[#505050] font-normal">
-                      checkouts.
-                    </span>
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <img
-              src="/assets/images/home/grid-2.png"
-              class="object-cover w-full h-full"
-              alt="why choose us"
-            />
-          </div>
-          <div class="hover:scale-[1.03] transition-transform duration-300">
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
-                <div class="flip-card-front bg-white overflow-hidden p-0">
-                  <img
-                    src="/assets/images/home/grid-3.png"
-                    class="object-cover w-full h-full"
-                    alt="Payment Terminal"
-                  />
-                </div>
-
-                <!-- BACK FACE: Content -->
-                <div class="flip-card-back bg-gray-200 text-black shadow-xl">
-                  <h2
-                    class="font-extrabold text-[14px] md:text-[20px] leading-tight"
-                  >
-                    <span class="block">Secure & PCI-Compliant — </span>
-
-                    <span class="block text-[#505050] font-normal">
-                      Your data and customer payments are always protected.
-                    </span>
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <img
-              src="/assets/images/home/grid-4.png"
-              class="object-cover w-full h-full"
-              alt="why choose us"
-            />
-          </div>
-          <div class="hover:scale-[1.03] transition-transform duration-300">
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
-                <div class="flip-card-front bg-white overflow-hidden p-0">
-                  <img
-                    src="/assets/images/home/grid-5.png"
-                    class="object-cover w-full h-full"
-                    alt="Payment Terminal"
-                  />
-                </div>
-
-                <!-- BACK FACE: Content -->
-                <div class="flip-card-back bg-gray-200 text-black shadow-xl">
-                  <h2
-                    class="font-extrabold text-[14px] md:text-[20px] leading-tight"
-                  >
-                    <span class="block"
-                      >Built for Restaurants & Retail — Industry-
-                    </span>
-
-                    <span class="block text-[#505050] font-normal">
-                      specific tools, not one-size-fits-all.
-                    </span>
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hover:scale-[1.03] transition-transform duration-300">
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
-                <div class="flip-card-front bg-white overflow-hidden p-0">
-                  <img
-                    src="/assets/images/home/grid-6.png"
-                    class="object-cover w-full h-full"
-                    alt="Payment Terminal"
-                  />
-                </div>
-
-                <!-- BACK FACE: Content -->
-                <div class="flip-card-back bg-gray-200 text-black shadow-xl">
-                  <h2
-                    class="font-extrabold text-[14px] md:text-[20px] leading-tight"
-                  >
-                    <span class="block"
-                      >All-in-One Hardware Compatibility-
-                    </span>
-
-                    <span class="block text-[#505050] font-normal">
-                      Our system works seamlessly with printers, cash drawers,
-                      barcode scanners, and tablets. Choose your setup or use
-                      what you already have—it's fully flexible.
-                    </span>
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="flex flex-col justify-center items-center md:px-12 md:pt-10 px-6 pt-4 md:mb-6 mb-4"
-          >
-            <p class="md:text-xl text-sm font-bold">
-              <span class="text-black">Discover why we stand out—</span
-              ><span class="text-[#4f4f4f]"
-                >smart solutions, real results, and support you can count
-                on.</span
-              >
-            </p>
-
-            <button
-              href="#"
-              class="btn text-black text-xs md:text-[15px] font-semibold md:mt-10 mt-6 underline hover:no-underline hover:text-black"
-            >
-              EXPLORE MORE
-            </button>
-          </div>
-          <div class="hover:scale-[1.03] transition-transform duration-300">
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
-                <div class="flip-card-front bg-white overflow-hidden p-0">
-                  <img
-                    src="/assets/images/home/grid-7.png"
-                    class="object-cover w-full h-full"
-                    alt="Payment Terminal"
-                  />
-                </div>
-
-                <!-- BACK FACE: Content -->
-                <div class="flip-card-back bg-gray-200 text-black shadow-xl">
-                  <h2
-                    class="font-extrabold text-[14px] md:text-[20px] leading-tight"
-                  >
-                    <span class="block">Exceptional 24/7 Support- </span>
-
-                    <span class="block text-[#505050] font-normal">
-                      Our expert support team is available around the clock.
-                      From setup to troubleshooting, we're with you every step
-                      of the way.
-                    </span>
-                  </h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- smarter soluitons -->
-
-    <section id="features" class="bg-white py-20">
-      <div class="container mx-auto px-4 md:px-2">
-        <!-- header ... unchanged -->
-        <div class="text-center md:mb-10 mb-6">
-          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#4f4f4f]">Smarter Hardware</span>
-            <span class="text-black">Smarter Hardware</span>
-          </h2>
-          <div class="flex justify-center">
-            <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
-            >
-              Fast. Simple. Reliable. Our POS system boosts sales, tracks stock
-              in real time, and works with your favorite tools—all backed by
-              24/7 support.
-            </p>
-          </div>
-        </div>
-
-        <div class="splide relative" id="feature-carousel">
-          <div class="splide__track">
-            <ul class="splide__list">
-              <!-- Slide 1 (your provided markup) -->
-              <li class="splide__slide">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:mt-0 mt-5">
-                  <div class="flex flex-col items-start md:justify-center">
-                    <p class="text-black md:text-[32px] text-sm font-semibold">
-                      Reader for magstripe
-                    </p>
-                    <p
-                      class="w-full md:w-[362px] text-[#4f4f4f] md:text-[15px] text-xs font-normal md:mt-4 mt-1"
-                    >
-                      Magstripe Reader – plug-and-play swipe dongle for secure,
-                      rapid card transactions on any POS setup via a 3.5 mm
-                      jack.
-                    </p>
-                    <button
-                      class="btn text-black text-xs md:text-[15px] font-semibold md:mt-10 mt-6 underline hover:no-underline hover:text-black"
-                    >
-                      EXPLORE MORE
-                    </button>
-                  </div>
-                  <div class="relative flex justify-center">
-                    <img
-                      src="/assets/images/home/slider-imag-1.png"
-                      alt="Reader for magstripe"
-                    />
-                  </div>
-                </div>
-              </li>
-
-              <!-- Slide 2 -->
-              <li class="splide__slide">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:mt-0 mt-5">
-                  <div class="flex flex-col items-start md:justify-center">
-                    <p class="text-black md:text-[32px] text-sm font-semibold">
-                      MagTek DynaFlex
-                    </p>
-                    <p
-                      class="w-full md:w-[362px] text-[#4f4f4f] md:text-[15px] text-xs font-normal md:mt-4 mt-1"
-                    >
-                      Reader Stand – sleek countertop dock designed to securely
-                      hold the magstripe reader upright for easy access and
-                      clean presentation.
-                    </p>
-                    <button
-                      class="btn text-black text-xs md:text-[15px] font-semibold md:mt-10 mt-6 underline hover:no-underline hover:text-black"
-                    >
-                      EXPLORE MORE
-                    </button>
-                  </div>
-                  <div class="relative flex justify-center">
-                    <img
-                      src="/assets/images/home/magtek.png"
-                      alt="Smart POS Terminal"
-                    />
-                  </div>
-                </div>
-              </li>
-
-              <!-- Slide 3 -->
-              <li class="splide__slide">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:mt-0 mt-5">
-                  <div class="flex flex-col items-start md:justify-center">
-                    <p class="text-black md:text-[32px] text-sm font-semibold">
-                      PAX A920
-                    </p>
-                    <p
-                      class="w-full md:w-[362px] text-[#4f4f4f] md:text-[15px] text-xs font-normal md:mt-4 mt-1"
-                    >
-                      Magstripe Reader Kiosk Stand – compact, tamper-resistant
-                      dock that securely holds the reader at kiosk height for
-                      seamless self-service swiping. EXPLORE MORE
-                    </p>
-                    <button
-                      class="btn text-black text-xs md:text-[15px] font-semibold md:mt-10 mt-6 underline hover:no-underline hover:text-black"
-                    >
-                      EXPLORE MORE
-                    </button>
-                  </div>
-                  <div class="relative flex justify-center">
-                    <img
-                      src="/assets/images/home/px.png"
-                      alt="Contactless Reader"
-                    />
-                  </div>
-                </div>
-              </li>
-
-              <!-- Slide 4 -->
-              <li class="splide__slide">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:mt-0 mt-5">
-                  <div class="flex flex-col items-start md:justify-center">
-                    <p class="text-black md:text-[32px] text-sm font-semibold">
-                      PAX A35
-                    </p>
-                    <p
-                      class="w-full md:w-[362px] text-[#4f4f4f] md:text-[15px] text-xs font-normal md:mt-4 mt-1"
-                    >
-                      Magstripe Reader Kiosk Stand – compact, tamper-resistant
-                      dock that securely holds the reader at kiosk height for
-                      seamless self-service swiping.
-                    </p>
-                    <button
-                      class="btn text-black text-xs md:text-[15px] font-semibold md:mt-10 mt-6 underline hover:no-underline hover:text-black"
-                    >
-                      EXPLORE MORE
-                    </button>
-                  </div>
-                  <div class="relative flex justify-center">
-                    <img src="/assets/images/home/px135.png" alt="PAX A35" />
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- ONE arrows container for the whole carousel -->
-          <div
-            class="splide__arrows feature-arrows absolute inset-y-0 left-0 right-0 md:left-1/2 md:right-0 flex items-center justify-between px-2 pointer-events-none"
-          >
-            <button
-              class="splide__arrow splide__arrow--prev bg-gray-400 p-2 rounded-full shadow pointer-events-auto"
-            >
-              ‹
-            </button>
-            <button
-              class="splide__arrow splide__arrow--next bg-gray-400 p-2 rounded-full shadow pointer-events-auto"
-            >
-              ›
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <style>
-      /* keeps arrows vertically centered over the image column */
-      #feature-carousel .feature-arrows {
-        top: 50%;
-        transform: translateY(-50%);
-      }
-    </style>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        new Splide("#feature-carousel", {
-          type: "loop",
-          perPage: 1,
-          pagination: false,
-          arrows: true,
-          autoplay: false,
-          gap: "1rem",
-        }).mount();
-      });      
-    </script>
-    <!-- faq  -->
-    <section id="faq" class="bg-white py-20">
-      <div
-        class="container mx-auto px-4 md:px-2 overflow-x-hidden"
-        data-aos="fade-bottom"
-        data-aos-duration="1000"
-      >
-        <!-- Section Header -->
-        <div class="text-center md:mb-20 mb-6">
-          <h2
-            class="mb-1 md:mb-6 md:text-[40px] font-bold text-xl leading-normal"
-          >
-            <span class="text-[#4f4f4f]">Frequently Asked</span>
-            <span class="text-black">Question</span>
-          </h2>
-          <div class="flex justify-center">
-            <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
-            >
-              We’ve answered some of the most common queries to help you get
-              quick, clear information. Whether you're curious about features,
-              pricing, or setup, our FAQs have you covered.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ Items -->
-        <div class="mx-auto space-y-8">
-          <!-- FAQ Item 1 -->
-          <div class="border-b border-[#9E9E9E] overflow-hidden">
-            <button
-              class="faq-question flex justify-between pb-6 items-center w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-100 focus:outline-none"
-              aria-expanded="false"
-            >
-              <p class="text-black md:text-[32px] text-base font-medium">
-                What is a POS system and how does it work?
-              </p>
-              <svg
-                class="w-5 h-5 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div
-              class="faq-answer px-6 max-h-0 overflow-hidden transition-[max-height] duration-500 text-gray-600 text-xs md:text-sm"
-            >
-              <p class="py-4">
-                Our product includes feature-rich tools for payment processing,
-                inventory management, and real-time analytics to help your
-                business grow.
-              </p>
-            </div>
-          </div>
-
-          <!-- FAQ Item 2 -->
-          <div class="border-b border-[#9E9E9E] overflow-hidden">
-            <button
-              class="faq-question flex justify-between pb-6 items-center w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-100 focus:outline-none"
-              aria-expanded="false"
-            >
-              <p class="text-black md:text-[32px] text-base font-medium">
-                What is a POS system and how does it work?
-              </p>
-              <svg
-                class="w-5 h-5 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div
-              class="faq-answer px-6 max-h-0 overflow-hidden transition-[max-height] duration-500 text-gray-600 md:text-sm text-xs"
-            >
-              <p class="py-4">
-                Our product includes feature-rich tools for payment processing,
-                inventory management, and real-time analytics to help your
-                business grow.
-              </p>
-            </div>
-          </div>
-
-          <!-- FAQ Item 3 -->
-          <div class="border-b border-[#9E9E9E] overflow-hidden">
-            <button
-              class="faq-question flex justify-between pb-6 items-center w-full px-6 py-4 text-left font-semibold text-gray-800 hover:bg-gray-100 focus:outline-none"
-              aria-expanded="false"
-            >
-              <p class="text-black md:text-[32px] text-base font-medium">
-                What is a POS system and how does it work?
-              </p>
-              <svg
-                class="w-5 h-5 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            <div
-              class="faq-answer px-6 max-h-0 overflow-hidden transition-[max-height] duration-500 text-gray-600 text-xs md:text-sm"
-            >
-              <p class="py-4">
-                Our product includes feature-rich tools for payment processing,
-                inventory management, and real-time analytics to help your
-                business grow.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white py-10">
-      <div class="container mx-auto px-4 sm:px-8 lg:px-16">
-        <!-- Top Logo + Switch -->
-        <div
-          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
-        >
-          <img
-            src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="w-10 md:w-40 h-auto"
-            alt=""
-          />
-
-          <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
-              Switch to dark mode
-            </p>
-
-            <!-- Toggle Switch -->
-            <label
-              for="dark-mode-toggle"
-              class="relative inline-flex items-center cursor-pointer"
-            >
-              <label for="dark-mode-toggle" class="sr-only"
-                >Toggle dark mode</label
-              >
-              <input
-                type="checkbox"
-                id="dark-mode-toggle"
-                class="sr-only peer"
-                title="Toggle dark mode"
-                placeholder="Toggle dark mode"
-              />
-              <div
-                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
-              ></div>
-              <div
-                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
-              ></div>
-            </label>
+          <div id="dropdownMenu" class="hidden mt-1 bg-white rounded-lg overflow-hidden border border-gray-100 ml-2">
+            <a href="#"
+              class="block px-4 py-3 text-gray-700 hover:bg-blue-50 border-l-4 border-transparent hover:border-blue-500 font-medium">Food
+              & Beverage</a>
+            <a href="#"
+              class="block px-4 py-3 text-gray-700 hover:bg-blue-50 border-l-4 border-transparent hover:border-blue-500 font-medium">Retail</a>
           </div>
         </div>
 
         <!-- Links -->
-        <div class="border-t border-gray-300 pt-6">
-          <div
-            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
-          >
-            <!-- Company -->
-            <div>
-              <!-- Accordion Header Button -->
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="company-links"
-                onclick="toggleAccordion(this)"
-              >
-                Company
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
+        <div class="space-y-1">
+          <a href="#features" class="block px-4 py-3 hover:bg-gray-50 rounded-lg font-bold text-gray-800">Features</a>
+          <a href="#hardware" class="block px-4 py-3 hover:bg-gray-50 rounded-lg font-bold text-gray-800">Hardware</a>
+          <a href="#pricing" class="block px-4 py-3 hover:bg-gray-50 rounded-lg font-bold text-gray-800">Pricing</a>
+          <a href="/light/resourse.html"
+            class="block px-4 py-3 hover:bg-gray-50 rounded-lg font-bold text-gray-800">Resources</a>
+        </div>
 
-              <!-- Links Container -->
-              <div
-                id="company-links"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >About Us</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Contact Us</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Hardware</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Terms of Service</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Privacy Policy</a
-                >
-              </div>
+        <hr class="border-gray-100">
+
+        <!-- Language Switcher -->
+        <div class="flex items-center justify-between px-4 py-3 bg-gray-50 rounded-lg">
+          <span class="text-sm font-bold">EN</span>
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="checkbox" class="sr-only peer" />
+            <div
+              class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-600 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full">
             </div>
+          </label>
+          <span class="text-sm font-bold">ES</span>
+        </div>
 
-            <!-- Products -->
-            <div>
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="products"
-                onclick="toggleAccordion(this)"
-              >
-                Products
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div
-                id="products"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >PAX A920</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >PAX A35</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >MagTek DynaFlex</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >PAX Elys Workstation</a
-                >
+        <!-- Footer Actions -->
+        <div class="pt-4 space-y-3">
+          <a href="#signin" class="block text-center px-4 py-3 font-bold text-gray-800 hover:text-blue-600">Sign In</a>
+          <a href="#demo"
+            class="block text-center bg-black text-white font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform">
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Backdrop (to close menu when clicking outside) -->
+    <div id="menu-backdrop" class="fixed inset-0 bg-black/20 hidden z-40"></div>
+  </nav>
+  <!--Web-->
+  <nav class="bg-white hidden md:block sticky top-0 z-50 w-full px-20">
+    <div class="container mx-auto flex items-center justify-between py-2 px-4">
+
+      <!-- Left: Logo & Nav -->
+      <div class="flex items-center gap-4">
+        <a href="/light/index.html">
+          <img src="/assets/images/logo/tequila_pos_logo_transparent.png" alt="Logo"
+            class="h-20 w-auto object-contain" />
+        </a>
+
+        <div class="flex items-center gap-6">
+          <div class="relative group py-4">
+            <a href="#business-type" class="font-bold text-xl text-gray-800 hover:text-blue-600">Business Type</a>
+
+            <!-- Mega Menu -->
+            <div
+              class="absolute left-[-100px] top-full bg-white shadow-2xl border-t opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 min-w-[850px] flex">
+
+              <!-- Category List -->
+              <div class="w-1/3 bg-gray-50 p-8 border-r">
+                <div class="flex flex-col gap-6">
+                  <button class="text-2xl font-bold text-left hover:text-blue-600 transition underline text-blue-600"
+                    data-cat="food">Food & Beverage</button>
+                  <button class="text-2xl font-bold text-left hover:text-blue-600 transition"
+                    data-cat="retail">Retail</button>
+                </div>
               </div>
-            </div>
 
-            <!-- Resources -->
-            <div>
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="resources"
-                onclick="toggleAccordion(this)"
-              >
-                Resources
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div
-                id="resources"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Product Guides & Tutorials</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Video Tutorials</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >FAQs</a
-                >
-              </div>
-            </div>
-
-            <!-- Legal -->
-            <div>
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="legal"
-                onclick="toggleAccordion(this)"
-              >
-                Legal
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div
-                id="legal"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Privacy Policy</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Terms & Condition</a
-                >
-              </div>
-            </div>
-
-            <!-- Social -->
-            <div>
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="social"
-                onclick="toggleAccordion(this)"
-              >
-                Social
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div
-                id="social"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Twitter</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Instagram</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Facebook</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Youtube</a
-                >
+              <!-- Panels Content -->
+              <div class="w-2/3 p-10">
+                ${this.renderPanels()}
               </div>
             </div>
           </div>
 
-          <!-- Subscribe -->
-          <div class="border-t border-gray-300 pt-6">
-            <div
-              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
-            >
-              <div>
-                <h4
-                  class="font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-2"
-                >
-                  Subscribe
-                </h4>
-                <p class="text-gray-500 text-sm sm:text-base mb-1">
-                  Join our community to receive updates
-                </p>
+          <a href="/light/feature.html" class="font-bold text-xl text-gray-800 hover:text-blue-600">Feature</a>
+          <a href="/light/hardware.html" class="font-bold text-xl text-gray-800 hover:text-blue-600">Hardware</a>
+          <a href="/light/pricing.html" class="font-bold text-xl text-gray-800 hover:text-blue-600">Pricing</a>
+          <a href="/light/resourse.html" class="font-bold text-xl text-gray-800 hover:text-blue-600">Resources</a>
+        </div>
+      </div>
+
+      <!-- Right: Actions -->
+      <div class="flex items-center gap-6">
+        <a href="#signin" class="font-bold text-lg text-gray-800">Sign in</a>
+
+        <div class="flex items-center gap-4"> <!-- Language toggle button -->
+          <div id="language-toggle"
+            class="relative w-24 h-8 flex items-center border border-gray-300 rounded-full bg-white p-1 cursor-pointer">
+            <!-- Flag circle slider -->
+            <div id="slider"
+              class="absolute top-1 left-1 w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center z-20 transition-transform duration-1000 ease-in-out">
+              <img id="flag-icon" src="/assets/images/flags/usa.png" class="object-cover" alt="USA" />
+            </div>
+            <!-- Language text -->
+            <span id="language-text"
+              class="absolute left-8 text-xs font-semibold transition-all duration-1000 ease-in-out">ENGLISH</span>
+          </div>
+
+          <button
+            class=" text-black px-2 py-1 border border-black rounded-full text-xl font-bold hover:bg-gray-900 hover:text-white transition">
+            Free Demo
+          </button>
+        </div>
+      </div>
+  </nav>
+
+  <!-- hero section -->
+  <section>
+    <div class="px-4 md:px-0 mx-auto">
+      <!-- MOBILE (stacked) -->
+      <div class="md:hidden text-center min-h-screen flex flex-col justify-center items-center gap-0">
+        <!-- MOBILE Lottie (autoplay) -->
+        <div class="md:hidden h-full flex justify-center">
+          <dotlottie-wc class=" border-none outline-none" style="width: 500px; height: 240px;"
+            src="https://lottie.host/1f5f17c8-a0a7-4921-bab0-345c47ecb0a2/JXjlte1V8J.lottie" autoplay>
+          </dotlottie-wc>
+        </div>
+        <h2 data-aos="fade-up" class="mt-4 text-2xl font-bold">
+          <span class="text-[#4f4f4f]">Smarter POS </span><span>Solutions for Modern</span><span class="text-[#4f4f4f]">
+            businesses</span>
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="100" class="mt-2 text-sm text-[#4f4f4f] max-w-md mx-auto">
+          Our Point of Sale system simplifies how you sell, manage inventory,
+          and handle payments - all from one easy-to-use platform. Whether
+          you're running a store, cafe or salon, our POS helps streamline
+          operations and boost customer satisfaction.
+        </p>
+        <div class="mt-6">
+          <a data-aos="fade-up" data-aos-delay="150" href="#contact"
+            class="inline-flex items-center justify-center rounded-[38px] border border-black px-6 py-2 text-xs font-medium hover:bg-black hover:text-white transition">
+            GET IN TOUCH
+          </a>
+        </div>
+      </div>
+
+      <!-- DESKTOP (exact UI) -->
+      <div class="relative group bg-white overflow-hidden hidden md:block md:w-[1440px] md:h-[649px] mx-auto"
+        data-aos="fade-up" data-aos-delay="100">
+        <dotlottie-wc class="border-none outline-none"
+          src="https://lottie.host/1f5f17c8-a0a7-4921-bab0-345c47ecb0a2/JXjlte1V8J.lottie"
+          stateMachineId="StateMachine1" style="margin-top: -110px;">
+        </dotlottie-wc>
+        <div class="absolute left-[337px] top-[320px] text-center  opacity-0 translate-y-6 transition-all duration-1000 delay-700
+              group-hover:opacity-100 group-hover:translate-y-0 ">
+          <span class="text-[#4f4f4f] text-4xl font-bold">Smarter POS </span>
+          <span class="text-[#090909] text-4xl font-bold">Solutions for Modern</span>
+          <span class="text-[#4f4f4f] text-4xl font-bold"> businesses</span>
+        </div>
+
+        <div class="absolute w-[654px] left-[393px] top-[360px] text-center text-[#4f4f4f] text-[15px]  opacity-0 translate-y-6 transition-all duration-1000 delay-800
+              group-hover:opacity-100 group-hover:translate-y-0">
+          Our Point of Sale system simplifies how you sell, manage inventory,
+          and handle payments - all from one easy-to-use platform. Whether
+          You're running a store, cafe or salon, our POS helps streamline
+          operations and boost customersatisfaction.
+        </div>
+
+        <div class="absolute w-[935px] h-0 left-[237px] top-[500px] outline outline-1 outline-offset-[-0.50px] outline-black opacity-0 translate-y-6 transition-all duration-1000 delay-1000
+              group-hover:opacity-100 group-hover:translate-y-0"></div>
+
+        <div class="absolute w-[165px] h-[49px] left-[1207px] top=[476px] opacity-0 translate-y-6 transition-all duration-1000 delay-1000
+              group-hover:opacity-100 group-hover:translate-y-0"></div>
+        <a href="#contact" class="absolute left-[1207px] top-[476px] inline-flex items-center justify-center w-[165px] h-[49px] bg-black rounded-[38px] hover:bg-neutral-900 transition opacity-0 translate-y-6 transition-all duration-1000 delay-1000
+              group-hover:opacity-100 group-hover:translate-y-0">
+          <span class="text-white text-base font-medium opacity-0 translate-y-6 transition-all duration-1000 delay-1000
+              group-hover:opacity-100 group-hover:translate-y-0">GET IN TOUCH</span>
+        </a>
+
+        <div class="absolute w-3 h-3 left-[1177px] top-[494px] bg-black rounded-full opacity-0 translate-y-6 transition-all duration-1000 delay-1000
+              group-hover:opacity-100 group-hover:translate-y-0"></div>
+        <div class="absolute w-3 h-3 left-[222px] top-[494px] bg-black rounded-full opacity-0 translate-y-6 transition-all duration-1000 delay-1000
+              group-hover:opacity-100 group-hover:translate-y-0"></div>
+
+        <div class="absolute w-[155px] left-[68px] top-[440px] text-center text-black text-base opacity-0 translate-y-6 transition-all duration-1000 delay-1000
+              group-hover:opacity-100 group-hover:translate-y-0">
+          Run your restaurant smarter with TequilaPOS—fast, easy, and built to
+          grow your business.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features"
+    class=" group relative pt-2 w-full min-h-screen md:h-[90vh] bg-white overflow-hidden group cursor-pointer">
+    <div class="container mx-auto px-4 md:px-2">
+      <!-- Section Header -->
+      <div class="text-center md:mb-20 mb-6">
+        <h2 class="mb-1 md:mb-6 font-bold text-4xl md:text-5xl">
+          <span class="text-[#4f4f4f]">Articulating the</span>
+
+          <span class="text-black"> core functionality</span>
+        </h2>
+        <div class="flex justify-center">
+          <p class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[18px] text-base font-normal">
+            A POS website streamlines sales with real-time inventory tracking,
+            secure payment processing, customer management, and insightful
+            analytics.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature Cards -->
+      <div class="absolute top-40 md:top-25 right-0 p-6
+            opacity-0 translate-x-20 -translate-y-20
+            transition-all duration-1000  ease-[cubic-bezier(0.4,0,0.2,1)]
+            group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0">
+        <div class="bg-white overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-8 lg:p-12">
+            <div class="flex flex-col justify-center">
+              <h1 class="text-black text-2xl md:text-4xl w-full md:w-2/3 font-bold mb-6">
+                Real-Time Inventory Management
+              </h1>
+              <p class="text-[#4f4f4f] w-full md:w-2/3 text-base md:text-xl font-normal">
+                Real-time customer inventory management enables businesses to
+                monitor and update stock levels instantly as sales or
+                restocking occurs. This ensures accurate product availability,
+                reduces overstocking or stockouts, and enhances customer
+                satisfaction by providing up-to-date inventory data across all
+                channels. It also supports faster decision-making and improves
+                operational efficiency.
+              </p>
+            </div>
+            <div class="flex justify-end items-center">
+              <img class="w-full max-w-[397px] h-auto rounded-[48px]" src="/assets/images/home/real-time.png"
+                alt="Inventory Management" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Market We Cater Section -->
+  <section class="md:mt-10 mt-5">
+    <div class="container px-4 md:px-2 mx-auto">
+      <div class="text-center md:mb-10 mb-6">
+        <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
+          <span class="text-[#4f4f4f]">Market we</span>
+          <span class="text-black"> cater to</span>
+        </h2>
+        <div class="flex justify-center">
+          <p class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal">
+            From bustling cafes to retail chains, our POS adapts to every
+            business. Tailored solutions for food, fashion, wellness, and
+            beyond.
+          </p>
+        </div>
+      </div>
+
+      <!-- <div class="flex justify-center group-hover:blur-sm transition duration-200 ease-in-out">
+        <img src="/assets/images/home/market-we-cater.png" class="object-cover h-[80vh] relative "
+          alt="market we cater" />
+      </div>
+      <div
+        class="absolute inset-0 bg-blue-500 opacity-0 transition-opacity duration-500 ease-in-out hover:opacity-30 rounded-lg">
+      </div> -->
+
+      <div class="relative group flex justify-center items-center overflow-hidden rounded-lg w-full h-auto">
+        <div class="relative h-[80vh] justify-center items-center overflow-hidden rounded-lg">
+          <!-- Image -->
+          <img src="/assets/images/home/market-we-cater.png"
+            class="object-cover w-full h-full transition-all duration-700 ease-in-out group-hover:blur-md"
+            alt="market we cater" />
+
+          <!-- Blue blur overlay -->
+          <div
+            class="absolute inset-0 bg-blue-500/30 rounded-6xl opacity-0 transition-opacity duration-1500 ease-in-out group-hover:opacity-30 blur-lg shadow-xl/20 ">
+          </div>
+
+          <!-- Text -->
+          <div
+            class="absolute inset-0 flex justify-center items-center opacity-0 translate-y-10 transition-all duration-1000 ease-out-in delay-200 group-hover:opacity-100 group-hover:translate-y-0 text-center px-4">
+            <h2 class="text-white text-xl md:text-6xl font-bold leading-snug">
+              Empowering Diverse Industries <br /> with Smart, Scalable POS Solutions
+            </h2>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- why choose us -->
+  <section class="md:mt-28 mt-20">
+    <div class="container px-4 md:px-2 mx-auto">
+      <div class="text-center md:mb-10 mb-6">
+        <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
+          <span class="text-[#4f4f4f]">Why to</span>
+          <span class="text-black"> choose us</span>
+        </h2>
+        <div class="flex justify-center">
+          <p class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal">
+            Fast. Simple. Reliable. Our POS system boosts sales, tracks stock
+            in real time, and works with your favorite tools—all backed by
+            24/7 support.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container px-4 md:px-2 mx-auto max-w-[1920px]">
+      <div class="grid grid-cols-2 md:grid-cols-4">
+        <div class="hover:scale-[1.03] transition-transform duration-300">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
+              <div class="flip-card-front bg-white overflow-hidden p-0">
+                <img src="/assets/images/home/grid-1.png" class="object-cover w-full h-full" alt="Payment Terminal" />
               </div>
-              <div>
-                <p class="text-gray-800 text-xs ps-3 pb-1">Stay up to date</p>
-                <div class="flex w-full sm:w-auto">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-gray-600 text-base border-0 outline-none"
-                  />
-                  <button
-                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-800 transition-colors"
-                  >
-                    Subscribe
-                  </button>
-                </div>
+
+              <!-- BACK FACE: Content -->
+              <div class="flip-card-back bg-gray-200 text-black shadow-xl">
+                <h2 class="font-extrabold text-[14px] md:text-[20px] leading-tight">
+                  <span class="block"> Lightning-Fast </span>
+                  <span class="block"> Transactions — </span>
+                  <span class="block text-[#505050] font-normal">
+                    No delays, just smooth
+                  </span>
+                  <span class="block text-[#505050] font-normal">
+                    checkouts.
+                  </span>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <img src="/assets/images/home/grid-2.png" class="object-cover w-full h-full" alt="why choose us" />
+        </div>
+        <div class="hover:scale-[1.03] transition-transform duration-300">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
+              <div class="flip-card-front bg-white overflow-hidden p-0">
+                <img src="/assets/images/home/grid-3.png" class="object-cover w-full h-full" alt="Payment Terminal" />
+              </div>
+
+              <!-- BACK FACE: Content -->
+              <div class="flip-card-back bg-gray-200 text-black shadow-xl">
+                <h2 class="font-extrabold text-[14px] md:text-[20px] leading-tight">
+                  <span class="block">Secure & PCI-Compliant — </span>
+
+                  <span class="block text-[#505050] font-normal">
+                    Your data and customer payments are always protected.
+                  </span>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <img src="/assets/images/home/grid-4.png" class="object-cover w-full h-full" alt="why choose us" />
+        </div>
+        <div class="hover:scale-[1.03] transition-transform duration-300">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
+              <div class="flip-card-front bg-white overflow-hidden p-0">
+                <img src="/assets/images/home/grid-5.png" class="object-cover w-full h-full" alt="Payment Terminal" />
+              </div>
+
+              <!-- BACK FACE: Content -->
+              <div class="flip-card-back bg-gray-200 text-black shadow-xl">
+                <h2 class="font-extrabold text-[14px] md:text-[20px] leading-tight">
+                  <span class="block">Built for Restaurants & Retail — Industry-
+                  </span>
+
+                  <span class="block text-[#505050] font-normal">
+                    specific tools, not one-size-fits-all.
+                  </span>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hover:scale-[1.03] transition-transform duration-300">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
+              <div class="flip-card-front bg-white overflow-hidden p-0">
+                <img src="/assets/images/home/grid-6.png" class="object-cover w-full h-full" alt="Payment Terminal" />
+              </div>
+
+              <!-- BACK FACE: Content -->
+              <div class="flip-card-back bg-gray-200 text-black shadow-xl">
+                <h2 class="font-extrabold text-[14px] md:text-[20px] leading-tight">
+                  <span class="block">All-in-One Hardware Compatibility-
+                  </span>
+
+                  <span class="block text-[#505050] font-normal">
+                    Our system works seamlessly with printers, cash drawers,
+                    barcode scanners, and tablets. Choose your setup or use
+                    what you already have—it's fully flexible.
+                  </span>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col justify-center items-center md:px-12 md:pt-10 px-6 pt-4 md:mb-6 mb-4">
+          <p class="md:text-xl text-sm font-bold">
+            <span class="text-black">Discover why we stand out—</span><span class="text-[#4f4f4f]">smart solutions, real
+              results, and support you can count
+              on.</span>
+          </p>
+
+          <button href="#"
+            class="btn text-black text-xs md:text-[15px] font-semibold md:mt-10 mt-6 underline hover:no-underline hover:text-black">
+            EXPLORE MORE
+          </button>
+        </div>
+        <div class="hover:scale-[1.03] transition-transform duration-300">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- FRONT FACE: Image (bg-white retained as fallback/placeholder) -->
+              <div class="flip-card-front bg-white overflow-hidden p-0">
+                <img src="/assets/images/home/grid-7.png" class="object-cover w-full h-full" alt="Payment Terminal" />
+              </div>
+
+              <!-- BACK FACE: Content -->
+              <div class="flip-card-back bg-gray-200 text-black shadow-xl">
+                <h2 class="font-extrabold text-[14px] md:text-[20px] leading-tight">
+                  <span class="block">Exceptional 24/7 Support- </span>
+
+                  <span class="block text-[#505050] font-normal">
+                    Our expert support team is available around the clock.
+                    From setup to troubleshooting, we're with you every step
+                    of the way.
+                  </span>
+                </h2>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <!-- Splide JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../assets/js/navbar.js"></script>
-    <script src="../assets/js/faq-toggle.js"></script>
-    <script src="../assets/js/footer-accordion.js"></script>
+  <!-- smarter soluitons -->
 
-    <script>
-      AOS.init({
-        once: false,
-      });
+  <section id="features" class=" container bg-white w-full md:px-28 mx-auto mt-20">
+    <div class="container mx-auto px-4 md:px-2">
 
-      function toggleFaq(element) {
-        element.classList.toggle("active");
-      }
+      <!-- HEADER -->
+      <div class="text-center md:mb-16 mb-8">
+        <h2 class="mb-2 md:mb-4 font-bold md:text-[40px] text-2xl">
+          <span class="text-[#4f4f4f]">Smarter Hardware</span>
+          <span class="text-black">for Smooth Sales</span>
+        </h2>
+        <p class="md:w-[562px] w-full mx-auto text-center text-[#4f4f4f] md:text-[15px] text-[14px] font-normal">
+          Fast. Simple. Reliable. Our POS system boosts sales, tracks stock
+          in real time, and works with your favorite tools—all backed by
+          24/7 support.
+        </p>
+      </div>
 
-      let isEnglish = true;
+      <!-- MAIN GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
-      function toggleLanguage() {
-        const textEl = document.getElementById("language-text");
-        const flagEl = document.getElementById("flag-icon");
+        <!-- TEXT SECTION -->
+        <div id="feature-text" class="flex flex-col justify-center w-full md:w-1/2 space-y-4 md:space-y-6">
+          <p id="feature-title" class="text-black md:text-[32px] text-lg font-semibold"></p>
+          <p id="feature-desc" class="text-[#4f4f4f] md:text-[15px] text-sm"></p>
+          <button
+            class="btn text-black text-sm md:text-[15px] font-semibold underline hover:no-underline hover:text-black w-max">
+            EXPLORE MORE
+          </button>
+        </div>
 
-        if (isEnglish) {
-          textEl.textContent = "ESPAÑOL";
-          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
-          flagEl.alt = "Spain Flag";
-        } else {
-          textEl.textContent = "ENGLISH";
-          flagEl.src = "/assets/images/flags/usa.png";
-          flagEl.alt = "USA Flag";
-        }
+        <!-- IMAGE SLIDER -->
+        <div class="splide w-full md:w-auto" id="feature-carousel">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide flex justify-center">
+                <img src="/assets/images/home/slider-imag-1.png" alt="Reader for magstripe"
+                  class="max-w-full h-auto rounded-lg" />
+              </li>
+              <li class="splide__slide flex justify-center">
+                <img src="/assets/images/home/magtek.png" alt="MagTek DynaFlex" class="max-w-full h-auto rounded-lg" />
+              </li>
+              <li class="splide__slide flex justify-center">
+                <img src="/assets/images/home/px.png" alt="PAX A920" class="max-w-full h-auto rounded-lg" />
+              </li>
+              <li class="splide__slide flex justify-center">
+                <img src="/assets/images/home/px135.png" alt="PAX A35" class="max-w-full h-auto rounded-lg" />
+              </li>
+            </ul>
+          </div>
 
-        isEnglish = !isEnglish; // flip state
-      }
+          <!-- Arrows -->
+          <div class="splide__arrows flex justify-between mt-4">
+            <button
+              class="splide__arrow splide__arrow--prev bg-gray-600 text-white font-bold p-4 text-2xl rounded-full shadow hover:bg-gray-700">
+              ‹
+            </button>
+            <button
+              class="splide__arrow splide__arrow--next bg-gray-600 text-white font-bold p-4 text-2xl rounded-full shadow hover:bg-gray-700">
+              ›
+            </button>
+          </div>
+        </div>
 
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE DATA -->
+  <script>
+    const featureData = [
+      { title: "Reader for magstripe", desc: "Magstripe Reader – plug-and-play swipe dongle for secure, rapid card transactions on any POS setup via a 3.5 mm jack." },
+      { title: "MagTek DynaFlex", desc: "Reader Stand – sleek countertop dock designed to securely hold the magstripe reader upright." },
+      { title: "PAX A920", desc: "Compact, tamper-resistant dock for seamless self-service swiping." },
+      { title: "PAX A35", desc: "Secure kiosk stand for efficient customer self-service transactions." }
+    ];
+  </script>
+
+  <!-- SPLIDE INIT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const splide = new Splide('#feature-carousel', {
+        type: 'loop',
+        perPage: 1,          // default slides per view (desktop)
+        arrows: true,
+        gap: '1rem',         // optional spacing between slides
+        breakpoints: {
+          768: {             // screens smaller than 768px (mobile)
+            perPage: 1,      // show 1 slide per view on mobile
+            gap: '10px'    // smaller gap on mobile
           }
-        });
+
+
+
+        }
       });
-    </script>
-  </body>
+
+      const titleEl = document.getElementById('feature-title');
+      const descEl = document.getElementById('feature-desc');
+
+      function updateText(index) {
+        titleEl.textContent = featureData[index].title;
+        descEl.textContent = featureData[index].desc;
+      }
+
+      updateText(0);
+      splide.on('move', (newIndex) => updateText(newIndex));
+      splide.mount();
+    });
+  </script>
+
+  <style>
+    /* keeps arrows vertically centered over the image column */
+    #feature-carousel .feature-arrows {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new Splide("#feature-carousel", {
+        type: "loop",
+        perPage: 1,
+        pagination: false,
+        arrows: true,
+        autoplay: false,
+        gap: "1rem",
+      }).mount();
+    });      
+  </script>
+  <!-- faq  -->
+  <section id="faq" class="bg-white py-12 md:py-20">
+    <div class="container mx-auto px-4 md:px-6 overflow-x-hidden">
+
+      <!-- Section Header -->
+      <div class="text-center mb-8 md:mb-16">
+        <h2 class="font-bold text-xl md:text-4xl leading-normal mb-3 md:mb-6">
+          <span class="text-gray-600">Frequently Asked</span>
+          <span class="text-black"> Questions</span>
+        </h2>
+
+        <p class="max-w-xl mx-auto text-gray-600 text-xs md:text-base">
+          We’ve answered some of the most common queries to help you get
+          quick, clear information. Whether you're curious about features,
+          pricing, or setup, our FAQs have you covered.
+        </p>
+      </div>
+
+      <!-- FAQ Items -->
+      <div class="max-w-6xl mx-auto space-y-4 md:space-y-6">
+
+        <!-- FAQ Item -->
+        <div class="border-b border-gray-300">
+          <button class="faq-question flex justify-between items-center w-full py-4 text-left" aria-expanded="false">
+
+            <span class="text-black text-base md:text-xl font-medium pr-4">
+              What is a POS system and how does it work?
+            </span>
+
+            <svg class="w-5 h-5 transform transition-transform duration-300 shrink-0" fill="none" stroke="currentColor"
+              stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500">
+            <p class="pb-4 text-gray-600 text-sm md:text-base">
+              Our product includes feature-rich tools for payment processing,
+              inventory management, and real-time analytics to help your
+              business grow.
+            </p>
+          </div>
+        </div>
+
+        <!-- Duplicate and change content -->
+        <div class="border-b border-gray-300">
+          <button class="faq-question flex justify-between items-center w-full py-4 text-left">
+            <span class="text-black text-base md:text-xl font-medium pr-4">
+              Can I use it for both retail and restaurants?
+            </span>
+            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor"
+              stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500">
+            <p class="pb-4 text-gray-600 text-sm md:text-base">
+              Yes, our POS system is designed for both retail stores and restaurants
+              with industry-specific tools.
+            </p>
+          </div>
+        </div>
+
+        <div class="border-b border-gray-300">
+          <button class="faq-question flex justify-between items-center w-full py-4 text-left">
+            <span class="text-black text-base md:text-xl font-medium pr-4">
+              Does it support real-time inventory tracking?
+            </span>
+            <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor"
+              stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500">
+            <p class="pb-4 text-gray-600 text-sm md:text-base">
+              Absolutely. You can track stock levels in real time and get alerts
+              when inventory is low.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-10">
+    <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+      <!-- Top Logo + Switch -->
+      <div class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center">
+        <img src="/assets/images/logo/tequila_pos_logo_transparent.png" class="w-10 md:w-40 h-auto" alt="" />
+
+        <div class="flex items-center space-x-2">
+          <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+            Switch to dark mode
+          </p>
+
+          <!-- Toggle Switch -->
+          <label for="dark-mode-toggle" class="relative inline-flex items-center cursor-pointer">
+            <label for="dark-mode-toggle" class="sr-only">Toggle dark mode</label>
+            <input type="checkbox" id="dark-mode-toggle" class="sr-only peer" title="Toggle dark mode"
+              placeholder="Toggle dark mode" />
+            <div
+              class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300">
+            </div>
+            <div
+              class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300">
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="border-t border-gray-300 pt-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12">
+          <!-- Company -->
+          <div>
+            <!-- Accordion Header Button -->
+            <button
+              class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+              aria-expanded="false" aria-controls="company-links" onclick="toggleAccordion(this)">
+              Company
+              <svg class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <!-- Links Container -->
+            <div id="company-links"
+              class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">About Us</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Contact Us</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Hardware</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Terms of Service</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Privacy Policy</a>
+            </div>
+          </div>
+
+          <!-- Products -->
+          <div>
+            <button
+              class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+              aria-expanded="false" aria-controls="products" onclick="toggleAccordion(this)">
+              Products
+              <svg class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="products"
+              class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">PAX A920</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">PAX A35</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">MagTek DynaFlex</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">PAX Elys Workstation</a>
+            </div>
+          </div>
+
+          <!-- Resources -->
+          <div>
+            <button
+              class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+              aria-expanded="false" aria-controls="resources" onclick="toggleAccordion(this)">
+              Resources
+              <svg class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="resources"
+              class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Product Guides &
+                Tutorials</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Video Tutorials</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">FAQs</a>
+            </div>
+          </div>
+
+          <!-- Legal -->
+          <div>
+            <button
+              class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+              aria-expanded="false" aria-controls="legal" onclick="toggleAccordion(this)">
+              Legal
+              <svg class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="legal"
+              class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Privacy Policy</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Terms & Condition</a>
+            </div>
+          </div>
+
+          <!-- Social -->
+          <div>
+            <button
+              class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+              aria-expanded="false" aria-controls="social" onclick="toggleAccordion(this)">
+              Social
+              <svg class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="social"
+              class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Twitter</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Instagram</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Facebook</a>
+              <a href="#" class="text-gray-500 hover:text-gray-800 transition-colors block">Youtube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subscribe -->
+        <div class="border-t border-gray-300 pt-6">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h4 class="font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-2">
+                Subscribe
+              </h4>
+              <p class="text-gray-500 text-sm sm:text-base mb-1">
+                Join our community to receive updates
+              </p>
+            </div>
+            <div>
+              <p class="text-gray-800 text-xs ps-3 pb-1">Stay up to date</p>
+              <div class="flex w-full sm:w-auto">
+                <input type="email" placeholder="Enter your email"
+                  class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-gray-600 text-base border-0 outline-none" />
+                <button
+                  class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-800 transition-colors">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Splide JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/faq-toggle.js"></script>
+  <script src="../assets/js/footer-accordion.js"></script>
+
+  <script>
+    AOS.init({
+      once: false,
+    });
+
+    function toggleFaq(element) {
+      element.classList.toggle("active");
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      });
+    });
+
+  </script>
+
+</body>
+
 </html>
