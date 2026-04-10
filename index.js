@@ -2,6 +2,7 @@ let isEnglish = true;
 
 function toggleLanguage() {
   const slider = document.getElementById("slider");
+  
   const text = document.getElementById("language-text");
   const toggle = document.getElementById("language-toggle");
   const flag = document.getElementById("flag-icon");
@@ -9,7 +10,7 @@ function toggleLanguage() {
   const toggleWidth = toggle.offsetWidth;
   const sliderWidth = slider.offsetWidth;
   const textWidth = text.offsetWidth;
-  
+
 
   const maxTranslate = toggleWidth - sliderWidth - 10; // 4px padding
   const textTranslate = maxTranslate - textWidth; // adjust text movement
