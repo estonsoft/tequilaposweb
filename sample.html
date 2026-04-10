@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"></script>
+</head>
+
+<body>
+<script
+  src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.8/dist/dotlottie-wc.js"
+  type="module"
+></script>
+
+<dotlottie-wc
+  src="assets/animation/homepagelogo.lottie"
+  stateMachineId="StateMachine1"
+  style="width: 300px;height: 300px"
+></dotlottie-wc>
+
+<script>
+  const player = document.getElementById("player");
+
+  player.addEventListener("load", () => {
+    console.log("LOADED ✅");
+
+    // 🔥 Force render
+    player.play();
+
+    setTimeout(() => {
+      player.pause();
+      player.seek(0);
+    }, 100);
+
+    // Hover → forward
+    player.addEventListener("mouseenter", () => {
+      player.setDirection(1);
+      player.play();
+    });
+
+    // Leave → reverse
+    player.addEventListener("mouseleave", () => {
+      player.setDirection(-1);
+      player.play();
+    });
+  });
+</script>
+
+</body>
+</html>
