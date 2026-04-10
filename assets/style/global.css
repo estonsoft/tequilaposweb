@@ -39,14 +39,14 @@ h6 {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0rem;
-  height: 90px;
+  height: 100%;
   margin: 0 auto;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  margin-left: 80px;
+  /* margin-left: 80px; */
 }
 
 .logo {
@@ -173,7 +173,7 @@ h6 {
 .nav-extra-links {
   display: flex;
   gap: 2rem;  
-  margin-right: 31px;
+  /* margin-right: 31px; */
   align-items: center;
 }
 
@@ -354,5 +354,103 @@ h6 {
   .card-rotate-3,
   .card-rotate-4 {
     transform: rotate(0deg);
+  }
+}
+
+
+/* Features card animation */
+.smart-card-feature-card .hover-img {
+  opacity: 0;
+}
+
+.smart-card-feature-card:hover .hover-img {
+  opacity: 1;
+}
+
+.smart-card-feature-card:hover .default-img {
+  opacity: 0;
+}
+
+/* THIS is what keeps size consistent */
+.feature-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* smooth shape morph */
+.smart-card-feature-card:hover .feature-img {
+  border-radius: 60px;
+}
+
+
+/* Desktop animation */
+@media (min-width: 768px) {
+
+  .splide__slide.is-active figure {
+    transform: translateX(0);
+    opacity: 1;
+    scale: 1;
+  }
+
+  .splide__slide.is-active .content {
+    transform: translateX(0);
+    opacity: 1;
+    scale: 1;
+  }
+
+  .splide__slide:not(.is-active) figure {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  .splide__slide:not(.is-active) .content {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+}
+
+.splide__arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Style arrows */
+.splide__arrow {
+  pointer-events: all;
+  background: rgba(118, 118, 118, 0.15); /* light gray */
+  backdrop-filter: blur(6px);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+
+.splide__arrow svg {
+  fill: black;
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 767px) {
+  .splide__slide figure,
+  .splide__slide .content {
+    transform: none !important;
+    opacity: 1 !important;
+    scale: 1 !important;
+  }
+
+  .splide__arrows {
+    top: 30%; /* align with image center */
+    z-index: 10;
+    color: white;
   }
 }

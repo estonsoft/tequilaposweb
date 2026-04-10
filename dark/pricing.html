@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -26,19 +26,19 @@
 
   <body class="bg-[#1c1c1c] font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
+    <nav class="navbar lg:block hidden">
+      <div class="navbar-container container mx-auto px-6 lg:px-[60px] flex items-center justify-between h-[70px]">
         <!-- Logo -->
-        <div class="logo-container">
+        <div class="logo-container flex items-center gap-4">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
-            class="logo"
+            class="logo h-[65px] w-auto"
             alt="Logo"
           />
 
-          <div class="nav-links ml-4">
+          <div class="nav-links flex items-center gap-6">
             <div class="nav-item relative group">
-              <a href="#business-type" class="nav-link">Business Type</a>
+              <a href="#business-type" class="nav-link text-white text-[14px] font-bold">Business Type</a>
 
               <!-- Mega Menu -->
               <div
@@ -54,7 +54,7 @@
                   >
                     <a
                       href="#"
-                      class="text-white text-[26px] font-bold hover:underline"
+                      class="text-white text-[14px] font-bold hover:underline"
                       data-cat="food"
                       onmouseenter="setActive('food')"
                       onfocus="setActive('food')"
@@ -64,7 +64,7 @@
 
                     <a
                       href="#"
-                      class="text-white text-[26px] font-bold hover:underline"
+                      class="text-white text-[14px] font-bold hover:underline"
                       data-cat="retail"
                       onmouseenter="setActive('retail')"
                       onfocus="setActive('retail')"
@@ -85,14 +85,14 @@
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Switch to Tequila</a
                             >
                           </li>
@@ -106,49 +106,49 @@
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Manage order from one place</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Take payment</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Keep customer coming back</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Scale your business</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Improve operation</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Schedule and pay your team</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Manage your cash flow</a
                             >
                           </li>
@@ -166,14 +166,14 @@
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Switch to Tequila</a
                             >
                           </li>
@@ -186,52 +186,53 @@
             </div>
 
             <!-- Other Links -->
-            <a href="#features" class="nav-link">Feature</a>
-            <a href="#hardware" class="nav-link">Hardware</a>
-            <a href="#pricing" class="nav-link">Pricing</a>
-            <a href="#resources" class="nav-link">Resources</a>
+            <a href="/dark/feature.html" class="nav-link text-[14px]">Feature</a>
+            <a href="/dark/hardware.html" class="nav-link text-[14px]">Hardware</a>
+            <a href="/dark/pricing.html" class="nav-link text-[14px]">Pricing</a>
+            <a href="/dark/resources.html" class="nav-link text-[14px]">Resources</a>
           </div>
         </div>
 
         <!-- Navigation Links -->
-        <div class="nav-extra-links">
+        <div class="nav-extra-links flex items-center gap-6">
+          <a href="/dark/signin.html" class="nav-link text-[14px]">Sign in</a>
           <div
             class="language-selector cursor-pointers"
             onclick="toggleLanguage()"
           >
-            <span id="language-text" class="text-white">ENGLISH</span>
-            <img
+          <img
               id="flag-icon"
               src="/assets/images/flags/usa.png"
               alt="USA Flag"
-              class="flag-icon"
+              class="flag-icon w-5 h-5 rounded-full object-cover"
             />
+            <span id="language-text" class="text-white flex items-center gap-2 text-[14px] font-bold">
+              ENGLISH
+            </span>
+            
           </div>
-
-          <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
+          <button class="demo-btn text-white">
+            Free Demo
           </button>
         </div>
       </div>
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-black shadow-md relative">
+    <nav class="navbar lg:hidden bg-[#1c1c1c] shadow-md relative">
       <div
         class="navbar-container container mx-auto flex items-center justify-between py-4"
       >
         <!-- Logo -->
         <div class="logo-container flex items-center">
           <img
-            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
             class="logo h-10"
             alt="Logo"
           />
         </div>
         <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-white">
           <!-- Hamburger Icon -->
           <svg
             id="hamburger-icon"
@@ -272,20 +273,20 @@
       <!-- Mobile Menu (White Version) -->
       <div
         id="mobile-menu"
-        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        class="fixed top-0 left-0 h-full w-72 bg-[#1c1c1c] text-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
       >
         <div class="p-4 space-y-4">
           <!-- Dropdown -->
           <div class="relative">
             <button
               id="dropdownBtn"
-              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+              class="flex justify-between items-center w-full px-4 py-2 bg-[#1c1c1c] rounded hover:bg-[#2c2c2c]"
             >
               Business Type
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                class="w-5 h-5 text-white transition-transform duration-200"
               >
                 <path
                   fill-rule="evenodd"
@@ -301,48 +302,42 @@
 
             <div
               id="dropdownMenu"
-              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+              class="hidden mt-2 bg-[#1c1c1c] rounded shadow-lg overflow-hidden"
             >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              <a href="#" class="block px-4 py-2 text-white hover:bg-[#2c2c2c]"
                 >Edit</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              <a href="#" class="block px-4 py-2 text-white hover:bg-[#2c2c2c]"
                 >Duplicate</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              <a href="#" class="block px-4 py-2 text-white hover:bg-[#2c2c2c]"
                 >Archive</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              <a href="#" class="block px-4 py-2 text-white hover:bg-[#2c2c2c]"
                 >Delete</a
               >
             </div>
           </div>
 
           <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="#features" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Features</a
           >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="#hardware" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Hardware</a
           >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="#pricing" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Pricing</a
           >
-          <a href="#resources" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="#resources"
+            class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Resources</a
           >
 
           <!-- Language Switcher -->
           <div
-            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
+            class="flex items-center justify-between px-4 py-2 bg-[#1c1c1c] rounded"
           >
             <span class="text-sm">EN</span>
             <label class="inline-flex items-center cursor-pointer">
@@ -372,7 +367,7 @@
 
     <!-- hero section -->
     <section class="md:pb-20 pb-9">
-      <div class="container mx-auto px-4 md:px-2 md:mt-12 mt-8">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16 md:mt-12 mt-8">
         <div class="text-center md:mb-14 mb-3">
           <h2
             class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
@@ -393,10 +388,10 @@
           </div>
         </div>
 
-        <div data-aos="fade-up" data-aos-duration="1000">
+        <div class="mx-auto max-w-[1060px]">
           <img
             src="/assets/images/pricing/pricing-hero.png"
-            class="object-cover w-full"
+            class="w-full h-[220px] sm:h-[300px] md:h-auto lg:h-[550px] xl:h-[650px] 2xl:h-[700px] object-cover rounded-[20px] md:rounded-[38px]"
             alt="pricing"
           />
         </div>
@@ -405,7 +400,9 @@
 
     <!-- pricing Section -->
     <section class="bg-[#1c1c1c] md:pb-20 pb-9">
-      <div class="container mx-auto md:px-4 px-2">
+      <div
+        class="container mx-auto px-4 sm:px-8 lg:px-16 max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1600px]"
+      >
         <!-- Toggle Switch -->
         <div class="flex justify-center">
           <div
@@ -428,7 +425,9 @@
         </div>
 
         <!-- Pricing Cards -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+        <div
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-6 mt-10"
+        >
           <div
             class="md:h-[392px] h-full md:rounded-[38px] rounded-2xl shadow-[0px_4px_18.9px_rgba(0,0,0,0.25)] border-[0.5px] border-[#dbdbdb] md:px-8 px-4 py-6 flex flex-col"
           >
@@ -562,8 +561,8 @@
     </section>
 
     <!-- smarter soluitons -->
-    <section class="bg-[#1c1c1c] md:pb-20 pb-9">
-      <div class="container mx-auto px-4 md:px-2">
+    <section class="bg-[#1c1c1c] md:pb-20 pb-9 overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16 max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
         <!-- Section Header -->
         <div class="text-center md:mb-10 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
@@ -581,10 +580,11 @@
         </div>
 
         <!-- Feature Cards -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:mt-0 mt-5">
+        <div
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-6 mt-10 group"
+        >
           <div
-            class="md:h-[420px] md:rounded-[38px] rounded-[17px] border border-[#c5c5c5] overflow-hidden"
-            data-aos="fade-up-right"
+            class="md:h-[420px] md:rounded-[38px] rounded-[17px] border border-[#c5c5c5] overflow-hidden transform lg:-translate-x-[150px] lg:opacity-0 lg:group-hover:translate-x-0 lg:group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
           >
             <div class="pt-[10px] pb-[15px] md:px-10 md:py-10 px-2">
               <div class="flex items-center justify-center pt-[10px]">
@@ -663,8 +663,7 @@
 
           <!-- client -2 -->
           <div
-            class="md:h-[420px] md:rounded-[38px] rounded-[17px] border border-[#c5c5c5] overflow-hidden"
-            data-aos="fade-up"
+            class="md:h-[420px] md:rounded-[38px] rounded-[17px] border border-[#c5c5c5] overflow-hidden transform lg:translate-y-[150px] lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 transition-all duration-700 delay-100 ease-[cubic-bezier(0.25,1,0.5,1)]"
           >
             <div class="pt-[10px] pb-[15px] md:px-10 md:py-10 px-2">
               <div class="flex items-center justify-center pt-[10px]">
@@ -743,8 +742,7 @@
 
           <!-- client 3 -->
           <div
-            class="md:h-[420px] md:rounded-[38px] rounded-[17px] border border-[#c5c5c5] overflow-hidden"
-            data-aos="fade-up-left"
+            class="md:h-[420px] md:rounded-[38px] rounded-[17px] border border-[#c5c5c5] overflow-hidden transform lg:translate-x-[150px] lg:opacity-0 lg:group-hover:translate-x-0 lg:group-hover:opacity-100 transition-all duration-700 delay-200 ease-[cubic-bezier(0.25,1,0.5,1)]"
           >
             <div class="pt-[10px] pb-[15px] md:px-10 md:py-10 px-2">
               <div class="flex items-center justify-center pt-[10px]">
@@ -825,9 +823,10 @@
     </section>
 
     <section class="md:pb-20 pb-9">
-      <div class="text-center md:mb-10 mb-6">
+      <div class="text-center md:mb-10 mb-6 px-4 sm:px-8 lg:px-16">
         <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-          <span class="text-white">How real restaurants use Tequila</span>
+          <span class="text-[#C89633]">How real restaurants</span>
+          <span class="text-white">use Tequila</span>
         </h2>
         <div class="flex justify-center">
           <p
@@ -840,17 +839,17 @@
       </div>
 
       <!-- splide carousel start here -->
-      <div class="splide px-4 md:px-0" id="restaurant-carousel-dark">
+      <div class="splide px-4 sm:px-8 lg:px-16" id="restaurant-carousel-dark">
         <div class="splide__track">
           <ul class="splide__list">
             <!-- Slide 1 -->
             <li class="splide__slide">
               <div
-                class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4 items-center"
+                class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center overflow-hidden"
               >
                 <!-- Image -->
                 <figure
-                  class="relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-[#1a1a1a]"
+                  class="relative rounded-xl overflow-hidden ring-1 ring-black/10 bg-transparent transform -translate-x-full opacity-0 scale-95 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
                 >
                   <img
                     src="/assets/images/pricing/spice-and-grill.png"
@@ -860,7 +859,9 @@
                 </figure>
 
                 <!-- Content -->
-                <div class="md:pl-2">
+                <div
+                  class="md:pl-2 content transform translate-x-full opacity-0 scale-95 transition-all duration-700 delay-150 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                >
                   <dl class="space-y-4 md:text-base text-sm">
                     <div class="flex gap-2">
                       <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
@@ -898,10 +899,10 @@
             <!-- Slide 2 -->
             <li class="splide__slide">
               <div
-                class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4 items-center"
+                class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center overflow-hidden"
               >
                 <figure
-                  class="relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-[#1a1a1a]"
+                  class="relative rounded-xl overflow-hidden ring-1 ring-black/10 bg-transparent transform -translate-x-full opacity-0 scale-95 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
                 >
                   <img
                     src="/assets/images/pricing/spice-and-grill-2.png"
@@ -910,7 +911,9 @@
                   />
                 </figure>
 
-                <div class="md:pl-2">
+                <div
+                  class="md:pl-2 content transform translate-x-full opacity-0 scale-95 transition-all duration-700 delay-150 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                >
                   <dl class="space-y-4 md:text-base text-sm">
                     <div class="flex gap-2">
                       <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
@@ -949,10 +952,10 @@
             <!-- Slide 3 -->
             <li class="splide__slide">
               <div
-                class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4 items-center"
+                class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center overflow-hidden"
               >
                 <figure
-                  class="relative rounded-xl overflow-hidden ring-1 ring-white/10 bg-[#1a1a1a]"
+                  class="relative rounded-xl overflow-hidden ring-1 ring-black/10 bg-transparent transform -translate-x-full opacity-0 scale-95 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
                 >
                   <img
                     src="/assets/images/pricing/spice-and-grill-3.png"
@@ -961,7 +964,9 @@
                   />
                 </figure>
 
-                <div class="md:pl-2">
+                <div
+                  class="md:pl-2 content transform translate-x-full opacity-0 scale-95 transition-all duration-700 delay-150 ease-[cubic-bezier(0.25,1,0.5,1)]"
+                >
                   <dl class="space-y-4 md:text-base text-sm">
                     <div class="flex gap-2">
                       <dt class="min-w-[160px] text-[#CDCDCD] font-semibold">
@@ -1003,84 +1008,99 @@
     </section>
 
     <!-- contact section -->
-    <section class="md:pb-20 pb-9">
-      <div class="container mx-auto px-4 md:px-2 md:mt-12 mt-8">
-        <div class="text-center md:mb-14 mb-3">
-          <h2
-            class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
-          >
+    <section class="md:pb-20 pb-9 bg-[#1c1c1c]">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16 md:mt-12 mt-8">
+        <!-- Heading -->
+        <div class="text-center md:mb-14 mb-6">
+          <h2 class="font-bold md:text-[40px] text-xl leading-tight">
             <span class="text-[#C89633]">Contact </span>
-
-            <span class="text-white"> Us</span>
+            <span class="text-white">Us</span>
           </h2>
-          <div class="flex justify-center">
-            <p
-              class="md:w-[562px] w-full text-center text-[#cdcdcd] md:text-[15px] text-[10px] font-normal"
-            >
-              Have questions or ready to get started? Connect with us—we’re here
-              to help.
-            </p>
-          </div>
+
+          <p
+            class="md:w-[562px] w-full mx-auto text-[#cdcdcd] md:text-[15px] text-[12px] mt-3"
+          >
+            Have questions or ready to get started? Connect with us—we’re here
+            to help.
+          </p>
         </div>
 
-        <div data-aos="fade-up" data-aos-duration="1000">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div>
-              <h2
-                class="text-center text-white md:text-[32px] text-base font-bold"
-              >
-                Chat to our team
-              </h2>
-              <p
-                class="md:w-[540px] w-full mx-auto text-center justify-start text-[#CDCDCD] md:text-base text-sm font-normal mb-14 mt-4"
-              >
-                Need help with something? Want a demo? Get in touch with our
-                friendly team and we'll get in touch within few hours.
-              </p>
-              <form>
-                <div class="flex flex-col md:flex-row gap-4 mb-4">
-                  <input
-                    type="text"
-                    placeholder="First name"
-                    class="flex-1 p-2 border-b border-[#333]"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Last name"
-                    class="flex-1 p-2 border-b border-[#333]"
-                  />
-                </div>
+        <!-- Main Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 lg:gap-16 items-center"
+        >
+          <!-- LEFT: FORM -->
+          <div>
+            <h2
+              class="text-white lg:text-[36px] text-xl font-semibold text-left md:text-center"
+            >
+              Chat to our team
+            </h2>
+
+            <p
+              class="text-[#bfbfbf] lg:text-base text-sm mt-4 mb-10 text-left md:text-center max-w-[520px] mx-auto"
+            >
+              Need help with something? Want a demo? Get in touch with our
+              friendly team and we’ll get in touch within few hours.
+            </p>
+
+            <form class="space-y-6">
+              <!-- Name Row -->
+              <div class="flex flex-col md:flex-row gap-6">
                 <input
-                  type="email"
-                  placeholder="Work email"
-                  class="w-full p-2 border-b border-[#333] mb-4"
+                  type="text"
+                  placeholder="First name"
+                  class="w-full bg-transparent border-b border-[#444] py-3 text-white placeholder:text-[#777] focus:outline-none focus:border-white transition-all duration-300"
                 />
+
                 <input
-                  type="tel"
-                  placeholder="Phone no."
-                  class="w-full p-2 border-b border-[#333] mb-6"
+                  type="text"
+                  placeholder="Last name"
+                  class="w-full bg-transparent border-b border-[#444] py-3 text-white placeholder:text-[#777] focus:outline-none focus:border-white transition-all duration-300"
                 />
+              </div>
+
+              <!-- Email -->
+              <input
+                type="email"
+                placeholder="Work email"
+                class="w-full bg-transparent border-b border-[#444] py-3 text-white placeholder:text-[#777] focus:outline-none focus:border-white transition-all duration-300"
+              />
+
+              <!-- Phone -->
+              <input
+                type="tel"
+                placeholder="Phone no."
+                class="w-full bg-transparent border-b border-[#444] py-3 text-white placeholder:text-[#777] focus:outline-none focus:border-white transition-all duration-300"
+              />
+
+              <!-- Button -->
+              <div
+                class="pt-6 flex justify-center md:justify-start hidden md:block"
+              >
                 <button
                   type="submit"
-                  class="px-11 py-2 bg-white text-[#1c1c1c] rounded-full mt-[88px]"
+                  class="bg-white text-black px-20 py-3 rounded-full font-medium hover:bg-gray-200 transition-all duration-300"
                 >
                   Get in Touch
                 </button>
-              </form>
-            </div>
+              </div>
+            </form>
+          </div>
 
-            <div>
-              <img
-                src="/assets/images/pricing/connect-with-us.png"
-                class="object-cover w-full"
-                alt="pricing"
-              />
-            </div>
+          <!-- RIGHT: IMAGE -->
+          <div
+            class="flex justify-center md:justify-center lg:justify-end hidden md:block"
+          >
+            <img
+              src="/assets/images/pricing/connect-with-us.png"
+              class="w-full max-w-[350px] md:max-w-[450px] lg:max-w-[600px] h-[250px] md:h-[350px] lg:h-[450px] object-cover rounded-[30px]"
+              alt="contact"
+            />
           </div>
         </div>
       </div>
     </section>
-
     <!-- Footer -->
     <footer class="dark py-10">
       <div class="container mx-auto px-4 sm:px-8 lg:px-16">
@@ -1417,6 +1437,26 @@
     <script src="../assets/js/pricingSwitch.js"></script>
     <script src="../assets/js/footer-accordion.js"></script>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("dark-mode-toggle");
+        if (!toggle) return;
+
+        const currentPage = window.location.pathname.split("/").pop();
+
+        // Dark page → toggle should be ON
+        toggle.checked = true;
+
+        toggle.addEventListener("change", function () {
+          if (!this.checked) {
+            localStorage.setItem("theme", "light");
+            window.location.href = `/light/${currentPage}`;
+          } else {
+            localStorage.setItem("theme", "dark");
+          }
+        });
+      });
+    </script>
     <script>
       AOS.init();
       document.addEventListener("DOMContentLoaded", function () {

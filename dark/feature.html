@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -26,19 +26,19 @@
 
   <body class="bg-[#1c1c1c] font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
+    <nav class="navbar lg:block hidden">
+      <div class="navbar-container container mx-auto px-6 lg:px-[60px] flex items-center justify-between h-[70px]">
         <!-- Logo -->
-        <div class="logo-container">
+        <div class="logo-container flex items-center gap-4">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
-            class="logo"
+            class="logo h-[65px] w-auto"
             alt="Logo"
           />
 
-          <div class="nav-links ml-4">
+          <div class="nav-links flex items-center gap-6">
             <div class="nav-item relative group">
-              <a href="#business-type" class="nav-link">Business Type</a>
+              <a href="/dark/" class="nav-link text-white text-[14px] font-bold">Business Type</a>
 
               <!-- Mega Menu -->
               <div
@@ -54,7 +54,7 @@
                   >
                     <a
                       href="#"
-                      class="text-white text-[26px] font-bold hover:underline"
+                      class="text-white text-[14px] font-bold hover:underline"
                       data-cat="food"
                       onmouseenter="setActive('food')"
                       onfocus="setActive('food')"
@@ -64,7 +64,7 @@
 
                     <a
                       href="#"
-                      class="text-white text-[26px] font-bold hover:underline"
+                      class="text-white text-[14px] font-bold hover:underline"
                       data-cat="retail"
                       onmouseenter="setActive('retail')"
                       onfocus="setActive('retail')"
@@ -85,14 +85,14 @@
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Switch to Tequila</a
                             >
                           </li>
@@ -106,49 +106,49 @@
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Manage order from one place</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Take payment</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Keep customer coming back</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Scale your business</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Improve operation</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Schedule and pay your team</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Manage your cash flow</a
                             >
                           </li>
@@ -166,14 +166,14 @@
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-white text-xl font-bold"
+                              class="hover:underline text-white text-[14px] font-bold"
                               >Switch to Tequila</a
                             >
                           </li>
@@ -186,52 +186,53 @@
             </div>
 
             <!-- Other Links -->
-            <a href="#features" class="nav-link">Feature</a>
-            <a href="#hardware" class="nav-link">Hardware</a>
-            <a href="#pricing" class="nav-link">Pricing</a>
-            <a href="#resources" class="nav-link">Resources</a>
+            <a href="/dark/feature.html" class="nav-link text-[14px]">Feature</a>
+            <a href="/dark/hardware.html" class="nav-link text-[14px]">Hardware</a>
+            <a href="/dark/pricing.html" class="nav-link text-[14px]">Pricing</a>
+            <a href="/dark/resources.html" class="nav-link text-[14px]">Resources</a>
           </div>
         </div>
 
         <!-- Navigation Links -->
-        <div class="nav-extra-links">
+        <div class="nav-extra-links flex items-center gap-6">
+          <a href="/dark/signin.html" class="nav-link text-[14px]">Sign in</a>
           <div
             class="language-selector cursor-pointers"
             onclick="toggleLanguage()"
           >
-            <span id="language-text" class="text-white">ENGLISH</span>
-            <img
+          <img
               id="flag-icon"
               src="/assets/images/flags/usa.png"
               alt="USA Flag"
-              class="flag-icon"
+              class="flag-icon w-5 h-5 rounded-full object-cover"
             />
+            <span id="language-text" class="text-white flex items-center gap-2 text-[14px] font-bold">
+              ENGLISH
+            </span>
+            
           </div>
-
-          <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
+          <button class="demo-btn text-white">
+            Free Demo
           </button>
         </div>
       </div>
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-black shadow-md relative">
+    <nav class="navbar lg:hidden bg-[#1c1c1c] shadow-md relative">
       <div
         class="navbar-container container mx-auto flex items-center justify-between py-4"
       >
         <!-- Logo -->
         <div class="logo-container flex items-center">
           <img
-            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
             class="logo h-10"
             alt="Logo"
           />
         </div>
         <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-white">
           <!-- Hamburger Icon -->
           <svg
             id="hamburger-icon"
@@ -272,20 +273,20 @@
       <!-- Mobile Menu (White Version) -->
       <div
         id="mobile-menu"
-        class="fixed top-0 left-0 h-full w-72 bg-[#1c1c1c] text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        class="fixed top-0 left-0 h-full w-72 bg-[#1c1c1c] text-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
       >
         <div class="p-4 space-y-4">
           <!-- Dropdown -->
           <div class="relative">
             <button
               id="dropdownBtn"
-              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+              class="flex justify-between items-center w-full px-4 py-2 bg-[#1c1c1c] rounded hover:bg-[#2c2c2c]"
             >
               Business Type
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                class="w-5 h-5 text-white transition-transform duration-200"
               >
                 <path
                   fill-rule="evenodd"
@@ -301,54 +302,48 @@
 
             <div
               id="dropdownMenu"
-              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+              class="hidden mt-2 bg-[#1c1c1c] rounded shadow-lg overflow-hidden"
             >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              <a href="#" class="block px-4 py-2 text-white hover:bg-[#2c2c2c]"
                 >Edit</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              <a href="#" class="block px-4 py-2 text-white hover:bg-[#2c2c2c]"
                 >Duplicate</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              <a href="#" class="block px-4 py-2 text-white hover:bg-[#2c2c2c]"
                 >Archive</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              <a href="#" class="block px-4 py-2 text-white hover:bg-[#2c2c2c]"
                 >Delete</a
               >
             </div>
           </div>
 
           <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="#features" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Features</a
           >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="#hardware" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Hardware</a
           >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="#pricing" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Pricing</a
           >
-          <a href="#resources" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="#resources"
+            class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Resources</a
           >
 
           <!-- Language Switcher -->
           <div
-            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
+            class="flex items-center justify-between px-4 py-2 bg-[#1c1c1c] rounded"
           >
             <span class="text-sm">EN</span>
             <label class="inline-flex items-center cursor-pointer">
               <input type="checkbox" class="sr-only peer" />
               <div
-                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#1c1c1c] after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
               ></div>
             </label>
             <span class="text-sm">ES</span>
@@ -372,28 +367,33 @@
 
     <!-- hero section -->
     <section class="md:pb-20 pb-9">
-      <div class="container mx-auto px-4 md:px-2 md:mt-12 mt-8">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16 max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
         <div class="text-center md:mb-14 mb-3">
           <h2
             class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
           >
             <span class="text-[#C89633]">All-in-One POS Features</span>
 
-            <span class="text-white"> for Seamless Management</span>
+            <span class="text-white">
+              for <br />
+              Seamless Management</span
+            >
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#cdcdcd] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-[400px] text-center text-[#cdcdcd] md:text-[15px] text-[16px] font-normal"
             >
               All-in-One POS Features for Seamless Management.
             </p>
           </div>
         </div>
 
-        <div data-aos="fade-up" data-aos-duration="1000">
+        <div
+          class="mx-auto max-w-[1060px] rounded-[20px] md:rounded-[38px] overflow-hidden"
+        >
           <img
             src="/assets/images/feature/hero-img.png"
-            class="object-cover w-full"
+            class="w-full object-cover rounded-[20px] md:rounded-[38px]"
             alt="pricing"
           />
         </div>
@@ -402,7 +402,7 @@
 
     <!-- core feature soluitons -->
     <section class="bg-[#1c1c1c] md:pb-20 pb-9">
-      <div class="container mx-auto px-4 md:px-2">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16 max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
         <!-- Section Header -->
         <div class="text-center md:mb-10 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
@@ -864,7 +864,7 @@
           </div>
 
           <div
-            class="grid grid-cols-2 gap-4 md:mt-0 mt-5 border-b border-[#A4A4A4] md:pt-10 pt-6"
+            class="grid grid-cols-2 md:grid-cols-3 gap-4 md:pt-10 pt-6 border-b border-[#A4A4A4]"
           >
             <div
               class="border-r border-[#A4A4A4] md:mb-16 mb-6"
@@ -1034,7 +1034,7 @@
 
     <!-- smart feature section -->
     <section class="md:pb-20 pb-9">
-      <div class="container mx-auto px-4 md:px-2">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16 max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
         <div class="text-center md:mb-14 mb-3">
           <h2
             class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
@@ -1054,15 +1054,26 @@
         </div>
 
         <div data-aos="fade-up" data-aos-duration="1000">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             <div
-              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 gap-4 md:gap-0 md:grid-cols-1 group hover:bg-black transition-colors duration-300"
+              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-4group bg-[#1c1c1c] hover:bg-black transition-all duration-500"
             >
-              <div class="flex justify-center">
-                <img src="/assets/images/feature/sf-1.png" alt="" />
+              <div
+                class="flex justify-center md:w-[323px] md:h-[323px] mx-auto relative p-3"
+              >
+                <!-- Default (desktop only) -->
+                <img
+                  src="/assets/images/feature/sf-1.png"
+                  class="hidden md:block w-full h-full object-cover rounded-full transition-all duration-500 group-hover:opacity-0"
+                />
+
+                <!-- Hover image (ALWAYS visible on mobile) -->
+                <img
+                  src="/assets/images/feature/sf-2.jpg"
+                  class="w-full h-[140px] md:h-full object-cover rounded-[20px] md:rounded-lg md:absolute md:top-0 md:left-0 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
+                />
               </div>
 
-              <!-- text box -->
               <div class="md:pt-[73px] flex flex-col justify-center gap-4">
                 <h5
                   class="text-white md:text-xl text-xs font-semibold group-hover:text-white transition-colors duration-300"
@@ -1071,7 +1082,7 @@
                 </h5>
 
                 <h6
-                  class="text-stone-500 md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
+                  class="text-gray-400 md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
                 >
                   Our POS solution is designed to work smoothly on desktop,
                   tablet, and mobile, giving you complete flexibility to manage
@@ -1083,13 +1094,24 @@
             </div>
 
             <div
-              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 gap-4 md:gap-0 md:grid-cols-1 group hover:bg-black transition-colors duration-300"
+              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 md:grid-cols-1 gap-4 group bg-[#1c1c1c] hover:bg-black transition-all duration-500"
             >
-              <div class="flex justify-center">
-                <img src="/assets/images/feature/sf-2.png" alt="" />
+              <div
+                class="flex justify-center md:w-[323px] md:h-[323px] mx-auto relative p-3"
+              >
+                <!-- Default (desktop only) -->
+                <img
+                  src="/assets/images/feature/sf-2.png"
+                  class="hidden md:block w-full h-full object-cover rounded-full transition-all duration-500 group-hover:opacity-0"
+                />
+
+                <!-- Hover image (ALWAYS visible on mobile) -->
+                <img
+                  src="/assets/images/feature/sf-3.jpg"
+                  class="w-full h-[140px] md:h-full object-cover rounded-[20px] md:rounded-lg md:absolute md:top-0 md:left-0 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
+                />
               </div>
 
-              <!-- text box -->
               <div class="md:pt-[73px] flex flex-col justify-center gap-4">
                 <h5
                   class="text-white md:text-xl text-xs font-semibold group-hover:text-white transition-colors duration-300"
@@ -1098,7 +1120,7 @@
                 </h5>
 
                 <h6
-                  class="text-stone-500 md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
+                  class="text-gray-400 md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
                 >
                   Our cloud-based POS ensures your data is always backed up and
                   accessible in real time, while also offering robust offline
@@ -1110,34 +1132,39 @@
             </div>
 
             <div
-              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 gap-4 md:gap-0 md:grid-cols-1 group hover:bg-black transition-colors duration-300"
+              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 md:grid-cols-1 gap-4 group bg-[#1c1c1c] hover:bg-black transition-all duration-500"
             >
               <div
-                class="flex justify-center md:w-[323px] md:h-[323px] p-5 bg-[#333] rounded-full mx-auto"
+                class="flex justify-center md:w-[323px] md:h-[323px] mx-auto relative p-3"
               >
+                <!-- Default (desktop only) -->
                 <img
-                  src="/assets/images/feature/sf-3.jpg"
-                  class="overflow-hidden rounded-full"
-                  alt=""
+                  src="/assets/images/feature/sf-3.png"
+                  class="hidden md:block w-full h-full object-cover rounded-full transition-all duration-500 group-hover:opacity-0"
+                />
+
+                <!-- Hover image (ALWAYS visible on mobile) -->
+                <img
+                  src="/assets/images/feature/sf-4.png"
+                  class="w-full h-[140px] md:h-full object-cover rounded-[20px] md:rounded-lg md:absolute md:top-0 md:left-0 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
                 />
               </div>
 
-              <!-- text box -->
               <div class="md:pt-[73px] flex flex-col justify-center gap-4">
                 <h5
                   class="text-white md:text-xl text-xs font-semibold group-hover:text-white transition-colors duration-300"
                 >
-                  Cloud-Based with Offline Support
+                  Customizable for Your Business
                 </h5>
 
                 <h6
-                  class="text-stone-500 md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
+                  class="text-gray-400 md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
                 >
-                  Our cloud-based POS ensures your data is always backed up and
-                  accessible in real time, while also offering robust offline
-                  support. Even during internet outages, you can continue
-                  billing without interruptions—everything syncs automatically
-                  once you're back online.
+                  Our POS soulution is fully customizable to fit your unique
+                  business needs. from billing workflows to reports, user roles,
+                  and branding—you can tailor every aspect of the system to
+                  match your operations and preferences. create a POS experience
+                  that’s truly your own, designed to help your business thrive.
                 </h6>
               </div>
             </div>
@@ -1148,7 +1175,8 @@
 
     <!-- security section -->
     <section class="md:pb-20 pb-9">
-      <div class="container mx-auto md:px-4 px-2">
+      <div id="security-default">
+        <div class="container mx-auto px-4 sm:px-8 lg:px-16 max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
         <div class="text-center md:mb-14 mb-3">
           <h2
             class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
@@ -1167,21 +1195,23 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden">
+        <div
+          class="group grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-10 overflow-hidden"
+        >
           <div
-            class="flex flex-col justify-center"
-            data-aos="fade-right"
-            data-aos-duration="1500"
+            class="flex flex-col justify-center transform lg:-translate-x-full lg:group-hover:translate-x-0 transition-all duration-700 ease-out"
           >
             <h1
-              class="md:w-[463px] w-full justify-start text-lg md:text-4xl font-bold"
+              class="md:w-[463px] w-full justify-start text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold"
             >
               <span class="text-[#cdcdcd]">Your Security is Our </span
-              ><span class="text-white md:text-4xl">Top Priority</span>
+              ><span class="text-white md:text-2xl lg:text-4xl"
+                >Top Priority</span
+              >
             </h1>
 
             <p
-              class="md:w-[503px] w-full text-[#cdcdcd] md:text-xl font-normal md:mt-10 hidden md:block"
+              class="w-full lg:max-w-[500px] text-[#cdcdcd] lg:text-xl font-normal md:mt-10 hidden md:block"
             >
               Our POS solution is built with robust security at its core. From
               encrypted data transmission and secure cloud backups to role-based
@@ -1191,17 +1221,19 @@
               offline.
             </p>
 
-            <button
+            <button id="exploreBtn"
               class="underline text-white md:text-base font-semibold text-start md:mt-6 hidden md:block"
             >
               EXPLORE MORE
             </button>
           </div>
 
-          <div data-aos="fade-left" data-aos-duration="1500">
+          <div
+            class="transform lg:translate-x-full lg:group-hover:translate-x-0 transition-all duration-700 ease-out"
+          >
             <img
               src="/assets/images/feature/security-level.png"
-              class="object-cover"
+              class="w-full h-[220px] sm:h-[280px] md:h-[350px] lg:h-full object-cover rounded-[16px] md:rounded-[24px]"
               alt=""
             />
 
@@ -1221,6 +1253,170 @@
             >
               EXPLORE MORE
             </button>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div id="security-expanded" class="hidden">
+        <div
+          class="container mx-auto lg:px-2 px-4 max-w-[1400px]"
+        >
+          <!-- Heading -->
+          <div class="text-center mb-10 md:mb-14">
+            <h2
+              class="font-bold text-2xl sm:text-3xl md:text-4xl leading-tight"
+            >
+              <span class="text-[#c98633]">Built-In Security </span>
+              <span class="text-white">at Every Level</span>
+            </h2>
+
+            <p
+              class="text-[#6b6b6b] text-sm sm:text-base mt-3 max-w-[600px] mx-auto"
+            >
+              From login to backup, we safeguard your operations with robust
+              security protocols and constant monitoring.
+            </p>
+          </div>
+
+          <!-- GRID -->
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- CARD -->
+            <div
+              class="p-7 border border-[#dcdcdc] rounded-[30px] min-h-[260px] flex flex-col gap-4 hover:shadow-sm transition-all duration-300"
+            >
+              <div class="flex items-start gap-3">
+                <img src="/assets/images/Feature Icons/1.png" alt="" class="w-10 h-10 object-contain">
+                <h4 class="text-white font-semibold text-[17px] leading-tight">
+                  End-to-End Encryption
+                </h4>
+              </div>
+
+              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+                All sensitive data is encrypted the moment it enters the system
+                and remains protected during transfer and storage, ensuring
+                total privacy and security for every transaction.
+              </p>
+            </div>
+
+            <!-- CARD -->
+            <div
+              class="p-7 border border-[#dcdcdc] rounded-[30px] min-h-[260px] flex flex-col gap-4 hover:shadow-sm transition-all duration-300"
+            >
+              <div class="flex items-start gap-3">
+                <img src="/assets/images/Feature Icons/2.png" alt="" class="w-10 h-10 object-contain">
+                <h4 class="text-white font-semibold text-[17px]">
+                  Two-Factor Authentication
+                </h4>
+              </div>
+              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+                Adds an extra layer of security by requiring a second form of
+                verification, ensuring only authorized users can access
+                sensitive parts of your POS system.
+              </p>
+            </div>
+
+            <!-- CARD -->
+            <div
+              class="p-7 border border-[#dcdcdc] rounded-[30px] min-h-[260px] flex flex-col gap-4 hover:shadow-sm transition-all duration-300"
+            >
+              <div class="flex items-start gap-3">
+                <img src="/assets/images/Feature Icons/3.png" alt="" class="w-10 h-10 object-contain">
+                <h4 class="text-white font-semibold text-[17px]">
+                  PCI-DSS Compliance
+                </h4>
+              </div>
+              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+                Our POS follows PCI-DSS standards to securely process, store,
+                and transmit cardholder data—ensuring every payment is protected
+                and audit-ready.
+              </p>
+            </div>
+
+            <!-- CARD -->
+            <div
+              class="p-7 border border-[#dcdcdc] rounded-[30px] min-h-[260px] flex flex-col gap-4 hover:shadow-sm transition-all duration-300"
+            >
+              <div class="flex items-start gap-3">
+                <img src="/assets/images/Feature Icons/4.png" alt="" class="w-10 h-10 object-contain">
+                <h4 class="text-white font-semibold text-[17px]">
+                  Role-Based Access Control
+                </h4>
+              </div>
+              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+                Assign permissions based on roles—like cashier, manager, or
+                admin—so each user only accesses what they need, reducing
+                security risks.
+              </p>
+            </div>
+
+            <!-- CARD -->
+            <div
+              class="p-7 border border-[#dcdcdc] rounded-[30px] min-h-[260px] flex flex-col gap-4 hover:shadow-sm transition-all duration-300"
+            >
+              <div class="flex items-start gap-3">
+                <img src="/assets/images/Feature Icons/3.png" alt="" class="w-10 h-10 object-contain">
+                <h4 class="text-white font-semibold text-[17px]">
+                  Compliance Ready
+                </h4>
+              </div>
+              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+                Our POS system adheres to industry standards like PCI-DSS,
+                ensuring secure handling of payment data and meeting legal
+                requirements with confidence.
+              </p>
+            </div>
+
+            <!-- CARD -->
+            <div
+              class="p-7 border border-[#dcdcdc] rounded-[30px] min-h-[260px] flex flex-col gap-4 hover:shadow-sm transition-all duration-300"
+            >
+              <div class="flex items-start gap-3">
+                <img src="/assets/images/Feature Icons/5.png" alt="" class="w-10 h-10 object-contain">
+                <h4 class="text-white font-semibold text-[17px]">
+                  Secure Cloud Storage
+                </h4>
+              </div>
+              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+                All your data is stored in encrypted cloud servers with
+                automatic backups, ensuring it stays safe, accessible, and
+                protected from loss or breaches.
+              </p>
+            </div>
+
+            <!-- CARD -->
+            <div
+              class="p-7 border border-[#dcdcdc] rounded-[30px] min-h-[260px] flex flex-col gap-4 hover:shadow-sm transition-all duration-300"
+            >
+              <div class="flex items-start gap-3">
+                <img src="/assets/images/Feature Icons/6.png" alt="" class="w-10 h-10 object-contain">
+                <h4 class="text-white font-semibold text-[17px]">
+                  Automatic Session Timeout
+                </h4>
+              </div>
+              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+                The system auto-logs out inactive users after a set time,
+                preventing unauthorized access and keeping your POS environment
+                secure.
+              </p>
+            </div>
+
+            <!-- CARD -->
+            <div
+              class="p-7 border border-[#dcdcdc] rounded-[30px] min-h-[260px] flex flex-col gap-4 hover:shadow-sm transition-all duration-300"
+            >
+              <div class="flex items-start gap-3">
+                <img src="/assets/images/Feature Icons/7.png" alt="" class="w-10 h-10 object-contain">
+                <h4 class="text-white font-semibold text-[17px]">
+                  Activity Logs
+                </h4>
+              </div>
+              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+                Track every user action in the system with detailed
+                logs—ensuring transparency, accountability, and quick issue
+                resolution when needed.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -1560,7 +1756,43 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/footer-accordion.js"></script>
+    <script>
+  const exploreBtn = document.getElementById("exploreBtn");
+  const defaultSection = document.getElementById("security-default");
+  const expandedSection = document.getElementById("security-expanded");
 
+  // Show expanded layout
+  exploreBtn.addEventListener("click", () => {
+    defaultSection.classList.add("hidden");
+    expandedSection.classList.remove("hidden");
+  });
+
+  // Click anywhere on expanded section → go back
+  expandedSection.addEventListener("click", () => {
+    expandedSection.classList.add("hidden");
+    defaultSection.classList.remove("hidden");
+  });
+</script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("dark-mode-toggle");
+        if (!toggle) return;
+
+        const currentPage = window.location.pathname.split("/").pop();
+
+        // Dark page → toggle should be ON
+        toggle.checked = true;
+
+        toggle.addEventListener("change", function () {
+          if (!this.checked) {
+            localStorage.setItem("theme", "light");
+            window.location.href = `/light/${currentPage}`;
+          } else {
+            localStorage.setItem("theme", "dark");
+          }
+        });
+      });
+    </script>
     <script>
       AOS.init();
       document.addEventListener("DOMContentLoaded", function () {

@@ -18,77 +18,193 @@
   </head>
   <body class="bg-[#1C1C1C] font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
+    <nav class="navbar lg:block hidden">
+      <div class="navbar-container container mx-auto px-6 lg:px-[60px] flex items-center justify-between h-[70px]">
         <!-- Logo -->
-        <div class="logo-container">
+        <div class="logo-container flex items-center gap-4">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
-            class="logo"
+            class="logo h-[65px] w-auto"
             alt="Logo"
           />
 
-          <div class="nav-links ml-4">
-            <div class="nav-item dropdown">
-              <a href="#business-type" class="nav-link">Business Type</a>
+          <div class="nav-links flex items-center gap-6">
+            <div class="nav-item relative group">
+              <a href="#business-type" class="nav-link text-white text-[14px] font-bold">Business Type</a>
+
               <!-- Mega Menu -->
-              <div class="mega-menu">
-                <div class="mega-menu-grid">
-                  <div class="mega-menu-column">
-                    <h3 class="mega-menu-title">Product Features</h3>
-                    <ul class="mega-menu-list">
-                      <li><a href="#" class="mega-menu-link">Feature 1</a></li>
-                      <li><a href="#" class="mega-menu-link">Feature 2</a></li>
-                      <li><a href="#" class="mega-menu-link">Feature 3</a></li>
-                    </ul>
+              <div
+                class="mega-menu mega-anim absolute left-0 top-full bg-black pt-10"
+                onmouseleave="clearActive()"
+              >
+                <div class="flex flex-nowrap gap-10">
+                  <!-- LEFT: categories -->
+                  <div
+                    class="flex flex-col p-10 gap-4"
+                    id="categoryList"
+                    data-aos="fade-left"
+                  >
+                    <a
+                      href="#"
+                      class="text-white text-[14px] font-bold hover:underline"
+                      data-cat="food"
+                      onmouseenter="setActive('food')"
+                      onfocus="setActive('food')"
+                    >
+                      Food &amp; Beverage
+                    </a>
+
+                    <a
+                      href="#"
+                      class="text-white text-[14px] font-bold hover:underline"
+                      data-cat="retail"
+                      onmouseenter="setActive('retail')"
+                      onfocus="setActive('retail')"
+                    >
+                      Retail
+                    </a>
                   </div>
-                  <div class="mega-menu-column">
-                    <h3 class="mega-menu-title">Resources</h3>
-                    <ul class="mega-menu-list">
-                      <li>
-                        <a href="#" class="mega-menu-link">Documentation</a>
-                      </li>
-                      <li><a href="#" class="mega-menu-link">FAQs</a></li>
-                      <li><a href="#" class="mega-menu-link">Tutorials</a></li>
-                    </ul>
-                  </div>
-                  <div class="mega-menu-column">
-                    <h3 class="mega-menu-title">Support</h3>
-                    <ul class="mega-menu-list">
-                      <li><a href="#" class="mega-menu-link">Contact Us</a></li>
-                      <li><a href="#" class="mega-menu-link">Live Chat</a></li>
-                      <li>
-                        <a href="#" class="mega-menu-link">Knowledge Base</a>
-                      </li>
-                    </ul>
+
+                  <!-- RIGHT: panels -->
+                  <div class="flex gap-16 p-10">
+                    <!-- FOOD panel -->
+                    <div class="flex justify-between gap-10" data-panel="food">
+                      <div>
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Capacity
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Manage order from one place</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Take payment</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Keep customer coming back</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Scale your business</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Improve operation</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Schedule and pay your team</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Manage your cash flow</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- RETAIL panel -->
+                    <div class="space-y-6 hidden" data-panel="retail">
+                      <div class="gap-10">
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Other Links -->
-            <a href="#features" class="nav-link">Feature</a>
-            <a href="#hardware" class="nav-link">Hardware</a>
-            <a href="#pricing" class="nav-link">Pricing</a>
-            <a href="#resources" class="nav-link">Resources</a>
+            <a href="/dark/feature.html" class="nav-link text-[14px]">Feature</a>
+            <a href="/dark/hardware.html" class="nav-link text-[14px]">Hardware</a>
+            <a href="/dark/pricing.html" class="nav-link text-[14px]">Pricing</a>
+            <a href="/dark/resources.html" class="nav-link text-[14px]">Resources</a>
           </div>
         </div>
 
         <!-- Navigation Links -->
-        <div class="nav-extra-links">
-          <div class="language-selector">
-            <span class="language-text">ENGLISH</span>
-            <img
+        <div class="nav-extra-links flex items-center gap-6">
+          <a href="/dark/signin.html" class="nav-link text-[14px]">Sign in</a>
+          <div
+            class="language-selector cursor-pointers"
+            onclick="toggleLanguage()"
+          >
+          <img
+              id="flag-icon"
               src="/assets/images/flags/usa.png"
               alt="USA Flag"
-              class="flag-icon"
+              class="flag-icon w-5 h-5 rounded-full object-cover"
             />
+            <span id="language-text" class="text-white flex items-center gap-2 text-[14px] font-bold">
+              ENGLISH
+            </span>
+            
           </div>
-
-          <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
+          <button class="demo-btn text-white">
+            Free Demo
           </button>
         </div>
       </div>
@@ -247,149 +363,114 @@
     </nav>
 
     <!-- hero section -->
-    <section class="py-20 md:pt-10">
-      <div class="container px-4 md:px-2 mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <div class="mx-auto p-6">
-              <h2 class="justify-start md:mb-20 mb-6 md:text-2xl text-lg">
-                <span class="text-[#C89633] font-bold"
-                  >Fill in The Details Below,</span
-                ><span class="text-white font-bold">
-                  And Our Team Get Back to You</span
-                >
-              </h2>
+    <!-- hero section -->
+<section class="py-20 md:pt-10">
+  <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-20">
 
-              <form class="">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  class="w-full border-b border-gray-300 focus:border-black outline-none py-2 mb-20 bg-transparent"
-                />
-                <input
-                  type="text"
-                  placeholder="Your Address"
-                  class="w-full border-b border-gray-300 focus:border-black outline-none py-2 mb-20 bg-transparent"
-                />
-                <input
-                  type="tel"
-                  placeholder="Your Phone No."
-                  class="w-full border-b border-gray-300 focus:border-black outline-none py-2 mb-20 bg-transparent"
-                />
-                <textarea
-                  placeholder="Your Message"
-                  class="w-full border-b border-gray-300 focus:border-black outline-none py-2 resize-none mb-20 bg-transparent"
-                  rows="4"
-                ></textarea>
-
-                <button
-                  type="submit"
-                  class="ml-auto block uppercase tracking-wide text-sm font-semibold text-white border-b-2 border-white pb-1 hover:text-gray-100"
-                >
-                  Submit
-                </button>
-              </form>
-            </div>
-          </div>
-          <div>
-            <img
-              src="/assets/images/contact/contact-hero.png"
-              class="w-full object-cover"
-              alt=""
-            />
-          </div>
-        </div>
+      <!-- IMAGE: first on mobile/tablet, second on desktop -->
+      <div class="mx-auto w-full md:order-last">
+        <img
+          src="/assets/images/contact/contact-hero.png"
+          class="w-full object-cover rounded-lg"
+          alt=""
+        />
       </div>
-    </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-20">
-      <div class="container mx-auto px-4 md:px-2">
-        <!-- Section Header -->
-        <div class="text-center md:mb-20 mb-6">
-          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#C89633]">Call Or Email </span>
-
-            <span class="text-white">Us Directly</span>
+      <!-- FORM: second on mobile/tablet, first on desktop -->
+      <div class="md:order-first">
+        <div class="mx-auto">
+          <h2 class="justify-start md:mb-20 mb-6 text-[19px]">
+            <span class="text-[#C89633] font-bold">Fill in The Details Below,</span>
+            <span class="text-white font-bold"> And Our Team Get Back to You</span>
           </h2>
-          <div class="flex justify-center">
-            <p
-              class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
-            >
-              Have questions or need support? We’re here to help. Reach out to
-              us anytime for product inquiries, demos, or assistance—our team is
-              just a call or message away.
-            </p>
-          </div>
-        </div>
 
-        <!-- Feature Cards -->
-        <div class="">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="flex flex-col">
-              <div
-                class="rounded-[38px] border border-[#C89633] text-center py-10 flex flex-col justify-between min-h-[300px]"
-              >
-                <div class="flex justify-center items-center h-full gap-4">
-                  <img
-                    src="/assets/images/contact/Phone.png"
-                    class="object-cover"
-                    alt=""
-                  />
-                  <p
-                    class="text-center text-white md:text-[32px] text-lg font-medium"
-                  >
-                    Phone Support
-                  </p>
-                </div>
-                <p
-                  class="text-center text-[#CDCDCD] md:text-[22px] text-sm font-normal md:mt-5 mt-2"
-                >
-                  +61 8492395705
-                </p>
-                <div class="md:mt-6 mt-2">
-                  <a
-                    class="text-white font-bold py-2 px-6 rounded mt-6 mb-10 underline uppercase"
-                  >
-                    Call us now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="flex flex-col">
-              <div
-                class="rounded-[38px] border border-[#C89633] text-center py-10 flex flex-col justify-between min-h-[300px]"
-              >
-                <div class="flex justify-center items-center h-full gap-4">
-                  <img
-                    src="/assets/images/contact/Mail.png"
-                    class="object-cover"
-                    alt=""
-                  />
-                  <p
-                    class="text-center text-white md:text-[32px] text-lg font-medium"
-                  >
-                    Email Support
-                  </p>
-                </div>
-                <p
-                  class="text-center text-[#CDCDCD] md:text-[22px] text-sm font-normal md:mt-5 mt-2"
-                >
-                  support@mail.com
-                </p>
-                <div class="md:mt-6 mt-2">
-                  <a
-                    class="text-white font-bold py-2 px-6 rounded mt-6 mb-10 underline uppercase"
-                  >
-                    Mail Us Now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <form>
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-full border-b border-gray-300 focus:border-white outline-none py-2 mb-10 md:mb-14 bg-transparent text-white placeholder-gray-400"
+            />
+            <input
+              type="text"
+              placeholder="Your Address"
+              class="w-full border-b border-gray-300 focus:border-white outline-none py-2 mb-10 md:mb-14 bg-transparent text-white placeholder-gray-400"
+            />
+            <input
+              type="tel"
+              placeholder="Your Phone No."
+              class="w-full border-b border-gray-300 focus:border-white outline-none py-2 mb-10 md:mb-14 bg-transparent text-white placeholder-gray-400"
+            />
+            <textarea
+              placeholder="Your Message"
+              class="w-full border-b border-gray-300 focus:border-white outline-none py-2 resize-none mb-10 md:mb-14 bg-transparent text-white placeholder-gray-400"
+              rows="1"
+            ></textarea>
+
+            <button
+              type="submit"
+              class="ml-auto block uppercase tracking-wide text-sm font-semibold text-white border-b-2 border-white pb-1 hover:text-gray-100"
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
+
+    <!-- Section Header -->
+    <div class="text-center md:mb-20 mb-6">
+      <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
+        <span class="text-[#C89633]">Call Or Email </span>
+        <span class="text-white">Us Directly</span>
+      </h2>
+      <div class="flex justify-center">
+        <p class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal">
+          Have questions or need support? We're here to help. Reach out to
+          us anytime for product inquiries, demos, or assistance—our team is
+          just a call or message away.
+        </p>
+      </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- PHONE CARD -->
+      <div class="flex justify-center">
+        <div class="rounded-[32px] border border-[#c89633] shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-center px-6 py-8 flex flex-col items-center justify-center w-full max-w-[422px] min-h-[186px]">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="/assets/images/contact/Phone.png" class="w-[50px] h-[50px] object-contain" />
+            <p class="text-white text-[20px] md:text-[24px] font-semibold">Phone Support</p>
+          </div>
+          <p class="text-[#c89633] text-[14px] md:text-[18px] mb-3">+61 8492395705</p>
+          <a class="text-white text-[12px] font-semibold underline uppercase tracking-wide cursor-pointer">CALL US NOW</a>
+        </div>
+      </div>
+
+      <!-- EMAIL CARD -->
+      <div class="flex justify-center">
+        <div class="rounded-[32px] border border-[#c89633] shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-center px-6 py-8 flex flex-col items-center justify-center w-full max-w-[422px] min-h-[186px]">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="/assets/images/contact/Mail.png" class="w-[50px] h-[50px] object-contain" />
+            <p class="text-white text-[20px] md:text-[24px] font-semibold">Email Support</p>
+          </div>
+          <p class="text-[#c89633] text-[14px] md:text-[18px] mb-3">support@mail.com</p>
+          <!-- Fixed: was text-black, now text-white to match dark theme -->
+          <a class="text-white text-[12px] font-semibold underline uppercase tracking-wide cursor-pointer">MAIL US NOW</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- Footer -->
     <footer class="dark py-10">
@@ -723,6 +804,27 @@
     <!-- Splide JS -->
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/footer-accordion.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("dark-mode-toggle");
+        if (!toggle) return;
+
+        const currentPage = window.location.pathname.split("/").pop();
+
+        // Dark page → toggle should be ON
+        toggle.checked = true;
+
+        toggle.addEventListener("change", function () {
+          if (!this.checked) {
+            localStorage.setItem("theme", "light");
+            window.location.href = `/light/${currentPage}`;
+          } else {
+            localStorage.setItem("theme", "dark");
+          }
+        });
+      });
+    </script>
 
     <script>
       function toggleFaq(element) {
