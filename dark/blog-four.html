@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tequila POS - Smart POS Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--for Cash Discount slider-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #242424;
+      }
+      /* Hide scrollbar for a cleaner look */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+    </style>
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <!-- Optional: Default Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
+    />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/style/dark.css" />
+  </head>
+  <body class="bg-[#1C1C1C] font-inter text-sm">
+    <nav class="navbar md:block hidden">
+      <div class="navbar-container container mx-auto">
+        <!-- Logo -->
+        <div class="logo-container">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo"
+            alt="Logo"
+          />
+
+          <div class="nav-links ml-4">
+            <div class="nav-item dropdown">
+              <a href="#business-type" class="nav-link">Business Type</a>
+              <!-- Mega Menu -->
+              <div class="mega-menu">
+                <div class="mega-menu-grid">
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Product Features</h3>
+                    <ul class="mega-menu-list">
+                      <li><a href="#" class="mega-menu-link">Feature 1</a></li>
+                      <li><a href="#" class="mega-menu-link">Feature 2</a></li>
+                      <li><a href="#" class="mega-menu-link">Feature 3</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Resources</h3>
+                    <ul class="mega-menu-list">
+                      <li>
+                        <a href="#" class="mega-menu-link">Documentation</a>
+                      </li>
+                      <li><a href="#" class="mega-menu-link">FAQs</a></li>
+                      <li><a href="#" class="mega-menu-link">Tutorials</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Support</h3>
+                    <ul class="mega-menu-list">
+                      <li><a href="#" class="mega-menu-link">Contact Us</a></li>
+                      <li><a href="#" class="mega-menu-link">Live Chat</a></li>
+                      <li>
+                        <a href="#" class="mega-menu-link">Knowledge Base</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Links -->
+            <a href="#features" class="nav-link">Feature</a>
+            <a href="#hardware" class="nav-link">Hardware</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#resources" class="nav-link">Resources</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-extra-links">
+          <div class="language-selector">
+            <span class="language-text">ENGLISH</span>
+            <img
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+
+          <a href="#signin" class="nav-link">Sign in</a>
+
+          <button class="demo-btn">
+            <span>Free Demo</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar md:hidden bg-black shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-4"
+      >
+        <!-- Logo -->
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Close Icon -->
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 bg-[#1C1C1C] text-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50"
+      >
+        <div class="p-4 space-y-4">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 bg-gray-800 rounded hover:bg-gray-700"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 text-gray-400 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
+            11.94l3.72-3.72a.75.75 0 1 1 
+            1.06 1.06l-4.25 4.25a.75.75 0 
+            0 1-1.06 0L5.22 9.28a.75.75 
+            0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 bg-gray-900 rounded shadow-lg overflow-hidden"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Duplicate</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Delete</a
+              >
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="#features" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Features</a
+          >
+          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Hardware</a
+          >
+          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Pricing</a
+          >
+          <a href="#resources" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Resources</a
+          >
+
+          <!-- Language Switcher -->
+          <div
+            class="flex items-center justify-between px-4 py-2 bg-gray-800 rounded"
+          >
+            <span class="text-sm">EN</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-gray-500 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+              ></div>
+            </label>
+            <span class="text-sm">BN</span>
+          </div>
+
+          <!-- Sign in -->
+          <a href="#signin" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Sign In</a
+          >
+
+          <!-- CTA Button -->
+          <a
+            href="#demo"
+            class="block text-center bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-2 rounded shadow hover:from-yellow-400 hover:to-yellow-500"
+          >
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+
+    <section class="bg-transparent-100 py-8 md:py-16">
+      <div
+        class="container mx-auto px-4 flex flex-row items-center justify-between gap-4 md:gap-12"
+      >
+        <div class="w-full md:w-[750px] text-left">
+          <h1
+            class="text-[20px] md:text-[64px] lg:text-7xl font-bold text-[#C98633] mb-4 md:mb-8"
+          >
+            Stop Employee Theft Before It Starts:
+            <span class="text-white">Tools You Already Have</span>
+          </h1>
+
+          <p
+            class="md:w-[611px] w-full text-[#CDCDCD] md:text-[20px] text-[10px] font-semibold md:leading-[25.20px] leading-normal md:mb-8"
+          >
+            Turn Everyday Features Into Powerful Theft Deterrents.
+          </p>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <img
+            src="/assets/images/blog-four/blog-four-hero.png"
+            alt=""
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!--Deter Internal Theft section-->
+
+    <section class="md:mt-10 mt-5" id="reports-tabs">
+      <div class="container px-4 md:px-2 mx-auto">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[350px] md:max-w-[550px] mx-auto"
+          >
+            <span class="text-[#C98633]">POS Features That Detect </span>
+            <span class="text-white">and Deter Internal Theft</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+            >
+              Each feature solves a real-world problem — here’s how they make
+              daily operations smoother and more profitable.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-full mx-auto p-8 text-gray-200">
+          <div class="flex space-x-2 mb-8 bg-gray-800 p-1 rounded-full w-fit">
+            <button
+              id="tab-permissions"
+              class="tab-button px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-200 bg-white text-gray-900"
+              data-target="content-permissions"
+            >
+              User Permissions
+            </button>
+            <button
+              id="tab-audit"
+              class="tab-button px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-200 text-gray-400 hover:bg-gray-700 hover:text-white"
+              data-target="content-audit"
+            >
+              Audit Trails
+            </button>
+            <button
+              id="tab-reports"
+              class="tab-button px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-200 text-gray-400 hover:bg-gray-700 hover:text-white"
+              data-target="content-reports"
+            >
+              Shift Reports
+            </button>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-8">
+            <div class="lg:w-2/3">
+              <div
+                id="content-permissions"
+                class="tab-content active-content space-y-4"
+              >
+                <p class="text-gray-400">
+                  User permissions allow you to control what each employee can
+                  do in the POS system. Not every staff member should have
+                  access to sensitive functions like voiding sales, applying
+                  manual discounts, or opening the cash drawer without a
+                  transaction.
+                </p>
+
+                <h3 class="text-lg font-bold mt-6 text-white">How it helps:</h3>
+                <ul class="list-none space-y-3 px-2 text-gray-400">
+                  <li class="flex items-start">
+                    <span
+                      class="text-2xl leading-none mr-2 font-light text-gray-400"
+                      >&bull;</span
+                    >
+                    <p>
+                      <span class="font-semibold text-white"
+                        >Prevents unauthorized discounts or voids.</span
+                      >
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="text-2xl leading-none mr-2 font-light text-gray-400"
+                      >&bull;</span
+                    >
+                    <p>
+                      <span class="font-semibold text-white"
+                        >Limits the ability to manipulate transactions.</span
+                      >
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="text-2xl leading-none mr-2 font-light text-gray-400"
+                      >&bull;</span
+                    >
+                    <p>
+                      <span class="font-semibold text-white"
+                        >Ensures only managers can approve critical
+                        actions.</span
+                      >
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              <div id="content-audit" class="tab-content hidden space-y-4">
+                <p class="text-gray-400">
+                  An audit trail is a detailed log of every action taken in the
+                  POS system—who did what, when, and from which terminal. This
+                  includes voids, discounts, no-sale drawer openings, deleted
+                  items, and more.
+                </p>
+
+                <h3 class="text-lg font-bold mt-6 text-white">How it helps:</h3>
+                <ul class="list-none space-y-3 px-2 text-gray-400">
+                  <li class="flex items-start">
+                    <span
+                      class="text-2xl leading-none mr-2 font-light text-gray-400"
+                      >&bull;</span
+                    >
+                    <p>
+                      <span class="font-semibold text-white"
+                        >Provides a clear record of employee activity.</span
+                      >
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="text-2xl leading-none mr-2 font-light text-gray-400"
+                      >&bull;</span
+                    >
+                    <p>
+                      <span class="font-semibold text-white"
+                        >Helps identify patterns linked to theft,</span
+                      >
+                      like repeated voids or excessive discounts.
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="text-2xl leading-none mr-2 font-light text-gray-400"
+                      >&bull;</span
+                    >
+                    <p>
+                      <span class="font-semibold text-white"
+                        >Builds accountability</span
+                      >—employees are less likely to steal if they know their
+                      actions are tracked.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              <div id="content-reports" class="tab-content hidden space-y-4">
+                <p class="text-gray-400">
+                  End-of-shift reports give managers a snapshot of key metrics
+                  like total sales, cash collected, number of voids, discounts
+                  applied, and drawer over/short amounts. These can be broken
+                  down by employee.
+                </p>
+
+                <h3 class="text-lg font-bold mt-6 text-white">How it helps:</h3>
+                <ul class="list-none space-y-3 px-2 text-gray-400">
+                  <li class="flex items-start">
+                    <span
+                      class="text-2xl leading-none mr-2 font-light text-gray-400"
+                      >&bull;</span
+                    >
+                    <p>
+                      <span class="font-semibold text-white"
+                        >Makes it easy to spot red flags</span
+                      >
+                      at the end of each shift.
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="text-2xl leading-none mr-2 font-light text-gray-400"
+                      >&bull;</span
+                    >
+                    <p>
+                      <span class="font-semibold text-white"
+                        >Helps compare staff performance</span
+                      >
+                      and identify anomalies.
+                    </p>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="text-2xl leading-none mr-2 font-light text-gray-400"
+                      >&bull;</span
+                    >
+                    <p>
+                      <span class="font-semibold text-white"
+                        >Supports quick resolution</span
+                      >
+                      of cash drawer discrepancies.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="lg:w-1/3 p-6 border border-gray-700 rounded-xl">
+              <form class="space-y-6">
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Enter your name here"
+                    class="w-full border-b border-gray-600 bg-transparent text-white focus:border-white focus:outline-none pb-2 text-sm placeholder-gray-500"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    placeholder="Enter your email here"
+                    class="w-full border-b border-gray-600 bg-transparent text-white focus:border-white focus:outline-none pb-2 text-sm placeholder-gray-500"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Business name"
+                    class="w-full border-b border-gray-600 bg-transparent text-white focus:border-white focus:outline-none pb-2 text-sm placeholder-gray-500"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    placeholder="Phone no."
+                    class="w-full border-b border-gray-600 bg-transparent text-white focus:border-white focus:outline-none pb-2 text-sm placeholder-gray-500"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    placeholder="Product you want"
+                    class="w-full border-b border-gray-600 bg-transparent text-white focus:border-white focus:outline-none pb-2 text-sm placeholder-gray-500"
+                  />
+                </div>
+                <div>
+                  <textarea
+                    placeholder="Have any question?"
+                    rows="4"
+                    class="w-full border border-gray-600 bg-transparent text-white focus:border-white focus:outline-none p-3 text-sm placeholder-gray-500 rounded-lg"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full py-2 text-sm font-bold text-white tracking-widest hover:underline"
+                >
+                  CONNECT TO US
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Key Reports section-->
+
+    <section class="md:mt-10 mt-5"   id="theft-tabs">
+      <div class="container px-4 md:px-2 mx-auto">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[350px] md:max-w-[677px] mx-auto"
+          >
+            <span class="text-[#C98633]">Key Reports Every Restaurant </span>
+            <span class="text-white">Owner Should Review Regularly</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+            >
+              Stay in control of sales, staff, and shrinkage with these
+              essential daily and weekly POS reports.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-full mx-auto p-8 text-gray-200">
+          <div class="flex flex-col lg:flex-row gap-8">
+            <div class="flex flex-col space-y-4 lg:w-1/5">
+              <button
+                id="tab-daily-reports"
+                class="tab-button w-full lg:w-auto h-24 flex items-center justify-center rounded-xl transition-colors duration-200 bg-white text-gray-900 text-lg font-bold shadow-lg"
+                data-target="content-daily-reports"
+              >
+                Daily Reports
+              </button>
+
+              <button
+                id="tab-weekly-report"
+                class="tab-button w-full lg:w-auto h-24 flex items-center justify-center rounded-xl transition-colors duration-200 bg-black text-white text-lg font-bold border border-gray-700 hover:bg-gray-800"
+                data-target="content-weekly-report"
+              >
+                Weekly Report
+              </button>
+            </div>
+
+            <div class="lg:w-4/5">
+              <div
+                id="content-daily-reports"
+                class="tab-content active-content grid grid-cols-1 md:grid-cols-2 gap-8"
+              >
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Daily Sales Summary
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>
+                        &bull; Total sales by payment type (cash, card, online)
+                      </li>
+                      <li>&bull; Voids, refunds, discounts applied</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Cash Drawer Report
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>&bull; Opening and closing balances</li>
+                      <li>&bull; Cash over/short discrepancies</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Voids and Refunds Report
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>
+                        &bull; Lists who performed them and for which items
+                      </li>
+                      <li>
+                        &bull; Flags fake voids or repeated misuse by staff
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 16V4m0 0a2 2 0 012-2h4a2 2 0 012 2v12m-6 0v2a2 2 0 002 2h2a2 2 0 002-2v-2m-6 0H7m6 0h-2"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Discounts & Comps Report
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>
+                        &bull; Shows all applied promotions, discounts, or comps
+                      </li>
+                      <li>
+                        &bull; Useful to catch unauthorized or excessive use
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Labor Report
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>&bull; Who clocked in/out and total hours worked</li>
+                      <li>
+                        &bull; Check for buddy punching or early/late punches
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Inventory Usage
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>&bull; Compares expected vs. actual usage</li>
+                      <li>
+                        &bull; Helps flag theft, spoilage, or over-portioning
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                id="content-weekly-report"
+                class="tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-8"
+              >
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Product Mix Report (PMIX)
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>&bull; Shows which items sell best or least</li>
+                      <li>
+                        &bull; Helps detect manipulations in item sales (e.g.,
+                        overuse of high-margin comped items)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Inventory Variance Report
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>&bull; Tracks actual stock vs. what should remain</li>
+                      <li>
+                        &bull; Helps identify missing items or theft over time
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Payroll Report
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>&bull; Total labor costs and overtime hours</li>
+                      <li>
+                        &bull; Keeps labor cost in check and detects abuse
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 10h16M4 14h16M4 18h16"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Customer Feedback or Review Summary
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>&bull; Tracks complaints, refunds, or issues</li>
+                      <li>
+                        &bull; Can indicate service problems or suspicious
+                        patterns
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="p-2 flex items-start space-x-3">
+                  <svg
+                    class="w-7 h-7 text-yellow-500 flex-shrink-0 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m0 0V9a2 2 0 012-2h2m-4 4h4m-4 0v4m-2-2h2m4-2h4m-4 0v4m-2-2h2"
+                    ></path>
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-white text-lg mb-1">
+                      Shift Summary Reports
+                    </h3>
+                    <ul class="list-none text-sm space-y-1 text-gray-400">
+                      <li>
+                        &bull; Compares shift performance, sales per employee
+                      </li>
+                      <li>
+                        &bull; Useful for spotting underperforming or suspicious
+                        patterns
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Uncover and Prevent section-->
+
+    <section class="md:mt-10 mt-5">
+      <div class="container px-4 md:px-2 mx-auto">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[350px] md:max-w-[610px] mx-auto"
+          >
+            <span class="text-[#C98633]">How TequilaPOS Helps Uncover </span>
+            <span class="text-white">and Prevent Revenue Loss</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+            >
+              From detecting suspicious activity to tightening controls,
+              TequilaPOS gives you the insights and tools to protect every
+              dollar.
+            </p>
+          </div>
+        </div>
+
+        <div class="container mx-auto p-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div
+              class="p-6 rounded-[38px] border-[0.50px] border-[#cbcbcb] flex flex-col items-center text-center space-y-4"
+            >
+              <div class="flex items-center justify-center w-12 h-12">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <mask
+                    id="mask0_2_12882"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                  >
+                    <rect
+                      width="50"
+                      height="50"
+                      fill="url(#pattern0_2_12882)"
+                    />
+                  </mask>
+                  <g mask="url(#mask0_2_12882)">
+                    <rect width="50" height="50" fill="#C98633" />
+                  </g>
+                  <defs>
+                    <pattern
+                      id="pattern0_2_12882"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_2_12882"
+                        transform="scale(0.00195312)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_2_12882"
+                      width="512"
+                      height="512"
+                      preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAIABJREFUeJzt3XfcH1WZ///XnZ6QTiAhjd6lSBQMvfciIBYQRGFBBMRVyi7qonxVQH8qLvYOKrKgoIsgSocgNfTeQ0sIAdJJucvvj+u+N+EmuXOXua4zc+b9fDzOA9zVc881n5k5Z86ccx0QEREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREclEQ+oDEJFS2hA4ENgAGAcsAGYAdwHXAfPSHZqIiIgUbXeskW/poCwCfgSMTnSMIiIiUpB+wC/puOFvX+ZgowQiIiJSQUOBW+la499WmoAT4w9ZREREemIYcCfda/zbSiOwb/SBi4iISPcMY9Xf+ztbXgUGxh6+iIiIdNVw4G6KafzbyhmhEYiIiEiXeDT+LcCzkUGIiIhI540E7qP4xr+tbBwXioiIiHTGcOAe/Br/FuCIsGhEpEd6pT4AEQkxArge+KDz31FyIJGK6JP6AETEXVvjPyngb7UE/A0RKYA6ACJ5WwO4Adgy6O+9HPR3REREZCXWBB7G95t/+7JORGAiIiKyYika//tDIhMREZEVGg08Rmzj3wKcFBGciIiIvNcY4HHiG/8n0ZwiERGRJEYDjxLf+C8Etg2IT0RERNoZi72FRzf+jcDhAfGJiIhIO6mG/RuBTwbEJyIiIu2MB54hTeN/VEB8IiIi0s4E0jX+RwbEJyIiIu1MwLbfTdH4fyIgPhEREWlnImka/yXAYQHxiYiISDsTgeeIb/wXA4cGxCciIiLtrA08T5rG/8MB8YmIiEg7KRv/QwLiExERkXbWAV4gTeN/sH94IiIi0t6GwMukafwPCohPRERE2tkQeIX4xn8RavxFRESS2Ih0jf+BAfGJiIhIOxsDrxLf+C8E9gqIT0RKoCH1AYjIu2wK3IRt8BPtEeBOYD6wFHi79Z/zgXew0YG5wBxgBjAT6zSISAWpAyBSHpthjf/o1AfSBQuxjsAMYBbwRuu/v4YtW3weeBHrPIhIiagDIFIOmwM3Uq3Gv7NaWNYh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"
+                    />
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-xl font-bold text-white">
+                Tracks Every Sale, Void & Refund
+              </h2>
+              <ul class="list-none space-y-3 px-2 text-[#CDCDCD] text-left">
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Every transaction, void, and refund is logged with
+                    timestamps and employee info.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Makes it easy to detect patterns like fake voids or frequent
+                    refunds tied to specific staff.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-6 rounded-[38px] border-[0.50px] border-[#cbcbcb] flex flex-col items-center text-center space-y-4"
+            >
+              <div class="flex items-center justify-center w-12 h-12">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <mask
+                    id="mask0_2_12885"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                  >
+                    <rect
+                      width="50"
+                      height="50"
+                      fill="url(#pattern0_2_12885)"
+                    />
+                  </mask>
+                  <g mask="url(#mask0_2_12885)">
+                    <rect width="50" height="50" fill="#C98633" />
+                  </g>
+                  <defs>
+                    <pattern
+                      id="pattern0_2_12885"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_2_12885"
+                        transform="scale(0.01)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_2_12885"
+                      width="100"
+                      height="100"
+                      preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEUklEQVR4nO2dTaiVRRjHf7esEO2TNCgtw027IN2EiwpahNgXEgRBtKhoUWBCRSlaLYyUWruoFikGUVGRtiwiCC4WoWVQFGZhmXrLIKxr9sTACHFI7zn3zMd/Pn7w39x7z8PM/zn3fd+Zd+YZ6HQ6nU6nfhYCq4GNwGvAp8B3wBQw7TXlf+Z+twPY4D+zIHfja2EZ8AKwF/gHsFnKfXaPj3Vd7k6VxvnAWuCLMRIwk1zsR4H5uTurzMX+cnQ0YiIGdcRf1i7K3XklJoB7gUMJEzEo9yV40Lelaa4GPsqYCBvQh8ASGuV2/1RkYjoG3EVDuMvC8wLG2wxPZZtauISdDbwkYLgNqVeBc6gU17F3BEy2EfU2MIfKcP/6rwiYa7PU9touX+r3DBtCz1EJt4457WEicn24k8K5MvHI2yLrVz92KpIJsUGfBdIHpd5P7hMwzyLpHgqcKPxFwDiLpJ+ACyiIpwVMs8haRyHMAw4LGGYJpu6LeJ+yVsAsS6Q1FMAeAaMskdybR2mWC5hkiXUtwrwYoIOpGbe9mxFmb4MJ+QzhdVMh5qxSM257TwKXIsjqQNfk1IRos+Sk48ZICbHAihF/PYLsEDbMIsffhiC7hQ2zyPEnEWS/sGEWOb5b4C3HkUSG7QSuGKI9i4BdiRLi5u7k+CtRQhaN0KbFiRLyJ4JMN5yQaQQ5lighu4ZMikvG+4kS8huC/JgoISYY/wCCTAobZpHjf4IgbwkbZpHjv4kgzwgbZpHjuzUEctwhbJhFjn8boqsUVQ2zyPFHeRRPSoi1WKUlRHKUfoqdgoZZ5PhuXCTLw4KGWeT4jyDMVYKGWeT4SxHny8CGxWactrq+Vr9bKjXjtNX1VZ7rG0rICgphXwMJ+bqkjTtPjPnNswL0JAVxWcAXViaok/59S1G8K2CcRZL0YPB0rBIwziJJcqXiTEwEGJOYoL71NVuK5H4BAy2wHqJgzgMOCphogeRms+dSOOsFjLRAcgvKi+cSv0zGCtfvqvtAcm5VsIx6loqYn7nqqAUoOuOqU1TF4wLG2iz1FBUyN+DqRkuow77adpU8IGCwjSj3Wrpazgq408oSaF/NVUlPcaOA0TakbqERQq0Dtoh6j4ZY6ncdmaimgWtoDOUiZ5toEDfx+JWA+Tag/b4IW5PcIFjTdxWNs10gCeb1em4zFFggUsH0KHB5bjOUDnexzLo7twlqbMuYDDcu6gxwod9enDoZh3zxtc7/cHOGp64il/SkZGvCZLycu7MlMA/4JkEyfugHSg7PCuDvyGtzb4r4paqSzRET4g4p7ozIHODjCMlwNVnO7dmYHYsDn7RQ9JFFKqwM9ChcxaFeKmzp94267ieT/b6hcwTfVMtHcqeYWjkx4njD3YM6EXlshIS4v+2I1Jl/o6R95DWsE959hmR83vJChVwsOc0Wh599VaJOpkPI/vhPMo77WiudjKwEvvfrqfoTVafT6XRolX8Bj48hFbjd9LUAAAAASUVORK5CYII="
+                    />
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-xl font-bold text-white">
+                Real-Time Cash Tracking
+              </h2>
+              <ul class="list-none space-y-3 px-2 text-[#CDCDCD] text-left">
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>Monitors cash drawer activity in real time.</p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Instantly flags cash over/short issues, missing
+                    transactions, or unrecorded sales.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-6 rounded-[38px] border-[0.50px] border-[#cbcbcb] flex flex-col items-center text-center space-y-4"
+            >
+              <div class="flex items-center justify-center w-12 h-12">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <mask
+                    id="mask0_2_12888"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                  >
+                    <rect
+                      width="50"
+                      height="50"
+                      fill="url(#pattern0_2_12888)"
+                    />
+                  </mask>
+                  <g mask="url(#mask0_2_12888)">
+                    <rect width="50" height="50" fill="#C98633" />
+                  </g>
+                  <defs>
+                    <pattern
+                      id="pattern0_2_12888"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_2_12888"
+                        transform="scale(0.00195312)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_2_12888"
+                      width="512"
+                      height="512"
+                      preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,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"
+                    />
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-xl font-bold text-white">
+                Role-Based Permissions
+              </h2>
+              <ul class="list-none space-y-3 px-2 text-[#CDCDCD] text-left">
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Restrict who can apply discounts, voids, or issue refunds.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Prevents unauthorized staff from abusing those functions.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-6 rounded-[38px] border-[0.50px] border-[#cbcbcb] flex flex-col items-center text-center space-y-4"
+            >
+              <div class="flex items-center justify-center w-12 h-12">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <mask
+                    id="mask0_2_12891"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                  >
+                    <rect
+                      width="50"
+                      height="50"
+                      fill="url(#pattern0_2_12891)"
+                    />
+                  </mask>
+                  <g mask="url(#mask0_2_12891)">
+                    <rect width="50" height="50" fill="#C98633" />
+                  </g>
+                  <defs>
+                    <pattern
+                      id="pattern0_2_12891"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_2_12891"
+                        transform="scale(0.01)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_2_12891"
+                      width="100"
+                      height="100"
+                      preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACu0lEQVR4nO2dvYoUQRSFPzER0Q1EMPMnEUQ0NlHMZFOx3sA3MFz0DcQNxGeQThUDwWx1RdjA0Fj0BQQXE68UrIiLs8xPtfd0zfnghDtDn29uTXXPzDYYY4wxxhgNrgJ3gbJG2QTOIcYG8AqINc0P4AFCPBMoJZLzE7iNCF8FCgmBbCNCdhEhkgERsosIkVgI+RIshPziLYT8si1EoOCwkPxSw0LyiwwLyS8vLCS/sLCQv0uYKqXXE8OpUixEi2IhWhQL0aJYiBbFQrQoFqJFsRAtioVoUXoV0nuGIzoajvi7+iWRp8BpC0FCyO+8Bo55QpARUnPFQpASUr+KuzLZa3d0JKRuICwEC0l/NYcnJL+wsJD8ksJC8osJC8kvIwTiXRb5EiyE/OK7EdL6B5cxI7uNn+dxr0JaE0sUk3X53UIaYiFzEp6QxYrxkvUHL1kN8ZI1J+Ela7Fi1i3D1Jas3jNYCOkSLIT84i2E/LItRKDg6F3I0DgxI58bP8+7XoW0JpYoZhl8Ymghq+EJwUtWxUvWDDwheEIqnpAZeNvLNCek9wwWQroECyG/eAshv2wLESg4LCS/1FgnIa2JJYpZBl9ctJDV8ITgJaviJWsGnhA8IRVPyIoT4h/soLXt7T3D1M5Des9gIaRLkBTyTaCMEMjOER29nfMx7rQQ8kmgjBDId+D8P/q5COzP+RjXWwh5I1BGiOQ9cOGQjA8L3C30TAshWwJFhFD2D5avnQUmo2aPhneJzi4hOshDGrIrcEAx8TtOX2op5KbAQcWE84QReC5wYDHB1H+kfHYMIaeAjwIHGBNKfdO/wYjULZ/PS5hbxj3+AxvAC4FXX4gvU6NOxmGOA/eBLwIHH2K7qe2x3jPm4eSBmJcLniT1lj3gUeut7aqcAC4Dt0b4sKoIZhO41upyiDHGGGOMYQR+AV7I9380opoiAAAAAElFTkSuQmCC"
+                    />
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-xl font-bold text-white">
+                Daily Exception Reports
+              </h2>
+              <ul class="list-none space-y-3 px-2 text-[#CDCDCD] text-left">
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Automatically highlights unusual activity like high voids,
+                    comps, or low-margin orders.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Saves owners time by surfacing only what needs attention.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-6 rounded-[38px] border-[0.50px] border-[#cbcbcb] flex flex-col items-center text-center space-y-4"
+            >
+              <div class="flex items-center justify-center w-12 h-12">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <mask
+                    id="mask0_2_12894"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                  >
+                    <rect
+                      width="50"
+                      height="50"
+                      fill="url(#pattern0_2_12894)"
+                    />
+                  </mask>
+                  <g mask="url(#mask0_2_12894)">
+                    <rect width="50" height="50" fill="#C98633" />
+                  </g>
+                  <defs>
+                    <pattern
+                      id="pattern0_2_12894"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_2_12894"
+                        transform="scale(0.01)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_2_12894"
+                      width="100"
+                      height="100"
+                      preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,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"
+                    />
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-xl font-bold text-white">
+                Remote Access & Alerts
+              </h2>
+              <ul class="list-none space-y-3 px-2 text-[#CDCDCD] text-left">
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Get notified instantly about suspicious activity—even when
+                    off-site.
+                  </p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Review live sales, drawer status, and staff actions from
+                    your phone.
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="p-6 rounded-[38px] border-[0.50px] border-[#cbcbcb] flex flex-col items-center text-center space-y-4"
+            >
+              <div class="flex items-center justify-center w-12 h-12">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <mask
+                    id="mask0_2_12897"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="50"
+                    height="50"
+                  >
+                    <rect
+                      width="50"
+                      height="50"
+                      fill="url(#pattern0_2_12897)"
+                    />
+                  </mask>
+                  <g mask="url(#mask0_2_12897)">
+                    <rect x="-0.492188" width="52" height="50" fill="#C98633" />
+                  </g>
+                  <defs>
+                    <pattern
+                      id="pattern0_2_12897"
+                      patternContentUnits="objectBoundingBox"
+                      width="1"
+                      height="1"
+                    >
+                      <use
+                        xlink:href="#image0_2_12897"
+                        transform="scale(0.01)"
+                      />
+                    </pattern>
+                    <image
+                      id="image0_2_12897"
+                      width="100"
+                      height="100"
+                      preserveAspectRatio="none"
+                      xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAHW0lEQVR4nO2de2xVRRCHf2IAI1gsUhR84NsUFSQmCgIFEpVWQMVIFBExMcHE1GjESFBR8RF8RS2+QRQtgUCiAhKNRsUHaOUhGt/4DAo+QEBjqbT2XjPN3OZ6vWd3zz1n5xya+ZJN/7j37pk9c3Z3dubMFFAURVEURVEURVEURVEURVEURVF8cAiAUwFUAagBMIH/jgLQH0APgdt+IF9rVIEMVSwbydghOQzAZQCeBrAWwB8Asg5tM4AXANwI4CwA3SLI0B3A2dzXiwB+dJRhF8s8H8BkAIdiL+UoALcA+MJx4C6tEcASAOcD6Oogw34AxgNYCmB3jHJ8DmAmgCORcvYBMAbAKgCZGG9AtkjbCaAOQN8ictBTPIefbp8yZHistMylDnoSP/R8A7JFWlOeYvqyIpoSkGMDgPOQAo4D8GoCNyBbRDFJKKKwvQLg2CQU0Yk3yL9TcBOyKWv0YEznJVyE3gBeK1HYvwA0AHiWN8arAExhk3MqgOsA3A1gGYBNAFo93DDq8yu2tmbzNaeyDJezTDNZxgY2JkqdLRW+lTEIwNaQgpGldSuAYQA6h7xeBYCL2GR2NZeLtV3cB/XVK6QMXVj2WQC+DHndnwAMhCdGhrgpzQAWADgtxuvvD+DqkBZchn9Dv42L03n2NIewCOmwGStjHDdNWg7mAugXtwAAyngJCTs7Gvi3cUPnkKccl9WmOM3joY7r6IaYZ0Q+BwBYE2HJWs2ndR8MdjT56R4OiXqxkwDscFgW7ithfwhj0b0UQRm5toL78gHtMw84LKe/A6iM8lRucrCaxsEvt8egjFy7TeCA3Ohg5JQ0WxdZOt7O09Un42J2w1BfYz3LfAbPBJMc9WE7neJgOQyAX3oC+DlGZeTaVna9++QUB1/apa6dlQP4zdAReU6Hwz8LPCgj18g68s0Ii2X6K99rK09YBkOzxzejPHuMM0IP1RUWOR6xddDfYlfTUyvBGo/KyLV3hMay0CDDPwBOMP243uIGIMvLNzUCysg1iiL6pszibgp8yI8G0GL4ITnfJHhfUCE0EyWYaJChmSOs/+P+FEzvAYLKyDU6/Ca9DN9b+OV9LdNqtJDQcxJQyINCYzvHIMMW1oHTuk1+Ggm6OByofLTtHt0++VDA6iPX/Wye4Yu1kGFEAsrINQkTmLjGIAMdN9r51rDhhA3olMpdCSqE/GVS0dagOApFMdvoZxD0DcixLkGFfCA4zrcMchxOX7jE8IWbBfePlgQV0iy0j4DD2UFyXGxzb0utrScmqIwst5LjFDHulW3hgaWGL5DHVYIJKVDIBUJj7WmQYTEM4Ufy+EoxIwUKmS443u0BMqynD38I+JDe+pbinhQoZLbgeNcHyPAdDIex1wUFfDwFCnlUcLyrAmTYRh/uCfiQ3h5EClzUWaEWOqwageUBMtCruaoQpEwhumTBLXontWR9H/ChbuoJbepq9iJdZu+SFBwML0zBpj5eaKy9DDLQu3DqOkHKXCemeC8lrkigzkW03W/KX8ERBoW8CTnWJrhcUcqCFG8b5KCc/ja+CfgCucQPFhL0zgQVQtlRUgGqoDADZWe1M9cgLGUgSVCVoEIoZU2Caw0ykPuondGGL24UErazwRz02bYJvuTwsUEOKh/STid+MzHoy9WQoS4BhVCijQRjw7wGBM6CMqWESXByAgqhaKXE7DC9kUnhh9CvkrbFewV4T1AZUg/aJEs8P7CQzXOWaeUjm7WQakGF/Gfd9kQPS+IR5c8HUmlJR5ByUa8WUAadByRYZElHON7WwWOWgVASioR7IeNRGRkhU/dKixwPu3RSzulWQZ3sEZrq8z0q5EkB+UdaivP8EibXcbJlQLs4sdEn5SXUVXFpWwSSPgc5lCGhFxRDYcqmynKkkVKAfdvumRiV0cppAT4Z5lBsoaTUwO4ONRMbBeIIs2JUCL3G6TuuY6vv+FmUgp6VDu6MDJ92yYXug05cFiOqMpZ5LCrWhb0MGQc3jTHJ04UhjsVnNsZRXMUwW6OYwu96LD4z1OKjyi9DQqWdYqHGsTxThg86dOrv6OWZjuG6WS573G4faYFVIUqvtvCpf3AHLGA2hA0e1/SJHT7PPAMtXuFijSoK3cGHPZcCyIUBnYlslfwZYckiE/QZ9seFrYPYlc8UFED7OuR1N0tk+VZwgcdSbkwjh2rrufJ1LReezBXBnMaezxWsSB+n9Qz3vZyvNa2gCGYty7aQZS21KvZKAAdBCLJWbkhJrdxsyhop8HrJMrGFG9vLKbgJTSl5OFZ6MmhKKjS2LqGn8aG8UuN1CSlmLRcKTR3VnLnrowBytsByocNonyIy9GEl2dwXUVsrj1WqykUk+nEG76cx3oBGzsE719Er0JUL5C+OUJ26WPsEwE38PtteSV8uZzePD2k7Q5iMz3P+4ZkR/6FLNw4ZzOB/ErM5xExs4NekJgXMyA5Bb3ZRD8/7d0PVbO9XCoWKy/haI/nauX95NJxlIxkVRVEURVEURVEURVEURVEURVEUxMu/8PKbVpdBg4IAAAAASUVORK5CYII="
+                    />
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-xl font-bold text-white">
+                Sales & Inventory Integration
+              </h2>
+              <ul class="list-none space-y-3 px-2 text-[#CDCDCD] text-left">
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>Compare what was sold vs. what was used.</p>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="text-2xl leading-none mr-2 font-light text-[#CDCDCD]"
+                    >&bull;</span
+                  >
+                  <p>
+                    Uncovers theft, overpouring, or waste through inventory
+                    variance reports.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="dark py-10">
+      <div class="container mx-auto px-4">
+        <!-- Top Logo + Switch -->
+        <div
+          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
+        >
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class=""
+            alt=""
+          />
+
+          <div class="flex items-center space-x-2">
+            <p class="text-[#CDCDCD] text-[11px] font-normal select-none">
+              Switch to dark mode
+            </p>
+
+            <!-- Toggle Switch -->
+            <label
+              for="dark-mode-toggle"
+              class="relative inline-flex items-center cursor-pointer"
+            >
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
+              <div
+                class="w-9 h-5 bg-white rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+              ></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-gray-300 pt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
+          >
+            <!-- Company -->
+            <div>
+              <!-- Accordion Header Button -->
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="company-links"
+                onclick="toggleAccordion(this)"
+              >
+                Company
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links Container -->
+              <div
+                id="company-links"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >About Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Contact Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Hardware</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="products"
+                onclick="toggleAccordion(this)"
+              >
+                Products
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="products"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A920</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A35</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >MagTek DynaFlex</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX Elys Workstation</a
+                >
+              </div>
+            </div>
+
+            <!-- Resources -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="resources"
+                onclick="toggleAccordion(this)"
+              >
+                Resources
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="resources"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Product Guides & Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Video Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="legal"
+                onclick="toggleAccordion(this)"
+              >
+                Legal
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="legal"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms & Condition</a
+                >
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="social"
+                onclick="toggleAccordion(this)"
+              >
+                Social
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="social"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Youtube</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscribe -->
+          <div class="border-t border-gray-300 pt-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <div>
+                <h4
+                  class="font-roboto font-medium text-[#CDCDCD] text-xl sm:text-2xl mb-2"
+                >
+                  Subscribe
+                </h4>
+                <p class="text-[#CDCDCD] text-sm sm:text-100e mb-1">
+                  Join our community to receive updates
+                </p>
+              </div>
+
+              <div>
+                <p class="text-[#CDCDCD] text-xs ps-3 pb-1">Stay up to date</p>
+                <div class="flex w-full sm:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-white text-base border-0 outline-none"
+                  />
+                  <button
+                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-100 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/footer-accordion.js"></script>
+
+    <script src="../assets/js/videoPlay.js"></script>
+    <script>
+      function initTabs(rootId, defaultBtnId) {
+        const root = document.getElementById(rootId);
+        if (!root) return;
+
+        const tabButtons = root.querySelectorAll(".tab-button");
+        const tabContents = root.querySelectorAll(".tab-content");
+
+        const activate = (btn) => {
+          const targetId = btn.getAttribute("data-target");
+          // buttons
+          tabButtons.forEach((b) => {
+            b.classList.remove("bg-black", "text-white");
+            b.classList.add(
+              "text-gray-700",
+              "hover:bg-gray-200",
+              "bg-gray-100"
+            );
+          });
+          btn.classList.add("bg-black", "text-white");
+          btn.classList.remove(
+            "text-gray-700",
+            "hover:bg-gray-200",
+            "bg-gray-100"
+          );
+
+          // contents
+          tabContents.forEach((c) => c.classList.add("hidden"));
+          const target = root.querySelector("#" + targetId);
+          if (target) target.classList.remove("hidden");
+        };
+
+        // wire events (scoped!)
+        tabButtons.forEach((b) =>
+          b.addEventListener("click", () => activate(b))
+        );
+
+        // initial tab
+        const first = defaultBtnId
+          ? root.querySelector("#" + defaultBtnId)
+          : tabButtons[0];
+        if (first) activate(first);
+      }
+
+      // init EACH section separately
+      document.addEventListener("DOMContentLoaded", () => {
+        initTabs("reports-tabs", "tab-daily-reports"); // your first section
+        initTabs("theft-tabs" /* put that section's default button id here */);
+      });
+    </script>
+
+    <script>
+      function toggleFaq(element) {
+        element.classList.toggle("active");
+      }
+
+      let isEnglish = true;
+
+      function toggleLanguage() {
+        const textEl = document.getElementById("language-text");
+        const flagEl = document.getElementById("flag-icon");
+
+        if (isEnglish) {
+          textEl.textContent = "ESPAÑOL";
+          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
+          flagEl.alt = "Spain Flag";
+        } else {
+          textEl.textContent = "ENGLISH";
+          flagEl.src = "/assets/images/flags/usa.png";
+          flagEl.alt = "USA Flag";
+        }
+
+        isEnglish = !isEnglish; // flip state
+      }
+    </script>
+  </body>
+</html>
