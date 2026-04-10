@@ -38,77 +38,193 @@
   </head>
   <body class="bg-[#1C1C1C]">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
+    <nav class="navbar lg:block hidden">
+      <div class="navbar-container container mx-auto px-6 lg:px-[60px] flex items-center justify-between h-[70px]">
         <!-- Logo -->
-        <div class="logo-container">
+        <div class="logo-container flex items-center gap-4">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
-            class="logo"
+            class="logo h-[65px] w-auto"
             alt="Logo"
           />
 
-          <div class="nav-links ml-4">
-            <div class="nav-item dropdown">
-              <a href="#business-type" class="nav-link">Business Type</a>
+          <div class="nav-links flex items-center gap-6">
+            <div class="nav-item relative group">
+              <a href="#business-type" class="nav-link text-white text-[14px] font-bold">Business Type</a>
+
               <!-- Mega Menu -->
-              <div class="mega-menu">
-                <div class="mega-menu-grid">
-                  <div class="mega-menu-column">
-                    <h3 class="mega-menu-title">Product Features</h3>
-                    <ul class="mega-menu-list">
-                      <li><a href="#" class="mega-menu-link">Feature 1</a></li>
-                      <li><a href="#" class="mega-menu-link">Feature 2</a></li>
-                      <li><a href="#" class="mega-menu-link">Feature 3</a></li>
-                    </ul>
+              <div
+                class="mega-menu mega-anim absolute left-0 top-full bg-black pt-10"
+                onmouseleave="clearActive()"
+              >
+                <div class="flex flex-nowrap gap-10">
+                  <!-- LEFT: categories -->
+                  <div
+                    class="flex flex-col p-10 gap-4"
+                    id="categoryList"
+                    data-aos="fade-left"
+                  >
+                    <a
+                      href="#"
+                      class="text-white text-[14px] font-bold hover:underline"
+                      data-cat="food"
+                      onmouseenter="setActive('food')"
+                      onfocus="setActive('food')"
+                    >
+                      Food &amp; Beverage
+                    </a>
+
+                    <a
+                      href="#"
+                      class="text-white text-[14px] font-bold hover:underline"
+                      data-cat="retail"
+                      onmouseenter="setActive('retail')"
+                      onfocus="setActive('retail')"
+                    >
+                      Retail
+                    </a>
                   </div>
-                  <div class="mega-menu-column">
-                    <h3 class="mega-menu-title">Resources</h3>
-                    <ul class="mega-menu-list">
-                      <li>
-                        <a href="#" class="mega-menu-link">Documentation</a>
-                      </li>
-                      <li><a href="#" class="mega-menu-link">FAQs</a></li>
-                      <li><a href="#" class="mega-menu-link">Tutorials</a></li>
-                    </ul>
-                  </div>
-                  <div class="mega-menu-column">
-                    <h3 class="mega-menu-title">Support</h3>
-                    <ul class="mega-menu-list">
-                      <li><a href="#" class="mega-menu-link">Contact Us</a></li>
-                      <li><a href="#" class="mega-menu-link">Live Chat</a></li>
-                      <li>
-                        <a href="#" class="mega-menu-link">Knowledge Base</a>
-                      </li>
-                    </ul>
+
+                  <!-- RIGHT: panels -->
+                  <div class="flex gap-16 p-10">
+                    <!-- FOOD panel -->
+                    <div class="flex justify-between gap-10" data-panel="food">
+                      <div>
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Capacity
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Manage order from one place</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Take payment</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Keep customer coming back</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Scale your business</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Improve operation</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Schedule and pay your team</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Manage your cash flow</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- RETAIL panel -->
+                    <div class="space-y-6 hidden" data-panel="retail">
+                      <div class="gap-10">
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-[14px] font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Other Links -->
-            <a href="#features" class="nav-link">Feature</a>
-            <a href="#hardware" class="nav-link">Hardware</a>
-            <a href="#pricing" class="nav-link">Pricing</a>
-            <a href="#resources" class="nav-link">Resources</a>
+            <a href="/dark/feature.html" class="nav-link text-[14px]">Feature</a>
+            <a href="/dark/hardware.html" class="nav-link text-[14px]">Hardware</a>
+            <a href="/dark/pricing.html" class="nav-link text-[14px]">Pricing</a>
+            <a href="/dark/resources.html" class="nav-link text-[14px]">Resources</a>
           </div>
         </div>
 
         <!-- Navigation Links -->
-        <div class="nav-extra-links">
-          <div class="language-selector">
-            <span class="language-text">ENGLISH</span>
-            <img
+        <div class="nav-extra-links flex items-center gap-6">
+          <a href="/dark/signin.html" class="nav-link text-[14px]">Sign in</a>
+          <div
+            class="language-selector cursor-pointers"
+            onclick="toggleLanguage()"
+          >
+          <img
+              id="flag-icon"
               src="/assets/images/flags/usa.png"
               alt="USA Flag"
-              class="flag-icon"
+              class="flag-icon w-5 h-5 rounded-full object-cover"
             />
+            <span id="language-text" class="text-white flex items-center gap-2 text-[14px] font-bold">
+              ENGLISH
+            </span>
+            
           </div>
-
-          <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
+          <button class="demo-btn text-white">
+            Free Demo
           </button>
         </div>
       </div>
@@ -268,7 +384,7 @@
 
     <!-- hero section -->
     <section class="md:py-10 py-6 h-full">
-      <div class="container mx-auto md:px-4 px-2">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16 md:mt-12 mt-8">
         <div>
           <div class="splide" id="image-carousel">
             <div class="splide__track">
@@ -391,7 +507,7 @@
 
     <!-- product Section -->
     <section id="features" class="bg-[#1C1C1C] py-20">
-      <div class="container mx-auto px-4 md:px-2">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16 md:mt-12 mt-8">
         <!-- Section Header -->
         <div class="text-center md:mb-20 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
@@ -525,7 +641,7 @@
 
     <!-- Learn to Use -->
     <section class="md:mt-10 mt-5">
-      <div class="container px-4 md:px-2 mx-auto">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16 md:mt-12 mt-8">
         <div class="text-center md:mb-10 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
             <span class="text-[#CB943B]">Learn to Use</span>
@@ -542,7 +658,7 @@
         </div>
       </div>
       <div class="md:mt-[15px] mt-[10px] bg-[#818181]">
-        <div class="container mx-auto md:px-4 px-2 md:pt-9 pt-5">
+        <div class="container mx-auto px-4 sm:px-8 lg:px-16 md:mt-12 mt-8">
           <div
             class="md:mb-10 mb-6 flex justify-between items-center flex-wrap gap-4"
           >
