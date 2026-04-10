@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tequila POS - Smart POS Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <!-- Optional: Default Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
+    />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/style/dark.css" />
+  </head>
+  <body class="bg-[#1c1c1c] font-inter text-sm">
+    <!-- Navigation -->
+    <nav class="navbar md:block hidden">
+      <div class="navbar-container container mx-auto">
+        <!-- Logo -->
+        <div class="logo-container">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo"
+            alt="Logo"
+          />
+
+          <div class="nav-links ml-4">
+            <div class="nav-item relative group">
+              <a href="#business-type" class="nav-link">Business Type</a>
+
+              <!-- Mega Menu -->
+              <div
+                class="mega-menu mega-anim absolute left-0 top-full bg-black pt-10"
+                onmouseleave="clearActive()"
+              >
+                <div class="flex flex-nowrap gap-10">
+                  <!-- LEFT: categories -->
+                  <div
+                    class="flex flex-col p-10 gap-4"
+                    id="categoryList"
+                    data-aos="fade-left"
+                  >
+                    <a
+                      href="#"
+                      class="text-white text-[26px] font-bold hover:underline"
+                      data-cat="food"
+                      onmouseenter="setActive('food')"
+                      onfocus="setActive('food')"
+                    >
+                      Food &amp; Beverage
+                    </a>
+
+                    <a
+                      href="#"
+                      class="text-white text-[26px] font-bold hover:underline"
+                      data-cat="retail"
+                      onmouseenter="setActive('retail')"
+                      onfocus="setActive('retail')"
+                    >
+                      Retail
+                    </a>
+                  </div>
+
+                  <!-- RIGHT: panels -->
+                  <div class="flex gap-16 p-10">
+                    <!-- FOOD panel -->
+                    <div class="flex justify-between gap-10" data-panel="food">
+                      <div>
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Capacity
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Manage order from one place</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Take payment</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Keep customer coming back</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Scale your business</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Improve operation</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Schedule and pay your team</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Manage your cash flow</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- RETAIL panel -->
+                    <div class="space-y-6 hidden" data-panel="retail">
+                      <div class="gap-10">
+                        <h6 class="text-white text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-white text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Links -->
+            <a href="#features" class="nav-link">Feature</a>
+            <a href="#hardware" class="nav-link">Hardware</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#resources" class="nav-link">Resources</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-extra-links">
+          <div
+            class="language-selector cursor-pointers"
+            onclick="toggleLanguage()"
+          >
+            <span id="language-text" class="text-white">ENGLISH</span>
+            <img
+              id="flag-icon"
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+
+          <a href="#signin" class="nav-link">Sign in</a>
+
+          <button class="demo-btn">
+            <span>Free Demo</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar md:hidden bg-black shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-4"
+      >
+        <!-- Logo -->
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Close Icon -->
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <!-- Mobile Menu (White Version) -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 bg-[#1c1c1c] text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+      >
+        <div class="p-4 space-y-4">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
+        11.94l3.72-3.72a.75.75 0 1 1 
+        1.06 1.06l-4.25 4.25a.75.75 0 
+        0 1-1.06 0L5.22 9.28a.75.75 
+        0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Duplicate</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Delete</a
+              >
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Features</a
+          >
+          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Hardware</a
+          >
+          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Pricing</a
+          >
+          <a href="#resources" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Resources</a
+          >
+
+          <!-- Language Switcher -->
+          <div
+            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
+          >
+            <span class="text-sm">EN</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-[#1c1c1c] after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+              ></div>
+            </label>
+            <span class="text-sm">ES</span>
+          </div>
+
+          <!-- Sign in -->
+          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Sign In</a
+          >
+
+          <!-- CTA Button -->
+          <a
+            href="#demo"
+            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
+          >
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+    <section class="bg-transparent-100 py-16">
+      <div class="container mx-auto md:px-2 px-4">
+        <h1
+          class="md:w-[1052px] md:text-8xl text-6xl font-bold md:leading-[126.03px] leading-normal w-full"
+        >
+          <span class="text-[#C98633]">Advanced Table </span
+          ><span class="text-white"> Management</span>
+        </h1>
+
+        <p
+          class="md:w-[655px] w-full md:text-xl text-[#CDCDCD] text-sm font-normal"
+        >
+          Smart tools to optimize seating, reduce wait times, and boost table
+          turnover.
+        </p>
+      </div>
+    </section>
+
+    <!--behind  Section -->
+    <section class="bg-transparent-100 py-16">
+      <div
+        class="container mx-auto px-4 md:px-2 grid grid-cols-1 md:grid-cols-6 gap-10 items-center md:items-start"
+      >
+        <!-- Left Content -->
+        <div class="order-2 md:order-1 md:col-span-4">
+          <h2
+            class="md:w-1/2 w-full md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal"
+          >
+            <span class="text-[#C98633]">Understanding </span
+            ><span class="text-white">What It Is</span>
+          </h2>
+          <p
+            class="md:w-[512px] md:text-[15px] w-full text-sm text-[#CDCDCD] md:mb-10 mb-6"
+          >
+            Advanced Table Management gives hosts and managers real-time control
+            over seating, reservations, and table status—all from the POS.
+          </p>
+          <p class="text-xl md:text-2xl text-[#CDCDCD] leading-relaxed">
+            Advanced Table Management simplifies floor operations by giving
+            hosts and servers a clear, real-time view of table status—occupied,
+            reserved, or ready to seat. It streamlines guest flow, reduces wait
+            times, and helps staff manage sections efficiently, especially
+            during peak hours.
+          </p>
+        </div>
+
+        <!-- Right Images -->
+        <div class="order-1 md:order-2 md:col-span-2 h-full">
+          <img
+            src="/assets/images/feature-one/feature-8-section-1.png"
+            alt="POS System"
+            class="w-full h-full"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!--slider-->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div
+          x-data="{ activeTab: 'top' }"
+          class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-4 md:p-8"
+        >
+          <div class="flex items-center justify-center">
+            <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              <div
+                class="absolute inset-0 m-auto rounded-full w-2/3 h-2/3 shadow-lg overflow-hidden"
+              >
+                <img
+                  src="/assets/images/feature-one/the-table.png"
+                  class="w-full h-full object-cover"
+                  alt="The Table"
+                />
+              </div>
+
+              <div
+                @click="activeTab = 'top'"
+                :class="{ 'scale-110 opacity-100 shadow-xl': activeTab === 'top', 'opacity-70 hover:opacity-100': activeTab !== 'top' }"
+                class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full cursor-pointer transition-all duration-300 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+              >
+                <img
+                  src="/assets/images/feature-one/men-table-top.png"
+                  class="w-full h-full object-cover rounded-full"
+                  alt="Person 1"
+                />
+              </div>
+
+              <div
+                @click="activeTab = 'right'"
+                :class="{ 'scale-110 opacity-100 shadow-xl': activeTab === 'right', 'opacity-70 hover:opacity-100': activeTab !== 'right' }"
+                class="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 rounded-full cursor-pointer transition-all duration-300 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+              >
+                <img
+                  src="/assets/images/feature-one/men-table-right.png"
+                  class="w-full h-full object-cover rounded-full"
+                  alt="Person 2"
+                />
+              </div>
+
+              <div
+                @click="activeTab = 'bottom'"
+                :class="{ 'scale-110 opacity-100 shadow-xl': activeTab === 'bottom', 'opacity-70 hover:opacity-100': activeTab !== 'bottom' }"
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full cursor-pointer transition-all duration-300 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+              >
+                <img
+                  src="/assets/images/feature-one/men-table-bottom.png"
+                  class="w-full h-full object-cover rounded-full"
+                  alt="Person 3"
+                />
+              </div>
+
+              <div
+                @click="activeTab = 'left'"
+                :class="{ 'scale-110 opacity-100 shadow-xl': activeTab === 'left', 'opacity-70 hover:opacity-100': activeTab !== 'left' }"
+                class="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full cursor-pointer transition-all duration-300 w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+              >
+                <img
+                  src="/assets/images/feature-one/men-table-left.png"
+                  class="w-full h-full object-cover rounded-full"
+                  alt="Person 4"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-end">
+            <div x-show="activeTab === 'top'" x-transition>
+              <img
+                src="/assets/images/feature-one/person-one-image.png"
+                alt=""
+              />
+            </div>
+
+            <div x-show="activeTab === 'right'" x-transition>
+              <img
+                src="/assets/images/feature-one/person-two-image.png"
+                alt=""
+              />
+            </div>
+
+            <div x-show="activeTab === 'bottom'" x-transition>
+              <img
+                src="/assets/images/feature-one/person-three-image.png"
+                alt=""
+              />
+            </div>
+
+            <div x-show="activeTab === 'left'" x-transition>
+              <img
+                src="/assets/images/feature-one/person-four-image.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- why choose us -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="mb-12 md:text-left text-center">
+          <h2
+            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal md:w-[880px] w-full"
+          >
+            <span class="text-[#C98633]">Why it </span
+            ><span class="text-white">matters</span>
+          </h2>
+          <p
+            class="text-sm md:text-[15px] text-[#CDCDCD] leading-relaxed md:w-[512px] w-full"
+          >
+            Ensure accurate time tracking and limit access to sensitive
+            functions, reducing errors and misuse.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
+        >
+          <div
+            class="bg-[#1C1C1C] rounded-[38px] shadow-[0px_1px_4px_0px_rgba(212,212,212,0.25)] p-6 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-1">
+              <img
+                src="/assets/images/feature-one/feature-8-card-1-dark.png"
+                class="object-cover"
+                alt=""
+              />
+            </div>
+            <h3 class="text-white md:text-xl text-sm font-bold mb-6">
+              Reduces Guest Wait Times
+            </h3>
+            <p class="text-[#CDCDCD] text-sm font-normal leading-tight">
+              By showing real-time table status, staff can seat guests faster
+              and avoid confusion. This keeps the flow moving smoothly,
+              especially during busy hours, and creates a better first
+              impression.
+            </p>
+          </div>
+
+          <div
+            class="bg-[#1C1C1C] rounded-[38px] shadow-[0px_1px_4px_0px_rgba(212,212,212,0.25)] p-6 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-1">
+              <img
+                src="/assets/images/feature-one/feature-8-card-2-dark.png"
+                class="object-cover"
+                alt=""
+              />
+            </div>
+            <h3 class="text-white md:text-xl text-sm font-bold mb-6">
+              Improves Staff Coordination
+            </h3>
+            <p class="text-[#CDCDCD] text-sm font-normal leading-tight">
+              Hosts, servers, and kitchen staff stay in sync with live table
+              updates and section visibility. This reduces miscommunication,
+              speeds up service, and ensures a smoother dining experience for
+              guests.
+            </p>
+          </div>
+
+          <div
+            class="bg-[#1C1C1C] rounded-[38px] shadow-[0px_1px_4px_0px_rgba(212,212,212,0.25)] p-6 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-1">
+              <img
+                src="/assets/images/feature-one/feature-8-card-3-dark.png"
+                alt="taquila-pos"
+                class="object-cover"
+              />
+            </div>
+            <h3 class="text-white md:text-xl text-sm font-bold mb-6">
+              Increases revenue
+            </h3>
+            <p class="text-[#CDCDCD] text-sm font-normal leading-tight">
+              Faster table turnover means more guests served per shift.
+              Efficient seating and smoother operations help maximize dining
+              capacity, leading to higher sales without added labor.
+            </p>
+          </div>
+
+          <div
+            class="bg-[#1C1C1C] rounded-[38px] shadow-[0px_1px_4px_0px_rgba(212,212,212,0.25)] p-6 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="flex justify-center mb-1">
+              <img
+                src="/assets/images/feature-one/feature-8-card-4-dark.png"
+                alt="taquila-pos"
+                class="object-cover"
+              />
+            </div>
+            <h3 class="text-white md:text-xl text-sm font-bold mb-6">
+              Enhances guest experience
+            </h3>
+            <p class="text-[#CDCDCD] text-sm font-normal leading-tight">
+              Guests enjoy shorter waits, timely service, and a well-organized
+              dining flow. A smooth seating process and attentive staff create a
+              more pleasant and memorable visit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dark py-10">
+      <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+        <!-- Top Logo + Switch -->
+        <div
+          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
+        >
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class=""
+            alt=""
+          />
+
+          <div class="flex items-center space-x-2">
+            <p class="text-[#CDCDCD] text-[11px] font-normal select-none">
+              Switch to dark mode
+            </p>
+
+            <!-- Toggle Switch -->
+            <label
+              for="dark-mode-toggle"
+              class="relative inline-flex items-center cursor-pointer"
+            >
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
+              <div
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+              ></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-gray-300 pt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
+          >
+            <!-- Company -->
+            <div>
+              <!-- Accordion Header Button -->
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="company-links"
+                onclick="toggleAccordion(this)"
+              >
+                Company
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links Container -->
+              <div
+                id="company-links"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >About Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Contact Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Hardware</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="products"
+                onclick="toggleAccordion(this)"
+              >
+                Products
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="products"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A920</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A35</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >MagTek DynaFlex</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX Elys Workstation</a
+                >
+              </div>
+            </div>
+
+            <!-- Resources -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="resources"
+                onclick="toggleAccordion(this)"
+              >
+                Resources
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="resources"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Product Guides & Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Video Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="legal"
+                onclick="toggleAccordion(this)"
+              >
+                Legal
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="legal"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms & Condition</a
+                >
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="social"
+                onclick="toggleAccordion(this)"
+              >
+                Social
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="social"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Youtube</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscribe -->
+          <div class="border-t border-gray-300 pt-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <div>
+                <h4
+                  class="font-roboto font-medium text-[#CDCDCD] text-xl sm:text-2xl mb-2"
+                >
+                  Subscribe
+                </h4>
+                <p class="text-[#CDCDCD] text-sm sm:text-100e mb-1">
+                  Join our community to receive updates
+                </p>
+              </div>
+
+              <div>
+                <p class="text-[#CDCDCD] text-xs ps-3 pb-1">Stay up to date</p>
+                <div class="flex w-full sm:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-white text-base border-0 outline-none"
+                  />
+                  <button
+                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-100 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/footer-accordion.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <script>
+      function toggleFaq(element) {
+        element.classList.toggle("active");
+      }
+
+      let isEnglish = true;
+
+      function toggleLanguage() {
+        const textEl = document.getElementById("language-text");
+        const flagEl = document.getElementById("flag-icon");
+
+        if (isEnglish) {
+          textEl.textContent = "ESPAÑOL";
+          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
+          flagEl.alt = "Spain Flag";
+        } else {
+          textEl.textContent = "ENGLISH";
+          flagEl.src = "/assets/images/flags/usa.png";
+          flagEl.alt = "USA Flag";
+        }
+
+        isEnglish = !isEnglish; // flip state
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tequila POS - Smart POS Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--for Cash Discount slider-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #242424;
+      }
+      /* Hide scrollbar for a cleaner look */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .rail-item {
+        transition: flex-basis 500ms ease, transform 500ms ease,
+          border-radius 500ms ease, filter 300ms ease;
+        will-change: flex-basis, transform;
+      }
+    </style>
+
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <!-- Optional: Default Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
+    />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/style/global.css" />
+  </head>
+  <body class="bg-white font-inter text-sm">
+    <!-- Navigation -->
+    <nav class="navbar md:block hidden">
+      <div class="navbar-container container mx-auto">
+        <!-- Logo -->
+        <div class="logo-container">
+          <a href="/light/index.html">
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent.png"
+              class="logo"
+              alt="Logo"
+            />
+          </a>
+
+          <div class="nav-links ml-4">
+            <div class="nav-item relative group">
+              <a href="#business-type" class="nav-link">Business Type</a>
+
+              <!-- Mega Menu -->
+              <div
+                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
+                onmouseleave="clearActive()"
+              >
+                <div class="flex flex-nowrap gap-10">
+                  <!-- LEFT: categories -->
+                  <div
+                    class="flex flex-col p-10 gap-4"
+                    id="categoryList"
+                    data-aos="fade-left"
+                  >
+                    <a
+                      href="#"
+                      class="text-black text-[26px] font-bold hover:underline"
+                      data-cat="food"
+                      onmouseenter="setActive('food')"
+                      onfocus="setActive('food')"
+                    >
+                      Food &amp; Beverage
+                    </a>
+
+                    <a
+                      href="#"
+                      class="text-black text-[26px] font-bold hover:underline"
+                      data-cat="retail"
+                      onmouseenter="setActive('retail')"
+                      onfocus="setActive('retail')"
+                    >
+                      Retail
+                    </a>
+                  </div>
+
+                  <!-- RIGHT: panels -->
+                  <div class="flex gap-16 p-10">
+                    <!-- FOOD panel -->
+                    <div class="flex justify-between gap-10" data-panel="food">
+                      <div>
+                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                          Capacity
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Manage order from one place</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Take payment</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Keep customer coming back</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Scale your business</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Improve operation</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Schedule and pay your team</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Manage your cash flow</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- RETAIL panel -->
+                    <div class="space-y-6 hidden" data-panel="retail">
+                      <div class="gap-10">
+                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Links -->
+            <a href="/light/feature.html" class="nav-link">Feature</a>
+            <a href="/light/hardware.html" class="nav-link">Hardware</a>
+            <a href="/light/pricing.html" class="nav-link">Pricing</a>
+            <a href="/light/resourse.html" class="nav-link">Resources</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-extra-links">
+          <div
+            class="language-selector cursor-pointers"
+            onclick="toggleLanguage()"
+          >
+            <span id="language-text">ENGLISH</span>
+            <img
+              id="flag-icon"
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+
+          <a href="#signin" class="nav-link">Sign in</a>
+
+          <button class="demo-btn">
+            <span>Free Demo</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar md:hidden bg-white shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-4"
+      >
+        <!-- Logo -->
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Close Icon -->
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <!-- Mobile Menu (White Version) -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+      >
+        <div class="p-4 space-y-4">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
+        11.94l3.72-3.72a.75.75 0 1 1 
+        1.06 1.06l-4.25 4.25a.75.75 0 
+        0 1-1.06 0L5.22 9.28a.75.75 
+        0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Duplicate</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Delete</a
+              >
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Features</a
+          >
+          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Hardware</a
+          >
+          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Pricing</a
+          >
+          <a
+            href="/light/resourse.html"
+            class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Resources</a
+          >
+
+          <!-- Language Switcher -->
+          <div
+            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
+          >
+            <span class="text-sm">EN</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+              ></div>
+            </label>
+            <span class="text-sm">ES</span>
+          </div>
+
+          <!-- Sign in -->
+          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Sign In</a
+          >
+
+          <!-- CTA Button -->
+          <a
+            href="#demo"
+            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
+          >
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- hero section -->
+
+    <section class="bg-transparent-100 py-8 md:py-16">
+      <div
+        class="container mx-auto px-4 flex flex-row items-center justify-between gap-4 md:gap-12"
+      >
+        <div class="w-full md:w-[900px] text-left">
+          <h1
+            class="text-[20px] md:text-[64px] lg:text-7xl font-bold text-[#505050] mb-4 md:mb-8"
+          >
+            How This Restaurant Cut Credit Card<span class="text-gray-900"
+              >Fees by 30% with TequilaPOS</span
+            >
+          </h1>
+
+          <p
+            class="md:w-[611px] w-full text-[4F4F4F] md:text-[20px] text-[10px] font-semibold md:leading-[25.20px] leading-normal md:mb-8"
+          >
+            Understanding the Real Cost of Card Payments
+          </p>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <img
+            src="/assets/images/blog-two/blog-two-hero.png"
+            alt=""
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment Solutions Section -->
+    <section class="md:mt-10 mt-5">
+      <div class="container mx-auto px-4 md:px-2">
+        <!-- Header -->
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[325px] md:max-w-[677px] mx-auto"
+          >
+            <span class="text-[#4f4f4f]"
+              >Real Restaurants. Real Challenges.</span
+            >
+            <span class="text-black"> Real Results.</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+            >
+              Whether it’s a 30-seat pizzeria in Ohio or a multi-location brunch
+              spot in Los Angeles, restaurants nationwide have simplified
+              operations and saved on fees with TequilaPOS.
+            </p>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="grid md:grid-cols-2 gap-6 items-center">
+          <!-- Left: details (tabbed) -->
+          <div
+            class="bg-white rounded-2xl shadow-sm border border-black/5 p-5 md:p-7"
+          >
+            <!-- Tab chips -->
+            <div class="flex flex-wrap gap-2 mb-4" id="caseChips"></div>
+
+            <!-- Panels -->
+            <div id="casePanels" class="space-y-4 text-[12px] md:text-sm"></div>
+          </div>
+
+          <!-- Right: 3-image expanding rail -->
+          <div
+            class="h-[210px] md:h-[300px] flex gap-3"
+            id="imageRail"
+            aria-label="Case study gallery"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // ---------- Data (replace image URLs & copy as needed) ----------
+      const CASES = [
+        {
+          id: "maple-main",
+          name: "Maple & Main Café",
+          tabLabel: "Maple",
+          size: "Small café with 25 seats, 4 staff members",
+          location: "Downtown Seattle, Washington",
+          challenges: [
+            "Manual order taking and handwritten tickets",
+            "Long wait times during peak morning rush",
+            "No ability to accept mobile payments",
+          ],
+          img: "https://ucarecdn.com/2fed0d50-c755-4215-876c-bccbd4ab7e6f/secondsectionone.png", // replace
+        },
+        {
+          id: "smokey-ridge",
+          name: "Smokey Ridge BBQ",
+          tabLabel: "BBQ",
+          size: "Mid-sized chain with seating for 80+ per location",
+          location: "3 locations across Nashville, Tennessee",
+          challenges: [
+            "No centralized reporting between locations",
+            "Difficulty training staff on complex POS features",
+            "No cash discount option or fee transparency",
+          ],
+          img: "https://ucarecdn.com/eb7edb8f-c382-4f92-afd6-7d52504c2250/secondsectiontwo.png", // replace
+        },
+        {
+          id: "Sunny Side Diner",
+          name: "Sunny Side Diner",
+          tabLabel: " Diner",
+          size: "Medium-sized diner with 60 seats and weekend traffic of 400+ covers",
+          location: "Suburbs of Austin, Texas",
+          challenges: [
+            "Rising credit card fees eating into profits",
+            "No system to track daily sales or staff shifts",
+            "Legacy POS system with outdated hardware",
+          ],
+          img: "https://ucarecdn.com/0b32591c-a40a-4459-be03-aa81881742eb/secondsectionthree.png", // replace
+        },
+      ];
+
+      // ---------- State ----------
+      let active = 0;
+
+      // ---------- DOM refs ----------
+      const chips = document.getElementById("caseChips");
+      const panels = document.getElementById("casePanels");
+      const rail = document.getElementById("imageRail");
+
+      // ---------- Render helpers ----------
+      function renderChips() {
+        chips.innerHTML = "";
+        CASES.forEach((c, i) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className =
+            "px-3 py-1.5 rounded-full text-xs md:text-sm border transition " +
+            (i === active
+              ? "bg-black text-white border-black"
+              : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50");
+          btn.textContent = c.tabLabel || c.name.split(" ")[0];
+          btn.setAttribute("aria-pressed", i === active ? "true" : "false");
+          btn.addEventListener("click", () => setActive(i));
+          chips.appendChild(btn);
+        });
+      }
+
+      function renderPanels() {
+        const c = CASES[active];
+        panels.innerHTML = `
+        <dl class="space-y-3">
+          <div class="flex gap-2">
+            <dt class="w-28 text-gray-500">Restaurant Name:</dt>
+            <dd class="font-medium text-gray-900">${c.name}</dd>
+          </div>
+          <div class="flex gap-2">
+            <dt class="w-28 text-gray-500">Size:</dt>
+            <dd class="text-gray-800">${c.size}</dd>
+          </div>
+          <div class="flex gap-2">
+            <dt class="w-28 text-gray-500">Location:</dt>
+            <dd class="text-gray-800">${c.location}</dd>
+          </div>
+          <div class="pt-1">
+            <dt class="text-gray-500 mb-1">Previous Challenges</dt>
+            <dd>
+              <ul class="list-disc list-inside space-y-1 text-gray-800">
+                ${c.challenges.map((x) => `<li>${x}</li>`).join("")}
+              </ul>
+            </dd>
+          </div>
+        </dl>
+      `;
+      }
+
+      function renderRail() {
+        rail.innerHTML = "";
+        CASES.forEach((c, i) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className =
+            "relative rail-item overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 ring-offset-2 ring-black/60";
+          // Flex-basis sizes; active grows to ~65%, others shrink.
+          btn.style.flexBasis = i === active ? "65%" : "17.5%";
+          btn.addEventListener("click", () => setActive(i));
+
+          // Image
+          const img = document.createElement("img");
+          img.src = c.img;
+          img.alt = c.name;
+          img.className =
+            "absolute inset-0 w-full h-full object-cover " +
+            (i === active ? "rounded-2xl" : "rounded-xl");
+
+          // Dim overlay for non-active
+          const ov = document.createElement("span");
+          ov.className =
+            "absolute inset-0 pointer-events-none transition-colors duration-300 " +
+            (i === active ? "bg-black/0" : "bg-black/20");
+
+          // Label on non-active
+          const label = document.createElement("span");
+          label.textContent = c.name;
+          label.className =
+            "absolute bottom-2 left-2 text-[10px] md:text-xs font-medium text-white drop-shadow";
+          if (i === active) label.style.display = "none";
+
+          btn.appendChild(img);
+          btn.appendChild(ov);
+          btn.appendChild(label);
+          rail.appendChild(btn);
+        });
+      }
+
+      function setActive(i) {
+        active = i;
+        renderChips();
+        renderPanels();
+        // Animate rail by only updating flex-basis of children (faster/less layout trashing)
+        const children = [...rail.children];
+        children.forEach((el, idx) => {
+          el.style.flexBasis = idx === active ? "65%" : "17.5%";
+          const img = el.querySelector("img");
+          const ov = el.querySelector("span");
+          const label = el.querySelector("span + span");
+          // visual states
+          img.classList.toggle("rounded-2xl", idx === active);
+          img.classList.toggle("rounded-xl", idx !== active);
+          ov.className =
+            "absolute inset-0 pointer-events-none transition-colors duration-300 " +
+            (idx === active ? "bg-black/0" : "bg-black/20");
+          label.style.display = idx === active ? "none" : "block";
+        });
+      }
+
+      // ---------- Initial render ----------
+      renderChips();
+      renderPanels();
+      renderRail();
+
+      // Optional: keyboard arrows to navigate
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") setActive((active + 1) % CASES.length);
+        if (e.key === "ArrowLeft")
+          setActive((active - 1 + CASES.length) % CASES.length);
+      });
+    </script>
+
+    <!--Uncovering the True Cost of Card Payments-->
+    <section class="md:mt-10 mt-5">
+      <div class="container px-4 md:px-2 mx-auto">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[350px] md:max-w-[550px] mx-auto"
+          >
+            <span class="text-[#4f4f4f]">Uncovering the True Cost </span>
+            <span class="text-black">of Card Payments</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+            >
+              High processing fees and unclear pricing models have left many
+              restaurants overpaying — without even knowing it.
+            </p>
+          </div>
+        </div>
+
+        <!-- CARD SWITCHER -->
+        <div id="cardSwitcher" class="relative">
+          <!-- =================== PROBLEMS CARD =================== -->
+          <article
+            id="cardProblems"
+            class="flex flex-col md:flex-row gap-6 items-stretch rounded-2xl bg-white transition-all duration-500 ease-out"
+          >
+            <!-- Image -->
+            <div class="md:w-1/2 p-4 md:p-6">
+              <div
+                class="relative aspect-[16/9] md:aspect-[4/3] overflow-hidden rounded-xl bg-slate-100"
+              >
+                <img
+                  src="/assets/images/blog-two/card payment.png"
+                  alt="Fees going up"
+                  class="absolute inset-0 h-full w-full object-contain"
+                />
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="md:w-1/2 p-6 md:p-8">
+              <header class="mb-4">
+                <h3
+                  class="text-[18px] md:text[24px] font-semibold tracking-wide text-black"
+                >
+                  The Problems
+                </h3>
+              </header>
+
+              <p
+                class="text-slate-700 text-sm md:text-base leading-relaxed mb-5"
+              >
+                Many restaurants were paying up to
+                <span class="font-semibold">3–4% per card transaction</span>,
+                often without understanding the breakdown. Monthly statements
+                were complex, fee structures weren’t transparent, and owners had
+                little control to reduce costs.
+              </p>
+
+              <ul class="space-y-3 text-slate-900">
+                <li class="flex gap-3">
+                  <span
+                    class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-white text-xs"
+                    >•</span
+                  >
+                  <span class="font-semibold"
+                    >High credit card processing fees</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-white text-xs"
+                    >•</span
+                  >
+                  <span class="font-semibold"
+                    >Vague, hard-to-read monthly statements</span
+                  >
+                </li>
+                <li class="flex gap-3">
+                  <span
+                    class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-white text-xs"
+                    >•</span
+                  >
+                  <span class="font-semibold"
+                    >No way to offset or reduce costs</span
+                  >
+                </li>
+              </ul>
+
+              <div class="mt-8 flex justify-end">
+                <button
+                  data-switch="solutions"
+                  class="group inline-flex items-center gap-2 text-[11px] md:text-xs font-semibold tracking-wide text-slate-900 hover:text-black"
+                >
+                  EXPLORE THE SOLUTIONS
+                  <svg
+                    class="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- =================== SOLUTIONS CARD =================== -->
+          <article
+            id="cardSolutions"
+            class="absolute inset-0 flex flex-col md:flex-row gap-6 items-stretch rounded-2xl bg-white opacity-0 translate-y-2 pointer-events-none transition-all duration-500 ease-out"
+          >
+            <!-- Image -->
+            <div class="md:w-1/2 p-4 md:p-6">
+              <div
+                class="relative aspect-[16/9] md:aspect-[4/3] overflow-hidden rounded-xl bg-slate-100"
+              >
+                <img
+                  src="/assets/images/blog-two/solution.png"
+                  alt="Solution toggle"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="md:w-1/2 p-6 md:p-8">
+              <header class="mb-2">
+                <h3
+                  class="text-[18px] md:text[24px] font-semibold tracking-wide text-black"
+                >
+                  The Solutions
+                </h3>
+              </header>
+
+              <!-- Solution 1 -->
+              <div class="mb-6">
+                <h4
+                  class="flex items-center gap-2 text-lg md:text-xl font-bold text-slate-900"
+                >
+                  <span
+                    class="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-slate-900 text-white text-[14px] md:text-[20px]"
+                    >✓</span
+                  >
+                  Cash Discount Program
+                </h4>
+                <ul class="mt-3 space-y-2 text-slate-700 text-sm md:text-base">
+                  <li class="flex gap-3">
+                    <span
+                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                    ></span
+                    >Automatically applies a small fee to non-cash payments
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                    ></span
+                    >Clear discount for cash customers
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                    ></span
+                    >Fully legal and receipt-compliant
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Solution 2 -->
+              <div>
+                <h4
+                  class="flex items-center gap-2 text-lg md:text-xl font-bold text-slate-900"
+                >
+                  <span
+                    class="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-slate-900 text-white text-[14px] md:text-[20px]"
+                    >✓</span
+                  >
+                  Lower Negotiated Card Rates
+                </h4>
+                <ul class="mt-3 space-y-2 text-slate-700 text-sm md:text-base">
+                  <li class="flex gap-3">
+                    <span
+                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                    ></span
+                    >TequilaPOS partners with processors to offer lower,
+                    flat-rate fees
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                    ></span
+                    >Transparent, easy-to-read statements
+                  </li>
+                  <li class="flex gap-3">
+                    <span
+                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                    ></span
+                    >Keep current pricing while reducing costs
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 flex justify-end">
+                <button
+                  data-switch="problems"
+                  class="inline-flex items-center gap-2 rounded-lg bg-slate-100 px-3 py-2 text-xs font-medium text-slate-900 hover:bg-slate-200"
+                >
+                  Back
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <script>
+          // tiny controller to toggle cards
+          (() => {
+            const wrap = document.getElementById("cardSwitcher");
+            const c1 = document.getElementById("cardProblems");
+            const c2 = document.getElementById("cardSolutions");
+
+            function show(which) {
+              const showEl = which === "solutions" ? c2 : c1;
+              const hideEl = which === "solutions" ? c1 : c2;
+
+              showEl.classList.remove(
+                "opacity-0",
+                "translate-y-2",
+                "pointer-events-none"
+              );
+              showEl.classList.add("opacity-100", "translate-y-0");
+              hideEl.classList.add(
+                "opacity-0",
+                "translate-y-2",
+                "pointer-events-none"
+              );
+              hideEl.classList.remove("opacity-100", "translate-y-0");
+
+              // keep wrapper height stable
+              setTimeout(() => {
+                const visible = which === "solutions" ? c2 : c1;
+                wrap.style.minHeight = visible.offsetHeight + "px";
+              }, 10);
+            }
+
+            // init
+            c1.classList.add("opacity-100");
+            wrap.style.minHeight = c1.offsetHeight + "px";
+
+            // delegate clicks
+            wrap.addEventListener("click", (e) => {
+              const btn = e.target.closest("[data-switch]");
+              if (!btn) return;
+              show(btn.getAttribute("data-switch"));
+            });
+
+            // resize guard
+            window.addEventListener("resize", () => {
+              const visible = c2.classList.contains("pointer-events-none")
+                ? c1
+                : c2;
+              wrap.style.minHeight = visible.offsetHeight + "px";
+            });
+          })();
+        </script>
+      </div>
+    </section>
+
+    <section class="md:mt-10 mt-5">
+      <div class="container px-4 md:px-2 mx-auto">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[325px] md:max-w-[677px] mx-auto"
+          >
+            <span class="text-[#4f4f4f]">What Restaurants Are </span>
+            <span class="text-black">Saving with TequilaPOS</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+            >
+              From $400/month at a small café to $15,000/year at a busy diner —
+              our customers are seeing real financial impact with every swipe.
+            </p>
+          </div>
+        </div>
+
+        <!-- Two-up result grid (responsive) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <!-- Card 1: Total Fees Before vs After -->
+          <div
+            class="rounded-[28px] border border-slate-200 bg-white shadow-sm p-6 md:p-8"
+            data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+          >
+            <!-- Icon -->
+            <div class="flex justify-center mb-4 md:mb-6">
+              <!-- Money / fees icon (replace if you have an asset) -->
+              <img src="/assets/images/blog-two/card-one.png" alt="" />
+            </div>
+            <h3
+              class="text-center text-xl md:text-2xl font-bold text-slate-900 mb-4 md:mb-6"
+            >
+              Total Fees Before vs After
+            </h3>
+
+            <ul class="space-y-4 text-slate-800 text-sm md:text-base">
+              <li class="flex gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
+                <span
+                  >“Before TequilaPOS: ₹18,000/month in processing fees”</span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
+                <span>After Cash Discount: ₹1,200/month</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
+                <span>Saved: ₹16,800/month or ₹2,00,000+ yearly</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Percentage Reduction -->
+          <div
+            div
+            class="rounded-[28px] border border-slate-200 bg-white shadow-sm p-6 md:p-8"
+            data-aos="fade-left"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+          >
+            <!-- Icon -->
+            <div class="flex justify-center mb-4 md:mb-6">
+              <!-- Percent badge icon (replace if you have an asset) -->
+              <img src="/assets/images/blog-two/card-two.png" alt="" />
+            </div>
+            <h3
+              class="text-center text-xl md:text-2xl font-bold text-slate-900 mb-4 md:mb-6"
+            >
+              Percentage Reduction
+            </h3>
+
+            <ul class="space-y-6 text-slate-800 text-sm md:text-base">
+              <li class="flex gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
+                <span
+                  >Reduced card processing costs by
+                  <span class="font-semibold">90%</span></span
+                >
+              </li>
+              <li class="flex gap-3">
+                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
+                <span
+                  >Cut monthly fees from
+                  <span class="font-semibold">3.5%</span> to just
+                  <span class="font-semibold">0.5%</span> of revenue</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Trusted by Owners slider-->
+
+    <section class="bg-white py-8 md:py-16 lg:py-24 mt-8">
+      <div class="container mx-auto px-4">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[504px] mx-auto"
+          >
+            <span class="text-[#4f4f4f]">Trusted by Restaurant </span>
+            <span class="text-black">Owners Nationwide</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+            >
+              Operators across the U.S. share how TequilaPOS helped reduce
+              costs, improve efficiency, and streamline operations.
+            </p>
+          </div>
+        </div>
+        <!-- Slider Section -->
+        <div class="w-full container mx-auto px-4">
+          <div class="relative bg-transparent-100 overflow-hidden">
+            <!-- Main Slider Content Container -->
+            <div
+              id="slider-container"
+              class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory"
+            >
+              <!-- Slide 1: Testimonial -->
+              <div
+                class="flex-shrink-0 w-full snap-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0 items-center p-8 md:p-12"
+              >
+                <!-- Image Column -->
+                <div class="w-full flex justify-center md:pr-12">
+                  <img
+                    src="/assets/images/blog-two/review-one.png"
+                    alt="A portrait of Maria Lopez, a restaurant owner."
+                    class="rounded-full w-48 h-48 object-cover"
+                  />
+                </div>
+                <!-- Text Content Column -->
+                <div class="pt-8 md:pt-0">
+                  <p
+                    class="text-gray-700 text-lg md:text-xl leading-relaxed mb-4"
+                  >
+                    We used to pay over $1,500 a month in credit card fees. With
+                    the cash discount program, we’re down to under $100. Our
+                    customers don’t mind the small service fee — and now we
+                    actually understand every charge. Total game-changer
+                  </p>
+                  <p class="font-bold text-gray-900 text-lg mt-4">
+                    — Maria Lopez, Owner
+                  </p>
+                  <p class="text-gray-600 text-base">
+                    Sunny Side Diner, Austin, TX
+                  </p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Case Study -->
+              <div
+                class="flex-shrink-0 w-full snap-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0 items-center p-8 md:p-12"
+              >
+                <!-- Image Column -->
+                <div class="w-full flex justify-center md:pr-12">
+                  <img
+                    src="/assets/images/blog-two/review-two.png"
+                    alt="A portrait of Maria Lopez, a restaurant owner."
+                    class="rounded-full w-48 h-48 object-cover"
+                  />
+                </div>
+
+                <!-- Text Content Column -->
+                <div class="pt-8 md:pt-0">
+                  <p
+                    class="text-gray-700 text-lg md:text-xl leading-relaxed mb-4"
+                  >
+                    We were worried about legal risks with cash discounting.
+                    TequilaPOS walked us through everything and made sure the
+                    signage, receipts, and pricing were compliant. And we saved
+                    thousands every mont
+                  </p>
+                  <p class="font-bold text-gray-900 text-lg mt-4">
+                    — Alicia Fernandes, Co-owner
+                  </p>
+                  <p class="text-gray-600 text-base">
+                    La Mesa Bistro, Seattle, WA
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Navigation Arrows -->
+            <!-- Left Arrow -->
+            <button
+              id="prev-button"
+              class="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 bg-gray-200 hover:bg-gray-300 transition rounded-full z-10 hidden md:block"
+              aria-label="Previous slide"
+            >
+              <svg
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+            </button>
+            <!-- Right Arrow -->
+            <button
+              id="next-button"
+              class="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 bg-gray-200 hover:bg-gray-300 transition rounded-full z-10 hidden md:block"
+              aria-label="Next slide"
+            >
+              <svg
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-white py-10">
+      <div class="container mx-auto px-4">
+        <!-- Top Logo + Switch -->
+        <div
+          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
+        >
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="w-10 md:w-40 h-auto"
+            alt=""
+          />
+
+          <div class="flex items-center space-x-2">
+            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+              Switch to dark mode
+            </p>
+
+            <!-- Toggle Switch -->
+            <label
+              for="dark-mode-toggle"
+              class="relative inline-flex items-center cursor-pointer"
+            >
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
+              <div
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+              ></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-gray-300 pt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
+          >
+            <!-- Company -->
+            <div>
+              <!-- Accordion Header Button -->
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="company-links"
+                onclick="toggleAccordion(this)"
+              >
+                Company
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links Container -->
+              <div
+                id="company-links"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >About Us</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Contact Us</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Hardware</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="products"
+                onclick="toggleAccordion(this)"
+              >
+                Products
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="products"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >PAX A920</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >PAX A35</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >MagTek DynaFlex</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >PAX Elys Workstation</a
+                >
+              </div>
+            </div>
+
+            <!-- Resources -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="resources"
+                onclick="toggleAccordion(this)"
+              >
+                Resources
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="resources"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Product Guides & Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Video Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="legal"
+                onclick="toggleAccordion(this)"
+              >
+                Legal
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="legal"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Terms & Condition</a
+                >
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="social"
+                onclick="toggleAccordion(this)"
+              >
+                Social
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="social"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Youtube</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscribe -->
+          <div class="border-t border-gray-300 pt-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <div>
+                <h4
+                  class="font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-2"
+                >
+                  Subscribe
+                </h4>
+                <p class="text-gray-500 text-sm sm:text-base mb-1">
+                  Join our community to receive updates
+                </p>
+              </div>
+              <div>
+                <p class="text-gray-800 text-xs ps-3 pb-1">Stay up to date</p>
+                <div class="flex w-full sm:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-gray-600 text-base border-0 outline-none"
+                  />
+                  <button
+                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-800 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/footer-accordion.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/videoPlay.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.getElementById("slider-container");
+        const nextButton = document.getElementById("next-button");
+        const prevButton = document.getElementById("prev-button");
+        const slideWidth = slider.querySelector("div").offsetWidth;
+
+        nextButton.addEventListener("click", () => {
+          slider.scrollBy({ left: slideWidth, behavior: "smooth" });
+        });
+
+        prevButton.addEventListener("click", () => {
+          slider.scrollBy({ left: -slideWidth, behavior: "smooth" });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        // Function to handle tab switching
+        const switchTab = (targetId) => {
+          tabContents.forEach((content) => {
+            content.classList.add("hidden");
+          });
+          tabButtons.forEach((button) => {
+            button.classList.remove("bg-gray-100", "text-black");
+          });
+
+          document.getElementById(targetId).classList.remove("hidden");
+          document
+            .querySelector(`[data-tab-target="${targetId}"]`)
+            .classList.add("bg-gray-100", "text-black");
+        };
+
+        // Set the first tab as active by default
+        switchTab("tab-1");
+
+        // Add click event listeners to all tab buttons
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const targetId = button.getAttribute("data-tab-target");
+            switchTab(targetId);
+          });
+        });
+      });
+    </script>
+
+    <script>
+      AOS.init();
+      function toggleFaq(element) {
+        element.classList.toggle("active");
+      }
+
+      let isEnglish = true;
+
+      function toggleLanguage() {
+        const textEl = document.getElementById("language-text");
+        const flagEl = document.getElementById("flag-icon");
+
+        if (isEnglish) {
+          textEl.textContent = "ESPAÑOL";
+          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
+          flagEl.alt = "Spain Flag";
+        } else {
+          textEl.textContent = "ENGLISH";
+          flagEl.src = "/assets/images/flags/usa.png";
+          flagEl.alt = "USA Flag";
+        }
+
+        isEnglish = !isEnglish; // flip state
+      }
+    </script>
+  </body>
+</html>

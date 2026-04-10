@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tequila POS - Smart POS Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--for Cash Discount slider-->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #242424;
+      }
+      /* Hide scrollbar for a cleaner look */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+    </style>
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <!-- Optional: Default Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
+    />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/style/dark.css" />
+  </head>
+  <body class="bg-[#1C1C1C] font-inter text-sm">
+    <nav class="navbar md:block hidden">
+      <div class="navbar-container container mx-auto">
+        <!-- Logo -->
+        <div class="logo-container">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo"
+            alt="Logo"
+          />
+
+          <div class="nav-links ml-4">
+            <div class="nav-item dropdown">
+              <a href="#business-type" class="nav-link">Business Type</a>
+              <!-- Mega Menu -->
+              <div class="mega-menu">
+                <div class="mega-menu-grid">
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Product Features</h3>
+                    <ul class="mega-menu-list">
+                      <li><a href="#" class="mega-menu-link">Feature 1</a></li>
+                      <li><a href="#" class="mega-menu-link">Feature 2</a></li>
+                      <li><a href="#" class="mega-menu-link">Feature 3</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Resources</h3>
+                    <ul class="mega-menu-list">
+                      <li>
+                        <a href="#" class="mega-menu-link">Documentation</a>
+                      </li>
+                      <li><a href="#" class="mega-menu-link">FAQs</a></li>
+                      <li><a href="#" class="mega-menu-link">Tutorials</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-menu-column">
+                    <h3 class="mega-menu-title">Support</h3>
+                    <ul class="mega-menu-list">
+                      <li><a href="#" class="mega-menu-link">Contact Us</a></li>
+                      <li><a href="#" class="mega-menu-link">Live Chat</a></li>
+                      <li>
+                        <a href="#" class="mega-menu-link">Knowledge Base</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Links -->
+            <a href="#features" class="nav-link">Feature</a>
+            <a href="#hardware" class="nav-link">Hardware</a>
+            <a href="#pricing" class="nav-link">Pricing</a>
+            <a href="#resources" class="nav-link">Resources</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-extra-links">
+          <div class="language-selector">
+            <span class="language-text">ENGLISH</span>
+            <img
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+
+          <a href="#signin" class="nav-link">Sign in</a>
+
+          <button class="demo-btn">
+            <span>Free Demo</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar md:hidden bg-black shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-4"
+      >
+        <!-- Logo -->
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-white">
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Close Icon -->
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 bg-[#1C1C1C] text-white transform -translate-x-full transition-transform duration-300 ease-in-out z-50"
+      >
+        <div class="p-4 space-y-4">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 bg-gray-800 rounded hover:bg-gray-700"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 text-gray-400 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
+            11.94l3.72-3.72a.75.75 0 1 1 
+            1.06 1.06l-4.25 4.25a.75.75 0 
+            0 1-1.06 0L5.22 9.28a.75.75 
+            0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 bg-gray-900 rounded shadow-lg overflow-hidden"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Duplicate</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-300 hover:bg-gray-800"
+                >Delete</a
+              >
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="#features" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Features</a
+          >
+          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Hardware</a
+          >
+          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Pricing</a
+          >
+          <a href="#resources" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Resources</a
+          >
+
+          <!-- Language Switcher -->
+          <div
+            class="flex items-center justify-between px-4 py-2 bg-gray-800 rounded"
+          >
+            <span class="text-sm">EN</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-gray-500 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+              ></div>
+            </label>
+            <span class="text-sm">BN</span>
+          </div>
+
+          <!-- Sign in -->
+          <a href="#signin" class="block px-4 py-2 hover:bg-gray-800 rounded"
+            >Sign In</a
+          >
+
+          <!-- CTA Button -->
+          <a
+            href="#demo"
+            class="block text-center bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-bold py-2 rounded shadow hover:from-yellow-400 hover:to-yellow-500"
+          >
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+
+    <section class="bg-transparent-100 py-8 md:py-16">
+      <div
+        class="container mx-auto px-4 flex flex-row items-center justify-between gap-4 md:gap-12"
+      >
+        <div class="w-full md:w-[900px] text-left">
+          <h1
+            class="text-[20px] md:text-[64px] lg:text-7xl font-bold text-[#C98633] mb-4 md:mb-8"
+          >
+            Cash Discount vs Traditional Processing -<span class="text-white">
+              Which One Saves You More</span
+            >
+          </h1>
+
+          <p
+            class="md:w-[611px] w-full text-[#CDCDCD] md:text-[20px] text-[10px] font-semibold md:leading-[25.20px] leading-normal md:mb-8"
+          >
+            Understanding the Real Cost of Card Payments
+          </p>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <img
+            src="/assets/images/blog-one/blog-one-first.png"
+            alt=""
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+    </section>
+    <!--Cash Discount slider-->
+    <section class="py-8 md:py-16 lg:py-24">
+      <div class="container mx-auto px-4">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
+          >
+            <span class="text-[#C98633]"
+              >Understanding Cash Discount: A Smart
+            </span>
+            <span class="text-white">Way to Cut Processing Fees</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+            >
+              A clear explanation of what a Cash Discount is, how it works, and
+              how it benefits both businesses and customers.
+            </p>
+          </div>
+        </div>
+        <!-- Slider Section -->
+        <div class="w-full">
+          <div class="relative rounded-2xl overflow-hidden">
+            <!-- Main Slider Content Container -->
+            <div
+              id="slider-container"
+              class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory"
+            >
+              <!-- Slide 1 -->
+              <div
+                class="flex-shrink-0 w-full snap-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0 items-center"
+              >
+                <!-- Image Column -->
+                <div class="w-full">
+                  <img
+                    src="/assets/images/blog-one/cash-discount-slider.png"
+                    alt="A hand holding a stack of dollar bills, representing a cash discount."
+                    class="w-full h-auto object-cover"
+                  />
+                </div>
+                <!-- Text Content Column -->
+                <div class="p-8 sm:p-12">
+                  <h2
+                    class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white mb-4"
+                  >
+                    WHAT IS CASH DISCOUNT?
+                  </h2>
+                  <p class="text-[#CDCDCD] leading-relaxed mb-4">
+                    A Cash Discount is a business-friendly pricing strategy
+                    where customers receive a discount when they choose to pay
+                    using cash, debit card, or ACH (bank transfer) instead of a
+                    credit card.
+                  </p>
+                  <p class="text-[#CDCDCD] leading-relaxed">
+                    This method is designed to help merchants recover the cost
+                    of credit card processing fees, which can range from 2% to
+                    4% per transaction. Instead of increasing prices across the
+                    board or adding extra fees for credit card users (which may
+                    be restricted or frowned upon), businesses offer an
+                    incentive to customers who pay through lower-cost payment
+                    channels.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div
+                class="flex-shrink-0 w-full snap-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0 items-center"
+              >
+                <!-- Image Column -->
+                <div class="w-full">
+                  <img
+                    src="/assets/images/blog-one/slider-two.png"
+                    alt="A person receiving a gift, representing customer loyalty rewards."
+                    class="w-full h-auto object-cover"
+                  />
+                </div>
+                <!-- Text Content Column -->
+                <div class="p-8 sm:p-12">
+                  <h2
+                    class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white mb-4"
+                  >
+                    HOW DOES IT WORK WITH A POS SOLUTION ?
+                  </h2>
+                  <div class="max-w-full p-4 sm:p-6 lg:p-8">
+                    <div
+                      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-0 border-t border-white"
+                    >
+                      <div
+                        class="p-6 md:p-8 border-r border-b sm:border-b-0 md:border-b border-white"
+                      >
+                        <div
+                          class="text-xl font-semibold mb-2 flex items-baseline text-white"
+                        >
+                          <span class="text-3xl font-extrabold mr-2 text-white"
+                            >01</span
+                          >
+                          Two-Tier Pricing Setup
+                        </div>
+                        <p class="text-[#CDCDCD]">
+                          The POS system is programmed to show a standard price
+                          (card price) and automatically apply a discount when
+                          the customer chooses cash, debit, or ACH payment.
+                        </p>
+                      </div>
+
+                      <div
+                        class="p-6 md:p-8 border-b sm:border-b-0 md:border-b border-white"
+                      >
+                        <div
+                          class="text-xl font-semibold mb-2 flex items-baseline text-white"
+                        >
+                          <span class="text-3xl font-extrabold mr-2 text-white"
+                            >02</span
+                          >
+                          Automatic Discount Application
+                        </div>
+                        <p class="text-[#CDCDCD]">
+                          When a customer selects a cash or debit payment
+                          option, the POS automatically applies the discount—no
+                          manual calculation needed.
+                        </p>
+                      </div>
+
+                      <div
+                        class="p-6 md:p-8 border-r border-b sm:border-t sm:border-t-white md:border-t-0 border-white"
+                      >
+                        <div
+                          class="text-xl font-semibold mb-2 flex items-baseline text-white"
+                        >
+                          <span class="text-3xl font-extrabold mr-2 text-white"
+                            >03</span
+                          >
+                          Receipt Transparency
+                        </div>
+                        <p class="text-[#CDCDCD]">
+                          The receipt clearly shows whether a discount was
+                          applied or not, ensuring full visibility and
+                          compliance with legal and card network rules.
+                        </p>
+                      </div>
+
+                      <div
+                        class="p-6 md:p-8 border-b sm:border-t sm:border-t-gray-200 md:border-t-0 border-white"
+                      >
+                        <div
+                          class="text-xl font-semibold mb-2 flex items-baseline text-white"
+                        >
+                          <span class="text-3xl font-extrabold mr-2 text-white"
+                            >04</span
+                          >
+                          Fully Integrated Workflow
+                        </div>
+                        <p class="text-[#CDCDCD]">
+                          The cash discount feature is built into the POS
+                          system, making it seamless for staff and easy for
+                          customers—no changes to your existing process.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="h-px bg-gray-200 hidden md:block"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div
+                class="flex-shrink-0 w-full snap-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0 items-center"
+              >
+                <!-- Image Column -->
+                <div class="w-full">
+                  <img
+                    src="/assets/images/blog-one/slider-three.png"
+                    alt="A person receiving a gift, representing customer loyalty rewards."
+                    class="w-full h-auto object-cover"
+                  />
+                </div>
+                <!-- Text Content Column -->
+                <div class="p-8 sm:p-12">
+                  <h2
+                    class="text-2xl sm:text-3xl font-extrabold tracking-wide text-white mb-4"
+                  >
+                    WHY IS THIS IMPORTANT?
+                  </h2>
+                  <div class="max-w-full p-4 sm:p-6 lg:p-8">
+                    <div
+                      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-0 border-t border-white"
+                    >
+                      <div
+                        class="p-6 md:p-8 border-r border-b sm:border-b-0 md:border-b border-white"
+                      >
+                        <div
+                          class="text-xl font-semibold mb-2 flex items-baseline text-white"
+                        >
+                          <span class="text-3xl font-extrabold mr-2 text-white"
+                            >01</span
+                          >
+                          Eliminates Credit Card Processing Fees
+                        </div>
+                        <p class="text-[#CDCDCD]">
+                          Businesses can offset or completely remove costly
+                          credit card fees, saving thousands annually.
+                        </p>
+                      </div>
+
+                      <div
+                        class="p-6 md:p-8 border-b sm:border-b-0 md:border-b border-white"
+                      >
+                        <div
+                          class="text-xl font-semibold mb-2 flex items-baseline text-white"
+                        >
+                          <span class="text-3xl font-extrabold mr-2 text-white"
+                            >02</span
+                          >
+                          Increases Profit Margins
+                        </div>
+                        <p class="text-[#CDCDCD]">
+                          By encouraging lower-cost payment methods, businesses
+                          retain more revenue from each sale.
+                        </p>
+                      </div>
+
+                      <div
+                        class="p-6 md:p-8 border-r border-b sm:border-t sm:border-t-white md:border-t-0 border-white"
+                      >
+                        <div
+                          class="text-xl font-semibold mb-2 flex items-baseline text-white"
+                        >
+                          <span class="text-3xl font-extrabold mr-2 text-white"
+                            >03</span
+                          >
+                          Encourages Cost-Effective Payment Behavior
+                        </div>
+                        <p class="text-[#CDCDCD]">
+                          Customers are incentivized to pay with cash or debit,
+                          reducing the business’s dependency on card networks.
+                        </p>
+                      </div>
+
+                      <div
+                        class="p-6 md:p-8 border-b sm:border-t sm:border-t-gray-200 md:border-t-0 border-white"
+                      >
+                        <div
+                          class="text-xl font-semibold mb-2 flex items-baseline text-white"
+                        >
+                          <span class="text-3xl font-extrabold mr-2 text-white"
+                            >04</span
+                          >
+                          Provides Transparent, Legal Compliance
+                        </div>
+                        <p class="text-[#CDCDCD]">
+                          With the right POS setup, pricing is clearly
+                          displayed, and discounts are applied in a compliant,
+                          customer-friendly way.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="h-px bg-gray-200 hidden md:block"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Navigation Arrows -->
+            <!-- Left Arrow -->
+            <button
+              id="prev-button"
+              class="absolute top-1/2 left-4 transform -translate-y-1/2 p-2 bg-gray-200 hover:bg-gray-300 transition rounded-full z-10 hidden md:block"
+              aria-label="Previous slide"
+            >
+              <svg
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+            </button>
+            <!-- Right Arrow -->
+            <button
+              id="next-button"
+              class="absolute top-1/2 right-4 transform -translate-y-1/2 p-2 bg-gray-200 hover:bg-gray-300 transition rounded-full z-10 hidden md:block"
+              aria-label="Next slide"
+            >
+              <svg
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--traditional payment section-->
+    <section class="py-8 md:py-16 lg:py-24">
+      <div class="container mx-auto px-4">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
+          >
+            <span class="text-[#C98633]">Traditional Payment Processing: </span>
+            <span class="text-white">What It Means for Your Business</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+            >
+              A breakdown of how traditional card payments work and why
+              merchants end up paying a percentage of every transaction.
+            </p>
+          </div>
+        </div>
+        <div
+          class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12"
+        >
+          <div class="w-full lg:w-1/2 text-center lg:text-left">
+            <h1
+              class="text-left mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto text-[#C98633]"
+            >
+              The Cost of Convenience: Understanding
+              <span class="text-white"
+                >Traditional<br />Credit Card Processing</span
+              >
+            </h1>
+
+            <p
+              class="md:w-[562px] w-full text-left text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+            >
+              Learn how businesses are charged through interchange, processor
+              markups, and hidden fees in the standard payment model.
+            </p>
+          </div>
+
+          <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+            <img
+              src="/assets/images/blog-one/traditional-payment.png"
+              alt=""
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Real Savings section-->
+    <section class="py-16 lg:py-24">
+      <div class="container mx-auto px-4">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
+          >
+            <span class="text-[#C98633]"
+              >Cash Discount vs. Traditional Processing:</span
+            >
+            <span class="text-white">Real Savings in Real Numbers</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+            >
+              A clear explanation of what a Cash Discount is, how it works, and
+              how it benefits both businesses and customers.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-transparent p-0">
+          <div class="container mx-auto max-w-7xl">
+            <!-- Table Header -->
+            <div class="text-center mb-10">
+              <h3
+                class="md:text-[15px] text-[10px] font-normal text-left text-[#CDCDCD]"
+              >
+                Traditional Processing vs Cash Discount — Real Example
+                Comparison
+              </h3>
+            </div>
+
+            <!-- Responsive Table Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Aspect Column (first column) -->
+              <div
+                class="rounded-2xl shadow-lg border border-[#C98633] overflow-hidden"
+              >
+                <div
+                  class="text-[#C98633] text-center font-bold md:text-[36px] p-6 md:p-8 text-2xl border-b border-[#505050]"
+                >
+                  Aspect
+                </div>
+                <div class="divide-y divide-[#505050]">
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    POS Price
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Card Payment
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Cash Payment
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Processing Fee
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Business Keeps
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Impact
+                  </div>
+                </div>
+              </div>
+
+              <!-- Traditional Column (second column) -->
+              <div
+                class="rounded-2xl shadow-lg border border-[#C98633] overflow-hidden"
+              >
+                <div
+                  class="text-[#C98633] text-center font-bold md:text-[36px] p-6 md:p-8 text-2xl border-b border-[#505050]"
+                >
+                  Traditional
+                </div>
+                <div class="divide-y divide-[#505050]">
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    ₹1,000
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Customer pays ₹1,000
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Customer pays ₹1,000
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    30 (paid by business)
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    ₹970 (card) / ₹1,000 (cash)
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Lower profit on card sales
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cash Discount Column (third column) -->
+              <div
+                class="rounded-2xl shadow-lg border border-[#C98633] overflow-hidden"
+              >
+                <div
+                  class="text-[#C98633] text-center font-bold md:text-[36px] p-6 md:p-8 text-2xl border-b border-[#505050]"
+                >
+                  Cash Discount
+                </div>
+                <div class="divide-y divide-[#505050]">
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    ₹1,030 (includes card fee markup)
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Customer pays ₹1,030
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Customer pays ₹1,000 (₹30 discount)
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    ₹0 (if paid by cash)
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    ₹1,000 (both card & cash)
+                  </div>
+                  <div
+                    class="p-4 md:p-6 text-center text-[#C98633] text-[14px] md:text-[18px]"
+                  >
+                    Full profit on all payments
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Payment Models section-->
+    <section class="py-16 lg:py-24">
+      <div class="container mx-auto px-4">
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
+          >
+            <span class="text-[#C98633]"
+              >Addressing Common Objections to Payment Models</span
+            >
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+            >
+              From legality concerns to customer reactions — here’s how
+              TequilaPOS helps you navigate and overcome the most common
+              challenges.
+            </p>
+          </div>
+        </div>
+        <div class="container mx-auto max-w-7xl">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Tab Navigation (First Column) -->
+            <div class="flex flex-col md:col-span-1 md:row-span-1 p-4">
+              <div class="divide-y divide-white">
+                <button
+                  class="tab-button w-full text-left p-4 md:p-6 text-xl rounded-lg transition-all duration-300"
+                  data-tab-target="tab-1"
+                >
+                  Is it legal?
+                </button>
+                <button
+                  class="tab-button w-full text-left p-4 md:p-6 text-xl rounded-lg mb-2 transition-all duration-300"
+                  data-tab-target="tab-2"
+                >
+                  Will it confuse customers?
+                </button>
+                <button
+                  class="tab-button w-full text-left p-4 md:p-6 text-xl rounded-lg mb-2 transition-all duration-300"
+                  data-tab-target="tab-3"
+                >
+                  Will customers be upset?
+                </button>
+                <button
+                  class="tab-button w-full text-left p-4 md:p-6 text-xl rounded-lg mb-2 transition-all duration-300"
+                  data-tab-target="tab-4"
+                >
+                  Is it a surcharge?
+                </button>
+                <button
+                  class="tab-button w-full text-left p-4 md:p-6 text-xl rounded-lg mb-2 transition-all duration-300"
+                  data-tab-target="tab-5"
+                >
+                  Does it affect profit margin?
+                </button>
+                <button
+                  class="tab-button w-full text-left p-4 md:p-6 text-xl rounded-lg mb-2 transition-all duration-300"
+                  data-tab-target="tab-6"
+                >
+                  Is it hard to manage?
+                </button>
+              </div>
+            </div>
+
+            <!-- Tab Content (Second and Third Columns) -->
+            <div
+              class="md:col-span-2 rounded-2xl overflow-hidden h-full flex flex-col"
+            >
+              <!-- Tab 1 Content: Is it legal? -->
+              <div
+                id="tab-1"
+                class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
+              >
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Traditional Processing
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      Yes, standard model — but you can’t add extra card fees
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Cash Discount Program
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      Yes, when implemented with clear pricing and receipts
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    How To Address It
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      Cash Discount is legal if the listed price is the card
+                      price, and the discount is shown clearly
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 2 Content: Will it confuse customers? -->
+              <div
+                id="tab-2"
+                class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
+              >
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Traditional Processing
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">No</p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Cash Discount Program
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      No, when implemented with clear pricing and receipts
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    How To Address It
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      Clear signage and communication prevent customer
+                      confusion.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 3 Content: Will customers be upset? -->
+              <div
+                id="tab-3"
+                class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
+              >
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Traditional Processing
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">No</p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Cash Discount Program
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">No, customers appreciate discounts</p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    How To Address It
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      Customers view this as a positive incentive rather than a
+                      penalty.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 4 Content: Is it a surcharge? -->
+              <div
+                id="tab-4"
+                class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
+              >
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Traditional Processing
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">No</p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Cash Discount Program
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      No, as you are offering a discount, not adding a fee
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    How To Address It
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      This is a key legal distinction. The price is already
+                      higher, and you are providing a discount for cash.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 5 Content: Does it affect profit margin? -->
+              <div
+                id="tab-5"
+                class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
+              >
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Traditional Processing
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      Yes, it significantly increases profit on card sales
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Cash Discount Program
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      Yes, it significantly increases profit on card sales
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    How To Address It
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      By recovering fees, the business keeps more of its gross
+                      revenue on every transaction.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 6 Content: Is it hard to manage? -->
+              <div
+                id="tab-6"
+                class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
+              >
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Traditional Processing
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      No, with modern software and hardware, it is fully
+                      automated
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    Cash Discount Program
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      No, with modern software and hardware, it is fully
+                      automated
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div class="text-center text-lg mb-4 text-white">
+                    How To Address It
+                  </div>
+                  <div
+                    class="rounded-2xl shadow-lg border border-[#c98633] p-6 md:p-8 text-white text-center flex-grow flex items-center justify-center"
+                  >
+                    <p class="text-sm">
+                      The PINPad and POS system automatically calculate the
+                      discount.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Payment Solutions Section -->
+
+    <section id="payments-section" class="md:mt-10 mt-5 overflow-hidden">
+      <div class="container px-4 md:px-2 mx-auto">
+        <!-- Section Title -->
+        <div class="text-center md:mb-10 mb-6">
+          <h2
+            class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
+          >
+            <span class="text-[#C98633]">Flexible Payment Solutions </span>
+            <span class="text-white">with TequilaPOS</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#CDCDCD] md:text-[15px] text-[10px] font-normal"
+            >
+              Whether you prefer Traditional Processing or the Cash Discount
+              Program, TequilaPOS supports both — and guides you to the best
+              choice for your business.
+            </p>
+          </div>
+        </div>
+
+        <!-- STATE A: 2 big images -->
+        <div
+          id="stateA"
+          class="grid grid-cols-1 md:grid-cols-2 gap-4 transition-all duration-700 ease-out opacity-100 translate-y-0"
+        >
+          <img
+            src="/assets/images/blog-one/image-one.png"
+            alt="Payment terminal"
+            class="w-full h-auto rounded-xl shadow object-cover"
+          />
+          <img
+            src="/assets/images/blog-one/image-two.png"
+            alt="Cash in hand"
+            class="w-full h-auto rounded-xl shadow object-cover"
+          />
+        </div>
+
+        <!-- STATE B: Text left, 2 stacked small images right -->
+        <div
+          id="stateB"
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mt-6 opacity-0 -translate-y-3 hidden transition-all duration-700 ease-out"
+        >
+          <!-- LEFT TEXT -->
+          <div class="flex flex-col justify-center md:pt-6">
+            <h2
+              class="mb-1 md:mb-6 font-bold md:text-[36px] text-xl md:leading-[46px] md:w-[604px] w-full"
+            >
+              <span class="text-[#C98633]">How TequilaPOS Supports Both </span>
+              <span class="text-white"> Models — and Helps You Decide</span>
+            </h2>
+            <p class="text-sm md:text-base text-[#CDCDCD] leading-relaxed mb-4">
+              TequilaPOS is designed with flexibility in mind, offering full
+              support for both Traditional Payment Processing and the Cash
+              Discount Program. Whether your business prefers to absorb
+              processing fees quietly or pass them through with a compliant cash
+              discount model, TequilaPOS makes it seamless. You can easily
+              configure pricing, apply automatic discounts, and display
+              customer-facing messages — all within the same system. If you're
+              unsure which model is best for your business, our team helps you
+              evaluate your average card usage, customer base, and profitability
+              goals. With built-in tools, real-time reports, and legal-compliant
+              setup options, TequilaPOS empowers you to make an informed
+              decision and switch between models anytime — no extra hardware or
+              setup needed.
+            </p>
+            <a
+              href="#contact"
+              class="text-sm font-semibold underline underline-offset-4 hover:text-gray-300 transition-colors md:pt-10 pt-6 text-white"
+            >
+              CONNECT TO US
+            </a>
+          </div>
+
+          <!-- RIGHT: TWO STACKED IMAGES -->
+          <div class="flex flex-col gap-4">
+            <img
+              src="/assets/images/blog-one/final-image.png"
+              alt="Card tapping"
+              class="rounded-2xl shadow object-cover w-full h-auto opacity-0 translate-y-3 transition-all duration-700 delay-300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        const section = document.getElementById("payments-section");
+        const stateA = document.getElementById("stateA");
+        const stateB = document.getElementById("stateB");
+
+        if (
+          !section ||
+          !stateA ||
+          !stateB ||
+          !("IntersectionObserver" in window)
+        )
+          return;
+
+        const DURATION = 700; // match Tailwind duration
+
+        const fadeOut = (el, cb) => {
+          el.classList.remove("opacity-100", "translate-y-0");
+          el.classList.add("opacity-0", "-translate-y-3");
+          setTimeout(() => {
+            el.classList.add("hidden");
+            cb && cb();
+          }, DURATION);
+        };
+
+        const fadeIn = (el) => {
+          el.classList.remove("hidden");
+          requestAnimationFrame(() => {
+            el.classList.remove("opacity-0", "-translate-y-3");
+            el.classList.add("opacity-100", "translate-y-0");
+          });
+        };
+
+        function showA() {
+          if (!stateA.classList.contains("hidden")) return;
+          fadeIn(stateA);
+          fadeOut(stateB);
+        }
+
+        function showB() {
+          if (!stateB.classList.contains("hidden")) return;
+          fadeOut(stateA, () => {
+            fadeIn(stateB);
+            // animate images after B shows
+            const imgs = stateB.querySelectorAll("img");
+            imgs.forEach((img, i) => {
+              setTimeout(() => {
+                img.classList.remove("opacity-0", "translate-y-3");
+                img.classList.add("opacity-100", "translate-y-0");
+              }, 200 + i * 200);
+            });
+          });
+        }
+
+        // observe when section is visible
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) showB();
+              else showA();
+            });
+          },
+          { threshold: 0.35 }
+        );
+
+        io.observe(section);
+      })();
+    </script>
+
+    <!-- Footer -->
+    <footer class="dark py-10">
+      <div class="container mx-auto px-4">
+        <!-- Top Logo + Switch -->
+        <div
+          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
+        >
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class=""
+            alt=""
+          />
+
+          <div class="flex items-center space-x-2">
+            <p class="text-[#CDCDCD] text-[11px] font-normal select-none">
+              Switch to dark mode
+            </p>
+
+            <!-- Toggle Switch -->
+            <label
+              for="dark-mode-toggle"
+              class="relative inline-flex items-center cursor-pointer"
+            >
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
+              <div
+                class="w-9 h-5 bg-white rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+              ></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-gray-300 pt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
+          >
+            <!-- Company -->
+            <div>
+              <!-- Accordion Header Button -->
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="company-links"
+                onclick="toggleAccordion(this)"
+              >
+                Company
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links Container -->
+              <div
+                id="company-links"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >About Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Contact Us</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Hardware</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="products"
+                onclick="toggleAccordion(this)"
+              >
+                Products
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="products"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A920</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX A35</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >MagTek DynaFlex</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >PAX Elys Workstation</a
+                >
+              </div>
+            </div>
+
+            <!-- Resources -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="resources"
+                onclick="toggleAccordion(this)"
+              >
+                Resources
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="resources"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Product Guides & Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Video Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="legal"
+                onclick="toggleAccordion(this)"
+              >
+                Legal
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="legal"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Terms & Condition</a
+                >
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-white text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="social"
+                onclick="toggleAccordion(this)"
+              >
+                Social
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="social"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-[#CDCDCD] hover:text-gray-100 transition-colors block"
+                  >Youtube</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscribe -->
+          <div class="border-t border-gray-300 pt-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <div>
+                <h4
+                  class="font-roboto font-medium text-[#CDCDCD] text-xl sm:text-2xl mb-2"
+                >
+                  Subscribe
+                </h4>
+                <p class="text-[#CDCDCD] text-sm sm:text-100e mb-1">
+                  Join our community to receive updates
+                </p>
+              </div>
+
+              <div>
+                <p class="text-[#CDCDCD] text-xs ps-3 pb-1">Stay up to date</p>
+                <div class="flex w-full sm:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-white text-base border-0 outline-none"
+                  />
+                  <button
+                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-100 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/footer-accordion.js"></script>
+    <script src="../assets/js/videoPlay.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const slider = document.getElementById("slider-container");
+        const nextButton = document.getElementById("next-button");
+        const prevButton = document.getElementById("prev-button");
+        const slideWidth = slider.querySelector("div").offsetWidth;
+
+        nextButton.addEventListener("click", () => {
+          slider.scrollBy({ left: slideWidth, behavior: "smooth" });
+        });
+
+        prevButton.addEventListener("click", () => {
+          slider.scrollBy({ left: -slideWidth, behavior: "smooth" });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        // Function to handle tab switching
+        const switchTab = (targetId) => {
+          tabContents.forEach((content) => {
+            content.classList.add("hidden");
+          });
+          tabButtons.forEach((button) => {
+            button.classList.remove("bg-white", "text-[#C98633]");
+          });
+
+          document.getElementById(targetId).classList.remove("hidden");
+          document
+            .querySelector(`[data-tab-target="${targetId}"]`)
+            .classList.add("bg-white", "text-[#C98633]");
+        };
+
+        // Set the first tab as active by default
+        switchTab("tab-1");
+
+        // Add click event listeners to all tab buttons
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const targetId = button.getAttribute("data-tab-target");
+            switchTab(targetId);
+          });
+        });
+      });
+    </script>
+
+    <script>
+      function toggleFaq(element) {
+        element.classList.toggle("active");
+      }
+
+      let isEnglish = true;
+
+      function toggleLanguage() {
+        const textEl = document.getElementById("language-text");
+        const flagEl = document.getElementById("flag-icon");
+
+        if (isEnglish) {
+          textEl.textContent = "ESPAÑOL";
+          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
+          flagEl.alt = "Spain Flag";
+        } else {
+          textEl.textContent = "ENGLISH";
+          flagEl.src = "/assets/images/flags/usa.png";
+          flagEl.alt = "USA Flag";
+        }
+
+        isEnglish = !isEnglish; // flip state
+      }
+    </script>
+  </body>
+</html>

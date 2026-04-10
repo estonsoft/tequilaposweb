@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tequila POS - Smart POS Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Splide CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+    />
+
+    <!-- Optional: Default Theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
+    />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/assets/style/global.css" />
+  </head>
+  <body class="bg-white font-inter text-sm">
+    <!-- Navigation -->
+    <nav class="navbar md:block hidden">
+      <div class="navbar-container container mx-auto">
+        <!-- Logo -->
+        <div class="logo-container">
+          <a href="/light/index.html">
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent.png"
+              class="logo"
+              alt="Logo"
+            />
+          </a>
+
+          <div class="nav-links ml-4">
+            <div class="nav-item relative group">
+              <a href="#business-type" class="nav-link">Business Type</a>
+
+              <!-- Mega Menu -->
+              <div
+                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
+                onmouseleave="clearActive()"
+              >
+                <div class="flex flex-nowrap gap-10">
+                  <!-- LEFT: categories -->
+                  <div
+                    class="flex flex-col p-10 gap-4"
+                    id="categoryList"
+                    data-aos="fade-left"
+                  >
+                    <a
+                      href="#"
+                      class="text-black text-[26px] font-bold hover:underline"
+                      data-cat="food"
+                      onmouseenter="setActive('food')"
+                      onfocus="setActive('food')"
+                    >
+                      Food &amp; Beverage
+                    </a>
+
+                    <a
+                      href="#"
+                      class="text-black text-[26px] font-bold hover:underline"
+                      data-cat="retail"
+                      onmouseenter="setActive('retail')"
+                      onfocus="setActive('retail')"
+                    >
+                      Retail
+                    </a>
+                  </div>
+
+                  <!-- RIGHT: panels -->
+                  <div class="flex gap-16 p-10">
+                    <!-- FOOD panel -->
+                    <div class="flex justify-between gap-10" data-panel="food">
+                      <div>
+                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                          Capacity
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Manage order from one place</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Take payment</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Keep customer coming back</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Scale your business</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Improve operation</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Schedule and pay your team</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Manage your cash flow</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- RETAIL panel -->
+                    <div class="space-y-6 hidden" data-panel="retail">
+                      <div class="gap-10">
+                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-black text-xl font-bold"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Links -->
+            <a href="/light/feature.html" class="nav-link">Feature</a>
+            <a href="/light/hardware.html" class="nav-link">Hardware</a>
+            <a href="/light/pricing.html" class="nav-link">Pricing</a>
+            <a href="/light/resourse.html" class="nav-link">Resources</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-extra-links">
+          <div
+            class="language-selector cursor-pointers"
+            onclick="toggleLanguage()"
+          >
+            <span id="language-text">ENGLISH</span>
+            <img
+              id="flag-icon"
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+
+          <a href="#signin" class="nav-link">Sign in</a>
+
+          <button class="demo-btn">
+            <span>Free Demo</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar md:hidden bg-white shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-4"
+      >
+        <!-- Logo -->
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <!-- Hamburger Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Close Icon -->
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <!-- Mobile Menu (White Version) -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+      >
+        <div class="p-4 space-y-4">
+          <!-- Dropdown -->
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
+        11.94l3.72-3.72a.75.75 0 1 1 
+        1.06 1.06l-4.25 4.25a.75.75 0 
+        0 1-1.06 0L5.22 9.28a.75.75 
+        0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Duplicate</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Archive</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >Delete</a
+              >
+            </div>
+          </div>
+
+          <!-- Regular Links -->
+          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Features</a
+          >
+          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Hardware</a
+          >
+          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Pricing</a
+          >
+          <a
+            href="/light/resourse.html"
+            class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Resources</a
+          >
+
+          <!-- Language Switcher -->
+          <div
+            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
+          >
+            <span class="text-sm">EN</span>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" class="sr-only peer" />
+              <div
+                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
+              ></div>
+            </label>
+            <span class="text-sm">ES</span>
+          </div>
+
+          <!-- Sign in -->
+          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
+            >Sign In</a
+          >
+
+          <!-- CTA Button -->
+          <a
+            href="#demo"
+            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
+          >
+            Free Demo
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero section -->
+
+    <section class="bg-transparent-100 py-16">
+      <div
+        class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12"
+      >
+        <div class="order-2 md:order-1 w-full md:w-1/2 text-left">
+          <h1
+            class="text-5xl md:text-6xl lg:text-7xl font-bold text-[#505050] mb-8"
+          >
+            A35 Android <br /><span class="text-gray-900">PINpad</span>
+          </h1>
+
+          <p
+            class="md:w-[611px] w-full text-[4F4F4F] md:text-xl text-sm font-semibold md:leading-[25.20px] leading-normal mb-8"
+          >
+            The A35 Android PINpad is a compact, secure, and user-friendly
+            payment device designed for fast and seamless transactions. Powered
+            by Android, it supports a wide range of payment methods including
+            chip, swipe, contactless, and mobile wallets—making it ideal for
+            modern retail and service environments.
+          </p>
+
+          <a
+            href="#"
+            class="inline-block bg-black w-72 h-12 bg-black rounded-[32px] text-center text-white text-lg font-semibold px-8 py-3 rounded-full hover:bg-gray-800 transition duration-300 transform hover:scale-105 shadow-lg"
+          >
+            Buy now
+          </a>
+        </div>
+
+        <div
+          class="w-full lg:w-1/2 flex justify-center lg:justify-end lg:order-last"
+        >
+          <img
+            src="/assets/images/a35-android/your-pinpad-image.png"
+            alt=""
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- features section -->
+    <section class="bg-white py-16 lg:py-24">
+      <div class="container mx-auto px-4">
+        <div class="text-center md:mb-10 mb-6">
+          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
+            <span class="text-[#4f4f4f]">Smart. Secure.</span>
+            <span class="text-black">Seamless.</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+            >
+              Explore the powerful features of the A35 Android PINpad — designed
+              for fast transactions, enhanced security, and effortless customer
+              experiences.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16"
+        >
+          <div class="w-full lg:w-1/4 flex flex-col items-center lg:items-end">
+            <button
+              id="tab-feature"
+              data-tab="feature-content"
+              class="tab-button flex items-center justify-between w-full max-w-xs lg:max-w-none lg:w-[200px] bg-gray-800 text-white text-lg font-semibold px-6 py-3 rounded-full shadow-md mb-4 hover:bg-gray-700 transition"
+            >
+              <span>Feature</span>
+              <div class="w-3 h-3 bg-white rounded-full ml-2"></div>
+            </button>
+            <button
+              id="tab-best-for"
+              data-tab="best-for-content"
+              class="tab-button flex items-center justify-between w-full max-w-xs lg:max-w-none lg:w-[200px] bg-gray-100 text-gray-800 text-lg font-semibold px-6 py-3 rounded-full shadow-sm hover:bg-gray-200 transition"
+            >
+              <span>Best For</span>
+              <div class="w-3 h-3 bg-gray-600 rounded-full ml-2"></div>
+            </button>
+          </div>
+
+          <div class="w-full lg:w-3/4 relative">
+            <div id="tab-container" class="relative w-full">
+              <div id="feature-content" class="tab-content">
+                <div
+                  class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                    >
+                      <svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <mask
+                          id="mask0_135_1275"
+                          style="mask-type: alpha"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="50"
+                          height="50"
+                        >
+                          <rect
+                            width="50"
+                            height="50"
+                            fill="url(#pattern0_135_1275)"
+                          />
+                        </mask>
+                        <g mask="url(#mask0_135_1275)">
+                          <rect width="50" height="50" fill="#505050" />
+                        </g>
+                        <defs>
+                          <pattern
+                            id="pattern0_135_1275"
+                            patternContentUnits="objectBoundingBox"
+                            width="1"
+                            height="1"
+                          >
+                            <use
+                              xlink:href="#image0_135_1275"
+                              transform="scale(0.00195312)"
+                            />
+                          </pattern>
+                          <image
+                            id="image0_135_1275"
+                            width="512"
+                            height="512"
+                            preserveAspectRatio="none"
+                            xlink:href="data:image/png;base64,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"
+                          />
+                        </defs>
+                      </svg>
+                    </div>
+                    <h3
+                      class="md:text-lg text-base font-semibold text-gray-900"
+                    >
+                      4.0" Touchscreen <br />intuitive interface
+                    </h3>
+                  </div>
+
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                    >
+                      <svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <mask
+                          id="mask0_135_1278"
+                          style="mask-type: alpha"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="50"
+                          height="50"
+                        >
+                          <rect
+                            width="50"
+                            height="50"
+                            fill="url(#pattern0_135_1278)"
+                          />
+                        </mask>
+                        <g mask="url(#mask0_135_1278)">
+                          <rect width="50" height="50" fill="#505050" />
+                        </g>
+                        <defs>
+                          <pattern
+                            id="pattern0_135_1278"
+                            patternContentUnits="objectBoundingBox"
+                            width="1"
+                            height="1"
+                          >
+                            <use
+                              xlink:href="#image0_135_1278"
+                              transform="scale(0.00195312)"
+                            />
+                          </pattern>
+                          <image
+                            id="image0_135_1278"
+                            width="512"
+                            height="512"
+                            preserveAspectRatio="none"
+                            xlink:href="data:image/png;base64,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"
+                          />
+                        </defs>
+                      </svg>
+                    </div>
+                    <h3
+                      class="md:text-lg text-base font-semibold text-gray-900"
+                    >
+                      PCI PTS 6.x certified <br />security
+                    </h3>
+                  </div>
+
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                    >
+                      <svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <mask
+                          id="mask0_135_1281"
+                          style="mask-type: alpha"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="50"
+                          height="50"
+                        >
+                          <rect
+                            width="50"
+                            height="50"
+                            fill="url(#pattern0_135_1281)"
+                          />
+                        </mask>
+                        <g mask="url(#mask0_135_1281)">
+                          <rect width="50" height="50" fill="#505050" />
+                        </g>
+                        <defs>
+                          <pattern
+                            id="pattern0_135_1281"
+                            patternContentUnits="objectBoundingBox"
+                            width="1"
+                            height="1"
+                          >
+                            <use
+                              xlink:href="#image0_135_1281"
+                              transform="scale(0.00195312)"
+                            />
+                          </pattern>
+                          <image
+                            id="image0_135_1281"
+                            width="512"
+                            height="512"
+                            preserveAspectRatio="none"
+                            xlink:href="data:image/png;base64,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"
+                          />
+                        </defs>
+                      </svg>
+                    </div>
+                    <h3
+                      class="md:text-lg text-base font-semibold text-gray-900"
+                    >
+                      Wi-Fi, Bluetooth, and <br />USB-C connectivity
+                    </h3>
+                  </div>
+
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                    >
+                      <svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <mask
+                          id="mask0_135_1284"
+                          style="mask-type: alpha"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="50"
+                          height="50"
+                        >
+                          <rect
+                            width="50"
+                            height="50"
+                            fill="url(#pattern0_135_1284)"
+                          />
+                        </mask>
+                        <g mask="url(#mask0_135_1284)">
+                          <rect width="50" height="50" fill="#505050" />
+                        </g>
+                        <defs>
+                          <pattern
+                            id="pattern0_135_1284"
+                            patternContentUnits="objectBoundingBox"
+                            width="1"
+                            height="1"
+                          >
+                            <use
+                              xlink:href="#image0_135_1284"
+                              transform="scale(0.01)"
+                            />
+                          </pattern>
+                          <image
+                            id="image0_135_1284"
+                            width="100"
+                            height="100"
+                            preserveAspectRatio="none"
+                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAH+klEQVR4nO2de5DWUxjHv5WVTQorJDFFShaZGtEohoqJFMXECA2ZMiKZKa0xmoiYRiUZl6JhkMIMgxSaUuQSYbuMbu5tuVRYKWv3Z56d8zbvrPec3/k9zznvZd/zmTn/7ft9f+c8v/dcnstZIBAIBAKBQCAQCASsKANQAeADAD8D2AtgA4CZADraSQRccQ2APwBEmva3+ptAFrjZYIiGbVA2HqiYKQdQk8AgOwAcmuuHbszMT2CMVLs31w/dWDkQwJ8Mg9Bac0SuH74xcjzDGKl2X64fvjFyksAgtJY0z3UH8pVWAIYCmALgCQD3ALgIQJOYz9GA7hEY5dos9a9gKAEwyXB+WAfgjBiNNwUG+ThL/SwIWgJYbjFo1QB6G3SGCQxCrWsW+5zXvJJg0L5R01omSgHsFhgkbIEB9GMM3GSDcZ8SGGSzxVrV6JnPGDg6bxyp0TtHOG31RJHzPXPgpmn06A3fKDDIQyhy9jIHjn4lrTWadwkMshZFzk+CwRuj0WwPoFagS6f+guNEAI8D2KLecgoCva4W6SS8JBi49YZFeIlAdzQKjKExU82zAA6y1LpcMHDU+mh0bxBo0otVMJxqOe8vV+cCGy/tL4LBe9QQwk0SG0lv5C1ohgLh1QQdW2C5r58pMEiVYfAk01Y3FIiLoyZhx0ZZ6HYTTlvnanRvEWhSKDjv6cP8+bex0P5cMHjTDBsPrubzcQ98AYBFav+9C8AXACaotzZbXMHs3HQLbcnbvMagyz0kks9MCzm96jQf/FoF97PBMGbn9lrs7Q8H8A9Tv9YQhp0lMHTbTIIjLd3SNFj5OGVFqj1pof+OQJ9+vZm4UqDZL9OJM4lrYYYK9OTToh6lrSUHe5y2qO+ZOFagObah2GMMkRUAjoE/lgk6ODxG+zjD1GzTbx3fMTXJlb+fowSOt23KDe2DMQKDvOdxt0WbnaYOXfzUVqWLjBB0PFIL5G1wTzuB465Wfd7EZEGfu2g0K5h6v6cfbBcKDZJqL1jM3UlZ6TG7o7+HhX2QQLP+BSpRZ43IUasE0ClPpq1nYrQpXv4vU3uiRvMEaQTxFIfGSLXdDrO9jxYMGi2wcVQytedq9Ght+YupSd5oDPZgkEjtYKY48mSuEDwHvbEmuIsw7QBdG7k+CDbek0FSbYmDBOOJgu+neIqJuz38+hYzNadKU1mSPHwPgUFOE3w3xbxNDGXq0jFBx9NMzefow0uzYJBUadeNTIM0AbBT0kkDPQV9amXwB7LPTquzZJBUm5Mg5JrOu8zv+wRm2gv6Qi73TIyW5Pyuz7JBqH3KyLaYyvwu+mWZKBEcPs/WaF7N1KuU+F6k7Vd1MLNlJPN7ai1Cu9zpsK9Gb7AgvbR+YKIctTr15uv8QulcJvieQ2BmG1P3Yo3ehUw9yhurX2yjHLc3ABzmMT4S59PawtQd4vhZyWPCPgW7bhtV2o+OMwXaJ8cYZC1Tl9aKTPSQbKU51aS+WrWhk9xpwKY4ptJxzIVrEPpx1Bchcj78iCDAE9dmZohGXiXQi9vRbXLsBegtiHRiq2APPkT58X0YZWWDaKTE6xvnuvnB8aLOdetvl8yfA9WXd1JpQj6MUpVW5zeXqVGnUkhNcNNLKV3KZUykPh3oI+aHySmZolTgv7GJRo4VvDhkVBN0RtnH1O7lOIVpnSRaOC/Dg4wQ1m9HHlpcCXKZQFu3Kxwl8GDgAcmHM3C6sMwrctzohTMhCdC1cRyrXyqpbag2nLDJC/pyHhgjUi+cib6CqVTX/zmSHN/zBJ3tENPZmwTzc+SoUTahCe70QgWkOhZJAlRlAm+nbtuXTi/BtjJy0OiiGBMzPLj1v2Rq3poS+IwpYFOPATXXcsOakaCZEtpSLHa8NjVV07nIN/YgU8B0y0GmB50krFiNEjYKasWxw3HfOwqe9yzpwkZXGiWlv6qizYZBxsc8i6TIRlcBcIkLr3QzpguafE4c2gkzEiPLRltwE9d50J7gIpWUGOcho8NEiap28uWgrLKIFM5jatcY8gJeZGp+2FCoNSOldADk+HJQzrJY07jrB2XN6+CGxOns8j+GJ/yJtYAbfDgoyy2241zt2R4Kdm7XPejCJIcYh5QKPLoNG61PPuvVh3soaetvuuBxQcyHV3soO0hfaLnJyqlGwSwTB6jYg+t84dkCTUoqN86vYzKcsGuUm933ldnl6r8LcMuWm3rMYKGAno6tPsqiG/5auqvilAHKzZItWqoCoCQdq0k/XHmqwNVtFjoLNKmfBcPoBPWPd1rodRZutXU7y7Ee7uLKW7rHHFzrlFvGhumCgas23Dr0vkCX+ldwNFfZ868B+FYt/L+pC40phGBDqSBt1JRJ31bgo6v2XO+f11wvMEakriF3fQnBWyhilgldMbRdzsQqge7+GEix0UJwVYfJ3d7VcwCt0dJFMGj7dLf1qLt3ubq0USla2goGLlPKE9QUVuXhDseiYTPz16FzlQwUTlfno8gZ7/gtTnJJZ5ILNYtqYd+QYNA2G/x2bYQpTnHxmqJa3H+0GLDtqj4eHlwlkccrrQqSdoZ/7EJumLctyuDWCIyxybKusujooE7ZD6sCpHEq1zcOSWSQ2h1Z6FtRcanAGHvUragBhwwRGER3rVMgB6f+GsN1HAEhX0lvHg24JWlcfpe66CbgEdu7jmtVzm/AM5Sqen+MW58ilMEYWaZcFf6sVcX/O1XuWoXhfyAGAoFAIBAIBAIoUv4D/hwDOm0gpHIAAAAASUVORK5CYII="
+                          />
+                        </defs>
+                      </svg>
+                    </div>
+                    <h3
+                      class="md:text-lg text-base font-semibold text-gray-900"
+                    >
+                      Supports EMV, <br />Contactless (NFC), and <br />Magstripe
+                    </h3>
+                  </div>
+
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                    >
+                      <svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <mask
+                          id="mask0_135_1287"
+                          style="mask-type: alpha"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="50"
+                          height="50"
+                        >
+                          <rect
+                            width="50"
+                            height="50"
+                            fill="url(#pattern0_135_1287)"
+                          />
+                        </mask>
+                        <g mask="url(#mask0_135_1287)">
+                          <rect width="50" height="50" fill="#505050" />
+                        </g>
+                        <defs>
+                          <pattern
+                            id="pattern0_135_1287"
+                            patternContentUnits="objectBoundingBox"
+                            width="1"
+                            height="1"
+                          >
+                            <use
+                              xlink:href="#image0_135_1287"
+                              transform="scale(0.01)"
+                            />
+                          </pattern>
+                          <image
+                            id="image0_135_1287"
+                            width="100"
+                            height="100"
+                            preserveAspectRatio="none"
+                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEHElEQVR4nO2dXagVVRiGH4QyyMgCsx8lBMPuRbyoKyGIfkzIAjmIKSZiN3WEjknZueq+qMsIjEACL4IownNpgSiJP0g3ImqIHsWLMkO0VixaMruZ2Xtmmn32fOfb7wPfzWGttb/9vrzDnD1rZkAIIYSYXywB9gOHgQnsMJF62p96HBviFw49Ndl1Q/zbQ29Pscex4XDuy3dtymRJP7HHsWGiRIDQkSllZgRjh9JOhZismLcIWAvsAD4CPgO+TPVp+tubacz9c9SDW+oK8jSwB/gR+KvPnLK6kw49U8Cq//nZY0c/YXYD64GZBgYMqr+BQ2nNuLbMGMDbQxI9tKiYQGHElD1yosizwG8dmBE/8xkZ8l/iKeafHSbkFrBNpnR/qAq5enfcTXnLgAkhdya2izFlfRIgGDTlJcaMJ4FrBsQPfeo6sIIxYQFwxIDooaJ+Sr26Z0cNMS4Bx3rq7BAEPptb81KNOdtxzsPA1RpCTOfmvTYEQ+IavUzXmBN7fQjH1BEhGDIk1gc4ZSFweR4acgW4D4dsbSDetCFDYm3GId8NQdTQUX2DMxZ1/FtVaFmx9wdwxMsGRA0t60Uc8aEBQUPLeh9HHDQgaGhZX+OIUwYEDS3rBI741YCgoWVdwBE3DAgahnCp1w0b0z9m87k2di2iEEI44l7glbRvNl7IWTpg7JST6sejaYP3VNorcA8j5ingl9xZyI0BW/iDkyoj/hL8R27cGWAlI0xG3oy7dRtYUzLHqyFr0w77srFnRpWUDRVNx/s08ng15KuK8fHwNefsrWji55I5Xg05XjH+vRH4UXml7XTJHK+GnG545XNOkCEZMgQlpIASkqGEoIQUUEIylBCUkAJKSIYSghJSQAnJUEJQQgooIRlKCEpIASUkQwlBCSmghGQoISghBZSQDCUEJaSAEpKhhKCEFFBCMpQQlJACSoixhOyraCLeT5jH676sUxXjo1ZzzvaKJr4vmePVkB8qxo/kwZpLK+4Z3FIyx6shWweM/R14hBExkXa655s40OcpbF4NWZDuX8+Pi9psYsSsSS89OZoOU1sGPBLPqyGk7/xG0uBo0mQ1xqnzFLlgvGZxxBcGBA0t63Mc8cQ8f5rDReAxnPF4SsqsAYFDzZpNyXBnRhVlZyqh4U1BTf+Ldv20n7bIEGPIEGPIEGPIEGPIEGPIEGPIEGPIEGPIEGPIEGPIEGPIEGPIEGMcaPjL7Mkaa55suGbsQSQ+aSjeoRrKNX0P+8dyI+P1huLtqyFek1caxXpVhmTEl26dryncTWB5zcvG+aeF9qtz6aVloofn+uz1ytfOIb/8OH7mOjlRzgsD3pF7s6EZd9mV5patGbcnPS8zBrMYmAS+Ta9InUmvTFrWQrjlaY2ZtGZc+x3gQZkhhBACJ/wDQTIwOexAvecAAAAASUVORK5CYII="
+                          />
+                        </defs>
+                      </svg>
+                    </div>
+                    <h3
+                      class="md:text-lg text-base font-semibold text-gray-900"
+                    >
+                      Fast processor with <br />Android 10 OS
+                    </h3>
+                  </div>
+
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                    >
+                      <svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <mask
+                          id="mask0_135_1290"
+                          style="mask-type: alpha"
+                          maskUnits="userSpaceOnUse"
+                          x="0"
+                          y="0"
+                          width="50"
+                          height="50"
+                        >
+                          <rect
+                            width="50"
+                            height="50"
+                            fill="url(#pattern0_135_1290)"
+                          />
+                        </mask>
+                        <g mask="url(#mask0_135_1290)">
+                          <rect width="51" height="53" fill="#505050" />
+                        </g>
+                        <defs>
+                          <pattern
+                            id="pattern0_135_1290"
+                            patternContentUnits="objectBoundingBox"
+                            width="1"
+                            height="1"
+                          >
+                            <use
+                              xlink:href="#image0_135_1290"
+                              transform="scale(0.01)"
+                            />
+                          </pattern>
+                          <image
+                            id="image0_135_1290"
+                            width="100"
+                            height="100"
+                            preserveAspectRatio="none"
+                            xlink:href="data:image/png;base64,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"
+                          />
+                        </defs>
+                      </svg>
+                    </div>
+                    <h3
+                      class="md:text-lg text-base font-semibold text-gray-900"
+                    >
+                      Long-lasting battery <br />backup
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                id="best-for-content"
+                class="tab-content absolute top-0 left-0 w-full opacity-0 pointer-events-none transition-opacity duration-300"
+              >
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-16 h-16 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 mb-4"
+                    >
+                      <svg
+                        class="w-8 h-8"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3
+                      class="md:text-lg text-base font-semibold text-gray-900"
+                    >
+                      Restaurants
+                    </h3>
+                    <p class="text-gray-600">
+                      Ideal for tableside payments and order management.
+                    </p>
+                  </div>
+
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-16 h-16 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 mb-4"
+                    >
+                      <svg
+                        class="w-8 h-8"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3
+                      class="md:text-lg text-base font-semibold text-gray-900"
+                    >
+                      Retail Stores
+                    </h3>
+                    <p class="text-gray-600">
+                      Perfect for secure, fast checkout at the counter.
+                    </p>
+                  </div>
+
+                  <div class="flex flex-col items-center text-center">
+                    <div
+                      class="w-16 h-16 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 mb-4"
+                    >
+                      <svg
+                        class="w-8 h-8"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        ></path>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3
+                      class="md:text-lg text-base font-semibold text-gray-900"
+                    >
+                      Pop-up Shops
+                    </h3>
+                    <p class="text-gray-600">
+                      Portable and reliable for on-the-go payments and events.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specifications Section -->
+    <!-- Technical Specifications Section -->
+    <section class="bg-white py-16 md:m-8">
+      <div class="container mx-auto px-4 text-center">
+        <!-- Title -->
+        <div class="text-center md:mb-10 mb-6">
+          <h2 class="mb-1 md:mb-6 font-bold md:text-5xl text-3xl font-inter">
+            <span class="text-gray-600">Technical</span>
+            <span class="text-gray-900"> Specifications</span>
+          </h2>
+          <div class="flex justify-center">
+            <p class="md:w-[562px] w-full text-gray-500 md:text-lg text-base">
+              Discover the core hardware and software capabilities that power
+              the performance of the A35 Android PINpad. Built for reliability,
+              speed, and security.
+            </p>
+          </div>
+        </div>
+
+        <!-- TIMELINE -->
+        <div class="relative max-w-6xl mx-auto mt-16 pb-12">
+          <!-- Desktop Horizontal Spine -->
+          <div
+            class="hidden md:block absolute inset-x-0 top-0 h-0.5 bg-gray-200 mx-auto z-0"
+          ></div>
+
+          <ol
+            class="flex flex-col md:flex-row md:justify-between md:items-start space-y-10 md:space-y-0 relative"
+          >
+            <!-- === SPEC CARD TEMPLATE === -->
+            <!-- To alternate top/bottom: use md:mt-10 for top and md:mt-48 for bottom -->
+            <!-- Each item has a hanging vertical line + horizontal connector -->
+
+            <!-- 1. OS -->
+            <li class="md:w-1/6 md:flex-shrink-0 relative">
+              <!-- Dot on top spine -->
+              <span
+                class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
+              ></span>
+              <!-- Vertical line to horizontal connector -->
+              <span
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[80px]"
+              ></span>
+              <!-- Horizontal connector line with dots -->
+              <div
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[80px]"
+              >
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+              </div>
+
+              <!-- Card -->
+              <div
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+              >
+                <div
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                >
+                  <img src="/assets/images/a920/os.png" alt="" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-gray-900">OS</h3>
+                  <p class="text-gray-600 text-sm">Android 10</p>
+                </div>
+              </div>
+            </li>
+
+            <!-- 2. Display -->
+            <li class="md:w-1/6 md:flex-shrink-0 relative">
+              <span
+                class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
+              ></span>
+              <span
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[200px]"
+              ></span>
+              <div
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[200px]"
+              >
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+              </div>
+
+              <div
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+              >
+                <div
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                >
+                  <img src="/assets/images/a920/display.png" alt="" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-gray-900">Display</h3>
+                  <p class="text-gray-600 text-sm">
+                    4.0" Capacitive Touchscreen
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <!-- 3. Processor -->
+            <li class="md:w-1/6 md:flex-shrink-0 relative">
+              <span
+                class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
+              ></span>
+              <span
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[80px]"
+              ></span>
+              <div
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[80px]"
+              >
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+              </div>
+
+              <div
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+              >
+                <div
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                >
+                  <img src="/assets/images/a920/processor.png" alt="" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-gray-900">Processor</h3>
+                  <p class="text-gray-600 text-sm">Secure ARM Cortex-A53</p>
+                </div>
+              </div>
+            </li>
+
+            <!-- 4. Memory -->
+            <li class="md:w-1/6 md:flex-shrink-0 relative">
+              <span
+                class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
+              ></span>
+              <span
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[200px]"
+              ></span>
+              <div
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[200px]"
+              >
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+              </div>
+
+              <div
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+              >
+                <div
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                >
+                  <img src="/assets/images/a920/memory.png" alt="" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-gray-900">Memory</h3>
+                  <p class="text-gray-600 text-sm">1GB RAM / 8GB ROM</p>
+                </div>
+              </div>
+            </li>
+
+            <!-- 5. Card Reader -->
+            <li class="md:w-1/6 md:flex-shrink-0 relative">
+              <span
+                class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
+              ></span>
+              <span
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[80px]"
+              ></span>
+              <div
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[80px]"
+              >
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+              </div>
+
+              <div
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+              >
+                <div
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                >
+                  <img src="/assets/images/a920/card.png" alt="" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-gray-900">Card Reader</h3>
+                  <p class="text-gray-600 text-sm">EMV L1/L2, NFC, Magstripe</p>
+                </div>
+              </div>
+            </li>
+
+            <!-- 6. Connectivity -->
+            <li class="md:w-1/6 md:flex-shrink-0 relative">
+              <span
+                class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
+              ></span>
+              <span
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[200px]"
+              ></span>
+              <div
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[200px]"
+              >
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+              </div>
+
+              <div
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+              >
+                <div
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                >
+                  <img src="/assets/images/a920/connectivity.png" alt="" />
+                </div>
+                <div>
+                  <h3 class="font-bold text-xl text-gray-900">Connectivity</h3>
+                  <p class="text-gray-600 text-sm">USB-C, Wi-Fi, Bluetooth</p>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Watch the A35 Section -->
+    <section class="md:mt-10 mt-5">
+      <div class="container px-4 md:px-2 mx-auto">
+        <div class="text-center md:mb-10 mb-6">
+          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
+            <span class="text-[#4f4f4f]">Watch the</span>
+            <span class="text-black">A35 in Action</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+            >
+              See how the A35 Android PINpad delivers smooth, secure, and
+              efficient payment experiences—right at your fingertips.
+            </p>
+          </div>
+        </div>
+
+        <!-- video section -->
+        <div class="relative w-full mx-auto overflow-hidden rounded-xl">
+          <!-- Thumbnail -->
+          <img
+            src="/assets/images//a35-android/a35-in-action.png"
+            alt="Video Thumbnail"
+            class="w-full block"
+            id="videoThumbnail"
+          />
+
+          <!-- Play Button -->
+          <div
+            id="playVideoBtn"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 flex items-center justify-center rounded-full border-2 border-[#c39337] bg-white/20 backdrop-blur-sm cursor-pointer transition hover:bg-white/40"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-10 h-10 fill-[#c39337]"
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+
+          <!-- Video -->
+          <iframe
+            id="videoFrame"
+            class="hidden w-full aspect-video border-0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose the A35 Section -->
+    <section class="bg-gray-50 py-16">
+      <div class="container mx-auto px-4 text-center">
+        <div class="text-center md:mb-10 mb-6">
+          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
+            <span class="text-[#4f4f4f]">Why Choose the</span>
+            <span class="text-black"> A35 Android PINpad?</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+            >
+              Unlock faster payments, enhanced customer satisfaction, and
+              seamless integration with a device built for modern retail and
+              service environments.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
+        >
+          <div class="">
+            <img
+              src="/assets/images/a35-android/unsplash(1).png"
+              alt="A person holding the compact PINPad"
+              class="rounded-lg object-cover w-full h-auto"
+            />
+          </div>
+          <div
+            class="rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-6 text-center"
+          >
+            <div class="">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Fast and secure payment<br />processing
+              </h3>
+              <p class="text-gray-600">
+                Powered by a secure ARM processor and Android 10 OS, the A35
+                ensures smooth and rapid transaction processing—minimizing wait
+                times and boosting checkout efficiency during busy hours.
+              </p>
+            </div>
+          </div>
+
+          <div class="">
+            <img
+              src="/assets/images/a35-android/unsplash(2).png"
+              alt="A person holding the compact PINPad"
+              class="rounded-lg object-cover w-full h-auto"
+            />
+          </div>
+
+          <div
+            class="rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-6 text-center"
+          >
+            <div class="">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Compact & User-Friendly<br />Design
+              </h3>
+              <p class="text-gray-600">
+                The slim, lightweight form factor of the A35 makes it perfect
+                for limited counter space or handheld use. Its 4.0" capacitive
+                touchscreen offers a familiar smartphone-like experience,
+                ensuring quick adoption by staff with minimal training.
+              </p>
+            </div>
+          </div>
+
+          <div class="">
+            <img
+              src="/assets/images/a35-android/unsplash(3).png"
+              alt="A person holding the compact PINPad"
+              class="rounded-lg object-cover w-full h-auto"
+            />
+          </div>
+
+          <div
+            class="rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-6 text-center"
+          >
+            <div class="">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Customizable for <br />Business Needs
+              </h3>
+              <p class="text-gray-600">
+                Easily integrates with your existing POS software and apps, with
+                the flexibility of Android to support additional business tools
+                like inventory, loyalty programs, or CRM.
+              </p>
+            </div>
+          </div>
+
+          <div class="hidden lg:block"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="bg-white py-16">
+      <div class="container mx-auto md:px-4 px-2">
+        <div class="text-center md:mb-10 mb-6">
+          <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
+            <span class="text-[#4f4f4f]">Explore</span>
+            <span class="text-black"> Our Guides</span>
+          </h2>
+          <div class="flex justify-center">
+            <p
+              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+            >
+              Access user guides, setup instructions, and technical
+              documentation to get the most out of your A35 Android PINpad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Single Guide Highlight -->
+    <section class="bg-[#FAFAFA] py-8">
+      <div class="container mx-auto md:px-4 px-2">
+        <h3 class="text-lg font-semibold text-gray-900 mb-6">
+          Product Guides & Manuals
+        </h3>
+
+        <div class="flex flex-col md:flex-row items-start justify-between">
+          <div class="flex-1 pr-0 md:pr-8 mb-6 md:mb-0">
+            <h4 class="text-2xl font-bold text-gray-800 mb-2">
+              Setup and Installation Manual
+            </h4>
+            <p class="text-sm text-gray-500 mb-4">Published Sep 12, 2025</p>
+            <p class="text-gray-600">
+              Our Setup and Installation Manual provides a step-by-step guide to
+              get your POS system up and running quickly.<br />
+              From hardware connections to software configuration, it ensures a
+              smooth and hassle-free start.
+            </p>
+            <div class="mt-4 border-b border-gray-600 w-full max-w-sm"></div>
+          </div>
+        </div>
+
+        <div class="w-full flex justify-end mt-8">
+          <a
+            href="#"
+            class="text-black-600 hover:text-blue-800 font-semibold whitespace-nowrap"
+          >
+            EXPLORE MORE MANUAL >
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-10">
+      <div class="container mx-auto px-4">
+        <!-- Top Logo + Switch -->
+        <div
+          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
+        >
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="w-10 md:w-40 h-auto"
+            alt=""
+          />
+
+          <div class="flex items-center space-x-2">
+            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+              Switch to dark mode
+            </p>
+
+            <!-- Toggle Switch -->
+            <label
+              for="dark-mode-toggle"
+              class="relative inline-flex items-center cursor-pointer"
+            >
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
+              <div
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+              ></div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="border-t border-gray-300 pt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
+          >
+            <!-- Company -->
+            <div>
+              <!-- Accordion Header Button -->
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="company-links"
+                onclick="toggleAccordion(this)"
+              >
+                Company
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <!-- Links Container -->
+              <div
+                id="company-links"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >About Us</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Contact Us</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Hardware</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Terms of Service</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="products"
+                onclick="toggleAccordion(this)"
+              >
+                Products
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="products"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >PAX A920</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >PAX A35</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >MagTek DynaFlex</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >PAX Elys Workstation</a
+                >
+              </div>
+            </div>
+
+            <!-- Resources -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="resources"
+                onclick="toggleAccordion(this)"
+              >
+                Resources
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="resources"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Product Guides & Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Video Tutorials</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >FAQs</a
+                >
+              </div>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="legal"
+                onclick="toggleAccordion(this)"
+              >
+                Legal
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="legal"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Terms & Condition</a
+                >
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <button
+                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
+                aria-expanded="false"
+                aria-controls="social"
+                onclick="toggleAccordion(this)"
+              >
+                Social
+                <svg
+                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="social"
+                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
+              >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Twitter</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Instagram</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Facebook</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-500 hover:text-gray-800 transition-colors block"
+                  >Youtube</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscribe -->
+          <div class="border-t border-gray-300 pt-6">
+            <div
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+            >
+              <div>
+                <h4
+                  class="font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-2"
+                >
+                  Subscribe
+                </h4>
+                <p class="text-gray-500 text-sm sm:text-base mb-1">
+                  Join our community to receive updates
+                </p>
+              </div>
+              <div>
+                <p class="text-gray-800 text-xs ps-3 pb-1">Stay up to date</p>
+                <div class="flex w-full sm:w-auto">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-gray-600 text-base border-0 outline-none"
+                  />
+                  <button
+                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-800 transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Splide JS -->
+    <script src="../assets/js/navbar.js"></script>
+    <script src="../assets/js/footer-accordion.js"></script>
+    <script src="../assets/js/a35-android-feature-tab.js"></script>
+    <script src="../assets/js/videoPlay.js"></script>
+
+    <script>
+      function toggleFaq(element) {
+        element.classList.toggle("active");
+      }
+
+      let isEnglish = true;
+
+      function toggleLanguage() {
+        const textEl = document.getElementById("language-text");
+        const flagEl = document.getElementById("flag-icon");
+
+        if (isEnglish) {
+          textEl.textContent = "ESPAÑOL";
+          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
+          flagEl.alt = "Spain Flag";
+        } else {
+          textEl.textContent = "ENGLISH";
+          flagEl.src = "/assets/images/flags/usa.png";
+          flagEl.alt = "USA Flag";
+        }
+
+        isEnglish = !isEnglish; // flip state
+      }
+    </script>
+  </body>
+</html>
