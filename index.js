@@ -9,6 +9,7 @@ function toggleLanguage() {
   const toggleWidth = toggle.offsetWidth;
   const sliderWidth = slider.offsetWidth;
   const textWidth = text.offsetWidth;
+  
 
   const maxTranslate = toggleWidth - sliderWidth - 10; // 4px padding
   const textTranslate = maxTranslate - textWidth; // adjust text movement
