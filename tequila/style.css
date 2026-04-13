@@ -10,17 +10,14 @@
 .flip-card {
   background-color: transparent;
   position: relative;
-  padding-bottom: 100%; /* CRITICAL: Creates a square container (1:1 aspect ratio) */
+  padding-bottom: 100%;
   perspective: 1000px;
-  /* border-radius: 0.75rem; */
-  /* width: 100%; */
-  /* Added subtle transition for scale effect on hover */
   transition: transform 0.3s ease-in-out;
 }
 
-/* 2. Inner container for rotation - Absolutely positioned to fill the aspect ratio space */
+/* 2. Inner container for rotation */
 .flip-card-inner {
-  position: absolute; /* CRITICAL: Fills the space defined by padding-bottom */
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -28,10 +25,6 @@
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-  /* box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border-radius: 0.75rem; */
 }
 
 /* 3. The actual flip action on hover */
@@ -48,19 +41,18 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /* border-radius: 0.75rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  /* padding: 2.5rem; */
   text-align: left;
 }
 
-/* 5. Style the back face's starting position (rotated 180 degrees initially) */
+/* 5. Back face */
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
 .flip-card img {
   width: 100%;
   height: 100%;
@@ -68,7 +60,7 @@
   border-radius: 0 !important;
 }
 
-/* Touch devices: keep cards stable and image-first */
+/* Touch devices: keep cards image-first */
 @media (max-width: 1024px) {
   .flip-card {
     perspective: none;
@@ -82,5 +74,3 @@
     display: none;
   }
 }
-
-/* Language Toggle Switch */
