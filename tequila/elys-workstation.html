@@ -35,9 +35,15 @@
 
               .flip-card {
                 background-color: transparent;
-                width: 335px;
-                height: 488px;
+                width: min(100%, 335px);
+                height: clamp(420px, 74vw, 488px);
                 perspective: 1000px;
+              }
+
+              .flip-card-face-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
               }
 
               .flip-card-inner {
@@ -70,12 +76,17 @@
               .flip-card-front {
                 background-color: transparent;
                 color: black;
+                border-radius: 38px;
               }
 
               .flip-card-back {
                 background-color: #dcdcdce6;
                 color: white;
                 transform: rotateY(180deg);
+                border-radius: 38px;
+              }
+
+              .flip-card-front .flip-card-face-image {
                 border-radius: 38px;
               }
 
@@ -154,6 +165,11 @@
                 grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
                 gap: 32px;
                 align-items: center;
+                min-height: 520px;
+              }
+
+              .elys-eye-content {
+                min-height: 300px;
               }
 
               .elys-eye-label {
@@ -177,6 +193,7 @@
                 font-size: 1rem;
                 line-height: 1.55;
                 color: #4f4f4f;
+                min-height: 76px;
               }
 
               .elys-eye-explore {
@@ -210,6 +227,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                min-height: 420px;
                 padding-bottom: 28px;
               }
 
@@ -218,6 +236,7 @@
                 z-index: 2;
                 max-width: 100%;
                 width: min(420px, 100%);
+                max-height: 360px;
                 object-fit: contain;
                 animation: floatImage 3.6s ease-in-out infinite;
               }
@@ -300,14 +319,17 @@
                 .elys-eye-slide-inner {
                   grid-template-columns: 1fr;
                   gap: 24px;
+                  min-height: auto;
                 }
 
                 .elys-eye-content {
                   order: 2;
+                  min-height: auto;
                 }
 
                 .elys-eye-media {
                   order: 1;
+                  min-height: 320px;
                 }
 
                 .elys-eye-arrow {
@@ -324,8 +346,7 @@
                 }
 
                 .flip-card {
-                  width: 100%;
-                  max-width: 335px;
+                  width: min(100%, 335px);
                 }
 
                 .flip-touch-indicator {
@@ -339,6 +360,73 @@
 
                 .flip-card.is-flipped .flip-card-inner {
                   transform: rotateY(180deg);
+                }
+              }
+
+              @media screen and (max-width: 768px) {
+                .flip-card {
+                  height: min(128vw, 460px);
+                }
+
+                .flip-card-mobile-single {
+                  grid-column: 1 / 2;
+                  justify-self: start;
+                  width: 100%;
+                }
+
+                .flip-card-back h1 span {
+                  font-size: clamp(1.55rem, 6.2vw, 2.1rem) !important;
+                }
+
+                .flip-card-back p,
+                .flip-card-back li p {
+                  font-size: clamp(0.9rem, 3.3vw, 1rem) !important;
+                  line-height: 1.4;
+                }
+
+                .elys-eye-arrow {
+                  top: auto;
+                  bottom: 12px;
+                  transform: none;
+                }
+
+                .elys-eye-arrow:hover {
+                  transform: translateY(-2px);
+                }
+
+                .elys-eye-arrow.prev {
+                  left: calc(50% - 44px);
+                }
+
+                .elys-eye-arrow.next {
+                  right: calc(50% - 44px);
+                }
+
+                .elys-eye-slide-inner {
+                  min-height: 620px;
+                }
+
+                .elys-eye-content {
+                  min-height: 230px;
+                }
+
+                .elys-eye-description {
+                  min-height: 96px;
+                }
+              }
+
+              @media screen and (max-width: 480px) {
+                .elys-eye-section {
+                  padding: 24px 14px 74px;
+                }
+
+                .elys-eye-title {
+                  font-size: 1.65rem;
+                }
+
+                .elys-eye-description {
+                  font-size: 0.92rem;
+                  line-height: 1.5;
                 }
               }
 
@@ -366,6 +454,50 @@
               }
 
               body[data-theme="dark"] .navbar .nav-link:hover {
+                color: #d9a63a !important;
+              }
+
+              body[data-theme="light"] .navbar .nav-link:hover,
+              body[data-theme="light"] .navbar .nav-link:focus,
+              body[data-theme="light"] .navbar .nav-link.active,
+              body[data-theme="light"] .navbar .nav-item:hover > .nav-link {
+                color: #505050 !important;
+              }
+
+              body[data-theme="dark"] .navbar {
+                background: #141619 !important;
+                border-bottom: 1px solid #2b3038;
+              }
+
+              body[data-theme="dark"] .navbar #mobile-menu {
+                background: #141619 !important;
+                color: #f1f2f4 !important;
+                border-right: 1px solid #2b3038;
+              }
+
+              body[data-theme="dark"] .navbar #mobile-menu a,
+              body[data-theme="dark"] .navbar #mobile-menu button,
+              body[data-theme="dark"] .navbar #mobile-menu span {
+                color: #f1f2f4 !important;
+              }
+
+              body[data-theme="dark"] .navbar #mobile-menu .bg-gray-100,
+              body[data-theme="dark"] .navbar #mobile-menu .bg-gray-50 {
+                background: #1b1f24 !important;
+              }
+
+              body[data-theme="dark"] .navbar #mobile-menu .text-gray-700,
+              body[data-theme="dark"] .navbar #mobile-menu .text-gray-900,
+              body[data-theme="dark"] .navbar #mobile-menu .text-gray-500 {
+                color: #f1f2f4 !important;
+              }
+
+              body[data-theme="dark"] .navbar #mobile-menu .border-gray-200 {
+                border-color: #2b3038 !important;
+              }
+
+              body[data-theme="dark"] .navbar #mobile-menu a:hover,
+              body[data-theme="dark"] .navbar #mobile-menu button:hover {
                 color: #d9a63a !important;
               }
 
@@ -522,7 +654,7 @@
 
 <body class="bg-white font-inter text-sm" data-theme="light">
         <!-- Navigation -->
-    <nav class="navbar md:block hidden">
+    <nav class="navbar lg:block hidden">
       <div class="navbar-container container mx-auto">
         <!-- Logo -->
         <div class="logo-container">
@@ -717,7 +849,7 @@
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-white shadow-md relative">
+    <nav class="navbar lg:hidden bg-white shadow-md relative">
       <div
         class="navbar-container container mx-auto flex items-center justify-between py-4"
       >
@@ -731,7 +863,7 @@
           />
         </div>
         <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
+        <button id="mobile-menu-btn" class="lg:hidden p-2 text-black">
           <!-- Hamburger Icon -->
           <svg
             id="hamburger-icon"
@@ -867,16 +999,16 @@
     
 
         <!-- hero section -->
-        <section class="py-20 md:h-[640px] h-full">
+        <section class="py-14 md:py-20 md:min-h-[640px] h-full">
           <div class="container mx-auto px-4 md:px-2">
-            <div class="grid md:grid-cols-2 grid-cols-1 gap-4">
+            <div class="grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-8">
               <div class="flex flex-col justify-center order-2 md:order-1">
                 <div class="md:text-[96px] text-xl flex md:flex-col md:gap-4 gap-1">
                   <h1 class="hero-elys-text text-[#C89633] font-bold md:pb-16 pb-2">Elys</h1>
                   <h1 class="text-black mb-1 md:mb-6 font-bold">Workstation</h1>
                 </div>
                 <h6
-                  class="md:w-[611px] justify-start text-[#4f4f4f] text-[10px] md:text-base font-semibold md:mt-4 leading-normal"
+                  class="w-full md:max-w-[560px] justify-start text-[#4f4f4f] text-[10px] md:text-base font-semibold md:mt-4 leading-normal"
                 >
                   Eley's Workstation is a powerful and user-friendly POS system
                   designed to streamline business operations across retail and
@@ -886,8 +1018,8 @@
                   interface.
                 </h6>
               </div>
-              <div class="order-1 md:order-2 flex justify-end">
-                <img src="assets/images/elys%20workstation/hero-image.png" alt="" />
+              <div class="order-1 md:order-2 flex justify-end md:pl-4 lg:pl-8">
+                <img class="w-full max-w-[560px] h-auto object-contain" src="assets/images/elys%20workstation/hero-image.png" alt="" />
               </div>
             </div>
           </div>
@@ -916,7 +1048,7 @@
             <!-- Cards -->
             <div class="">
               <div
-                class="grid md:grid-cols-3 grid-cols-1 gap-4 md:gap-6 place-items-center"
+                class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 place-items-center"
               >
                 <div class="flip-card">
                   <div class="flip-card-inner">
@@ -924,8 +1056,7 @@
                       <img
                         src="assets/images/elys%20workstation/flip-image-1.png"
                         alt="Avatar"
-                        class="w-[335px]"
-                        style="height: 488px"
+                        class="flip-card-face-image"
                       />
                       <button type="button" class="flip-touch-indicator light" data-flip-toggle aria-label="Flip card">
                         &#8594;
@@ -973,8 +1104,7 @@
                       <img
                         src="assets/images/elys%20workstation/flip-image-2.png"
                         alt="Avatar"
-                        class="w-[335px]"
-                        style="height: 488px"
+                        class="flip-card-face-image"
                       />
                       <button type="button" class="flip-touch-indicator light" data-flip-toggle aria-label="Flip card">
                         &#8594;
@@ -1031,14 +1161,13 @@
                   </div>
                 </div>
 
-                <div class="flip-card">
+                <div class="flip-card flip-card-mobile-single md:col-span-1 md:justify-self-auto">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
                       <img
                         src="assets/images/elys%20workstation/flip-image-3.png"
                         alt="Avatar"
-                        class="w-[335px]"
-                        style="height: 488px"
+                        class="flip-card-face-image"
                       />
                       <button type="button" class="flip-touch-indicator light" data-flip-toggle aria-label="Flip card">
                         &#8594;
@@ -1316,10 +1445,10 @@
 
         <section class="mt-5 md:mt-20">
           <div class="container mx-auto px-4 overflow-x-hidden">
-            <div class="flex flex-col md:flex-row items-center">
+            <div class="flex flex-col md:flex-row items-center md:items-start md:gap-8 lg:gap-12">
               <!-- Text Content -->
               <div
-                class="w-full md:w-1/2 flex justify-center md:justify-start px-0 md:px-5"
+                class="w-full md:w-1/2 flex justify-center md:justify-start px-0 md:px-5 overflow-hidden order-2 md:order-1"
               >
                 <div
                   class="bg-white p-6 md:p-10"
@@ -1331,7 +1460,7 @@
                     <span class="text-black">outlast trends</span>
                   </h1>
                   <p
-                    class="mt-4 text-[#4f4f4f] text-base sm:text-lg md:text-xl font-normal md:w-[562px] w-full"
+                    class="mt-4 text-[#4f4f4f] text-base sm:text-lg md:text-xl font-normal w-full max-w-[562px]"
                   >
                     The Elys Workstation takes everything you know about bulky point
                     of sale systems and revolutionizes the look and feel. With a
@@ -1344,7 +1473,7 @@
 
               <!-- Image -->
               <div
-                class="w-full md:w-1/2 mb-5 md:mb-0"
+                class="w-full md:w-1/2 min-w-0 mb-5 md:mb-0 flex justify-center md:justify-end overflow-hidden order-1 md:order-2"
                 data-aos="fade-left"
                 data-aos-duration="1100"
               >
