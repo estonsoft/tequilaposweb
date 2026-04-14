@@ -356,14 +356,6 @@ h6 {
     transform: rotate(0deg);
   }
 }
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:tequila/assets/style/global.css
-<<<<<<< HEAD:assets/style/global.css
-========
->>>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba:assets/style/global.css
->>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba
-
 
 /* Features card animation */
 .smart-card-feature-card .hover-img {
@@ -460,10 +452,6 @@ h6 {
     z-index: 10;
     color: white;
   }
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:tequila/assets/style/global.css
->>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba
 }
 
 
@@ -533,19 +521,10 @@ h6 {
     position: relative;
   }
 
-  /* On mobile, hide arrows */
+  /* On mobile, hide arrows
   @media (max-width: 767px) {
     .carousel-arrow-left,
     .carousel-arrow-right {
       display: none;
     }
-<<<<<<< HEAD
-  }
-=======
-  }
-=======
->>>>>>> a848112ecabee72c0b872f14c36b54c49e14a758:tequila/assets/style/global.css
-========
-}
->>>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba:assets/style/global.css
->>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba
+  } */

@@ -27,7 +27,9 @@
   <body class="bg-[#1c1c1c] font-inter text-sm">
     <!-- Navigation -->
     <nav class="navbar lg:block hidden">
-      <div class="navbar-container container mx-auto px-6 lg:px-[60px] flex items-center justify-between h-[70px]">
+      <div
+        class="navbar-container container mx-auto px-6 lg:px-[60px] flex items-center justify-between h-[70px]"
+      >
         <!-- Logo -->
         <div class="logo-container flex items-center gap-4">
           <img
@@ -38,7 +40,11 @@
 
           <div class="nav-links flex items-center gap-6">
             <div class="nav-item relative group">
-              <a href="/dark/" class="nav-link text-white text-[14px] font-bold">Business Type</a>
+              <a
+                href="#business-type"
+                class="nav-link text-white text-[14px] font-bold"
+                >Business Type</a
+              >
 
               <!-- Mega Menu -->
               <div
@@ -186,10 +192,18 @@
             </div>
 
             <!-- Other Links -->
-            <a href="/dark/feature.html" class="nav-link text-[14px]">Feature</a>
-            <a href="/dark/hardware.html" class="nav-link text-[14px]">Hardware</a>
-            <a href="/dark/pricing.html" class="nav-link text-[14px]">Pricing</a>
-            <a href="/dark/resources.html" class="nav-link text-[14px]">Resources</a>
+            <a href="/dark/feature.html" class="nav-link text-[14px]"
+              >Feature</a
+            >
+            <a href="/dark/hardware.html" class="nav-link text-[14px]"
+              >Hardware</a
+            >
+            <a href="/dark/pricing.html" class="nav-link text-[14px]"
+              >Pricing</a
+            >
+            <a href="/dark/resourse.html" class="nav-link text-[14px]"
+              >Resources</a
+            >
           </div>
         </div>
 
@@ -200,20 +214,20 @@
             class="language-selector cursor-pointers"
             onclick="toggleLanguage()"
           >
-          <img
+            <img
               id="flag-icon"
               src="/assets/images/flags/usa.png"
               alt="USA Flag"
               class="flag-icon w-5 h-5 rounded-full object-cover"
             />
-            <span id="language-text" class="text-white flex items-center gap-2 text-[14px] font-bold">
+            <span
+              id="language-text"
+              class="text-white flex items-center gap-2 text-[14px] font-bold"
+            >
               ENGLISH
             </span>
-            
           </div>
-          <button class="demo-btn text-white">
-            Free Demo
-          </button>
+          <button class="demo-btn text-white">Free Demo</button>
         </div>
       </div>
     </nav>
@@ -320,17 +334,17 @@
           </div>
 
           <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
+          <a href="/dark/feature.html" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Features</a
           >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
+          <a href="/dark/hardware.html" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Hardware</a
           >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
+          <a href="/dark/pricing.html" class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Pricing</a
           >
           <a
-            href="#resources"
+            href="/dark/resources.html"
             class="block px-4 py-2 hover:bg-[#2c2c2c] rounded"
             >Resources</a
           >
@@ -392,7 +406,7 @@
           class="mx-auto max-w-[1060px] rounded-[20px] md:rounded-[38px] overflow-hidden"
         >
           <img
-            src="/assets/images/feature/hero-img.png"
+            src="/assets/POS-Terminals-Banner-Image 1.png"
             class="w-full object-cover rounded-[20px] md:rounded-[38px]"
             alt="pricing"
           />
@@ -1056,32 +1070,19 @@
         <div data-aos="fade-up" data-aos-duration="1000">
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             <div
-              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-4group bg-[#1c1c1c] hover:bg-black transition-all duration-500"
+              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 md:grid-cols-1 gap-4 group bg-[#1c1c1c] hover:bg-black transition-all duration-500"
             >
               <div
-<<<<<<< HEAD
                  class="relative md:h-full flex items-center w-full h-[140px] mx-auto overflow-hidden rounded-[20px]"
-=======
-                class="flex justify-center md:w-[323px] md:h-[323px] mx-auto relative p-3"
->>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba
               >
                 <!-- Default (desktop only) -->
                 <img
-                  src="/assets/images/feature/sf-1.png"
                   class="hidden md:block w-full h-full object-cover rounded-full transition-all duration-500 group-hover:opacity-0"
+                  src="/assets/images/feature/sf-1.png"
                 />
-<<<<<<< HEAD
-                <!-- Hover square image — always visible on mobile, fades in on desktop hover -->
                 <img
                   src="/assets/images/feature/sf-2.jpg"
-                  class="absolute inset-0 w-full h-full object-cover md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
-=======
-
-                <!-- Hover image (ALWAYS visible on mobile) -->
-                <img
-                  src="/assets/images/feature/sf-2.jpg"
-                  class="w-full h-[140px] md:h-full object-cover rounded-[20px] md:rounded-lg md:absolute md:top-0 md:left-0 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
->>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba
+                  class="absolute inset-0 w-full h-full object-fit md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
                 />
               </div>
 
@@ -1108,26 +1109,16 @@
               class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 md:grid-cols-1 gap-4 group bg-[#1c1c1c] hover:bg-black transition-all duration-500"
             >
               <div
-<<<<<<< HEAD
                  class="relative md:h-full flex items-center w-full h-[140px] mx-auto overflow-hidden rounded-[20px]"
-=======
-                class="flex justify-center md:w-[323px] md:h-[323px] mx-auto relative p-3"
->>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba
               >
                 <!-- Default (desktop only) -->
                 <img
-                  src="/assets/images/feature/sf-2.png"
                   class="hidden md:block w-full h-full object-cover rounded-full transition-all duration-500 group-hover:opacity-0"
+                  src="/assets/images/feature/sf-2.png"
                 />
-
-                <!-- Hover image (ALWAYS visible on mobile) -->
                 <img
                   src="/assets/images/feature/sf-3.jpg"
-<<<<<<< HEAD
-                  class="absolute inset-0 w-full h-full object-cover md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
-=======
-                  class="w-full h-[140px] md:h-full object-cover rounded-[20px] md:rounded-lg md:absolute md:top-0 md:left-0 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
->>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba
+                  class="absolute inset-0 w-full h-full object-fit md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
                 />
               </div>
 
@@ -1154,11 +1145,7 @@
               class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 md:grid-cols-1 gap-4 group bg-[#1c1c1c] hover:bg-black transition-all duration-500"
             >
               <div
-<<<<<<< HEAD
                  class="relative md:h-full flex items-center w-full h-[140px] mx-auto overflow-hidden rounded-[20px]"
-=======
-                class="flex justify-center md:w-[323px] md:h-[323px] mx-auto relative p-3"
->>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba
               >
                 <!-- Default (desktop only) -->
                 <img
@@ -1169,11 +1156,7 @@
                 <!-- Hover image (ALWAYS visible on mobile) -->
                 <img
                   src="/assets/images/feature/sf-4.png"
-<<<<<<< HEAD
-                  class="absolute inset-0 w-full h-full object-cover md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
-=======
-                  class="w-full h-[140px] md:h-full object-cover rounded-[20px] md:rounded-lg md:absolute md:top-0 md:left-0 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
->>>>>>> 3d34b6c344281a993c9c2adcd37cc957b1edd2ba
+                  class="absolute inset-0 w-full h-full object-fit md:opacity-0 md:group-hover:opacity-100 transition-all duration-500"
                 />
               </div>
 

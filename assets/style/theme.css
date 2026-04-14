@@ -1,0 +1,239 @@
+/* ===================== LIGHT MODE (default) ===================== */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-card: #ffffff;
+
+  --text-primary: #000000;
+  --text-secondary: #4f4f4f;
+  --text-muted: #505050;
+  --text-accent: #4f4f4f;
+
+  --gold: #000000;           /* headings accent color in light */
+  --gold-true: #c89633;      /* always gold (used in dark only normally) */
+
+  --border-color: #A4A4A4;
+  --border-light: #dcdcdc;
+  --card-border: #c7c7c7;
+
+  --btn-bg: #000000;
+  --btn-text: #ffffff;
+  --btn-hover-bg: #ffffff;
+  --btn-hover-text: #000000;
+  --btn-border: #000000;
+
+  --nav-bg: #ffffff;
+  --nav-text: #333333;
+  --nav-logo: url('/assets/images/logo/tequila_pos_logo_transparent.png');
+
+  --footer-bg: #ffffff;
+  --footer-text: #6b6b6b;
+  --footer-heading: #1f2937;
+
+  --input-bg: #f3f4f6;
+  --input-text: #4b5563;
+
+  --mega-menu-bg: #ffffff;
+  --mega-menu-text: #333333;
+
+  --smart-card-bg: #ffffff;
+  --smart-card-hover: #1c1c1c;
+
+  --security-expanded-bg: #ffffff;
+}
+
+/* ===================== DARK MODE ===================== */
+html.dark {
+  --bg-primary: #1c1c1c;
+  --bg-secondary: #1c1c1c;
+  --bg-card: #1c1c1c;
+
+  --text-primary: #ffffff;
+  --text-secondary: #cdcdcd;
+  --text-muted: #cdcdcd;
+  --text-accent: #C89633;
+
+  --gold: #C89633;
+  --gold-true: #C89633;
+
+  --border-color: #A4A4A4;
+  --border-light: #dcdcdc;
+  --card-border: #c89633;
+
+  --btn-bg: #000000;
+  --btn-text: #ffffff;
+  --btn-hover-bg: #ffffff;
+  --btn-hover-text: #000000;
+  --btn-border: #ffffff;
+
+  --nav-bg: #1c1c1c;
+  --nav-text: #ffffff;
+
+  --footer-bg: #1c1c1c;
+  --footer-text: #cdcdcd;
+  --footer-heading: #ffffff;
+
+  --input-bg: #2c2c2c;
+  --input-text: #cdcdcd;
+
+  --mega-menu-bg: #000000;
+  --mega-menu-text: #ffffff;
+
+  --smart-card-bg: #1c1c1c;
+  --smart-card-hover: #000000;
+
+  --security-expanded-bg: #1c1c1c;
+}
+
+/* ===================== UTILITY CLASSES ===================== */
+
+/* Body */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--nav-bg);
+}
+.nav-link {
+  color: var(--nav-text);
+}
+.mega-menu {
+  background-color: var(--mega-menu-bg);
+}
+.mega-menu a {
+  color: var(--mega-menu-text);
+}
+
+/* Section backgrounds */
+.section-bg {
+  background-color: var(--bg-primary);
+}
+.section-bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+/* Text utilities */
+.text-accent {
+  color: var(--text-accent);
+}
+.text-body {
+  color: var(--text-primary);
+}
+.text-muted {
+  color: var(--text-secondary);
+}
+
+/* Headings — first span (gray/gold) */
+.heading-accent {
+  color: var(--text-accent);
+}
+/* Headings — second span (black/white) */
+.heading-main {
+  color: var(--text-primary);
+}
+
+/* Feature grid borders */
+.feature-border-r {
+  border-right: 1px solid var(--border-color);
+}
+.feature-border-b {
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Smart feature cards */
+.smart-card-feature-card {
+  background-color: var(--smart-card-bg);
+  border-radius: 16px;
+  transition: background-color 0.5s;
+}
+.smart-card-feature-card:hover {
+  background-color: var(--smart-card-hover);
+}
+
+/* Product cards */
+.product-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: 38px;
+}
+
+/* Demo button */
+.demo-btn {
+  border: 1px solid var(--btn-border);
+  border-radius: 38px;
+  padding: 6px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.demo-btn:hover {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+/* CTA button (black pill) */
+.cta-btn {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: 2px solid var(--btn-border);
+  border-radius: 38px;
+  transition: background 0.2s, color 0.2s;
+}
+.cta-btn:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+}
+
+/* Footer */
+footer {
+  background-color: var(--footer-bg);
+}
+.footer-heading {
+  color: var(--footer-heading);
+}
+.footer-link {
+  color: var(--footer-text);
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: var(--text-primary);
+}
+
+/* Subscribe input */
+.subscribe-input {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+}
+
+/* Language selector */
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--nav-text);
+}
+
+/* Logo swap */
+.logo-light { display: block; }
+.logo-dark  { display: none;  }
+html.dark .logo-light { display: none;  }
+html.dark .logo-dark  { display: block; }
+
+/* Mobile menu */
+.mobile-menu-panel {
+  background-color: var(--nav-bg);
+  color: var(--text-primary);
+}
+.mobile-menu-link:hover {
+  background-color: var(--input-bg);
+}
