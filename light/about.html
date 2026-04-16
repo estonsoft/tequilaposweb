@@ -1,1556 +1,964 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tequila POS - Smart POS Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tequila POS - About Us</title>
 
-    <!-- Splide CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
-    />
+  <!-- theme.js MUST be first — prevents flash on load -->
+  <script src="/assets/js/theme.js"></script>
 
-    <!-- Optional: Default Theme -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css"
-    />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style/global.css" />
 
-    <!-- aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    .my-slider-progress {
+      height: 4px;
+      background: #e5e7eb;
+    }
+    .my-slider-progress-bar {
+      background: #1f2937;
+      height: 100%;
+      width: 0;
+      transition: width 0.5s ease-in-out;
+    }
+    .splide__pagination { display: none; }
+    .splide__arrow {
+      align-items: center;
+      background: transparent !important;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      height: 2em;
+      justify-content: center;
+      opacity: 0.7;
+      padding: 0;
+      position: absolute;
+      top: 0%;
+      transform: translateY(-53%) !important;
+      width: 2em;
+      z-index: 1;
+    }
 
-    <link rel="stylesheet" href="/assets/style/global.css" />
+    .mobile-timeline {
+      position: relative;
+    }
+    .mobile-timeline::before {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e7eb;
+    }
+    .mobile-timeline .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .mobile-timeline .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .mobile-timeline .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 9999px;
+      background: #000;
+    }
+    .mobile-timeline blockquote {
+      padding-left: 0.5rem;
+    }
+    html.dark .mobile-timeline::before { background: #4b5563; }
+    html.dark .mobile-timeline .timeline-dot { background: #fff; }
 
-    <style>
-      /* Custom CSS for the progress bar */
-      .my-slider-progress {
-        /* This is the background/track of the progress bar */
-        height: 4px;
-        background: #e5e7eb; /* Tailwind gray-200 */
-        /* Responsive width: centered with max-width on smaller screens, full width on 1440px+ */
-      }
+    .mobile-svg-lines {
+      z-index: -1;
+      opacity: 0.7;
+    }
+    .mobile-diff-card {
+      position: absolute;
+      width: 163px;
+      height: 157px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+      z-index: 1;
+    }
+    .mobile-diff-card h2,
+    .mobile-diff-card h3,
+    .mobile-diff-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .mobile-diff-dot {
+      position: absolute;
+      left: 50%;
+      top: -0.75rem;
+      transform: translateX(-50%);
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 9999px;
+      background: #000;
+      z-index: 2;
+    }
+    html.dark .mobile-diff-dot { background: #fff; }
 
-      /* On 1440px and larger screens, use full width */
+    @media only screen and (max-width: 768px) {
+      .splide__arrow--next { right: 0rem !important; }
+      .splide__arrow--prev { left: 0rem !important; }
+    }
 
-      .my-slider-progress-bar {
-        /* This is the actual progress fill */
-        background: #1f2937; /* Tailwind gray-800 for the fill color */
-        height: 100%;
-        width: 0; /* Starts at 0, JavaScript changes this */
-        transition: width 0.5s ease-in-out; /* Match slider transition speed */
-      }
+    /* Dark mode progress bar override */
+    html.dark .my-slider-progress { background: #cfcfcf; }
+    html.dark .my-slider-progress-bar { background: #757575; }
+  </style>
+</head>
 
-      /* Hide default pagination dots that Splide includes */
-      .splide__pagination {
-        display: none;
-      }
+<body class="font-inter text-sm">
 
-      .splide__arrow {
-        -ms-flex-align: center;
-        align-items: center;
-        background: transparent !important;
-        border: 0;
-        border-radius: 50%;
-        cursor: pointer;
-        display: -ms-flexbox;
-        display: flex;
-        height: 2em;
-        -ms-flex-pack: center;
-        justify-content: center;
-        opacity: 0.7;
-        padding: 0;
-        position: absolute;
-        top: 0%;
-        transform: translateY(-53%) !important;
-        width: 2em;
-        z-index: 1;
-      }
+  <!-- ===================== DESKTOP NAVBAR ===================== -->
+  <nav class="navbar md:block hidden">
+    <div class="navbar-container container mx-auto">
+      <div class="logo-container">
+        <a href="/about.html">
+          <!-- Light logo -->
+          <img src="/assets/images/logo/tequila_pos_logo_transparent.png"
+               class="logo-light logo" alt="Logo" />
+          <!-- Dark logo -->
+          <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+               class="logo-dark logo" alt="Logo" />
+        </a>
 
-      @media only screen and (max-width: 768px) {
-        .splide__arrow--next {
-          right: 0rem !important;
-        }
-
-        .splide__arrow--prev {
-          left: 0rem !important;
-        }
-      }
-    </style>
-  </head>
-  <body class="bg-white font-inter text-sm">
-    <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
-        <!-- Logo -->
-        <div class="logo-container">
-          <a href="/light/index.html">
-            <img
-              src="/assets/images/logo/tequila_pos_logo_transparent.png"
-              class="logo"
-              alt="Logo"
-            />
-          </a>
-
-          <div class="nav-links ml-4">
-            <div class="nav-item relative group">
-              <a href="#business-type" class="nav-link">Business Type</a>
-
-              <!-- Mega Menu -->
-              <div
-                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
-                onmouseleave="clearActive()"
-              >
-                <div class="flex flex-nowrap gap-10">
-                  <!-- LEFT: categories -->
-                  <div
-                    class="flex flex-col p-10 gap-4"
-                    id="categoryList"
-                    data-aos="fade-left"
-                  >
-                    <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
-                      data-cat="food"
-                      onmouseenter="setActive('food')"
-                      onfocus="setActive('food')"
-                    >
-                      Food &amp; Beverage
-                    </a>
-
-                    <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
-                      data-cat="retail"
-                      onmouseenter="setActive('retail')"
-                      onfocus="setActive('retail')"
-                    >
-                      Retail
-                    </a>
-                  </div>
-
-                  <!-- RIGHT: panels -->
-                  <div class="flex gap-16 p-10">
-                    <!-- FOOD panel -->
-                    <div class="flex justify-between gap-10" data-panel="food">
-                      <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
-                          Discover
-                        </h6>
-                        <ul class="space-y-2 text-sm">
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Overview</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Switch to Tequila</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
-                          Capacity
-                        </h6>
-                        <ul class="space-y-2 text-sm">
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage order from one place</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Take payment</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Keep customer coming back</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Scale your business</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Improve operation</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Schedule and pay your team</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage your cash flow</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
+        <div class="nav-links ml-4">
+          <div class="nav-item relative group">
+            <a href="#business-type" class="nav-link">Business Type</a>
+            <!-- Mega Menu -->
+            <div class="mega-menu mega-anim absolute left-0 top-full pt-10" onmouseleave="clearActive()">
+              <div class="flex flex-nowrap gap-10">
+                <div class="flex flex-col p-10 gap-4" id="categoryList" data-aos="fade-left">
+                  <a href="#" class="text-[26px] font-bold hover:underline" style="color:inherit"
+                     data-cat="food" onmouseenter="setActive('food')" onfocus="setActive('food')">
+                    Food &amp; Beverage
+                  </a>
+                  <a href="#" class="text-[26px] font-bold hover:underline" style="color:inherit"
+                     data-cat="retail" onmouseenter="setActive('retail')" onfocus="setActive('retail')">
+                    Retail
+                  </a>
+                </div>
+                <div class="flex gap-16 p-10">
+                  <div class="flex justify-between gap-10" data-panel="food">
+                    <div>
+                      <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Discover</h6>
+                      <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Overview</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Switch to Tequila</a></li>
+                      </ul>
                     </div>
-
-                    <!-- RETAIL panel -->
-                    <div class="space-y-6 hidden" data-panel="retail">
-                      <div class="gap-10">
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
-                          Discover
-                        </h6>
-                        <ul class="space-y-2 text-sm">
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Overview</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Switch to Tequila</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
+                    <div>
+                      <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Capacity</h6>
+                      <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Manage order from one place</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Take payment</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Keep customer coming back</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Scale your business</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Improve operation</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Schedule and pay your team</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Manage your cash flow</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="space-y-6 hidden" data-panel="retail">
+                    <div>
+                      <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Discover</h6>
+                      <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Overview</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Switch to Tequila</a></li>
+                      </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Other Links -->
-            <a href="/light/feature.html" class="nav-link">Feature</a>
-            <a href="/light/hardware.html" class="nav-link">Hardware</a>
-            <a href="/light/pricing.html" class="nav-link">Pricing</a>
-            <a href="/light/resourse.html" class="nav-link">Resources</a>
           </div>
+          <a href="/feature.html"  class="nav-link">Feature</a>
+          <a href="/hardware.html" class="nav-link">Hardware</a>
+          <a href="/pricing.html"  class="nav-link">Pricing</a>
+          <a href="/resourse.html" class="nav-link">Resources</a>
         </div>
+      </div>
 
-        <!-- Navigation Links -->
-        <div class="nav-extra-links">
-          <div
-            class="language-selector cursor-pointers"
-            onclick="toggleLanguage()"
-          >
-            <span id="language-text">ENGLISH</span>
-            <img
-              id="flag-icon"
-              src="/assets/images/flags/usa.png"
-              alt="USA Flag"
-              class="flag-icon"
-            />
-          </div>
+      <div class="nav-extra-links">
+        <div class="language-selector cursor-pointer" onclick="toggleLanguage()">
+          <span id="language-text">ENGLISH</span>
+          <img id="flag-icon" src="/assets/images/flags/usa.png" alt="USA Flag" class="flag-icon" />
+        </div>
+        <a href="#signin" class="nav-link">Sign in</a>
+        <button class="demo-btn"><span>Free Demo</span></button>
+      </div>
+    </div>
+  </nav>
 
-          <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
+  <!-- ===================== MOBILE NAVBAR ===================== -->
+  <nav class="navbar md:hidden shadow-md relative">
+    <div class="navbar-container container mx-auto flex items-center justify-between py-4">
+      <div class="logo-container flex items-center">
+        <img src="/assets/images/logo/tequila_pos_logo_transparent.png"
+             class="logo-light logo h-10" alt="Logo" />
+        <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+             class="logo-dark logo h-10" alt="Logo" />
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2">
+        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg" style="background-color: var(--mobile-bg, #fff)">
+      <div class="p-4 space-y-4">
+        <div class="relative">
+          <button id="dropdownBtn" class="flex justify-between items-center w-full px-4 py-2 rounded hover:opacity-80" style="background:#f3f4f6">
+            Business Type
+            <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 transition-transform duration-200">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"/>
+            </svg>
           </button>
+          <div id="dropdownMenu" class="hidden mt-2 rounded shadow-lg overflow-hidden border" style="background:#f9fafb">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Food &amp; Beverage</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Retail</a>
+          </div>
+        </div>
+        <a href="/feature.html"  class="block px-4 py-2 hover:opacity-80 rounded">Features</a>
+        <a href="/hardware.html" class="block px-4 py-2 hover:opacity-80 rounded">Hardware</a>
+        <a href="/pricing.html"  class="block px-4 py-2 hover:opacity-80 rounded">Pricing</a>
+        <a href="/resourse.html" class="block px-4 py-2 hover:opacity-80 rounded">Resources</a>
+        <a href="#signin"        class="block px-4 py-2 hover:opacity-80 rounded">Sign In</a>
+        <a href="#demo" class="block text-center font-bold py-2 rounded shadow" style="background:#c89633; color:#000">Free Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="py-16">
+    <div class="container mx-auto md:px-2 px-4">
+      <div class="flex flex-col md:flex-row items-center md:relative">
+        <div class="md:mr-10 mb-8 md:mb-0 w-full md:w-auto">
+          <img src="/assets/images/about/About-us.png" class="w-full h-auto" alt="" />
+        </div>
+        <div>
+          <p class="about-desc mt-[4px] md:mt-[12rem] md:ml-[-20rem] md:w-[338px] w-full md:text-xl text-sm font-semibold md:leading-[25.20px] leading-normal">
+            From Billing to Inventory and Beyond—We're Here to Digitize and Streamline Every Part of Your Business Workflow.
+          </p>
         </div>
       </div>
-    </nav>
+    </div>
+  </section>
 
-    <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-white shadow-md relative">
-      <div
-        class="navbar-container container mx-auto flex items-center justify-between py-4"
-      >
-        <!-- Logo -->
-        <div class="logo-container flex items-center">
-          <img
-            src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="logo h-10"
-            alt="Logo"
-          />
+  <!-- ===================== MOBILE SLIDER ===================== -->
+  <section class="py-16 md:hidden">
+    <div class="container mx-auto px-4">
+      <section id="mobile-slider" class="splide" aria-label="Mobile Timeline Slider">
+        <div class="my-slider-progress w-[80%] mx-auto mb-4">
+          <div class="my-slider-progress-bar"></div>
         </div>
-        <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
-          <!-- Hamburger Icon -->
-          <svg
-            id="hamburger-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-
-          <!-- Close Icon -->
-          <svg
-            id="close-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6 hidden"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Menu -->
-      <!-- Mobile Menu (White Version) -->
-      <div
-        id="mobile-menu"
-        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
-      >
-        <div class="p-4 space-y-4">
-          <!-- Dropdown -->
-          <div class="relative">
-            <button
-              id="dropdownBtn"
-              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
-            >
-              Business Type
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5 text-gray-500 transition-transform duration-200"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
-        11.94l3.72-3.72a.75.75 0 1 1 
-        1.06 1.06l-4.25 4.25a.75.75 0 
-        0 1-1.06 0L5.22 9.28a.75.75 
-        0 0 1 0-1.06Z"
-                />
-              </svg>
+        <div class="flex justify-end mb-6 top-0 left-0">
+          <div class="splide__arrows flex space-x-4 absolute top-0">
+            <button class="splide__arrow splide__arrow--prev transition w-[50px]" aria-label="Previous Slide">
+              <img src="/assets/images/feature-one/Left.png"       class="logo-light" alt="" />
+              <img src="/assets/images/feature-one/left-white.png" class="logo-dark"  alt="" />
             </button>
-
-            <div
-              id="dropdownMenu"
-              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
-            >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Edit</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Duplicate</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Archive</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Delete</a
-              >
-            </div>
-          </div>
-
-          <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Features</a
-          >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Hardware</a
-          >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Pricing</a
-          >
-          <a
-            href="/light/resourse.html"
-            class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Resources</a
-          >
-
-          <!-- Language Switcher -->
-          <div
-            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
-          >
-            <span class="text-sm">EN</span>
-            <label class="inline-flex items-center cursor-pointer">
-              <input type="checkbox" class="sr-only peer" />
-              <div
-                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
-              ></div>
-            </label>
-            <span class="text-sm">ES</span>
-          </div>
-
-          <!-- Sign in -->
-          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Sign In</a
-          >
-
-          <!-- CTA Button -->
-          <a
-            href="#demo"
-            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
-          >
-            Free Demo
-          </a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- hero section -->
-    <section class="bg-transparent-100 py-16">
-      <div class="container mx-auto md:px-2 px-4">
-        <div class="flex flex-col md:flex-row items-center md:relative">
-          <div class="md:mr-10 mb-8 md:mb-0 w-full md:w-auto">
-            <img
-              src="/assets/images/about/About-us.png"
-              class="w-full h-auto"
-              alt=""
-            />
-          </div>
-          <div class="">
-            <p
-              class="mt-[4px] md:mt-[12rem] md:ml-[-20rem] md:w-[338px] w-full text-[#4f4f4f] md:text-xl text-sm font-semibold md:leading-[25.20px] leading-normal"
-            >
-              From Billing to Inventory and Beyond—We’re Here to Digitize and
-              Streamline Every Part of Your Business Workflow.
-            </p>
+            <button class="splide__arrow splide__arrow--next transition w-[50px]" aria-label="Next Slide">
+              <img src="/assets/images/feature-one/Right.png"       class="logo-light" alt="" />
+              <img src="/assets/images/feature-one/right-white.png" class="logo-dark"  alt="" />
+            </button>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!--slider-->
-    <section class="bg-white py-16">
-      <div class="container mx-auto px-4">
-        <section id="main-slider" class="splide" aria-label="Splide Slider">
-          <div class="my-slider-progress w-4/6 mx-auto">
-            <div class="my-slider-progress-bar"></div>
-          </div>
+        <div class="splide__track">
+          <ul class="splide__list">
 
-          <div class="flex justify-end p-4">
-            <div class="splide__arrows flex space-x-4">
-              <button
-                class="splide__arrow splide__arrow--prev text-4xl text-gray-900 hover:text-gray-900 transition"
-                aria-label="Previous Slide"
-              >
-                <img src="/assets/images/feature-one/Left.png" alt="" />
-              </button>
-              <button
-                class="splide__arrow splide__arrow--next text-4xl text-gray-900 hover:text-gray-900 transition"
-                aria-label="Next Slide"
-              >
-                <img src="/assets/images/feature-one/Right.png" alt="" />
-              </button>
-            </div>
-          </div>
-
-          <div class="splide__track">
-            <ul class="splide__list">
-              <li class="splide__slide relative pt-10">
-                <div class="p-4 md:p-8">
-                  <h1
-                    class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal"
-                  >
-                    <span class="text-[#4f4f4f]">Our </span
-                    ><span class="text-black">Vision</span>
-                  </h1>
-
-                  <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
-                  >
-                    <div
-                      class="flex flex-col items-center text-center flex-1 min-w-0"
-                    >
-                      <div class="w-3 h-3 bg-black rounded-full mb-4"></div>
-                      <div class="w-full flex justify-center">
-                        <blockquote class="relative w-full">
-                          <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
-                          >
-                            “
-                          </p>
-
-                          <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
-                          >
-                            To be the most trusted POS partner, empowering
-                            businesses of all sizes to grow through intelligent,
-                            effortless technology.
-                          </p>
-                          <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
-                          >
-                            ”
-                          </p>
-                        </blockquote>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex flex-col items-center text-center flex-1 min-w-0"
-                    >
-                      <div class="w-3 h-3 bg-black rounded-full mb-4"></div>
-                      <div class="w-full flex justify-center">
-                        <blockquote class="relative w-full">
-                          <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
-                          >
-                            “
-                          </p>
-
-                          <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
-                          >
-                            To simplify commerce for every business—small or
-                            large—through powerful, accessible, and future-ready
-                            POS solutions.
-                          </p>
-                          <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
-                          >
-                            ”
-                          </p>
-                        </blockquote>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex flex-col items-center text-center flex-1 min-w-0"
-                    >
-                      <div class="w-3 h-3 bg-black rounded-full mb-4"></div>
-                      <div class="w-full flex justify-center">
-                        <blockquote class="relative w-full">
-                          <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
-                          >
-                            “
-                          </p>
-
-                          <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
-                          >
-                            To redefine how businesses interact with their
-                            customers through intelligent, seamless, and secure
-                            point-of-sale systems.
-                          </p>
-                          <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
-                          >
-                            ”
-                          </p>
-                        </blockquote>
-                      </div>
-                    </div>
+            <!-- Mobile Slide: Vision -->
+            <li class="splide__slide">
+              <div class="p-6 shadow-sm">
+                <h1 class="text-5xl font-bold leading-tight">
+                  <span class="slide-accent">Our </span><span class="slide-main">Vision</span>
+                </h1>
+                <div class="mobile-timeline mt-10">
+                  <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <blockquote class="relative">
+                      <p class="text-3xl text-gray-300 absolute -top-4 left-0">"</p>
+                      <p class="text-base leading-relaxed">To be the most trusted POS partner, empowering businesses of all sizes to grow through intelligent, effortless technology.</p>
+                    </blockquote>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <blockquote class="relative">
+                      <p class="text-3xl text-gray-300 absolute -top-4 left-0">"</p>
+                      <p class="text-base leading-relaxed">To simplify commerce for every business—small or large—through powerful, accessible, and future-ready POS solutions.</p>
+                    </blockquote>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <blockquote class="relative">
+                      <p class="text-3xl text-gray-300 absolute -top-4 left-0">"</p>
+                      <p class="text-base leading-relaxed">To redefine how businesses interact with their customers through intelligent, seamless, and secure point-of-sale systems.</p>
+                    </blockquote>
                   </div>
                 </div>
-              </li>
+              </div>
+            </li>
 
-              <li class="splide__slide relative pt-10">
-                <div class="p-4 md:p-8">
-                  <h1
-                    class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal"
-                  >
-                    <span class="text-[#4f4f4f]">Our </span
-                    ><span class="text-black">Mission</span>
-                  </h1>
-
-                  <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
-                  >
-                    <div
-                      class="flex flex-col items-center text-center flex-1 min-w-0"
-                    >
-                      <div class="w-3 h-3 bg-black rounded-full mb-4"></div>
-                      <div class="w-full flex justify-center">
-                        <blockquote class="relative w-full">
-                          <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
-                          >
-                            “
-                          </p>
-
-                          <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
-                          >
-                            To make advanced POS technology accessible to every
-                            business, helping them operate efficiently, serve
-                            better, and grow faster.
-                          </p>
-                          <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
-                          >
-                            ”
-                          </p>
-                        </blockquote>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex flex-col items-center text-center flex-1 min-w-0"
-                    >
-                      <div class="w-3 h-3 bg-black rounded-full mb-4"></div>
-                      <div class="w-full flex justify-center">
-                        <blockquote class="relative w-full">
-                          <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
-                          >
-                            “
-                          </p>
-
-                          <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
-                          >
-                            We aim to transform everyday transactions into
-                            seamless experiences through innovative, secure, and
-                            user-friendly POS solutions.
-                          </p>
-                          <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
-                          >
-                            ”
-                          </p>
-                        </blockquote>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex flex-col items-center text-center flex-1 min-w-0"
-                    >
-                      <div class="w-3 h-3 bg-black rounded-full mb-4"></div>
-                      <div class="w-full flex justify-center">
-                        <blockquote class="relative w-full">
-                          <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
-                          >
-                            “
-                          </p>
-
-                          <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
-                          >
-                            To support businesses with future-ready POS tools
-                            that adapt to their needs, improve decision-making,
-                            and enhance customer satisfaction.
-                          </p>
-                          <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
-                          >
-                            ”
-                          </p>
-                        </blockquote>
-                      </div>
-                    </div>
+            <!-- Mobile Slide: Mission -->
+            <li class="splide__slide">
+              <div class="p-6 shadow-sm">
+                <h1 class="text-5xl font-bold leading-tight">
+                  <span class="slide-accent">Our </span><span class="slide-main">Mission</span>
+                </h1>
+                <div class="mobile-timeline mt-10">
+                  <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <blockquote class="relative">
+                      <p class="text-3xl text-gray-300 absolute -top-4 left-0">"</p>
+                      <p class="text-base leading-relaxed">To make advanced POS technology accessible to every business, helping them operate efficiently, serve better, and grow faster.</p>
+                    </blockquote>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <blockquote class="relative">
+                      <p class="text-3xl text-gray-300 absolute -top-4 left-0">"</p>
+                      <p class="text-base leading-relaxed ">We aim to transform everyday transactions into seamless experiences through innovative, secure, and user-friendly POS solutions.</p>
+                    </blockquote>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <blockquote class="relative">
+                      <p class="text-3xl text-gray-300 absolute -top-4 left-0">"</p>
+                      <p class="text-base leading-relaxed ">To support businesses with future-ready POS tools that adapt to their needs, improve decision-making, and enhance customer satisfaction.</p>
+                    </blockquote>
                   </div>
                 </div>
-              </li>
+              </div>
+            </li>
 
-              <li class="splide__slide relative pt-10">
-                <div class="p-4 md:p-8">
-                  <h1
-                    class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal"
-                  >
-                    <span class="text-[#4f4f4f]">Our </span
-                    ><span class="text-black">Values</span>
-                  </h1>
-
-                  <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
-                  >
-                    <div
-                      class="flex flex-col items-center text-center flex-1 min-w-0"
-                    >
-                      <div class="w-3 h-3 bg-black rounded-full mb-4"></div>
-                      <div class="w-full flex justify-center">
-                        <blockquote class="relative w-full">
-                          <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
-                          >
-                            “
-                          </p>
-
-                          <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
-                          >
-                            Innovation : We constantly evolve to deliver
-                            smarter, faster, and future-ready POS systems.
-                          </p>
-                          <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
-                          >
-                            ”
-                          </p>
-                        </blockquote>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex flex-col items-center text-center flex-1 min-w-0"
-                    >
-                      <div class="w-3 h-3 bg-black rounded-full mb-4"></div>
-                      <div class="w-full flex justify-center">
-                        <blockquote class="relative w-full">
-                          <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
-                          >
-                            “
-                          </p>
-
-                          <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
-                          >
-                            Customer First : We design every solution with our
-                            customers’ success at the center.
-                          </p>
-                          <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
-                          >
-                            ”
-                          </p>
-                        </blockquote>
-                      </div>
-                    </div>
-
-                    <div
-                      class="flex flex-col items-center text-center flex-1 min-w-0"
-                    >
-                      <div class="w-3 h-3 bg-black rounded-full mb-4"></div>
-                      <div class="w-full flex justify-center">
-                        <blockquote class="relative w-full">
-                          <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
-                          >
-                            “
-                          </p>
-
-                          <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
-                          >
-                            Integrity : We are honest, transparent, and
-                            committed to doing what’s right.
-                          </p>
-                          <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
-                          >
-                            ”
-                          </p>
-                        </blockquote>
-                      </div>
-                    </div>
+            <!-- Mobile Slide: Values -->
+            <li class="splide__slide">
+              <div class="p-6 shadow-sm">
+                <h1 class="text-5xl font-bold leading-tight">
+                  <span class="slide-accent">Our </span><span class="slide-main">Values</span>
+                </h1>
+                <div class="mobile-timeline mt-10">
+                  <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <blockquote class="relative">
+                      <p class="text-3xl text-gray-300 absolute -top-4 left-0">"</p>
+                      <p class="text-base leading-relaxed ">Innovation : We constantly evolve to deliver smarter, faster, and future-ready POS systems.</p>
+                    </blockquote>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <blockquote class="relative">
+                      <p class="text-3xl text-gray-300 absolute -top-4 left-0">"</p>
+                      <p class="text-base leading-relaxed ">Customer First : We design every solution with our customers' success at the center.</p>
+                    </blockquote>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <blockquote class="relative">
+                      <p class="text-3xl text-gray-300 absolute -top-4 left-0">"</p>
+                      <p class="text-base leading-relaxed ">Integrity : We are honest, transparent, and committed to doing what's right.</p>
+                    </blockquote>
                   </div>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </div>
-    </section>
-
-    <!--What We Do Section -->
-    <section class="bg-white py-16">
-      <div
-        class="container mx-auto px-4 md:px-2 grid grid-cols-1 md:grid-cols-2 gap-10 items-center md:items-start"
-      >
-        <!-- Left Content -->
-        <div class="order-2 md:order-1">
-          <h2
-            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal"
-          >
-            <span class="text-[#4f4f4f]">What </span
-            ><span class="text-black">We Do</span>
-          </h2>
-          <p
-            class="md:w-[512px] md:text-[15px] w-full text-sm text-[#4f4f4f] md:mb-36 mb-6"
-          >
-            We offer a cloud-based POS system that streamlines sales, inventory,
-            and customer management for retail and hospitality businesses.
-          </p>
-          <p class="text-xl md:text-2xl text-[#4f4f4f] leading-relaxed">
-            We provide a smart, all-in-one POS solution that simplifies billing,
-            inventory, customer management, and reporting. Built for retail,
-            restaurants, and service-based businesses, our system is
-            cloud-based, easy to use, and adapts to your unique workflow—whether
-            you’re a single store or a growing chain.
-          </p>
-        </div>
-
-        <!-- Right Images -->
-        <div class="order-1 md:order-2">
-          <img
-            src="/assets/images/about/what-we-do-image.png"
-            alt="POS System"
-            class=""
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- why choose us -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <div class="mb-12 md:text-left text-center">
-          <h2
-            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal"
-          >
-            <span class="text-[#4f4f4f]">Why </span
-            ><span class="text-black">Choose Us</span>
-          </h2>
-          <p
-            class="text-sm md:text-[15px] text-[#4f4f4f] leading-relaxed md:w-[512px] w-full"
-          >
-            Businesses choose us for our reliable, easy-to-use POS system backed
-            by real-time support and powerful features. With fast billing, smart
-            inventory tracking, and secure cloud access, we help you save time,
-            reduce errors, and grow with confidence.
-          </p>
-        </div>
-
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
-        >
-          <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
-          >
-            <div class="flex justify-center mb-1">
-              <img
-                src="/assets/images/about/all-in-one.png"
-                class="object-cover"
-                alt=""
-              />
-            </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
-              All-in-One Platform
-            </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
-              Our POS solution combines all the essential tools you need into
-              one seamless platform. From billing and inventory management to
-              customer tracking, employee control, and real-time analytics,
-              everything works together to simplify your operations and boost
-              efficiency—no need for multiple systems or extra software.
-            </p>
-          </div>
-
-          <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
-          >
-            <div class="flex justify-center mb-1">
-              <img
-                src="/assets/images/about/clouded-based.png"
-                class="object-cover"
-                alt=""
-              />
-            </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
-              Cloud-Based & Offline Support
-            </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
-              Our POS system runs on the cloud, giving you real-time access to
-              your business data from anywhere. Even if your internet goes down,
-              your operations won’t—our offline mode ensures uninterrupted
-              billing and syncs everything automatically once you're back
-              online.
-            </p>
-          </div>
-
-          <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
-          >
-            <div class="flex justify-center mb-1">
-              <img
-                src="/assets/images/about/fast-and-reliable.png"
-                alt="taquila-pos"
-                class="object-cover"
-              />
-            </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
-              Fast & Reliable Support
-            </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
-              We’re here when you need us. Our expert support team is available
-              24/7 to assist you with setup, troubleshooting, or day-to-day
-              questions—by chat, call, or email. Count on us for quick responses
-              and real solutions that keep your business running smoothly.
-            </p>
-          </div>
-
-          <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
-          >
-            <div class="flex justify-center mb-1">
-              <img
-                src="/assets/images/about/data-security.png"
-                class="object-cover"
-                alt=""
-              />
-            </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
-              Data Security & Compliance
-            </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
-              We’re here when you need us. Our expert support team is available
-              24/7 to assist you with setup, troubleshooting, or day-to-day
-              questions—by chat, call, or email. Count on us for quick responses
-              and real solutions that keep your business running smoothly.
-            </p>
-          </div>
-
-          <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
-          >
-            <div class="flex justify-center mb-1">
-              <img
-                src="/assets/images/about/hardware.png"
-                class="object-cover"
-                alt="taquila-pos"
-              />
-            </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
-              Hardware Integration
-            </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
-              Our POS system seamlessly connects with a wide range of
-              hardware—including barcode scanners, receipt printers, cash
-              drawers, and card readers—so you can set up quickly and work
-              without interruptions. It’s plug-and-play, reliable, and fully
-              compatible with most leading devices.
-            </p>
-          </div>
-
-          <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
-          >
-            <div class="flex justify-center mb-1">
-              <img
-                src="/assets/images/about/affordable.png"
-                src="/assets/images/about/affordable.png"
-                alt="taquila-pos"
-                class="object-cover"
-              />
-            </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
-              Affordable & Scalable
-            </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
-              Our POS solution is designed to grow with your business. Whether
-              you're just starting out or managing multiple locations, we offer
-              flexible pricing plans that fit your needs—without hidden costs.
-              Scale up anytime with features that adapt as you expand.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- What Makes Us Different Section -->
-    <section class="bg-white py-16">
-      <div class="container mx-auto px-4">
-        <!-- Header Section -->
-        <div class="mb-12 text-left">
-          <h2
-            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal"
-          >
-            <span class="text-[#4f4f4f]">What Makes</span
-            ><span class="text-black"> Us Different</span>
-          </h2>
-          <p
-            class="text-sm md:text-[15px] text-[#4f4f4f] leading-relaxed md:w-[512px] w-full"
-          >
-            We stand out by offering a POS system that's simple, flexible, and
-            built to fit your business. With tailored features and responsive
-            support, we help you work smarter—not harder.
-          </p>
-        </div>
-
-        <!-- Cards Section -->
-        <div class="relative w-full">
-          <!-- Background SVG lines for desktop -->
-          <svg
-            class="svg-lines hidden md:block"
-            viewBox="0 0 1000 700"
-            preserveAspectRatio="xMidYMid meet"
-          >
-            <!-- Line from Card 01 to 02 -->
-            <path
-              d="M 500,100 C 650,250 350,250 500,400"
-              stroke="#a0a0a0"
-              stroke-dasharray="8 8"
-              stroke-width="2"
-              fill="none"
-            />
-            <path
-              d="M 500,400 C 650,550 350,550 500,600"
-              stroke="#a0a0a0"
-              stroke-dasharray="8 8"
-              stroke-width="2"
-              fill="none"
-            />
-            <path
-              d="M 500,600 C 650,550 850,250 900,100"
-              stroke="#a0a0a0"
-              stroke-dasharray="8 8"
-              stroke-width="2"
-              fill="none"
-            />
-            <path
-              d="M 900,100 C 850,250 850,250 700,400"
-              stroke="#a0a0a0"
-              stroke-dasharray="8 8"
-              stroke-width="2"
-              fill="none"
-            />
-          </svg>
-
-          <div
-            class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 items-start justify-center text-center md:text-left"
-          >
-            <!-- Card 01 -->
-            <div
-              class="card-rotate-1 p-6 bg-white rounded-2xl shadow-xl flex flex-col items-center relative transition-transform duration-300 hover:scale-105"
-            >
-              <div
-                class="absolute -top-3 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center"
-              >
-                <span class="text-white text-xs font-bold"></span>
               </div>
-              <h2 class="text-4xl font-bold text-gray-800 mb-2 mt-4">01</h2>
-              <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                Rapid Setup & Onboarding
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                Get up and running in no time. Our POS system is designed for
-                quick setup, with guided steps and easy configuration. Whether
-                you're tech-savvy or not, you'll be ready to start selling in
-                minutes—with full support every step of the way.
-              </p>
-            </div>
+            </li>
 
-            <!-- Card 02 -->
-            <div
-              class="card-rotate-2 p-6 bg-white rounded-2xl shadow-xl flex flex-col items-center relative transition-transform duration-300 hover:scale-105"
-            >
-              <div
-                class="absolute -top-3 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center"
-              >
-                <span class="text-white text-xs font-bold"></span>
-              </div>
-              <h2 class="text-4xl font-bold text-gray-800 mb-2 mt-4">02</h2>
-              <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                Hands-On Customer Support
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                We believe great support makes all the difference. That's why
-                our dedicated team is available 24/7 to help you—whether it's
-                setup, troubleshooting, or everyday questions. You'll always
-                talk to real people who understand your business and are ready
-                to assist.
-              </p>
-            </div>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </section>
 
-            <!-- Card 03 -->
-            <div
-              class="card-rotate-3 p-6 bg-white rounded-2xl shadow-xl flex flex-col items-center relative transition-transform duration-300 hover:scale-105"
-            >
-              <div
-                class="absolute -top-3 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center"
-              >
-                <span class="text-white text-xs font-bold"></span>
-              </div>
-              <h2 class="text-4xl font-bold text-gray-800 mb-2 mt-4">03</h2>
-              <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                Built for Simplicity
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                Our POS system is designed to be simple, fast, and easy to
-                use—no tech expertise required. With an intuitive interface and
-                clean layout, your team can learn it quickly and get more done
-                with fewer clicks.
-              </p>
-            </div>
+  <!-- ===================== SLIDER ===================== -->
+  <section class="py-16 hidden md:block">
+    <div class="container mx-auto px-4">
+      <section id="main-slider" class="splide" aria-label="Splide Slider">
+        <div class="my-slider-progress w-full mx-auto">
+          <div class="my-slider-progress-bar"></div>
+        </div>
+        <div class="flex justify-end ">
+          <div class="splide__arrows flex space-x-4 top-0 left-0">
+            <button class="splide__arrow splide__arrow--prev transition -left-20 w-[100px]" aria-label="Previous Slide">
+              <!-- Light arrow -->
+              <img src="/assets/images/feature-one/Left.png"       class="logo-light" alt="" />
+              <!-- Dark arrow -->
+              <img src="/assets/images/feature-one/left-white.png" class="logo-dark"  alt="" />
+            </button>
+            <button class="splide__arrow splide__arrow--next transition w-[100px] -right-20" aria-label="Next Slide">
+              <img src="/assets/images/feature-one/Right.png"       class="logo-light" alt="" />
+              <img src="/assets/images/feature-one/right-white.png" class="logo-dark"  alt="" />
+            </button>
+          </div>
+        </div>
 
-            <!-- Card 04 -->
-            <div
-              class="card-rotate-4 p-6 bg-white rounded-2xl shadow-xl flex flex-col items-center relative transition-transform duration-300 hover:scale-105"
-            >
-              <div
-                class="absolute -top-3 w-6 h-6 bg-gray-800 rounded-full flex items-center justify-center"
-              >
-                <span class="text-white text-xs font-bold"></span>
+        <div class="splide__track"> 
+          <ul class="splide__list">
+
+            <!-- Slide: Vision -->
+            <li class="splide__slide relative pt-10">
+              <div class="p-4 md:p-8">
+                <h1 class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal">
+                  <span class="slide-accent">Our </span><span class="slide-main">Vision</span>
+                </h1>
+                <div class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-300">
+                  <div class="flex flex-col items-center text-center flex-1 min-w-0">
+                    <div class="slide-dot w-3 h-3 rounded-full mb-4"></div>
+                    <blockquote class="relative w-full">
+                      <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">"</p>
+                      <p class="slide-quote text-base mt-2 leading-relaxed">To be the most trusted POS partner, empowering businesses of all sizes to grow through intelligent, effortless technology.</p>
+                      <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">"</p>
+                    </blockquote>
+                  </div>
+                  <div class="flex flex-col items-center text-center flex-1 min-w-0">
+                    <div class="slide-dot w-3 h-3 rounded-full mb-4"></div>
+                    <blockquote class="relative w-full">
+                      <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">"</p>
+                      <p class="slide-quote text-base mt-2 leading-relaxed">To simplify commerce for every business—small or large—through powerful, accessible, and future-ready POS solutions.</p>
+                      <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">"</p>
+                    </blockquote>
+                  </div>
+                  <div class="flex flex-col items-center text-center flex-1 min-w-0">
+                    <div class="slide-dot w-3 h-3 rounded-full mb-4"></div>
+                    <blockquote class="relative w-full">
+                      <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">"</p>
+                      <p class="slide-quote text-base mt-2 leading-relaxed">To redefine how businesses interact with their customers through intelligent, seamless, and secure point-of-sale systems.</p>
+                      <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">"</p>
+                    </blockquote>
+                  </div>
+                </div>
               </div>
-              <h2 class="text-4xl font-bold text-gray-800 mb-2 mt-4">04</h2>
-              <h3 class="text-xl font-semibold text-gray-800 mb-2">
-                Hardware Compatibility
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                Our POS system works seamlessly with a wide range of hardware,
-                including barcode scanners, receipt printers, cash drawers, and
-                card readers. It's plug-and-play, so you can use your existing
-                devices or easily connect new ones without hassle.
-              </p>
+            </li>
+
+            <!-- Slide: Mission -->
+            <li class="splide__slide relative pt-10">
+              <div class="p-4 md:p-8">
+                <h1 class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal">
+                  <span class="slide-accent">Our </span><span class="slide-main">Mission</span>
+                </h1>
+                <div class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-300">
+                  <div class="flex flex-col items-center text-center flex-1 min-w-0">
+                    <div class="slide-dot w-3 h-3 rounded-full mb-4"></div>
+                    <blockquote class="relative w-full">
+                      <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">"</p>
+                      <p class="slide-quote text-base mt-2 leading-relaxed">To make advanced POS technology accessible to every business, helping them operate efficiently, serve better, and grow faster.</p>
+                      <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">"</p>
+                    </blockquote>
+                  </div>
+                  <div class="flex flex-col items-center text-center flex-1 min-w-0">
+                    <div class="slide-dot w-3 h-3 rounded-full mb-4"></div>
+                    <blockquote class="relative w-full">
+                      <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">"</p>
+                      <p class="slide-quote text-base mt-2 leading-relaxed">We aim to transform everyday transactions into seamless experiences through innovative, secure, and user-friendly POS solutions.</p>
+                      <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">"</p>
+                    </blockquote>
+                  </div>
+                  <div class="flex flex-col items-center text-center flex-1 min-w-0">
+                    <div class="slide-dot w-3 h-3 rounded-full mb-4"></div>
+                    <blockquote class="relative w-full">
+                      <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">"</p>
+                      <p class="slide-quote text-base mt-2 leading-relaxed">To support businesses with future-ready POS tools that adapt to their needs, improve decision-making, and enhance customer satisfaction.</p>
+                      <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">"</p>
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- Slide: Values -->
+            <li class="splide__slide relative pt-10">
+              <div class="p-4 md:p-8">
+                <h1 class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal">
+                  <span class="slide-accent">Our </span><span class="slide-main">Values</span>
+                </h1>
+                <div class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-300">
+                  <div class="flex flex-col items-center text-center flex-1 min-w-0">
+                    <div class="slide-dot w-3 h-3 rounded-full mb-4"></div>
+                    <blockquote class="relative w-full">
+                      <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">"</p>
+                      <p class="slide-quote text-base mt-2 leading-relaxed">Innovation : We constantly evolve to deliver smarter, faster, and future-ready POS systems.</p>
+                      <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">"</p>
+                    </blockquote>
+                  </div>
+                  <div class="flex flex-col items-center text-center flex-1 min-w-0">
+                    <div class="slide-dot w-3 h-3 rounded-full mb-4"></div>
+                    <blockquote class="relative w-full">
+                      <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">"</p>
+                      <p class="slide-quote text-base mt-2 leading-relaxed">Customer First : We design every solution with our customers' success at the center.</p>
+                      <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">"</p>
+                    </blockquote>
+                  </div>
+                  <div class="flex flex-col items-center text-center flex-1 min-w-0">
+                    <div class="slide-dot w-3 h-3 rounded-full mb-4"></div>
+                    <blockquote class="relative w-full">
+                      <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">"</p>
+                      <p class="slide-quote text-base mt-2 leading-relaxed">Integrity : We are honest, transparent, and committed to doing what's right.</p>
+                      <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">"</p>
+                    </blockquote>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT WE DO ===================== -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 md:px-2 grid grid-cols-1 md:grid-cols-2 gap-10 items-center md:items-start">
+      <div class="order-2 md:order-1">
+        <h2 class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal">
+          <span class="section-accent">What </span><span class="section-main">We Do</span>
+        </h2>
+        <p class="section-sub md:w-[512px] md:text-[15px] w-full text-sm md:mb-36 mb-6">
+          We offer a cloud-based POS system that streamlines sales, inventory, and customer management for retail and hospitality businesses.
+        </p>
+        <p class="section-sub text-xl md:text-2xl leading-relaxed">
+          We provide a smart, all-in-one POS solution that simplifies billing, inventory, customer management, and reporting. Built for retail, restaurants, and service-based businesses, our system is cloud-based, easy to use, and adapts to your unique workflow—whether you're a single store or a growing chain.
+        </p>
+      </div>
+      <div class="order-1 md:order-2">
+        <img src="/assets/images/about/what-we-do-image.png" alt="POS System" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY CHOOSE US ===================== -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="mb-12 md:text-left text-center">
+        <h2 class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal">
+          <span class="section-accent">Why </span><span class="section-main">Choose Us</span>
+        </h2>
+        <p class="section-sub text-sm md:text-[15px] leading-relaxed md:w-[512px] w-full">
+          Businesses choose us for our reliable, easy-to-use POS system backed by real-time support and powerful features.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+        <!-- Card — light uses bg-white shadow, dark uses transparent with white shadow -->
+        <div class="why-card rounded-[38px] p-6 hover:shadow-xl transition-shadow duration-300">
+          <div class="flex justify-center mb-1">
+            <img src="/assets/images/about/all-in-one.png"      class="logo-light object-cover" alt="" />
+            <img src="/assets/images/about/all-one-dark.png"    class="logo-dark  object-cover" alt="" />
+          </div>
+          <h3 class="section-main md:text-xl text-sm font-bold mb-6">All-in-One Platform</h3>
+          <p class="section-sub text-sm font-normal leading-tight">Our POS solution combines all the essential tools you need into one seamless platform. From billing and inventory management to customer tracking, employee control, and real-time analytics, everything works together to simplify your operations.</p>
+        </div>
+        <div class="why-card rounded-[38px] p-6 hover:shadow-xl transition-shadow duration-300">
+          <div class="flex justify-center mb-1">
+            <img src="/assets/images/about/clouded-based.png"      class="logo-light object-cover" alt="" />
+            <img src="/assets/images/about/clouded-based-dark.png" class="logo-dark  object-cover" alt="" />
+          </div>
+          <h3 class="section-main md:text-xl text-sm font-bold mb-6">Cloud-Based &amp; Offline Support</h3>
+          <p class="section-sub text-sm font-normal leading-tight">Our POS system runs on the cloud, giving you real-time access to your business data from anywhere. Even if your internet goes down, your operations won't—our offline mode ensures uninterrupted billing.</p>
+        </div>
+        <div class="why-card rounded-[38px] p-6 hover:shadow-xl transition-shadow duration-300">
+          <div class="flex justify-center mb-1">
+            <img src="/assets/images/about/fast-and-reliable.png"      class="logo-light object-cover" alt="" />
+            <img src="/assets/images/about/fast-and-reliable-dark.png" class="logo-dark  object-cover" alt="" />
+          </div>
+          <h3 class="section-main md:text-xl text-sm font-bold mb-6">Fast &amp; Reliable Support</h3>
+          <p class="section-sub text-sm font-normal leading-tight">Our expert support team is available 24/7 to assist you with setup, troubleshooting, or day-to-day questions—by chat, call, or email.</p>
+        </div>
+        <div class="why-card rounded-[38px] p-6 hover:shadow-xl transition-shadow duration-300">
+          <div class="flex justify-center mb-1">
+            <img src="/assets/images/about/data-security.png"      class="logo-light object-cover" alt="" />
+            <img src="/assets/images/about/data-security-dark.png" class="logo-dark  object-cover" alt="" />
+          </div>
+          <h3 class="section-main md:text-xl text-sm font-bold mb-6">Data Security &amp; Compliance</h3>
+          <p class="section-sub text-sm font-normal leading-tight">We protect your business with enterprise-grade encryption, role-based access, and PCI-DSS compliance—keeping your data and customer information safe at all times.</p>
+        </div>
+        <div class="why-card rounded-[38px] p-6 hover:shadow-xl transition-shadow duration-300">
+          <div class="flex justify-center mb-1">
+            <img src="/assets/images/about/hardware.png"      class="logo-light object-cover" alt="" />
+            <img src="/assets/images/about/hardware-dark.png" class="logo-dark  object-cover" alt="" />
+          </div>
+          <h3 class="section-main md:text-xl text-sm font-bold mb-6">Hardware Integration</h3>
+          <p class="section-sub text-sm font-normal leading-tight">Our POS system seamlessly connects with barcode scanners, receipt printers, cash drawers, and card readers—plug-and-play, reliable, and fully compatible.</p>
+        </div>
+        <div class="why-card rounded-[38px] p-6 hover:shadow-xl transition-shadow duration-300">
+          <div class="flex justify-center mb-1">
+            <img src="/assets/images/about/affordable.png"      class="logo-light object-cover" alt="" />
+            <img src="/assets/images/about/affordable-dark.png" class="logo-dark  object-cover" alt="" />
+          </div>
+          <h3 class="section-main md:text-xl text-sm font-bold mb-6">Affordable &amp; Scalable</h3>
+          <p class="section-sub text-sm font-normal leading-tight">Flexible pricing plans that fit your needs—without hidden costs. Scale up anytime with features that adapt as you expand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT MAKES US DIFFERENT (MOBILE) ===================== -->
+  <section class="py-16 md:hidden">
+    <div class="container mx-auto px-4">
+      <div class="mb-8 text-left">
+        <h2 class="text-4xl font-bold leading-normal">
+          <span class="section-accent">What Makes</span><span class="section-main"> Us Different</span>
+        </h2>
+        <p class="section-sub text-sm leading-relaxed">
+          We stand out by offering a POS system that's simple, flexible, and built to fit your business.
+        </p>
+      </div>
+
+      <div class="relative max-w-[360px] mx-auto h-[850px]">
+        <svg class="mobile-svg-lines absolute inset-0 w-full h-full pointer-events-none -z-2" viewBox="0 0 360 850" preserveAspectRatio="none">
+          <path d="M 40 80 C 60 80 90 80 100 120 S 120 200 260 200" stroke="#a0a0a0" stroke-dasharray="6 8" stroke-width="2" fill="none"/>
+          <path d="M 260 200 C 300 220 300 260 180 280 S 80 320 80 360" stroke="#a0a0a0" stroke-dasharray="6 8" stroke-width="2" fill="none"/>
+          <path d="M 80 360 C 60 380 60 420 120 440 S 180 470 260 500" stroke="#a0a0a0" stroke-dasharray="6 8" stroke-width="2" fill="none"/>
+          <path d="M 260 500 C 300 520 300 560 180 590 S 80 640 80 700" stroke="#a0a0a0" stroke-dasharray="6 8" stroke-width="2" fill="none"/>
+        </svg>
+
+        <div class="mobile-diff-card absolute z-2 left-0 top-0 border border-gray-200 dark:border-gray-700 rounded-[32px] shadow-xl p-6">
+          <div class="mobile-diff-dot absolute top-3 left-[50%] translate-x-[-50%] w-6 h-6 rounded-full bg-black dark:bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.1)]"></div>
+          <div class="pt-1">
+            <h2 class="text-[0.6rem] font-bold mb-1">01</h2>
+            <h3 class="text-[0.7rem] font-semibold mb-2">Rapid Setup &amp; Onboarding</h3>
+            <p class="text-[0.4rem] leading-tight">Get up and running in no time. Our POS system is designed for quick setup, with guided steps and easy configuration. Whether you're tech-savvy or not, you’ll be ready to start selling in minutes.</p>
+          </div>
+        </div>
+
+        <div class="mobile-diff-card absolute z-2 right-0 top-[210px]   border border-gray-200 dark:border-gray-700 rounded-[32px] shadow-xl p-6">
+          <div class="mobile-diff-dot absolute top-3 left-[50%] translate-x-[-50%] w-6 h-6 rounded-full bg-black dark:bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.1)]"></div>
+          <div class="pt-1">
+            <h2 class="text-[0.6rem] font-bold mb-1">02</h2>
+            <h3 class="text-[0.7rem] font-semibold mb-2">Hands-On Customer Support</h3>
+            <p class="text-[0.4rem] leading-tight">Our dedicated team is available 24/7—whether it's setup, troubleshooting, or everyday questions. Real people, real solutions.</p>
+          </div>
+        </div>
+
+        <div class="mobile-diff-card absolute left-0 top-[420px]   border border-gray-200 dark:border-gray-700 rounded-[32px] shadow-xl p-6">
+          <div class="mobile-diff-dot absolute top-3 left-[50%] translate-x-[-50%] w-6 h-6 rounded-full bg-black dark:bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.1)]"></div>
+          <div class="pt-1">
+            <h2 class="text-[0.6rem] font-bold mb-1">03</h2>
+            <h3 class="text-[0.7rem] font-semibold mb-2">Built for Simplicity</h3>
+            <p class="text-[0.4rem] leading-tight">Our POS system is designed to be simple, fast, and easy to use—so your team can work smarter without extra complexity.</p>
+          </div>
+        </div>
+
+        <div class="mobile-diff-card absolute right-0 top-[630px]   border border-gray-200 dark:border-gray-700 rounded-[32px] shadow-xl p-6">
+          <div class="mobile-diff-dot absolute top-3 left-[50%] translate-x-[-50%] w-6 h-6 rounded-full bg-black dark:bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.1)]"></div>
+          <div class="pt-1">
+            <h2 class="text-[0.6rem] font-bold mb-1">04</h2>
+            <h3 class="text-[0.7rem] font-semibold mb-2">Built for Simplicity</h3>
+            <p class="text-[0.4rem] leading-tight">Our POS system is designed to be simple, fast, and easy to use—so your team can work smarter without extra complexity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT MAKES US DIFFERENT ===================== -->
+  <section class="py-16 hidden md:block">
+    <div class="container mx-auto px-4">
+      <div class="mb-12 text-left">
+        <h2 class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal">
+          <span class="section-accent">What Makes</span><span class="section-main"> Us Different</span>
+        </h2>
+        <p class="section-sub text-sm md:text-[15px] leading-relaxed md:w-[512px] w-full">
+          We stand out by offering a POS system that's simple, flexible, and built to fit your business.
+        </p>
+      </div>
+      <div class="relative">
+        <svg class="svg-lines hidden md:block" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet">
+          <path d="M 700,-300 L -100,200" stroke="#a0a0a0" stroke-dasharray="8 8" stroke-width="2" fill="none"/>
+          <path d="M 50,50 C 150,750 450,150 700,600" stroke="#a0a0a0" stroke-dasharray="8 8" stroke-width="2" fill="none"/>
+          <path d="M 700,600 C 350,850 450,250 200,700" stroke="#a0a0a0" stroke-dasharray="8 8" stroke-width="2" fill="none"/>
+          <!-- <path d="M 900,100 C 850,250 850,250 700,400" stroke="#a0a0a0" stroke-dasharray="8 8" stroke-width="2" fill="none"/> -->
+        </svg>
+        <div class=" text-center md:text-left">
+          <div class="diff-card card-rotate-1 p-6 rounded-2xl shadow-xl md:w-[455px] md:h-[422px] left-[60%] flex flex-col items-center relative transition-transform duration-300 hover:scale-105">
+            <div class="diff-dot absolute -top-3 w-6 h-6 rounded-full flex items-center justify-center" style="box-shadow: -10px 10px 50px rgba(0,0,0,0.15);"></div>
+            <div class="shadow-[inset_0_-1px_3px_rgba(0,0,0,0.6)] p-8 rounded-2xl" style="box-shadow: 10px 2px 60px rgba(0,0,0,0.15);">
+              <h2 class="diff-num text-4xl font-bold mb-2 mt-4">01</h2>
+            <h3 class="diff-title text-xl font-semibold mt-6 mb-2">Rapid Setup &amp; Onboarding</h3>
+            <p class="diff-body text-sm leading-relaxed mt-8">Get up and running in no time. Our POS system is designed for quick setup, with guided steps and easy configuration. Whether you're tech-savvy or not, you’ll be ready to start selling in minutes—with full support every step of the way.</p>
+            </div>
+          </div>
+          <div class="diff-card card-rotate-2 p-6 rounded-2xl shadow-xl -top-[40%]  w-[455px] h-[422px] flex flex-col items-center relative transition-transform duration-300 hover:scale-105">
+            <div class="diff-dot absolute -top-3 w-6 h-6 rounded-full flex items-center justify-center" style="box-shadow: -10px 10px 50px rgba(0,0,0,0.15);"></div>
+            <div class="shadow-[inset_0_-1px_3px_rgba(0,0,0,0.6)] p-8 rounded-2xl" style="box-shadow: 10px 2px 60px rgba(0,0,0,0.15);">
+              <h2 class="diff-num text-4xl font-bold mb-2 mt-4">02</h2>
+            <h3 class="diff-title text-xl font-semibold mt-6 mb-2">Hands-On Customer Support</h3>
+            <p class="diff-body text-sm leading-relaxed mt-8">Our dedicated team is available 24/7—whether it's setup, troubleshooting, or everyday questions. Real people, real solutions.</p>
+            </div>
+            
+          </div>
+          <div class="diff-card card-rotate-3 p-6 rounded-2xl shadow-xl left-[60%] -top-[10%]  w-[455px] h-[422px] flex flex-col items-center relative transition-transform duration-300 hover:scale-105">
+            <div class="diff-dot absolute -top-3 w-6 h-6 rounded-full flex items-center justify-center"></div>
+            <div class="shadow-[inset_0_-1px_3px_rgba(0,0,0,0.6)] p-8 rounded-2xl" style="box-shadow: 10px 2px 60px rgba(0,0,0,0.15);">
+              <h2 class="diff-num text-4xl font-bold mb-2 mt-4">02</h2>
+            <h3 class="diff-title text-xl font-semibold mt-6 mb-2">Hands-On Customer Support</h3>
+            <p class="diff-body text-sm leading-relaxed mt-8">Our dedicated team is available 24/7—whether it's setup, troubleshooting, or everyday questions. Real people, real solutions.</p>
+            </div>
+          </div>
+          <div class="diff-card card-rotate-4 p-6 rounded-2xl shadow-xl  w-[455px] h-[422px] flex flex-col items-center relative transition-transform duration-300 hover:scale-105">
+            <div class="diff-dot absolute -top-3 w-6 h-6 rounded-full flex items-center justify-center"></div>
+            <div class="shadow-[inset_0_-1px_3px_rgba(0,0,0,0.6)] p-8 rounded-2xl" style="box-shadow: 10px 2px 60px rgba(0,0,0,0.15);">
+              <h2 class="diff-num text-4xl font-bold mb-2 mt-4">02</h2>
+            <h3 class="diff-title text-xl font-semibold mt-6 mb-2">Hands-On Customer Support</h3>
+            <p class="diff-body text-sm leading-relaxed mt-8">Our dedicated team is available 24/7—whether it's setup, troubleshooting, or everyday questions. Real people, real solutions.</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!--Industry Section-->
-
-    <section class="bg-white py-16">
-      <div class="container mx-auto px-4">
-        <!-- Header -->
-        <div class="mb-12 text-left">
-          <h2
-            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal"
-          >
-            <span class="text-[#4f4f4f]">Industries </span
-            ><span class="text-black">We Empower</span>
-          </h2>
-          <p
-            class="text-sm md:text-[15px] text-[#4f4f4f] leading-relaxed md:w-[512px] w-full"
-          >
-            We support businesses across retail, restaurants, salons, and
-            more—with features tailored to each industry’s unique needs.
-          </p>
+  <!-- ===================== INDUSTRIES ===================== -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="mb-12 text-left">
+        <h2 class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal">
+          <span class="section-accent">Industries </span><span class="section-main">We Empower</span>
+        </h2>
+        <p class="section-sub text-sm md:text-[15px] leading-relaxed md:w-[512px] w-full">
+          We support businesses across retail, restaurants, salons, and more—with features tailored to each industry's unique needs.
+        </p>
+      </div>
+      <div class="space-y-16">
+        <div class="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:space-x-8">
+          <img src="/assets/images/about/01.png" class="object-cover" alt="" />
+          <div class="mt-6 lg:mt-0 text-center lg:text-left">
+            <h3 class="industry-title text-2xl font-bold">Food and Beverages</h3>
+            <p class="industry-body mt-4 max-w-xl">Our POS solution is tailored for restaurants, cafés, and food outlets—offering fast order taking, table and kitchen management, split billing, and real-time inventory tracking.</p>
+          </div>
         </div>
-
-        <!-- Industry Blocks -->
-        <div class="space-y-16">
-          <!-- Industry 1 -->
-          <div
-            class="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-center <!-- added --> lg:space-x-8"
-          >
-            <img
-              src="/assets/images/about/01.png"
-              class="object-cover"
-              alt=""
-            />
-            <div class="mt-6 lg:mt-0 text-center lg:text-left">
-              <!-- optional: center text on mobile -->
-              <h3 class="text-2xl font-bold text-gray-900">
-                Food and Beverages
-              </h3>
-              <p class="mt-4 text-gray-600 max-w-xl">
-                Our POS solution is tailored for restaurants, cafés, and food
-                outlets— offering fast order taking, table and kitchen
-                management, split billing, and real-time inventory tracking.
-              </p>
-            </div>
+        <hr class="industry-hr" />
+        <div class="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:space-x-8">
+          <div class="order-2 lg:order-1 mt-6 lg:mt-0 text-center lg:text-left">
+            <h3 class="industry-title text-2xl font-bold">Retail</h3>
+            <p class="industry-body mt-4 max-w-xl">Our POS system is built for retail businesses of all sizes—offering fast checkout, barcode scanning, real-time inventory tracking, customer profiles, and smart reports.</p>
           </div>
-
-          <hr class="border-gray-200" />
-
-          <!-- Industry 2 -->
-          <div
-            class="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-center <!-- added --> lg:space-x-8"
-          >
-            <div
-              class="order-2 lg:order-1 mt-6 lg:mt-0 text-center lg:text-left"
-            >
-              <h3 class="text-2xl font-bold text-gray-900">Retail</h3>
-              <p class="mt-4 text-gray-600 max-w-xl">
-                Our POS system is built for retail businesses of all
-                sizes—offering fast checkout, barcode scanning, real-time
-                inventory tracking, customer profiles, and smart reports.
-              </p>
-            </div>
-            <img
-              src="/assets/images/about/02.png"
-              class="object-cover order-1 lg:order-2"
-              alt=""
-            />
-          </div>
+          <img src="/assets/images/about/02.png" class="object-cover order-1 lg:order-2" alt="" />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="bg-white py-10">
-      <div class="container mx-auto px-4 sm:px-8 lg:px-16">
-        <!-- Top Logo + Switch -->
-        <div
-          class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
-        >
-          <img
-            src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="w-10 md:w-40 h-auto"
-            alt=""
-          />
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="py-10">
+    <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+      <div class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center">
+        <img src="/assets/images/logo/tequila_pos_logo_transparent.png"           class="logo-light w-10 md:w-40 h-auto" alt="" />
+        <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"    class="logo-dark  w-10 md:w-40 h-auto" alt="" />
+        <div class="flex items-center space-x-2">
+          <p class="footer-label text-[11px] font-normal select-none">Switch to dark mode</p>
+          <label for="dark-mode-toggle" class="relative inline-flex items-center cursor-pointer">
+            <label for="dark-mode-toggle" class="sr-only">Toggle dark mode</label>
+            <input type="checkbox" id="dark-mode-toggle" class="sr-only peer" />
+            <div class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black transition-colors duration-300"></div>
+            <div class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"></div>
+          </label>
+        </div>
+      </div>
 
-          <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
-              Switch to dark mode
-            </p>
-
-            <!-- Toggle Switch -->
-            <label
-              for="dark-mode-toggle"
-              class="relative inline-flex items-center cursor-pointer"
-            >
-              <label for="dark-mode-toggle" class="sr-only"
-                >Toggle dark mode</label
-              >
-              <input
-                type="checkbox"
-                id="dark-mode-toggle"
-                class="sr-only peer"
-                title="Toggle dark mode"
-                placeholder="Toggle dark mode"
-              />
-              <div
-                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
-              ></div>
-              <div
-                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
-              ></div>
-            </label>
+      <div class="border-t border-gray-300 pt-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12">
+          <div>
+            <button class="footer-heading w-full flex justify-start items-center font-medium text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none" aria-expanded="false" aria-controls="company-links" onclick="toggleAccordion(this)">
+              Company
+              <svg class="w-5 h-5 transition-transform duration-300 sm:hidden footer-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="company-links" class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="footer-link block">About Us</a>
+              <a href="#" class="footer-link block">Contact Us</a>
+              <a href="#" class="footer-link block">Hardware</a>
+              <a href="#" class="footer-link block">Terms of Service</a>
+              <a href="#" class="footer-link block">Privacy Policy</a>
+            </div>
+          </div>
+          <div>
+            <button class="footer-heading w-full flex justify-start items-center font-medium text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none" aria-expanded="false" aria-controls="products" onclick="toggleAccordion(this)">
+              Products
+              <svg class="w-5 h-5 transition-transform duration-300 sm:hidden footer-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="products" class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="footer-link block">PAX A920</a>
+              <a href="#" class="footer-link block">PAX A35</a>
+              <a href="#" class="footer-link block">MagTek DynaFlex</a>
+              <a href="#" class="footer-link block">PAX Elys Workstation</a>
+            </div>
+          </div>
+          <div>
+            <button class="footer-heading w-full flex justify-start items-center font-medium text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none" aria-expanded="false" aria-controls="footer-resources" onclick="toggleAccordion(this)">
+              Resources
+              <svg class="w-5 h-5 transition-transform duration-300 sm:hidden footer-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="footer-resources" class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="footer-link block">Product Guides &amp; Tutorials</a>
+              <a href="#" class="footer-link block">Video Tutorials</a>
+              <a href="#" class="footer-link block">FAQs</a>
+            </div>
+          </div>
+          <div>
+            <button class="footer-heading w-full flex justify-start items-center font-medium text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none" aria-expanded="false" aria-controls="legal" onclick="toggleAccordion(this)">
+              Legal
+              <svg class="w-5 h-5 transition-transform duration-300 sm:hidden footer-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="legal" class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="footer-link block">Privacy Policy</a>
+              <a href="#" class="footer-link block">Terms &amp; Condition</a>
+            </div>
+          </div>
+          <div>
+            <button class="footer-heading w-full flex justify-start items-center font-medium text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none" aria-expanded="false" aria-controls="social" onclick="toggleAccordion(this)">
+              Social
+              <svg class="w-5 h-5 transition-transform duration-300 sm:hidden footer-chevron" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div id="social" class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible">
+              <a href="#" class="footer-link block">Twitter</a>
+              <a href="#" class="footer-link block">Instagram</a>
+              <a href="#" class="footer-link block">Facebook</a>
+              <a href="#" class="footer-link block">Youtube</a>
+            </div>
           </div>
         </div>
 
-        <!-- Links -->
         <div class="border-t border-gray-300 pt-6">
-          <div
-            class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
-          >
-            <!-- Company -->
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <!-- Accordion Header Button -->
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="company-links"
-                onclick="toggleAccordion(this)"
-              >
-                Company
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-
-              <!-- Links Container -->
-              <div
-                id="company-links"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >About Us</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Contact Us</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Hardware</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Terms of Service</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Privacy Policy</a
-                >
-              </div>
+              <h4 class="footer-heading font-medium text-xl sm:text-2xl mb-2">Subscribe</h4>
+              <p class="footer-link text-sm sm:text-base mb-1">Join our community to receive updates</p>
             </div>
-
-            <!-- Products -->
             <div>
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="products"
-                onclick="toggleAccordion(this)"
-              >
-                Products
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div
-                id="products"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >PAX A920</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >PAX A35</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >MagTek DynaFlex</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >PAX Elys Workstation</a
-                >
-              </div>
-            </div>
-
-            <!-- Resources -->
-            <div>
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="resources"
-                onclick="toggleAccordion(this)"
-              >
-                Resources
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div
-                id="resources"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Product Guides & Tutorials</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Video Tutorials</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >FAQs</a
-                >
-              </div>
-            </div>
-
-            <!-- Legal -->
-            <div>
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="legal"
-                onclick="toggleAccordion(this)"
-              >
-                Legal
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div
-                id="legal"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Privacy Policy</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Terms & Condition</a
-                >
-              </div>
-            </div>
-
-            <!-- Social -->
-            <div>
-              <button
-                class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
-                aria-expanded="false"
-                aria-controls="social"
-                onclick="toggleAccordion(this)"
-              >
-                Social
-                <svg
-                  class="w-5 h-5 text-gray-600 transition-transform duration-300 sm:hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              <div
-                id="social"
-                class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
-              >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Twitter</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Instagram</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Facebook</a
-                >
-                <a
-                  href="#"
-                  class="text-gray-500 hover:text-gray-800 transition-colors block"
-                  >Youtube</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Subscribe -->
-          <div class="border-t border-gray-300 pt-6">
-            <div
-              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
-            >
-              <div>
-                <h4
-                  class="font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-2"
-                >
-                  Subscribe
-                </h4>
-                <p class="text-gray-500 text-sm sm:text-base mb-1">
-                  Join our community to receive updates
-                </p>
-              </div>
-              <div>
-                <p class="text-gray-800 text-xs ps-3 pb-1">Stay up to date</p>
-                <div class="flex w-full sm:w-auto">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    class="bg-gray-100 h-9 rounded-l-full px-4 w-full sm:w-64 text-gray-600 text-base border-0 outline-none"
-                  />
-                  <button
-                    class="bg-black h-9 rounded-r-full px-6 text-white text-base hover:bg-gray-800 transition-colors"
-                  >
-                    Subscribe
-                  </button>
-                </div>
+              <p class="footer-label text-xs ps-3 pb-1">Stay up to date</p>
+              <div class="flex w-full sm:w-auto">
+                <input type="email" placeholder="Enter your email" class="subscribe-input h-9 rounded-l-full px-4 w-full sm:w-64 text-base border-0 outline-none" style="background:#f3f4f6; color:#4b5563" />
+                <button class="h-9 rounded-r-full px-6 text-white text-base transition-colors" style="background:#000">Subscribe</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <!-- Splide JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <script src="../assets/js/navbar.js"></script>
-    <script src="../assets/js/slider.js"></script>
-    <script src="../assets/js/footer-accordion.js"></script>
+  <!-- ===================== SCRIPTS ===================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script src="/assets/js/navbar.js"></script>
+  <script src="/assets/js/slider.js"></script>
+  <script src="/assets/js/footer-accordion.js"></script>
 
-    <script>
-      function toggleFaq(element) {
-        element.classList.toggle("active");
+  <script>
+    // Language toggle
+    let isEnglish = true;
+    function toggleLanguage() {
+      const textEl = document.getElementById('language-text');
+      const flagEl = document.getElementById('flag-icon');
+      if (isEnglish) {
+        textEl.textContent = 'ESPAÑOL';
+        flagEl.src = '/assets/images/flags/espan.png';
+        flagEl.alt = 'Spain Flag';
+      } else {
+        textEl.textContent = 'ENGLISH';
+        flagEl.src = '/assets/images/flags/usa.png';
+        flagEl.alt = 'USA Flag';
       }
+      isEnglish = !isEnglish;
+    }
 
-      let isEnglish = true;
+    // Apply theme-aware CSS classes dynamically
+    // Instead of duplicating HTML, we use a small JS utility that
+    // adds semantic class names and a <style> block handles the rest
+  </script>
 
-      function toggleLanguage() {
-        const textEl = document.getElementById("language-text");
-        const flagEl = document.getElementById("flag-icon");
+  <!-- Page-specific theme styles using semantic class names -->
+  <style>
+    /* Light defaults */
+    body { background-color: #fff; }
+    footer { background-color: #fff; }
 
-        if (isEnglish) {
-          textEl.textContent = "ESPAÑOL";
-          flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
-          flagEl.alt = "Spain Flag";
-        } else {
-          textEl.textContent = "ENGLISH";
-          flagEl.src = "/assets/images/flags/usa.png";
-          flagEl.alt = "USA Flag";
-        }
+    .about-desc   { color: #4f4f4f; }
+    .section-accent { color: #4f4f4f; }
+    .section-main   { color: #000; }
+    .section-sub    { color: #4f4f4f; }
 
-        isEnglish = !isEnglish; // flip state
-      }
-    </script>
-  </body>
+    .slide-accent { color: #4f4f4f; }
+    .slide-main   { color: #000; }
+    .slide-dot    { background-color: #000; }
+    .slide-quote  { color: #4b5563; }
+
+    .why-card { background-color: #fff; box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.13); }
+
+    .diff-card  { background-color: #fff; }
+    .diff-dot   { background-color: #1f2937; }
+    .diff-num   { color: #1f2937; }
+    .diff-title { color: #1f2937; }
+    .diff-body  { color: #4b5563; }
+
+    .industry-title { color: #111827; }
+    .industry-body  { color: #4b5563; }
+    .industry-hr    { border-color: #e5e7eb; }
+
+    .footer-heading { color: #1f2937; }
+    .footer-link    { color: #6b7280; transition: color 0.2s; }
+    .footer-link:hover { color: #1f2937; }
+    .footer-label   { color: #4f4f4f; }
+    .footer-chevron { color: #4b5563; }
+    .subscribe-input { background: #f3f4f6; color: #4b5563; }
+
+    /* Dark overrides */
+    html.dark body    { background-color: #1c1c1c; color: #fff; }
+    html.dark footer  { background-color: #1c1c1c; }
+    html.dark section { background-color: #1c1c1c; }
+
+    html.dark .about-desc    { color: #cdcdcd; }
+    html.dark .section-accent { color: #C89633; }
+    html.dark .section-main   { color: #fff; }
+    html.dark .section-sub    { color: #cdcdcd; }
+
+    html.dark .slide-accent { color: #C98633; }
+    html.dark .slide-main   { color: #fff; }
+    html.dark .slide-dot    { background-color: #fff; }
+    html.dark .slide-quote  { color: #e5e7eb; }
+
+    html.dark .why-card {
+      background-color: transparent;
+      box-shadow: 0px 1px 2px 1px rgba(255,255,255,0.13);
+    }
+
+    html.dark .diff-card  { background-color: #373737; }
+    html.dark .diff-dot   { background-color: #f9fafb; }
+    html.dark .diff-num   { color: #fff; }
+    html.dark .diff-title { color: #f3f4f6; }
+    html.dark .diff-body  { color: #9ca3af; }
+
+    html.dark .industry-title { color: #f3f4f6; }
+    html.dark .industry-body  { color: #e5e7eb; }
+    html.dark .industry-hr    { border-color: #374151; }
+
+    html.dark .footer-heading { color: #fff; }
+    html.dark .footer-link    { color: #cdcdcd; }
+    html.dark .footer-link:hover { color: #fff; }
+    html.dark .footer-label   { color: #cdcdcd; }
+    html.dark .footer-chevron { color: #fff; }
+    html.dark .subscribe-input { background: #2c2c2c; color: #cdcdcd; }
+
+    html.dark footer .border-gray-300,
+    html.dark footer .border-t { border-color: #444; }
+    html.dark .border-gray-300 { border-color: #444; }
+  </style>
+
+</body>
 </html>
