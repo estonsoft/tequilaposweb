@@ -25,403 +25,233 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="/assets/style/global.css" />
+
+    <style>
+      /* ---- Light defaults ---- */
+      body { background-color: #ffffff; color: #000000; }
+      footer { background-color: #ffffff; }
+      section { background-color: #ffffff; }
+      
+      /* Color classes */
+      .page-accent { color: #505050; }
+      .page-main   { color: #000000; }
+      .page-sub    { color: #4f4f4f; }
+      
+      .nav-link { color: #333333; }
+      .footer-link { color: #6b7280; transition: color 0.2s; }
+      .footer-link:hover { color: #1f2937; }
+      .footer-label { color: #4f4f4f; }
+      
+      .logo-dark { display: none; }
+      .logo-light { display: block; }
+
+      /* Light mode navbar and mobile menu */
+      .navbar { background-color: transparent; }
+      .mega-menu { background-color: #ffffff; }
+      
+      #mobile-menu { background-color: #ffffff; color: #111827; }
+      #mobile-menu a { color: #374151; }
+      #mobile-menu a:hover { background-color: #f3f4f6; }
+      #dropdownBtn { background-color: #f3f4f6; color: #374151; }
+      #dropdownBtn:hover { background-color: #e5e7eb; }
+      #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
+      
+      /* Border and background colors */
+      .border-gray-300 { border-color: #d1d5db; }
+
+      /* ---- Dark mode overrides ---- */
+      html.dark body    { background-color: #1c1c1c; color: #ffffff; }
+      html.dark footer  { background-color: #1c1c1c; }
+      html.dark section { background-color: #1c1c1c; }
+      
+      html.dark .page-accent { color: #C98633; }
+      html.dark .page-main   { color: #ffffff; }
+      html.dark .page-sub    { color: #cdcdcd; }
+      
+      html.dark .nav-link { color: #ffffff; }
+      html.dark .footer-link { color: #cdcdcd; }
+      html.dark .footer-link:hover { color: #ffffff; }
+      html.dark .footer-label { color: #cdcdcd; }
+      
+      html.dark .logo-dark { display: block; }
+      html.dark .logo-light { display: none; }
+      
+      html.dark .mega-menu { background-color: #000000; }
+      html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
+      html.dark #mobile-menu a { color: #cdcdcd; }
+      html.dark #mobile-menu a:hover { background-color: #374151; color: #ffffff; }
+      html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
+      html.dark #dropdownBtn:hover { background-color: #374151; }
+      html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+      
+      /* Text color overrides for dark mode */
+      html.dark .text-black { color: #ffffff; }
+      html.dark .text-\[#4f4f4f\],
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-800,
+      html.dark .text-neutral-600,
+      html.dark .text-stone-500 { color: #cdcdcd; }
+      html.dark .text-\[#6b6b6b\] { color: #cdcdcd; }
+      html.dark .text-gray-500 { color: #cdcdcd; }
+      html.dark .text-gray-900 { color: #ffffff; }
+      
+      /* Background and border overrides for dark mode */
+      html.dark .bg-white { background-color: #1c1c1c; }
+      html.dark .bg-gray-100 { background-color: #2c2c2c; }
+      html.dark .bg-gray-50 { background-color: #1a1a1a  }
+      html.dark .border-gray-300 { border-color: #444444; }
+      html.dark .border-\[\#dcdcdc\] { border-color: #444444; }
+      html.dark .hover\:bg-gray-100:hover { background-color: #2c2c2c; }
+      
+      /* Smart card overrides */
+      html.dark .smart-card-feature-card { background-color: #1c1c1c; }
+      html.dark .smart-card-feature-card.group.hover\:bg-black:hover { background-color: #ffffff; }
+      html.dark .smart-card-feature-card.group.hover\:bg-black:hover h5 { color: #000000; }
+      html.dark .smart-card-feature-card.group.hover\:bg-black:hover h6 { color: #4f4f4f; }
+      
+      /* Utility class overrides */
+      html.dark .hover\:bg-\[#1c1c1c\]:hover { background-color: #ffffff; }
+      html.dark .group .group-hover\:text-white { color: #ffffff; }
+      html.dark .group .group-hover\:text-gray-200 { color: #a0a0a0; }
+    </style>
   </head>
 
-  <body class="bg-white font-inter text-sm">
+  <body class="font-inter text-sm">
     <!-- Navigation -->
     <nav class="navbar lg:block hidden">
-      <div
-        class="navbar-container container mx-auto px-6 lg:px-[60px] flex items-center justify-between h-[70px]"
-      >
-        <!-- Logo -->
-        <div class="logo-container flex items-center gap-4">
-          <a href="/light/index.html">
-            <img
-              src="/assets/images/logo/tequila_pos_logo_transparent.png"
-              class="logo h-[65px] w-auto"
-              alt="Logo"
-            />
-          </a>
-
-          <div class="nav-links flex items-center gap-6">
-            <div class="nav-item relative group">
-              <a
-                href="#business-type"
-                class="nav-link text-[14px] font-bold text-[#333] hover:text-black transition"
-                >Business Type</a
-              >
-
-              <!-- Mega Menu -->
-              <div
-                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
-                onmouseleave="clearActive()"
-              >
-                <div class="flex flex-nowrap gap-10">
-                  <!-- LEFT: categories -->
-                  <div
-                    class="flex flex-col p-10 gap-4"
-                    id="categoryList"
-                    data-aos="fade-left"
-                  >
-                    <a
-                      href="#"
-                      class="text-[14px] font-bold text-[#333] hover:text-black transition hover:underline"
-                      data-cat="food"
-                      onmouseenter="setActive('food')"
-                      onfocus="setActive('food')"
-                    >
-                      Food &amp; Beverage
-                    </a>
-
-                    <a
-                      href="#"
-                      class="text-[14px] font-bold text-[#333] hover:text-black transition hover:underline"
-                      data-cat="retail"
-                      onmouseenter="setActive('retail')"
-                      onfocus="setActive('retail')"
-                    >
-                      Retail
-                    </a>
-                  </div>
-
-                  <!-- RIGHT: panels -->
-                  <div class="flex gap-16 p-10">
-                    <!-- FOOD panel -->
-                    <div class="flex justify-between gap-10" data-panel="food">
-                      <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
-                          Discover
-                        </h6>
-                        <ul class="space-y-2 text-sm">
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Overview</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Switch to Tequila</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
-                          Capacity
-                        </h6>
-                        <ul class="space-y-2 text-sm">
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Manage order from one place</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Take payment</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Keep customer coming back</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Scale your business</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Improve operation</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Schedule and pay your team</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Manage your cash flow</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
+    <div class="navbar-container container mx-auto">
+      <div class="logo-container">
+        <a href="/restaurant-capabilities.html">
+          <img src="/assets/images/logo/tequila_pos_logo_transparent.png"
+               class="logo-light logo" alt="Logo" />
+          <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+               class="logo-dark logo" alt="Logo" />
+        </a>
+        <div class="nav-links ml-4">
+          <div class="nav-item relative group">
+            <a href="#business-type" class="nav-link">Business Type</a>
+            <div class="mega-menu mega-anim absolute left-0 top-full pt-10" onmouseleave="clearActive()">
+              <div class="flex flex-nowrap gap-10">
+                <div class="flex flex-col p-10 gap-4" id="categoryList" data-aos="fade-left">
+                  <a href="#" class="text-[26px] font-bold hover:underline" style="color:inherit"
+                     data-cat="food" onmouseenter="setActive('food')" onfocus="setActive('food')">Food &amp; Beverage</a>
+                  <a href="#" class="text-[26px] font-bold hover:underline" style="color:inherit"
+                     data-cat="retail" onmouseenter="setActive('retail')" onfocus="setActive('retail')">Retail</a>
+                </div>
+                <div class="flex gap-16 p-10">
+                  <div class="flex justify-between gap-10" data-panel="food">
+                    <div>
+                      <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Discover</h6>
+                      <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Overview</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Switch to Tequila</a></li>
+                      </ul>
                     </div>
-
-                    <!-- RETAIL panel -->
-                    <div class="space-y-6 hidden" data-panel="retail">
-                      <div class="gap-10">
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
-                          Discover
-                        </h6>
-                        <ul class="space-y-2 text-sm">
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Overview</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-[14px] font-bold text-[#333] hover:text-black transition"
-                              >Switch to Tequila</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
+                    <div>
+                      <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Capacity</h6>
+                      <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Manage order from one place</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Take payment</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Keep customer coming back</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Scale your business</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Improve operation</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Schedule and pay your team</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Manage your cash flow</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="space-y-6 hidden" data-panel="retail">
+                    <div>
+                      <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Discover</h6>
+                      <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Overview</a></li>
+                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Switch to Tequila</a></li>
+                      </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Other Links -->
-            <a
-              href="/light/feature.html"
-              class="nav-link text-[14px] font-bold text-[#333] hover:text-black transition"
-              >Feature</a
-            >
-            <a
-              href="/light/hardware.html"
-              class="nav-link text-[14px] font-bold text-[#333] hover:text-black transition"
-              >Hardware</a
-            >
-            <a
-              href="/light/pricing.html"
-              class="nav-link text-[14px] font-bold text-[#333] hover:text-black transition"
-              >Pricing</a
-            >
-            <a
-              href="/light/resourse.html"
-              class="nav-link text-[14px] font-bold text-[#333] hover:text-black transition"
-              >Resources</a
-            >
           </div>
-        </div>
-
-        <!-- Navigation Links -->
-        <div class="nav-extra-links flex items-center gap-6">
-          <a
-            href="#signin"
-            class="nav-link text-[14px] font-bold text-[#333] hover:text-black"
-            >Sign in</a
-          >
-
-          <div
-            class="language-selector cursor-pointers flex items-center gap-2 text-[13px] text-[#333]"
-            onclick="toggleLanguage()"
-          >
-            <img
-              id="flag-icon"
-              src="/assets/images/flags/usa.png"
-              alt="USA Flag"
-              class="flag-icon w-5 h-5 rounded-full"
-            />
-            <span id="language-text">ENGLISH</span>
-          </div>
-
-          <button
-            class="border border-black rounded-full px-5 py-1.5 text-[13px] font-bold hover:bg-black hover:text-white transition"
-          >
-            Free Demo
-          </button>
+          <a href="/feature.html"   class="nav-link">Feature</a>
+          <a href="/hardware.html"  class="nav-link">Hardware</a>
+          <a href="/pricing.html"   class="nav-link">Pricing</a>
+          <a href="/resourse.html"  class="nav-link">Resources</a>
         </div>
       </div>
-    </nav>
+      <div class="nav-extra-links">
+        <div class="language-selector cursor-pointer" onclick="toggleLanguage()">
+          <span id="language-text">ENGLISH</span>
+          <img id="flag-icon" src="/assets/images/flags/usa.png" alt="USA Flag" class="flag-icon" />
+        </div>
+        <a href="#signin" class="nav-link">Sign in</a>
+        <button class="demo-btn"><span>Free Demo</span></button>
+      </div>
+    </div>
+  </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar lg:hidden bg-white shadow-md relative">
-      <div
-        class="navbar-container container mx-auto flex items-center justify-between py-4"
-      >
-        <!-- Logo -->
-        <div class="logo-container flex items-center">
-          <img
-            src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="logo h-10"
-            alt="Logo"
-          />
-        </div>
-        <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="lg:hidden p-2 text-black">
-          <!-- Hamburger Icon -->
-          <svg
-            id="hamburger-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-
-          <!-- Close Icon -->
-          <svg
-            id="close-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6 hidden"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
+    <nav class="navbar lg:hidden shadow-md relative">
+    <div class="navbar-container container mx-auto flex items-center justify-between py-2 px-4">
+      <div class="logo-container flex items-center">
+        <img src="/assets/images/logo/tequila_pos_logo_transparent.png"
+             class="logo-light logo h-10" alt="Logo" />
+        <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+             class="logo-dark logo h-10" alt="Logo" />
       </div>
-
-      <!-- Mobile Menu -->
-      <!-- Mobile Menu (White Version) -->
-      <div
-        id="mobile-menu"
-        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
-      >
-        <div class="p-4 space-y-4">
-          <!-- Dropdown -->
-          <div class="relative">
-            <button
-              id="dropdownBtn"
-              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
-            >
-              Business Type
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5 text-gray-500 transition-transform duration-200"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
-        11.94l3.72-3.72a.75.75 0 1 1 
-        1.06 1.06l-4.25 4.25a.75.75 0 
-        0 1-1.06 0L5.22 9.28a.75.75 
-        0 0 1 0-1.06Z"
-                />
-              </svg>
-            </button>
-
-            <div
-              id="dropdownMenu"
-              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
-            >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Edit</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Duplicate</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Archive</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Delete</a
-              >
-            </div>
+      <button id="mobile-menu-btn" class="lg:hidden p-2" style="color:inherit">
+        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg" style="background-color:var(--mobile-bg,#fff)">
+      <div class="p-4 space-y-4">
+        <div class="relative">
+          <button id="dropdownBtn" class="flex justify-between items-center w-full px-4 py-2 rounded" style="background:#f3f4f6; color:inherit">
+            Business Type
+            <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 transition-transform duration-200">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"/>
+            </svg>
+          </button>
+          <div id="dropdownMenu" class="hidden mt-2 rounded shadow-lg overflow-hidden border" style="background:#f9fafb">
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Food &amp; Beverage</a>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Retail</a>
           </div>
-
-          <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Features</a
-          >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Hardware</a
-          >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Pricing</a
-          >
-          <a href="#resources" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Resources</a
-          >
-
-          <!-- Language Switcher -->
-          <div
-            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
-          >
-            <span class="text-sm">EN</span>
-            <label class="inline-flex items-center cursor-pointer">
-              <input type="checkbox" class="sr-only peer" />
-              <div
-                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
-              ></div>
-            </label>
-            <span class="text-sm">ES</span>
-          </div>
-
-          <!-- Sign in -->
-          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Sign In</a
-          >
-
-          <!-- CTA Button -->
-          <a
-            href="#demo"
-            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
-          >
-            Free Demo
-          </a>
         </div>
+        <a href="/feature.html"  class="block px-4 py-2 rounded hover:opacity-80">Features</a>
+        <a href="/hardware.html" class="block px-4 py-2 rounded hover:opacity-80">Hardware</a>
+        <a href="/pricing.html"  class="block px-4 py-2 rounded hover:opacity-80">Pricing</a>
+        <a href="/resourse.html" class="block px-4 py-2 rounded hover:opacity-80">Resources</a>
+        <a href="#signin"        class="block px-4 py-2 rounded hover:opacity-80">Sign In</a>
+        <a href="#demo" class="block text-center font-bold py-2 rounded shadow" style="background:#c89633; color:#000">Free Demo</a>
       </div>
-    </nav>
+    </div>
+  </nav>
 
     <!-- hero section -->
     <section class="md:pb-20 pb-9">
       <div
-        class="container mx-auto px-4 sm:px-8 lg:px-16 md:mt-12 mt-8"
+        class="container mx-auto px-4 md:mt-12 mt-8"
       >
         <div class="text-center md:mb-14 mb-3">
           <h2
             class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
           >
-            <span class="text-[#4f4f4f]">All-in-One POS Features</span>
+            <span class="page-accent">All-in-One POS Features</span>
 
-            <span class="text-black">
+            <span class="page-main">
               for <br />
               Seamless Management</span
             >
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-[400px] text-center text-[#4f4f4f] md:text-[15px] text-[16px] font-normal"
+              class="md:w-[562px] w-[400px] text-center md:text-[15px] text-[16px] font-normal"
             >
               All-in-One POS Features for Seamless Management.
             </p>
@@ -439,19 +269,19 @@
     </section>
 
     <!-- core feature soluitons -->
-    <section class="bg-white md:pb-20 pb-9">
+    <section class="md:pb-20 pb-9">
       <div
-        class="container mx-auto px-4 sm:px-8 lg:px-16"
+        class="container mx-auto px-4"
       >
         <!-- Section Header -->
         <div class="text-center md:mb-10 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#4f4f4f]">Articulating the</span>
-            <span class="text-black">core functionality</span>
+            <span class="page-accent">Articulating the</span>
+            <span class="page-main">core functionality</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center md:text-[15px] text-[10px] font-normal"
             >
               A POS website streamlines sales with real-time inventory tracking,
               secure payment processing, customer management, and insightful
@@ -470,12 +300,12 @@
               data-aos="fade-up"
             >
               <div class="p-2">
-                <h1 class="text-black text-xs md:text-xl font-bold">
+                <h1 class="text-xs md:text-xl font-bold">
                   Offline Mode
                 </h1>
 
                 <h6
-                  class="text-neutral-600 md:text-xs text-[7px] font-normal mt-1 leading-normal"
+                  class="md:text-xs text-[7px] font-normal mt-1 leading-normal"
                 >
                   Continue billing even during power or internet outages. All
                   data syncs once you're back online.
@@ -490,7 +320,7 @@
                 </div>
 
                 <h6
-                  class="text-black text-[8px] md:text-sm font-normal mt-2 md:mt-5 leading-normal"
+                  class=" text-[8px] md:text-sm font-normal mt-2 md:mt-5 leading-normal"
                 >
                   Keep selling even without internet — all data syncs
                   automatically once you're back online.
@@ -503,12 +333,12 @@
               data-aos="fade-up"
             >
               <div class="p-2">
-                <h1 class="text-black text-xs md:text-xl font-bold">
+                <h1 class="text-xs md:text-xl font-bold">
                   Loyalty & Rewards Integration
                 </h1>
 
                 <h6
-                  class="text-neutral-600 md:text-xs text-[7px] font-normal mt-1 leading-normal"
+                  class=" md:text-xs text-[7px] font-normal mt-1 leading-normal"
                 >
                   Auto-track points and rewards to keep <br />
                   customers coming back.
@@ -523,7 +353,7 @@
                 </div>
 
                 <h6
-                  class="text-black text-[8px] md:text-sm font-normal mt-2 md:mt-5 leading-normal"
+                  class=" text-[8px] md:text-sm font-normal mt-2 md:mt-5 leading-normal"
                 >
                   Boost repeat visits with built-in points and rewards tracking.
                 </h6>
@@ -535,12 +365,12 @@
               data-aos="fade-up"
             >
               <div class="p-2">
-                <h1 class="text-black text-xs md:text-xl font-bold">
+                <h1 class="text-xs md:text-xl font-bold">
                   Inventory Tracking & Low Stock Alerts
                 </h1>
 
                 <h6
-                  class="text-neutral-600 md:text-xs text-[7px] font-normal mt-1 leading-normal"
+                  class=" md:text-xs text-[7px] font-normal mt-1 leading-normal"
                 >
                   Track stock in real time and get alerts before items run
                   out—stay prepared and avoid missed sales.
@@ -1075,14 +905,14 @@
     <!-- smart feature section -->
     <section class="md:pb-20 pb-9">
       <div
-        class="container mx-auto px-4 sm:px-8 lg:px-16"
+        class="container mx-auto px-4"
       >
         <div class="text-center md:mb-14 mb-3">
           <h2
             class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
           >
-            <span class="text-[#4f4f4f]">Smart Features.</span>
-            <span class="text-black"> Real Impact.</span>
+            <span class="page-accent">Smart Features.</span>
+            <span class="page-main"> Real Impact.</span>
           </h2>
           <div class="flex justify-center">
             <p
@@ -1100,7 +930,7 @@
           >
             <!-- Card 1 -->
             <div
-              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-4 group bg-white hover:bg-[#1c1c1c] transition-all duration-500"
+              class="smart-card-feature-card md:py-14 py-6 md:px-6 px-4 grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-4 group hover:bg-[#1c1c1c] transition-all duration-500"
             >
               <!-- image wrapper: fixed square, no padding, overflow-hidden to clip -->
               <div
@@ -1119,12 +949,12 @@
               </div>
               <div class="md:pt-[73px] flex flex-col justify-center gap-4">
                 <h5
-                  class="text-black md:text-xl text-xs font-semibold group-hover:text-white transition-colors duration-300"
+                  class=" md:text-xl text-xs font-semibold group-hover:text-white transition-colors duration-300"
                 >
                   Works on Desktop, Tablet & Mobile
                 </h5>
                 <h6
-                  class="text-stone-500 md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
+                  class="md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
                 >
                   Our POS solution is designed to work smoothly on desktop,
                   tablet, and mobile, giving you complete flexibility to manage
@@ -1153,12 +983,12 @@
               </div>
               <div class="md:pt-[73px] flex flex-col justify-center gap-4">
                 <h5
-                  class="text-black md:text-xl text-xs font-semibold group-hover:text-white transition-colors duration-300"
+                  class=" md:text-xl text-xs font-semibold group-hover:text-white transition-colors duration-300"
                 >
                   Cloud-Based with Offline Support
                 </h5>
                 <h6
-                  class="text-stone-500 md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
+                  class="md:text-base text-[8px] font-normal md:mt-3 group-hover:text-gray-200 transition-colors duration-300 leading-none"
                 >
                   Our cloud-based POS ensures your data is always backed up and
                   accessible in real time, while also offering robust offline
@@ -1211,15 +1041,15 @@
     <section class="md:pb-20 pb-9">
       <div id="security-default">
         <div
-          class="container mx-auto px-4 sm:px-8 lg:px-16"
+          class="container mx-auto px-4"
         >
           <div class="text-center md:mb-14 mb-3">
             <h2
               class="mb-1 md:mb-4 font-bold md:text-[40px] text-xl w-full leading-tight"
             >
-              <span class="text-[#4f4f4f]">Built-In Security.</span>
+              <span class="page-accent">Built-In Security.</span>
 
-              <span class="text-black">at Every Level</span>
+              <span class="page-main">at Every Level</span>
             </h2>
             <div class="flex justify-center">
               <p
@@ -1240,14 +1070,14 @@
               <h1
                 class="md:w-[463px] w-full justify-start text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold"
               >
-                <span class="text-neutral-600">Your Security is Our </span
-                ><span class="text-black md:text-2xl lg:text-4xl"
+                <span class="text-neutral-600 page-accent">Your Security is Our </span
+                ><span class="page-main md:text-2xl lg:text-4xl"
                   >Top Priority</span
                 >
               </h1>
 
               <p
-                class="w-full lg:max-w-[500px] text-neutral-600 md:text-xl font-normal md:mt-10 hidden md:block"
+                class="w-full lg:max-w-[500px] md:text-xl font-normal md:mt-10 hidden md:block"
               >
                 Our POS solution is built with robust security at its core. From
                 encrypted data transmission and secure cloud backups to
@@ -1294,19 +1124,19 @@
           </div>
         </div>
       </div>
-      <div id="security-expanded" class="hidden bg-white">
-        <div class="container mx-auto lg:px-2 px-4 max-w-[1400px]">
+      <div id="security-expanded" class="hidden">
+        <div class="container mx-auto px-4 max-w-[1400px]">
           <!-- Heading -->
           <div class="text-center mb-10 md:mb-14">
             <h2
               class="font-bold text-2xl sm:text-3xl md:text-4xl leading-tight"
             >
-              <span class="text-[#4f4f4f]">Built-In Security </span>
-              <span class="text-black">at Every Level</span>
+              <span class="page-accent">Built-In Security </span>
+              <span class="page-main">at Every Level</span>
             </h2>
 
             <p
-              class="text-[#6b6b6b] text-sm sm:text-base mt-3 max-w-[600px] mx-auto"
+              class="text-sm sm:text-base mt-3 max-w-[600px] mx-auto"
             >
               From login to backup, we safeguard your operations with robust
               security protocols and constant monitoring.
@@ -1326,12 +1156,12 @@
                   alt=""
                   class="w-10 h-10 object-contain"
                 />
-                <h4 class="text-black font-semibold text-[17px] leading-tight">
+                <h4 class="font-semibold text-[17px] leading-tight">
                   End-to-End Encryption
                 </h4>
               </div>
 
-              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+              <p class=" text-[14px] leading-[1.6]">
                 All sensitive data is encrypted the moment it enters the system
                 and remains protected during transfer and storage, ensuring
                 total privacy and security for every transaction.
@@ -1348,11 +1178,11 @@
                   alt=""
                   class="w-10 h-10 object-contain"
                 />
-                <h4 class="text-black font-semibold text-[17px]">
+                <h4 class=" font-semibold text-[17px]">
                   Two-Factor Authentication
                 </h4>
               </div>
-              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+              <p class="text-[14px] leading-[1.6]">
                 Adds an extra layer of security by requiring a second form of
                 verification, ensuring only authorized users can access
                 sensitive parts of your POS system.
@@ -1369,11 +1199,11 @@
                   alt=""
                   class="w-10 h-10 object-contain"
                 />
-                <h4 class="text-black font-semibold text-[17px]">
+                <h4 class="font-semibold text-[17px]">
                   PCI-DSS Compliance
                 </h4>
               </div>
-              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+              <p class="text-[14px] leading-[1.6]">
                 Our POS follows PCI-DSS standards to securely process, store,
                 and transmit cardholder data—ensuring every payment is protected
                 and audit-ready.
@@ -1390,11 +1220,11 @@
                   alt=""
                   class="w-10 h-10 object-contain"
                 />
-                <h4 class="text-black font-semibold text-[17px]">
+                <h4 class="font-semibold text-[17px]">
                   Role-Based Access Control
                 </h4>
               </div>
-              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+              <p class="text-[14px] leading-[1.6]">
                 Assign permissions based on roles—like cashier, manager, or
                 admin—so each user only accesses what they need, reducing
                 security risks.
@@ -1411,11 +1241,11 @@
                   alt=""
                   class="w-10 h-10 object-contain"
                 />
-                <h4 class="text-black font-semibold text-[17px]">
+                <h4 class=" font-semibold text-[17px]">
                   Compliance Ready
                 </h4>
               </div>
-              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+              <p class="text-[14px] leading-[1.6]">
                 Our POS system adheres to industry standards like PCI-DSS,
                 ensuring secure handling of payment data and meeting legal
                 requirements with confidence.
@@ -1432,11 +1262,11 @@
                   alt=""
                   class="w-10 h-10 object-contain"
                 />
-                <h4 class="text-black font-semibold text-[17px]">
+                <h4 class="font-semibold text-[17px]">
                   Secure Cloud Storage
                 </h4>
               </div>
-              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+              <p class="text-[14px] leading-[1.6]">
                 All your data is stored in encrypted cloud servers with
                 automatic backups, ensuring it stays safe, accessible, and
                 protected from loss or breaches.
@@ -1457,7 +1287,7 @@
                   Automatic Session Timeout
                 </h4>
               </div>
-              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+              <p class="text-[14px] leading-[1.6]">
                 The system auto-logs out inactive users after a set time,
                 preventing unauthorized access and keeping your POS environment
                 secure.
@@ -1474,11 +1304,11 @@
                   alt=""
                   class="w-10 h-10 object-contain"
                 />
-                <h4 class="text-black font-semibold text-[17px]">
+                <h4 class="font-semibold text-[17px]">
                   Activity Logs
                 </h4>
               </div>
-              <p class="text-[#6b6b6b] text-[14px] leading-[1.6]">
+              <p class="text-[14px] leading-[1.6]">
                 Track every user action in the system with detailed
                 logs—ensuring transparency, accountability, and quick issue
                 resolution when needed.
@@ -1490,20 +1320,25 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white py-10">
-      <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+    <footer class="py-10">
+      <div class="container mx-auto px-4">
         <!-- Top Logo + Switch -->
         <div
           class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
         >
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="w-10 md:w-40 h-auto"
+            class="logo-light w-10 md:w-40 h-auto"
+            alt=""
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark w-10 md:w-40 h-auto"
             alt=""
           />
 
           <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+            <p class="text-[#4f4f4f] text-[11px] font-normal select-none footer-label">
               Switch to dark mode
             </p>
 
@@ -1523,7 +1358,7 @@
                 placeholder="Toggle dark mode"
               />
               <div
-                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black transition-colors duration-300"
               ></div>
               <div
                 class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
@@ -1845,26 +1680,22 @@
     </script>
 
     <script>
-      const toggle = document.getElementById("dark-mode-toggle");
-
-      const currentPage = window.location.pathname.split("/").pop();
-
-      // Load saved mode
-      const savedTheme = localStorage.getItem("theme");
-
-      if (savedTheme === "dark") {
-        toggle.checked = true;
-      }
-
-      toggle.addEventListener("change", function () {
-        if (this.checked) {
-          localStorage.setItem("theme", "dark");
-          window.location.href = `/dark/${currentPage}`;
-        } else {
-          localStorage.setItem("theme", "light");
-          window.location.href = `/light/${currentPage}`;
+      const darkModeToggle = document.getElementById('dark-mode-toggle');
+      if (darkModeToggle) {
+        // Check existing theme
+        if (document.documentElement.classList.contains('dark')) {
+          darkModeToggle.checked = true;
         }
-      });
+        darkModeToggle.addEventListener('change', (e) => {
+          if (e.target.checked) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      }
     </script>
 
     <script>
