@@ -41,6 +41,10 @@
       #dropdownBtn { background-color: #f3f4f6; }
       #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
 
+      .slide-card  { background-color: #fafafa; }
+    .slide-title { color: #000000; }
+    .slide-body  { color: #4b5563; }
+
       .page-accent { color: #505050; }
     .page-main   { color: #000000; }
     .page-sub    { color: #4f4f4f; }
@@ -49,6 +53,10 @@
       html.dark body    { background-color: #1c1c1c; color: #ffffff; }
       html.dark footer  { background-color: #1c1c1c; }
       html.dark section { background-color: #1c1c1c; }
+
+      html.dark .slide-card  { background-color: #373737; }
+    html.dark .slide-title { color: #ffffff; }
+    html.dark .slide-body  { color: #cdcdcd; }
       
       html.dark .logo-dark { display: block; }
       html.dark .logo-light { display: none; }
@@ -103,9 +111,9 @@
 <body class="font-inter text-sm">
   <!-- Navigation -->
   <nav class="navbar lg:block hidden">
-    <div class="navbar-container container mx-auto">
+    <div class="navbar-container container mx-auto px-4">
       <div class="logo-container">
-        <a href="light/restaurant-capabilities.html">
+        <a href="/index.html">
           <img src="/assets/images/logo/tequila_pos_logo_transparent.png"
                class="logo-light logo" alt="Logo" />
           <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
@@ -157,10 +165,10 @@
               </div>
             </div>
           </div>
-          <a href="light/feature.html"   class="nav-link">Feature</a>
-          <a href="light/hardware.html"  class="nav-link">Hardware</a>
-          <a href="light/pricing.html"   class="nav-link">Pricing</a>
-          <a href="light/resources.html"  class="nav-link">Resources</a>
+          <a href="/feature.html"   class="nav-link">Feature</a>
+          <a href="/hardware.html"  class="nav-link">Hardware</a>
+          <a href="/pricing.html"   class="nav-link">Pricing</a>
+          <a href="/resourse.html"  class="nav-link">Resources</a>
         </div>
       </div>
       <div class="nav-extra-links">
@@ -217,7 +225,7 @@
   </nav>
 
   <!-- hero section -->
-  <section class="bg-transparent-100 py-8 md:py-16">
+  <section class="py-8 md:py-16">
     <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
       <div class="w-full lg:w-[850px] text-left">
         <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-bold page-accent mb-4 md:mb-8">
@@ -238,24 +246,23 @@
   </section>
 
  <!--Flexible Payments Section-->
-  <section class="md:py-6 py-4">
+  <section class="py-4">
     <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
-      <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
-        <div class="w-full md:w-[700px] text-left">
-          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-bold  mb-4 md:mb-2">
+        <div class="w-full lg:w-[700px] text-left">
+          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-2">
             <span class="page-accent">Flexible Payments</span>
             <span class="page-main">On the Go</span>
           </h1>
 
           <p
-            class="md:w-[611px] w-full page-sub md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal md:mb-4">
+            class="md:w-[611px] w-full page-sub md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal">
             Whether it’s contactless, chip, or QR — take payments wherever you serve.
           </p>
         </div>
 
 
         <div
-          class="flex flex-col md:flex-row items-center p-4 sm:p-8  space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
+          class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8  space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
           <div class=" flex justify-center">
             <div class="w-full max-w-sm md:max-w-full">
               <img src="/assets/images/food-truck-capabilities/tab-one.png" alt="Description of another feature"
@@ -264,10 +271,13 @@
           </div>
 
           <div class="md:w-1/2">
-            <h2 class="text xl md:text-3xl font-bold mb-0 md:mb-4 leading-tight page-main">
+            <h2 class="text xl md:text-3xl font-bold mb-0 md:mb-4 leading-tight page-main slide-title">
               Accept payments anywhere — tap, chip, or QR
             </h2>
-            <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed slide-body lg:hidden">
+              Accept payments anywhere with tap, chip, or QR options. Fast, simple, and secure.
+            </p>
+            <p class="hidden lg:block text-base text-gray-600 leading-relaxed slide-body">
               Accept payments anywhere with the flexibility of tap, chip, or QR options. Whether your customers prefer contactless cards, chip inserts, or scanning a QR code, the process is fast, simple, and secure. With seamless transactions from any location, you can keep the line moving and customers happy.
             </p>
           </div>
@@ -278,11 +288,10 @@
 
 
   <!--Sales Breakdown Section-->
-  <section class="md:py-6 py-4">
+  <section class="py-4">
     <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
-      <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
         <div class="w-full md:w-[700px] text-left">
-          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-bold  mb-4 md:mb-2">
+          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-2">
             <span class="page-accent">
               Sales Breakdown
             </span>
@@ -291,7 +300,7 @@
           </h1>
 
           <p
-            class="md:w-[611px] w-full page-sub md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal md:mb-4">
+            class="md:w-[611px] w-full page-sub md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal ">
             See exactly who’s selling what — manage tips, rewards, and shift planning with confidence.
           </p>
         </div>
@@ -310,7 +319,10 @@
             <h2 class="text xl md:text-3xl font-bold mb-0 md:mb-4 leading-tight page-main">
               Connect to Wi-Fi or work offline
             </h2>
-            <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed lg:hidden">
+              Stay connected with or without internet. Automatic offline mode ensures reliability.
+            </p>
+            <p class="hidden lg:block text-base text-gray-600 leading-relaxed">
               Stay connected and keep selling with or without the internet. Your system works smoothly on Wi-Fi, but if the connection drops, it automatically switches to offline mode. No interruptions, no delays — just reliable performance every time.
             </p>
           </div>
@@ -321,11 +333,11 @@
 
 
   <!--Fresh Menu Updates-->
-  <section class="md:py-6 py-4">
+  <section class="py-4">
     <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
-      <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
+      
         <div class="w-full md:w-[740px] text-left">
-          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-bold mb-4 md:mb-2">
+          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500]  mb-4 md:mb-2">
             <span class="page-accent">
               Fresh Menu Updates,
             </span>
@@ -334,7 +346,7 @@
           </h1>
 
           <p
-            class="md:w-[611px] w-full page-sub md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal md:mb-4">
+            class="md:w-[611px] w-full page-sub md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal">
            Customize your offerings and keep customers coming back for what’s new.
           </p>
         </div>
@@ -352,7 +364,10 @@
             <h2 class="text xl md:text-3xl font-bold mb-0 md:mb-4 leading-tight page-main">
              Customize your menu with daily specials
             </h2>
-            <p class="text-xs md:text-base leading-relaxed">
+            <p class="text-xs md:text-base leading-relaxed lg:hidden">
+            Update your menu with daily specials and limited-time offers.
+            </p>
+            <p class="hidden lg:block text-base leading-relaxed">
             Easily update your menu to reflect daily specials, limited-time offers, or seasonal items. With just a few clicks, you can add, remove, or adjust dishes in real-time. Keep your offerings fresh and your customers coming back for something new.
             </p>
           </div>
@@ -362,18 +377,18 @@
  
 
   <!--Fresh Menu Updates-->
-  <section class="md:py-6 py-4">
+  <section class=" py-4">
     <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
-      <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
+    
         <div class="w-full md:w-[740px] text-left">
-          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-bold mb-4 md:mb-2">
+          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500]  mb-4 md:mb-2">
             <span class="page-accent"> Fresh Menu Updates,</span>
               
             <span class="page-main">Every Day</span>
           </h1>
 
           <p
-            class="md:w-[611px] w-full md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal md:mb-4">
+            class="md:w-[611px] w-full md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal">
            Customize your offerings and keep customers coming back for what’s new.
           </p>
         </div>
@@ -391,7 +406,10 @@
             <h2 class="text xl md:text-3xl font-bold mb-0 md:mb-4 leading-tight page-main">
               Track inventory from your phone
             </h2>
-            <p class="text-xs md:text-base leading-relaxed">
+            <p class="text-xs md:text-base leading-relaxed lg:hidden">
+            Monitor stock levels and get real-time alerts for low inventory.
+            </p>
+            <p class="hidden lg:block text-base leading-relaxed">
             Monitor your stock levels anytime, anywhere — right from your phone. Get real-time alerts for low inventory, track usage, and manage supplies on the go. Stay in control and avoid running out of key ingredients during busy hours.
             </p>
           </div>
