@@ -11,7 +11,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
   <link rel="stylesheet" href="/assets/style/global.css" />
 
   <style>
@@ -123,128 +123,325 @@
 <body class="font-inter text-sm">
 
   <!-- ===================== DESKTOP NAVBAR ===================== -->
-  <nav class="navbar md:block hidden">
-    <div class="navbar-container container mx-auto">
-      <div class="logo-container">
-        <a href="/about.html">
-          <!-- Light logo -->
-          <img src="/assets/images/logo/tequila_pos_logo_transparent.png"
-               class="logo-light logo" alt="Logo" />
-          <!-- Dark logo -->
-          <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
-               class="logo-dark logo" alt="Logo" />
-        </a>
-
-        <div class="nav-links ml-4">
-          <div class="nav-item relative group">
-            <a href="#business-type" class="nav-link">Business Type</a>
-            <!-- Mega Menu -->
-            <div class="mega-menu mega-anim absolute left-0 top-full pt-10" onmouseleave="clearActive()">
-              <div class="flex flex-nowrap gap-10">
-                <div class="flex flex-col p-10 gap-4" id="categoryList" data-aos="fade-left">
-                  <a href="#" class="text-[26px] font-bold hover:underline" style="color:inherit"
-                     data-cat="food" onmouseenter="setActive('food')" onfocus="setActive('food')">
-                    Food &amp; Beverage
-                  </a>
-                  <a href="#" class="text-[26px] font-bold hover:underline" style="color:inherit"
-                     data-cat="retail" onmouseenter="setActive('retail')" onfocus="setActive('retail')">
-                    Retail
-                  </a>
-                </div>
-                <div class="flex gap-16 p-10">
-                  <div class="flex justify-between gap-10" data-panel="food">
-                    <div>
-                      <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Discover</h6>
-                      <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Overview</a></li>
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Switch to Tequila</a></li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Capacity</h6>
-                      <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Manage order from one place</a></li>
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Take payment</a></li>
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Keep customer coming back</a></li>
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Scale your business</a></li>
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Improve operation</a></li>
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Schedule and pay your team</a></li>
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Manage your cash flow</a></li>
-                      </ul>
-                    </div>
+  <nav class="navbar lg:block hidden">
+      <div class="navbar-container container mx-auto px-4">
+        <div class="logo-container">
+          <a href="/index.html">
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent.png"
+              class="logo-light logo"
+              alt="Logo"
+            />
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+              class="logo-dark logo"
+              alt="Logo"
+            />
+          </a>
+          <div class="nav-links ml-4">
+            <div class="nav-item relative group">
+              <a href="#business-type" class="nav-link">Business Type</a>
+              <div
+                class="mega-menu mega-anim absolute left-0 top-full pt-10"
+                onmouseleave="clearActive()"
+              >
+                <div class="flex flex-nowrap gap-10">
+                  <div
+                    class="flex flex-col p-10 gap-4"
+                    id="categoryList"
+                    data-aos="fade-left"
+                  >
+                    <a
+                      href="#"
+                      class="text-[26px] font-bold hover:underline"
+                      data-cat="food"
+                      onmouseenter="setActive('food')"
+                      onfocus="setActive('food')"
+                      >Food &amp; Beverage</a
+                    >
+                    <a
+                      href="#"
+                      class="text-[26px] font-bold hover:underline"
+                      data-cat="retail"
+                      onmouseenter="setActive('retail')"
+                      onfocus="setActive('retail')"
+                      >Retail</a
+                    >
                   </div>
-                  <div class="space-y-6 hidden" data-panel="retail">
-                    <div>
-                      <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Discover</h6>
-                      <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Overview</a></li>
-                        <li><a href="#" class="hover:underline text-xl font-bold" style="color:inherit">Switch to Tequila</a></li>
-                      </ul>
+                  <div class="flex gap-16 p-10">
+                    <div class="flex justify-between gap-10" data-panel="food">
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
+                          Capacity
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="/resturent-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Resturents</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/bar-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bars</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/food-truck-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Food Trucks and Pop-ups</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/cafes-coffee-shop-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Cafes & Coffee Shops</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/juice-bars-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Juice Bars & Smoothie Shops</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/bakeries-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bakeries</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/ice-cream-shops-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Ice Creams & Desserts Shops</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="space-y-6 hidden" data-panel="retail">
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <a href="/feature.html"  class="nav-link">Feature</a>
-          <a href="/hardware.html" class="nav-link">Hardware</a>
-          <a href="/pricing.html"  class="nav-link">Pricing</a>
-          <a href="/resourse.html" class="nav-link">Resources</a>
-        </div>
-      </div>
-
-      <div class="nav-extra-links">
-        <div class="language-selector cursor-pointer" onclick="toggleLanguage()">
-          <span id="language-text">ENGLISH</span>
-          <img id="flag-icon" src="/assets/images/flags/usa.png" alt="USA Flag" class="flag-icon" />
-        </div>
-        <a href="#signin" class="nav-link">Sign in</a>
-        <button class="demo-btn"><span>Free Demo</span></button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ===================== MOBILE NAVBAR ===================== -->
-  <nav class="navbar md:hidden shadow-md relative">
-    <div class="navbar-container container mx-auto flex items-center justify-between py-4">
-      <div class="logo-container flex items-center">
-        <img src="/assets/images/logo/tequila_pos_logo_transparent.png"
-             class="logo-light logo h-10" alt="Logo" />
-        <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
-             class="logo-dark logo h-10" alt="Logo" />
-      </div>
-      <button id="mobile-menu-btn" class="md:hidden p-2">
-        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg" style="background-color: var(--mobile-bg, #fff)">
-      <div class="p-4 space-y-4">
-        <div class="relative">
-          <button id="dropdownBtn" class="flex justify-between items-center w-full px-4 py-2 rounded hover:opacity-80" style="background:#f3f4f6">
-            Business Type
-            <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 transition-transform duration-200">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"/>
-            </svg>
-          </button>
-          <div id="dropdownMenu" class="hidden mt-2 rounded shadow-lg overflow-hidden border" style="background:#f9fafb">
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Food &amp; Beverage</a>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100">Retail</a>
+            <a href="/feature.html" class="nav-link">Feature</a>
+            <a href="/hardware.html" class="nav-link">Hardware</a>
+            <a href="/pricing.html" class="nav-link">Pricing</a>
+            <a href="/resourse.html" class="nav-link">Resources</a>
           </div>
         </div>
-        <a href="/feature.html"  class="block px-4 py-2 hover:opacity-80 rounded">Features</a>
-        <a href="/hardware.html" class="block px-4 py-2 hover:opacity-80 rounded">Hardware</a>
-        <a href="/pricing.html"  class="block px-4 py-2 hover:opacity-80 rounded">Pricing</a>
-        <a href="/resourse.html" class="block px-4 py-2 hover:opacity-80 rounded">Resources</a>
-        <a href="#signin"        class="block px-4 py-2 hover:opacity-80 rounded">Sign In</a>
-        <a href="#demo" class="block text-center font-bold py-2 rounded shadow" style="background:#c89633; color:#000">Free Demo</a>
+        <div class="nav-extra-links">
+          <div
+            class="language-selector cursor-pointer"
+            onclick="toggleLanguage()"
+          >
+            <span id="language-text">ENGLISH</span>
+            <img
+              id="flag-icon"
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+          <a href="#signin" class="nav-link">Sign in</a>
+          <button class="demo-btn"><span>Free Demo</span></button>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar lg:hidden shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-2 px-4"
+      >
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo-light logo h-10"
+            alt="Logo"
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden p-2"
+          style="color: inherit"
+        >
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        style="background-color: var(--mobile-bg, #fff)"
+      >
+        <div class="p-4 space-y-4">
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 rounded"
+              style="color: inherit"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 rounded shadow-lg overflow-hidden border"
+              style="background: #f9fafb"
+            >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Food &amp; Beverage</a
+              >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Retail</a>
+            </div>
+          </div>
+          <a
+            href="/feature.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
+            >Features</a
+          >
+          <a
+            href="/hardware.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
+            >Hardware</a
+          >
+          <a
+            href="/pricing.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
+            >Pricing</a
+          >
+          <a
+            href="/resourse.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
+            >Resources</a
+          >
+          <a href="#signin" class="block px-4 py-2 rounded hover:opacity-80"
+            >Sign In</a
+          >
+          <a
+            href="#demo"
+            class="block text-center font-bold py-2 rounded shadow"
+            style="background: #c89633; color: #000"
+            >Free Demo</a
+          >
+        </div>
+      </div>
+    </nav>
 
   <!-- ===================== HERO SECTION ===================== -->
   <section class="py-16">

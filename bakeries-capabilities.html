@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tequila POS - Restaurant Capabilities</title>
+  <title>Tequila POS - Smart POS Solutions</title>
 
-  <!-- theme.js FIRST — prevents flash -->
   <script src="/assets/js/theme.js"></script>
-
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Splide CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css" />
-  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
-  <link rel="stylesheet" href="/assets/style/global.css" />
 
+  <!-- Optional: Default Theme -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css" />
+
+  <!-- aos -->
+  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
+
+  <link rel="stylesheet" href="/assets/style/global.css" />
   <style>
     /* Splide arrow styling */
     .splide__arrow {
@@ -112,8 +117,7 @@
 </head>
 
 <body class="font-inter text-sm">
-
-  <!-- ===================== DESKTOP NAVBAR ===================== -->
+  <!-- Navigation -->
   <nav class="navbar lg:block hidden">
       <div class="navbar-container container mx-auto px-4">
         <div class="logo-container">
@@ -434,280 +438,275 @@
       </div>
     </nav>
 
-  <!-- ===================== HERO ===================== -->
+  <!-- hero section -->
+
   <section class="py-8 md:py-16">
-    <div class="container mx-auto px-4">
-      <div class="w-full lg:w-[1100px] text-left">
+    <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
+      <div class="w-full lg:w-[850px] text-left">
         <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-bold mb-4 md:mb-8">
-          <span class="page-accent">Powerful Capabilities</span>
-          <span class="page-main"> Built for Every Restaurant</span>
+          <span class="page-accent">Freshly Baked Tools for</span>
+             
+          <span class="page-main">Bakery Success</span>
         </h1>
-        <p class="page-sub md:w-[611px] w-full md:text-[16px] lg:text-[20px] text-[10px] md:leading-[28px] lg:leading-[25.20px] leading-normal mb-6 md:mb-8">
-          From managing tables to tracking inventory — everything you need to run smoothly, all in one system.
+
+        <p
+          class="page-sub md:w-[611px] w-full md:text-[20px] text-[10px] md:leading-[25.20px] leading-normal mb-6 md:mb-8">
+          From managing orders to monitoring inventory, get everything you need to run your bakery smoothly.
         </p>
       </div>
+
       <div class="w-full flex justify-center lg:justify-end">
-        <img src="/assets/images/resturent-capabilities/resturent-capabilities-hero.png" alt="" class="w-[420px] h-[177px] md:w-full md:h-auto" />
+        <img src="/assets/images/bakeries-capabilities/hero-image.png" alt="" class="w-[420px] h-[177px] md:w-full md:h-auto" />
       </div>
     </div>
   </section>
+  
+ 
 
-  <!-- ===================== SECTION HEADING TEMPLATE ===================== -->
-  <!-- Reused pattern: accent + main heading + sub paragraph -->
-
-  <!-- Seamless Table & Payment -->
-  <section class="py-6">
-    <div class="container mx-auto px-4">
-      <div class="w-full lg:w-[1100px] text-left">
-        <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-8">
-          <span class="page-accent">Seamless Table &amp;</span> 
-          <span class="page-main"> Payment Management</span>
-        </h1>
-        <p class="page-sub md:w-[611px] w-full md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal ">
-          Quickly assign tables, split bills, and handle tips — all from one intuitive system.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Slider 1 -->
+  <!--Order Now Section-->
   <section class="py-4">
-    <div class="container mx-auto px-4">
-      <section id="seamless-slider" class="splide relative" aria-label="Feature Slider">
+    <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
+        <div class="w-full lg:w-[750px] text-left">
+          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-2">
+            <span class="page-accent">Order Now or </span>
+            
+            <span class="page-main">Ahead of Time</span>
+          </h1>
+
+          <p
+            class="page-sub md:w-[611px] w-full text-[#4F4F4F] md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal mb-4">
+            Whether it’s for today or tomorrow, accept and organize orders seamlessly.
+          </p>
+        </div>
+
+
+        
+
+      
+      <div class="container mx-auto px-4">
+      <div id="seamless-slider" class="splide relative" aria-label="Feature Slider">
         <div class="splide__track">
           <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="flex justify-center"><img src="/assets/images/resturent-capabilities/first-slider-tab-one.png" alt="" class="max-w-full h-auto object-cover" /></div>
+            <li class="splide__slide relative">
+              <div
+                class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
+                <div class="flex justify-center">
+                  <div class="w-full max-w-sm md:max-w-full">
+                    <img src="/assets/images/bakeries-capabilities/tab-one-image-one.png" alt="Open sign in a bar window"
+                      class="max-w-full h-auto object-cover" />
+                  </div>
+                </div>
+
                 <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Manage tables</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Easily view, assign, and rearrange tables in real time. Optimize seating, reduce wait times, and improve flow during busy shifts for a smoother dining experience.</p>
+                  <h2 class="text xl md:text-3xl font-bold mb-0 md:mb-4 leading-tight">
+                    Accept in-store
+                  </h2>
+                  <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+                    Easily handle in-store orders with a fast, intuitive interface designed for quick service. From dine-in to takeaway, every order is processed smoothly and accurately. Keep your operations efficient and your customers happy with seamless in-person transactions.</p>
                 </div>
               </div>
             </li>
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="flex justify-center"><img src="/assets/images/resturent-capabilities/first-slider-tab-two.png" alt="" class="max-w-full h-auto object-cover" /></div>
-                <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Split checks</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Effortlessly divide bills by item, seat, or custom amount. Make group payments simple and flexible—no confusion, no delays.</p>
+
+            <li class="splide__slide relative">
+              <div
+                class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
+                <div class="flex justify-center">
+                  <div class="w-full max-w-sm md:max-w-full">
+                    <img src="/assets/images/bakeries-capabilities/tab-one-image-two.png" alt="Description of another feature"
+                      class="max-w-full h-auto object-cover" />
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class=" flex justify-center"><img src="/assets/images/resturent-capabilities/first-slider-tab-three.png" alt="" class="max-w-full h-auto object-cover" /></div>
+
                 <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Tips with ease</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Easily add, adjust, or distribute tips during checkout. Support custom tipping and ensure fair, transparent tip handling for your team.</p>
+                  <h2 class="text xl md:text-3xl font-bold mb-0 md:mb-4 leading-tight">
+                    Pre-orders
+                  </h2>
+                  <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+                    Let customers place pre-orders for pickup or scheduled dining with ease. Orders arrive in your system ahead of time, so your team can prepare efficiently and stay ahead during rush hours. It’s a smart way to reduce wait times and improve customer satisfaction. </p>
                 </div>
               </div>
             </li>
           </ul>
         </div>
-      </section>
-    </div>
-  </section>
-
-  <!-- Real-Time Team -->
-  <section class="md:py-6 py-4">
-    <div class="container mx-auto px-4">
-      <div class="w-full md:w-[700px] text-left">
-        <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-8">
-          <span class="page-accent">Real-Time Team</span>
-          <span class="page-main"> Coordination</span>
-        </h1>
-        <p class="page-sub md:w-[611px] w-full md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal ">
-          Keep your kitchen, bar, and floor staff perfectly in sync — no delays, no confusion.
-        </p>
       </div>
     </div>
   </section>
 
-  <!-- Slider 2 -->
-  <section class="md:py-6 py-4">
-    <div class="container mx-auto px-4">
-      <section id="main-slider" class="splide relative" aria-label="Feature Slider">
+
+  <!--Pickup Scheduling -->
+  <section class="py-4">
+    <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
+        <div class="w-full lg:w-[850px] text-left">
+          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500]  mb-4 md:mb-2">
+            <span class="page-accent">Pickup Scheduling</span> 
+            <span class="page-main">with Flexible Payments</span>
+          </h1>
+
+          <p
+            class="page-sub md:w-[611px] w-full md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal mb-4">
+            Set pickup slots and accept deposits or partial payments — all managed through your POS.
+          </p>
+        </div>
+        </div>
+
+       <div class="container mx-auto px-4">
+      <div id="slider-2" class="splide relative" aria-label="Feature Slider">
         <div class="splide__track">
           <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="flex justify-center"><img src="/assets/images/resturent-capabilities/Second-slider-tab-one.png" alt="" class="max-w-full h-auto object-cover" /></div>
+            <li class="splide__slide relative">
+              <div
+                class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
+                <div class="flex justify-center">
+                  <div class="w-full max-w-sm md:max-w-full">
+                    <img src="/assets/images/bakeries-capabilities/slider-two-tab-one.png" alt="Open sign in a bar window"
+                      class="max-w-full h-auto object-cover" />
+                  </div>
+                </div>
+
                 <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Sync kitchen</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Send orders directly to the kitchen in real time through a Kitchen Display System or printer. Eliminate delays, reduce errors, and keep prep running smoothly.</p>
+                  <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
+                  Set pickup times
+                  </h2>
+                  <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+                   Allow customers to choose their preferred pickup times when placing orders. Your team gets a clear schedule, helping manage prep and reduce crowding. It’s a convenient way to offer timely service and keep operations running smoothly.</p>
                 </div>
               </div>
             </li>
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="flex justify-center"><img src="/assets/images/resturent-capabilities/Second-slider-tab-two.png" alt="" class="max-w-full h-auto object-cover" /></div>
-                <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Bar</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Instantly route drink orders to the bar station as they're placed. Speed up drink prep, reduce miscommunication, and ensure timely service for every guest.</p>
+
+            <li class="splide__slide relative">
+              <div
+                class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
+                <div class="flex justify-center">
+                  <div class="w-full max-w-sm md:max-w-full">
+                    <img src="/assets/images/bakeries-capabilities/slider-two-tab-two.png" alt="Description of another feature"
+                      class="max-w-full h-auto object-cover" />
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="flex justify-center"><img src="/assets/images/resturent-capabilities/first-slider-tab-three.png" alt="" class="max-w-full h-auto object-cover" /></div>
+
                 <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Floor in real time</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Give servers instant access to order updates, table status, and payment info. Keep the front-of-house team in sync for faster, more efficient service.</p>
+                  <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
+                    Partial payments
+                  </h2>
+                  <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+                    Easily accept partial payments for split bills, deposits, or group orders. Whether customers pay in installments or divide the total, your POS handles it seamlessly. It's flexibility that fits real-life situations and keeps transactions hassle-free.</p>
                 </div>
               </div>
             </li>
           </ul>
         </div>
-      </section>
-    </div>
-  </section>
-
-  <!-- Total Control -->
-  <section class="md:py-6 py-4">
-    <div class="container mx-auto px-4">
-      <div class="w-full md:w-[750px] text-left">
-        <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-8">
-          <span class="page-accent">Total Control at</span>
-          <span class="page-main"> Your Fingertips</span>
-        </h1>
-        <p class="page-sub md:w-[611px] w-full md:text-[16px] lg:text-[20px] text-[10px] md:leading-[28px] lg:leading-[25.20px] leading-normal mb-4">
-          Monitor sales, track stock, and oversee staff performance — all in one dashboard.
-        </p>
       </div>
     </div>
   </section>
-
-  <!-- Slider 3 -->
-  <section class="md:py-6 py-4">
-    <div class="container mx-auto px-4">
-      <section id="slider-3" class="splide relative" aria-label="Feature Slider">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="md:w-1/3 flex justify-center"><img src="/assets/images/resturent-capabilities/third-slider-tab-one.png" alt="" class="max-w-full h-auto object-cover" /></div>
-                <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Control sales</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Track every transaction in real time with detailed sales reports. Gain insights into performance, identify trends, and make informed decisions to grow your business.</p>
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="flex justify-center"><img src="/assets/images/resturent-capabilities/third-slider-tab-two.png" alt="" class="max-w-full h-auto object-cover" /></div>
-                <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Inventory</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Monitor stock levels, ingredient usage, and restock needs in real time. Prevent shortages, reduce waste, and keep your operations running smoothly.</p>
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="flex justify-center"><img src="/assets/images/resturent-capabilities/third-slider-tab-three.png" alt="" class="max-w-full h-auto object-cover" /></div>
-                <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Employee activity</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Track shifts, roles, clock-ins, and performance metrics. Improve accountability, optimize staffing, and ensure smooth day-to-day operations.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </div>
-  </section>
-
-  <!-- No Delays -->
-  <section class="md:py-6 py-4">
-    <div class="container mx-auto px-4">
-      <div class="w-full md:w-[700px] text-left">
-        <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-2">
-          <span class="page-accent">No Delays,</span>
-          <span class="page-main"> Just Updates</span>
+  <!--Stay on Top-->
+  <section class="py-4">
+    <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
+      <div class="w-full lg:w-[750px] text-left">
+        <h1 class="text-[20px] md:text-[64px] lg:text-7xl font-bold mb-4 md:mb-2">
+          <span class="page-accent">Stay on Top of</span>
+           
+          <span class="page-main">Today’s Menu</span>
         </h1>
-        <p class="page-sub md:w-[611px] w-full md:text-[16px] lg:text-[20px] text-[10px] md:leading-[28px] lg:leading-[25.20px] leading-normal">
-          Monitor sales, track stock, and oversee staff performance — all in one dashboard.
+
+        <p
+          class="page-sub md:w-[611px] w-full  md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal mb-4">
+          Track inventory for daily bakes, seasonal treats, and limited-time specials — all from your POS.
         </p>
       </div>
-    </div>
-  </section>
+      <div
+          class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8  space-y-4 md:space-y-0 md:space-x-12  rounded-[38px]">
+          <div class="flex justify-center">
+            <div class="w-full max-w-sm md:max-w-full">
+              <img src="/assets/images/bakeries-capabilities/section-three.png" alt="Description of another feature"
+                class="max-w-full h-auto object-cover" />
+            </div>
+          </div>
 
-  <!-- Slider 4 -->
-  <section class="md:py-6 py-4">
-    <div class="container mx-auto px-4">
-      <section id="slider-4" class="splide relative" aria-label="Feature Slider">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class=" flex justify-center"><img src="/assets/images/resturent-capabilities/fourth-slider-tab-one.png" alt="" class="max-w-full h-auto object-cover" /></div>
-                <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Update menu items</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Quickly edit item names, descriptions, and availability. Keep your menu fresh and accurate across all devices in real time.</p>
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="flex justify-center"><img src="/assets/images/resturent-capabilities/fourth-slider-tab-two.png" alt="" class="max-w-full h-auto object-cover" /></div>
-                <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Prices on the fly</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Instantly change prices based on demand, time, or promotions. Stay flexible and keep your pricing up to date without interrupting service.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <div class="md:w-1/2">
+            <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
+              Track stock of daily bakes and specials
+            </h2>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+              Stay on top of daily bakes and specials with real-time stock tracking. Know exactly what's available, what’s running low, and update your menu as items sell out. Reduce waste, avoid overselling, and keep your offerings fresh and accurate. </p>
+          </div>
         </div>
-      </section>
     </div>
-  </section>
 
-  <!-- Performance Insights -->
-  <section class="md:py-6 py-4">
-    <div class="container mx-auto px-4">
-      <div class="w-full lg:w-[760px] text-left">
-        <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-8">
-          <span class="page-accent">Performance Insights</span>
-          <span class="page-main"> Made Simple</span>
-        </h1>
-        <p class="page-sub md:w-[611px] w-full md:text-[16px] lg:text-[20px] text-[10px] md:leading-[28px] lg:leading-[25.20px] leading-normal mb-4">
-          Track server efficiency and get detailed shift reports to improve team productivity.
-        </p>
+    
+  </section>
+ 
+
+  <!-- Sell More with -->
+  <section class="py-4">
+    <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
+        <div class="w-full lg:w-[750px] text-left">
+          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-2">
+            <span class="page-accent">Sell More with</span> 
+            <span class="page-main">Stunning Photos</span>
+          </h1>
+
+          <p
+            class="page-sub md:w-[611px] w-full  md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal mb-4">
+            Feature your top items with visuals that attract attention and increase conversions.
+          </p>
+        </div>
+
+        <div
+          class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8  space-y-4 md:space-y-0 md:space-x-12  rounded-[38px]">
+          <div class="flex justify-center">
+            <div class="w-full max-w-sm md:max-w-full">
+              <img src="/assets/images/bakeries-capabilities/section-four.png" alt="Description of another feature"
+                class="max-w-full h-auto object-cover" />
+            </div>
+          </div>
+
+          <div class="md:w-1/2">
+            <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
+              Add photos to help sell signature items
+            </h2>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+             Showcase your signature items with mouthwatering photos right on your POS or menu display. Visuals help customers decide faster and boost interest in high-margin dishes. It’s an easy way to drive more sales with eye-catching presentation.</p>
+          </div>
+        </div>
       </div>
-    </div>
   </section>
+<!-- Update Menus with -->
+  <section class="py-4">
+    <div class="container mx-auto px-4 items-center justify-between gap-4 md:gap-12">
+        <div class="w-full lg:w-[750px] text-left">
+          <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-2">
+            <span class="page-accent">Update Menus with</span> 
+            <span class="page-main">the Seasons</span>
+          </h1>
 
-  <!-- Slider 5 -->
-  <section class="md:py-6 py-4">
-    <div class="container mx-auto px-4">
-      <section id="slider-5" class="splide relative" aria-label="Feature Slider">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class="flex justify-center"><img src="/assets/images/resturent-capabilities/fifth-slider-tab-one.png" alt="" class="max-w-full h-auto object-cover" /></div>
-                <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Track server performance</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Monitor individual server metrics such as sales, tips, table turnover, and customer feedback. Identify top performers, support training needs, and improve overall service quality.</p>
-                </div>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[17px]">
-                <div class=" flex justify-center"><img src="/assets/images/resturent-capabilities/fifth-slider-tab-two.png" alt="" class="max-w-full h-auto object-cover" /></div>
-                <div class="md:w-1/2">
-                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">Shift reports</h2>
-                  <p class="slide-body text-xs md:text-base leading-relaxed">Generate end-of-shift summaries with sales totals, tips, payment breakdowns, and staff activity. Simplify closing procedures and maintain clear, accurate records.</p>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <p
+            class="page-sub md:w-[611px] w-full  md:text-[18px] text-[10px] md:leading-[25.20px] leading-normal mb-4">
+            Add or switch items fast — stay fresh, stay relevant.
+          </p>
         </div>
-      </section>
-    </div>
+
+        <div
+          class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8  space-y-4 md:space-y-0 md:space-x-12  rounded-[38px]">
+          <div class="flex justify-center">
+            <div class="w-full max-w-sm md:max-w-full">
+              <img src="/assets/images/bakeries-capabilities/section-five.png" alt="Description of another feature"
+                class="max-w-full h-auto object-cover" />
+            </div>
+          </div>
+
+          <div class="md:w-1/2">
+            <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
+              Manage seasonal menu changes
+            </h2>
+            <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+             Easily update and manage seasonal menu changes with just a few clicks. Add or remove items, adjust pricing, and highlight limited-time offers without disrupting your workflow. Keep your menu fresh and relevant all year round.</p>
+          </div>
+        </div>
+      </div>
   </section>
 
-  <!-- ===================== FOOTER ===================== -->
+   
+
+  <!-- Footer -->
   <footer class="py-10">
     <div class="container mx-auto px-4 ">
       <div class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center">
@@ -809,39 +808,65 @@
       </div>
     </div>
   </footer>
-
-  <!-- ===================== SCRIPTS ===================== -->
+  <!-- Splide JS -->
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-  <script src="/assets/js/navbar.js"></script>
-  <script src="/assets/js/footer-accordion.js"></script>
+  <script src="../assets/js/navbar.js"></script>
+  <script src="../assets/js/footer-accordion.js"></script>
 
   <script>
-    // Init all 5 sliders
-    ['seamless-slider','main-slider','slider-3','slider-4','slider-5'].forEach(function(id) {
-      new Splide('#' + id, {
-        type: 'slide', perPage: 1, gap: '1.25rem',
-        arrows: true, pagination: false, speed: 500, rewind: true,
-        breakpoints: { 768: { gap: '0.75rem' } }
-      }).mount();
-    });
+    // Initialize Splide
+ new Splide("#slider-2", {
+      type: "slide",
+      perPage: 1,
+      gap: "1.25rem",
+      arrows: true,
+      pagination: false,
+      speed: 500,
+      rewind: true,
+      // Keep layout nice on small screens (image stacks on top)
+      breakpoints: {
+        768: { gap: "0.75rem" },
+      },
+    }).mount();
 
-    // Language toggle
+    // Initialize Splide
+    new Splide("#seamless-slider", {
+      type: "slide",
+      perPage: 1,
+      gap: "1.25rem",
+      arrows: true,
+      pagination: false,
+      speed: 500,
+      rewind: true,
+      // Keep layout nice on small screens (image stacks on top)
+      breakpoints: {
+        768: { gap: "0.75rem" },
+      },
+    }).mount();
+
+    function toggleFaq(element) {
+      element.classList.toggle("active");
+    }
+
     let isEnglish = true;
+
     function toggleLanguage() {
-      const textEl = document.getElementById('language-text');
-      const flagEl = document.getElementById('flag-icon');
+      const textEl = document.getElementById("language-text");
+      const flagEl = document.getElementById("flag-icon");
+
       if (isEnglish) {
-        textEl.textContent = 'ESPAÑOL';
-        flagEl.src = '/assets/images/flags/espan.png';
-        flagEl.alt = 'Spain Flag';
+        textEl.textContent = "ESPAÑOL";
+        flagEl.src = "/assets/images/flags/espan.png"; // your Spain flag
+        flagEl.alt = "Spain Flag";
       } else {
-        textEl.textContent = 'ENGLISH';
-        flagEl.src = '/assets/images/flags/usa.png';
-        flagEl.alt = 'USA Flag';
+        textEl.textContent = "ENGLISH";
+        flagEl.src = "/assets/images/flags/usa.png";
+        flagEl.alt = "USA Flag";
       }
-      isEnglish = !isEnglish;
+
+      isEnglish = !isEnglish; // flip state
     }
   </script>
-
 </body>
+
 </html>

@@ -10,7 +10,7 @@
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/themes/splide-default.min.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
   <link rel="stylesheet" href="/assets/style/global.css" />
 
   <style>
@@ -134,75 +134,324 @@
 <body class="font-inter text-sm">
   
   <nav class="navbar lg:block hidden">
-    <div class="navbar-container container mx-auto">
-      <div class="logo-container">
-        <a href="/index.html">
-          <img src="/assets/images/logo/tequila_pos_logo_transparent.png" class="logo-light logo" alt="Logo" />
-          <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png" class="logo-dark logo" alt="Logo" />
-        </a>
-        <div class="nav-links ml-4">
-          <div class="nav-item relative group">
-            <a href="#business-type" class="nav-link page-main">Business Type</a>
+      <div class="navbar-container container mx-auto px-4">
+        <div class="logo-container">
+          <a href="/index.html">
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent.png"
+              class="logo-light logo"
+              alt="Logo"
+            />
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+              class="logo-dark logo"
+              alt="Logo"
+            />
+          </a>
+          <div class="nav-links ml-4">
+            <div class="nav-item relative group">
+              <a href="#business-type" class="nav-link">Business Type</a>
+              <div
+                class="mega-menu mega-anim absolute left-0 top-full pt-10"
+                onmouseleave="clearActive()"
+              >
+                <div class="flex flex-nowrap gap-10">
+                  <div
+                    class="flex flex-col p-10 gap-4"
+                    id="categoryList"
+                    data-aos="fade-left"
+                  >
+                    <a
+                      href="#"
+                      class="text-[26px] font-bold hover:underline"
+                      data-cat="food"
+                      onmouseenter="setActive('food')"
+                      onfocus="setActive('food')"
+                      >Food &amp; Beverage</a
+                    >
+                    <a
+                      href="#"
+                      class="text-[26px] font-bold hover:underline"
+                      data-cat="retail"
+                      onmouseenter="setActive('retail')"
+                      onfocus="setActive('retail')"
+                      >Retail</a
+                    >
+                  </div>
+                  <div class="flex gap-16 p-10">
+                    <div class="flex justify-between gap-10" data-panel="food">
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
+                          Capacity
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="/resturent-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Resturents</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/bar-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bars</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/food-truck-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Food Trucks and Pop-ups</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/cafes-coffee-shop-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Cafes & Coffee Shops</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/juice-bars-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Juice Bars & Smoothie Shops</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/bakeries-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bakeries</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="/ice-cream-shops-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Ice Creams & Desserts Shops</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="space-y-6 hidden" data-panel="retail">
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
+                          Discover
+                        </h6>
+                        <ul class="space-y-2 text-sm">
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Overview</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="#"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Switch to Tequila</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          <a href="/feature.html" class="nav-link page-main">Feature</a>
-          <a href="/hardware.html" class="nav-link page-main">Hardware</a>
-          <a href="/pricing.html" class="nav-link page-main">Pricing</a>
-          <a href="/resourse.html" class="nav-link page-main">Resources</a>
-        </div>
-      </div>
-      <div class="nav-extra-links">
-        <div class="language-selector cursor-pointer" onclick="toggleLanguage()">
-          <span id="language-text" class="page-main">ENGLISH</span>
-          <img id="flag-icon" src="/assets/images/flags/usa.png" alt="USA Flag" class="flag-icon" />
-        </div>
-        <a href="#signin" class="nav-link page-main">Sign in</a>
-        <button class="demo-btn">
-          <span>Free Demo</span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <nav class="navbar lg:hidden shadow-md relative" style="background-color: var(--mobile-bg, inherit)">
-    <div class="navbar-container container mx-auto flex items-center justify-between py-2 px-4">
-      <div class="logo-container flex items-center">
-        <img src="/assets/images/logo/tequila_pos_logo_transparent.png" class="logo-light logo h-10" alt="Logo" />
-        <img src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png" class="logo-dark logo h-10" alt="Logo" />
-      </div>
-      <button id="mobile-menu-btn" class="lg:hidden p-2 page-main">
-        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg">
-      <div class="p-4 space-y-4">
-        <div class="relative">
-          <button id="dropdownBtn" class="flex justify-between items-center w-full px-4 py-2 rounded transition-colors duration-200">
-            Business Type
-            <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 transition-transform duration-200">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" />
-            </svg>
-          </button>
-          <div id="dropdownMenu" class="hidden mt-2 rounded shadow-lg overflow-hidden border">
-            <a href="#" class="block px-4 py-2 transition-colors">Food &amp; Beverage</a>
-            <a href="#" class="block px-4 py-2 transition-colors">Retail</a>
+            <a href="/feature.html" class="nav-link">Feature</a>
+            <a href="/hardware.html" class="nav-link">Hardware</a>
+            <a href="/pricing.html" class="nav-link">Pricing</a>
+            <a href="/resourse.html" class="nav-link">Resources</a>
           </div>
         </div>
-        <a href="#features" class="block px-4 py-2 rounded transition-colors">Features</a>
-        <a href="#hardware" class="block px-4 py-2 rounded transition-colors">Hardware</a>
-        <a href="#pricing" class="block px-4 py-2 rounded transition-colors">Pricing</a>
-        <a href="/resourse.html" class="block px-4 py-2 rounded transition-colors">Resources</a>
-        <a href="#signin" class="block px-4 py-2 rounded transition-colors">Sign In</a>
-        <a href="#demo" class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400">
-          Free Demo
-        </a>
+        <div class="nav-extra-links">
+          <div
+            class="language-selector cursor-pointer"
+            onclick="toggleLanguage()"
+          >
+            <span id="language-text">ENGLISH</span>
+            <img
+              id="flag-icon"
+              src="/assets/images/flags/usa.png"
+              alt="USA Flag"
+              class="flag-icon"
+            />
+          </div>
+          <a href="#signin" class="nav-link">Sign in</a>
+          <button class="demo-btn"><span>Free Demo</span></button>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav class="navbar lg:hidden shadow-md relative">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between py-2 px-4"
+      >
+        <div class="logo-container flex items-center">
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent.png"
+            class="logo-light logo h-10"
+            alt="Logo"
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark logo h-10"
+            alt="Logo"
+          />
+        </div>
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden p-2"
+          style="color: inherit"
+        >
+          <svg
+            id="hamburger-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+          <svg
+            id="close-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        style="background-color: var(--mobile-bg, #fff)"
+      >
+        <div class="p-4 space-y-4">
+          <div class="relative">
+            <button
+              id="dropdownBtn"
+              class="flex justify-between items-center w-full px-4 py-2 rounded"
+              style="color: inherit"
+            >
+              Business Type
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                class="w-5 h-5 transition-transform duration-200"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                />
+              </svg>
+            </button>
+            <div
+              id="dropdownMenu"
+              class="hidden mt-2 rounded shadow-lg overflow-hidden border"
+              style="background: #f9fafb"
+            >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100"
+                >Food &amp; Beverage</a
+              >
+              <a href="#" class="block px-4 py-2 hover:bg-gray-100">Retail</a>
+            </div>
+          </div>
+          <a
+            href="/feature.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
+            >Features</a
+          >
+          <a
+            href="/hardware.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
+            >Hardware</a
+          >
+          <a
+            href="/pricing.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
+            >Pricing</a
+          >
+          <a
+            href="/resourse.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
+            >Resources</a
+          >
+          <a href="#signin" class="block px-4 py-2 rounded hover:opacity-80"
+            >Sign In</a
+          >
+          <a
+            href="#demo"
+            class="block text-center font-bold py-2 rounded shadow"
+            style="background: #c89633; color: #000"
+            >Free Demo</a
+          >
+        </div>
+      </div>
+    </nav>
 
   <section class="py-8 md:py-16">
     <div class="container mx-auto px-4">
@@ -242,13 +491,13 @@
           <ul class="splide__list">
             <li class="splide__slide relative">
               <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
-                <div class="md:w-1/3 flex justify-center">
+                <div class="flex justify-center">
                   <div class="w-full max-w-sm md:max-w-full">
                     <img src="/assets/images/bar-capabilities/slider-1-img-1.png" alt="Open tabs" class="max-w-full h-auto object-cover" />
                   </div>
                 </div>
                 <div class="md:w-1/2">
-                  <h2 class="slide-title text-xl md:text-3xl font-bold mb-2 md:mb-4 leading-tight">
+                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">
                     Open tabs
                   </h2>
                   <p class="slide-body text-xs md:text-base leading-relaxed">
@@ -259,13 +508,13 @@
             </li>
             <li class="splide__slide relative">
               <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
-                <div class="md:w-1/3 flex justify-center">
+                <div class="flex justify-center">
                   <div class="w-full max-w-sm md:max-w-full">
                     <img src="/assets/images/bar-capabilities/slider-1-img-2.png" alt="Close tabs" class="max-w-full h-auto object-cover" />
                   </div>
                 </div>
                 <div class="md:w-1/2">
-                  <h2 class="slide-title text-xl md:text-3xl font-bold mb-2 md:mb-4 leading-tight">
+                  <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">
                     Close them fast
                   </h2>
                   <p class="slide-body text-xs md:text-base leading-relaxed">
@@ -280,7 +529,7 @@
     </div>
   </section>
 
-  <section class="md:py-6 py-4">
+  <section class="py-4">
     <div class="container mx-auto px-4">
       <div class="w-full md:w-[700px] text-left mb-6">
         <h1 class="text-[20px] md:text-[38px] lg:text-7xl font-[500] mb-4 md:mb-2">
@@ -292,13 +541,13 @@
         </p>
       </div>
       <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
-        <div class="md:w-1/3 flex justify-center">
+        <div class="flex justify-center">
           <div class="w-full max-w-sm md:max-w-full">
             <img src="/assets/images/bar-capabilities/section-3.png" alt="Customizations" class="max-w-full h-auto object-cover" />
           </div>
         </div>
         <div class="md:w-1/2">
-          <h2 class="slide-title text-xl md:text-3xl font-bold mb-2 md:mb-4 leading-tight">
+          <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">
             Offer customizations (milk type, syrup, size, etc.)
           </h2>
           <p class="slide-body text-xs md:text-base leading-relaxed">
@@ -321,13 +570,13 @@
         </p>
       </div>
       <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
-        <div class="md:w-1/3 flex justify-center">
+        <div class="flex justify-center">
           <div class="w-full max-w-sm md:max-w-full">
             <img src="/assets/images/bar-capabilities/section-4.png" alt="Happy hour pricing" class="max-w-full h-auto object-cover" />
           </div>
         </div>
         <div class="md:w-1/2">
-          <h2 class="slide-title text-xl md:text-3xl font-bold mb-2 md:mb-4 leading-tight">
+          <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">
             Automate happy hour pricing
           </h2>
           <p class="slide-body text-xs md:text-base leading-relaxed">
@@ -350,13 +599,13 @@
         </p>
       </div>
       <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
-        <div class="md:w-1/3 flex justify-center">
+        <div class="flex justify-center">
           <div class="w-full max-w-sm md:max-w-full">
             <img src="/assets/images/bar-capabilities/section-5.png" alt="Menu editing" class="max-w-full h-auto object-cover" />
           </div>
         </div>
         <div class="md:w-1/2">
-          <h2 class="slide-title text-xl md:text-3xl font-bold mb-2 md:mb-4 leading-tight">
+          <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">
             Update your menu effortlessly
           </h2>
           <p class="slide-body text-xs md:text-base leading-relaxed">
@@ -379,13 +628,13 @@
         </p>
       </div>
       <div class="slide-card flex flex-col md:flex-row items-center p-4 sm:p-8 space-y-4 md:space-y-0 md:space-x-12 rounded-[38px]">
-        <div class="md:w-1/3 flex justify-center">
+        <div class="flex justify-center">
           <div class="w-full max-w-sm md:max-w-full">
             <img src="/assets/images/bar-capabilities/section-6.png" alt="Inventory monitor" class="max-w-full h-auto object-cover" />
           </div>
         </div>
         <div class="md:w-1/2">
-          <h2 class="slide-title text-xl md:text-3xl font-bold mb-2 md:mb-4 leading-tight">
+          <h2 class="slide-title text-[16px] md:text-3xl font-bold mb-4 leading-tight">
             Monitor inventory to reduce overpouring
           </h2>
           <p class="slide-body text-xs md:text-base leading-relaxed">
