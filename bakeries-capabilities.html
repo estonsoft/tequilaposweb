@@ -20,85 +20,71 @@
 
   <link rel="stylesheet" href="/assets/style/global.css" />
   <style>
-    /* Splide arrow styling */
-    .splide__arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      border-radius: 9999px;
-      background: white;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-      width: 2.5rem;
-      height: 2.5rem;
-      display: grid;
-      place-items: center;
-      transition: background 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-    .splide__arrow:hover { background: #f3f4f6; }
-    .splide__arrow--prev { left: -2rem; }
-    .splide__arrow--next { right: -2rem; }
-    @media (max-width: 768px) {
-      .splide__arrow--prev { left: -1rem; }
-      .splide__arrow--next { right: -1rem; }
-    }
-    .splide__arrow svg { width: 1.25rem; height: 1.25rem; }
-    .splide__pagination { display: none; }
+      /* ---- Light defaults ---- */
+      /* body { background-color: #ffffff; color: #000000; }
+      footer { background-color: #ffffff; }
+      section { background-color: #ffffff; }
+      
+      .logo-dark { display: none; }
+      .logo-light { display: block; } */
 
-    /* ---- Light defaults ---- */
-    body { background-color: #ffffff; }
-    footer { background-color: #ffffff; }
-    section { background-color: #ffffff; }
+      /* Light mode defaults */
+     
+      .mega-menu { background-color: #ffffff; }
+      #mobile-menu { background-color: #ffffff; }
+      #dropdownBtn { background-color: #f3f4f6; }
+      #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
 
-    .page-accent { color: #505050; }
-    .page-main   { color: #000000; }
-    .page-sub    { color: #4f4f4f; }
-
-    .slide-card  { background-color: #fafafa; }
+      .slide-card  { background-color: #fafafa; }
     .slide-title { color: #000000; }
     .slide-body  { color: #4b5563; }
 
-    .footer-heading { color: #1f2937; }
-    .footer-link    { color: #6b7280; transition: color 0.2s; }
-    .footer-link:hover { color: #1f2937; }
-    .footer-label   { color: #4f4f4f; }
-    .footer-chevron { color: #4b5563; }
+      .page-accent { color: #505050; }
+    .page-main   { color: #000000; }
+    .page-sub    { color: #4f4f4f; }
+      
+      /* ---- Dark mode overrides ---- */
+      html.dark body    { background-color: #1c1c1c; color: #ffffff; }
+      html.dark footer  { background-color: #1c1c1c; }
+      html.dark section { background-color: #1c1c1c; }
 
-    /* ---- Dark overrides ---- */
-    html.dark body    { background-color: #1c1c1c; color: #fff; }
-    html.dark footer  { background-color: #1c1c1c; }
-    html.dark section { background-color: #1c1c1c; }
-
-    html.dark .page-accent { color: #C98633; }
-    html.dark .page-main   { color: #ffffff; }
-    html.dark .page-sub    { color: #cdcdcd; }
-
-    html.dark .slide-card  { background-color: #373737; }
+      html.dark .slide-card  { background-color: #373737; }
     html.dark .slide-title { color: #ffffff; }
     html.dark .slide-body  { color: #cdcdcd; }
+      
+      html.dark .logo-dark { display: block; }
+      html.dark .logo-light { display: none; }
+      html.dark .page-accent { color: #C98633; }
+    html.dark .page-main   { color: #ffffff; }
+    html.dark .page-sub    { color: #cdcdcd; }
+      
+      html.dark .mega-menu { background-color: #000000; }
+      html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
+      html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
+      html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+      
+      /* Text color overrides for dark mode */
+       html.dark .text-black { color: #ffffff; }
+      html.dark .text-gray-500,
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-800 { color: #cdcdcd; }
+      
+      /* Background and border overrides for dark mode */
+      html.dark .bg-white { background-color: #1c1c1c; }
+      html.dark .bg-gray-100,
+      html.dark .bg-gray-200 { background-color: #2c2c2c; }
+      html.dark .border-gray-300,
+      html.dark .border-gray-200 { border-color: #444444; }
+      html.dark .shadow-md { box-shadow: 0px 4px 18.9px rgba(0,0,0,0.5); }
 
-    html.dark .splide__arrow { background: #2c2c2c; }
-    html.dark .splide__arrow:hover { background: #444; }
-    html.dark .splide__arrow svg { fill: #fff; }
-
-    html.dark .footer-heading { color: #ffffff; }
-    html.dark .footer-link    { color: #cdcdcd; }
-    html.dark .footer-link:hover { color: #ffffff; }
-    html.dark .footer-label   { color: #cdcdcd; }
-    html.dark .footer-chevron { color: #ffffff; }
-    html.dark footer button   { color: #ffffff; }
-    html.dark footer .border-gray-300,
-    html.dark footer .border-t { border-color: #444444; }
-    html.dark footer input[type="email"] { background-color: #2c2c2c; color: #cdcdcd; }
-    html.dark .border-gray-300 { border-color: #444; }
-
-    li h2 {
+      /* Feature card dark mode */
+      html.dark .bg-\[#FAFAFA\] { background-color: #373737; }
+      li h2 {
       font-size: 1.2rem;
       margin-bottom: 16px;
     }
-
-    @media (min-width: 768px) and (max-width: 1023px) {
+       @media (min-width: 768px) and (max-width: 1023px) {
       .page-sub {
         line-height: 1.85rem !important;
       }
@@ -113,12 +99,12 @@
         margin-top: 0.125rem;
       } */
     }
-  </style>
+    </style>
 </head>
 
 <body class="font-inter text-sm">
   <!-- Navigation -->
-  <nav class="navbar lg:block hidden">
+  <nav class="navbar xl:block hidden">
       <div class="navbar-container container mx-auto px-4">
         <div class="logo-container">
           <a href="/index.html">
@@ -316,7 +302,7 @@
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar lg:hidden shadow-md relative">
+    <nav class="navbar xl:hidden shadow-md relative">
       <div
         class="navbar-container container mx-auto flex items-center justify-between py-2 px-4"
       >
@@ -334,7 +320,7 @@
         </div>
         <button
           id="mobile-menu-btn"
-          class="lg:hidden p-2"
+          class="xl:hidden p-2"
           style="color: inherit"
         >
           <svg
@@ -478,6 +464,7 @@
             Whether it’s for today or tomorrow, accept and organize orders seamlessly.
           </p>
         </div>
+        </div>
 
 
         
@@ -498,7 +485,7 @@
                 </div>
 
                 <div class="md:w-1/2">
-                  <h2 class="text xl md:text-3xl font-bold mb-0 md:mb-4 leading-tight">
+                  <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
                     Accept in-store
                   </h2>
                   <p class="text-xs md:text-base text-gray-600 leading-relaxed">
@@ -518,7 +505,7 @@
                 </div>
 
                 <div class="md:w-1/2">
-                  <h2 class="text xl md:text-3xl font-bold mb-0 md:mb-4 leading-tight">
+                  <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
                     Pre-orders
                   </h2>
                   <p class="text-xs md:text-base text-gray-600 leading-relaxed">
@@ -528,7 +515,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      
     </div>
   </section>
 
@@ -567,8 +554,13 @@
                   <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
                   Set pickup times
                   </h2>
-                  <p class="text-xs md:text-base text-gray-600 leading-relaxed">
-                   Allow customers to choose their preferred pickup times when placing orders. Your team gets a clear schedule, helping manage prep and reduce crowding. It’s a convenient way to offer timely service and keep operations running smoothly.</p>
+
+                  <p class="text-xs md:text-base leading-relaxed lg:hidden md:mb-4">
+                    Allow customers to choose their preferred pickup times when placing orders. Your team gets a clear schedule, helping manage prep and reduce crowding.
+                  </p>
+                  <p class="hidden text-xs md:text-base text-gray-600 leading-relaxed lg:block md:mb-4">
+                    Allow customers to choose their preferred pickup times when placing orders. Your team gets a clear schedule, helping manage prep and reduce crowding. It’s a convenient way to offer timely service and keep operations running smoothly.
+                  </p>
                 </div>
               </div>
             </li>
@@ -625,7 +617,9 @@
             <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
               Track stock of daily bakes and specials
             </h2>
-            <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+
+            <p class="text-xs md:text-base leading-relaxed lg:hidden md:mb-4">Keep track of your daily bakes and specials with real-time stock updates.</p>
+            <p class="hidden text-xs md:text-base text-gray-600 leading-relaxed lg:block md:mb-4">
               Stay on top of daily bakes and specials with real-time stock tracking. Know exactly what's available, what’s running low, and update your menu as items sell out. Reduce waste, avoid overselling, and keep your offerings fresh and accurate. </p>
           </div>
         </div>
@@ -663,7 +657,9 @@
             <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
               Add photos to help sell signature items
             </h2>
-            <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+
+            <p class="text-xs md:text-base leading-relaxed lg:hidden md:mb-4">Showcase your signature items with mouthwatering photos right on your POS or menu display.</p>
+            <p class="hidden text-xs md:text-base text-gray-600 leading-relaxed lg:block md:mb-4">
              Showcase your signature items with mouthwatering photos right on your POS or menu display. Visuals help customers decide faster and boost interest in high-margin dishes. It’s an easy way to drive more sales with eye-catching presentation.</p>
           </div>
         </div>
@@ -697,7 +693,9 @@
             <h2 class="text-[16px] md:text-3xl font-bold mb-4 leading-tight">
               Manage seasonal menu changes
             </h2>
-            <p class="text-xs md:text-base text-gray-600 leading-relaxed">
+
+            <p class="text-xs md:text-base leading-relaxed lg:hidden md:mb-4">Easily update and manage seasonal menu changes with just a few clicks.</p>
+            <p class="hidden text-xs md:text-base text-gray-600 leading-relaxed lg:block md:mb-4">
              Easily update and manage seasonal menu changes with just a few clicks. Add or remove items, adjust pricing, and highlight limited-time offers without disrupting your workflow. Keep your menu fresh and relevant all year round.</p>
           </div>
         </div>
