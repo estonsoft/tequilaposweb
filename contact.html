@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tequila POS - Smart POS Solutions</title>
+
+     <script src="/assets/js/theme.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Optional: Default Theme -->
@@ -14,11 +16,75 @@
 
     <!-- aos -->
 
-    <!-- <link rel="stylesheet" href="/assets/style/global.css" /> -->
+    <link rel="stylesheet" href="/assets/style/global.css" />
+
+    <style>
+      /* ---- Light defaults ---- */
+      /* body { background-color: #ffffff; color: #000000; }
+      footer { background-color: #ffffff; }
+      section { background-color: #ffffff; }
+      
+      .logo-dark { display: none; }
+      .logo-light { display: block; } */
+
+      /* Light mode defaults */
+     
+      .mega-menu { background-color: #ffffff; }
+      #mobile-menu { background-color: #ffffff; }
+      #dropdownBtn { background-color: #f3f4f6; }
+      #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
+
+      .page-accent { color: #505050; }
+    .page-main   { color: #000000; }
+    .page-sub    { color: #4f4f4f; }
+      
+      /* ---- Dark mode overrides ---- */
+      html.dark body    { background-color: #1c1c1c; color: #ffffff; }
+      html.dark footer  { background-color: #1c1c1c; }
+      html.dark section { background-color: #1c1c1c; }
+      
+      html.dark .logo-dark { display: block; }
+      html.dark .logo-light { display: none; }
+      html.dark .page-accent { color: #C98633; }
+    html.dark .page-main   { color: #ffffff; }
+    html.dark .page-sub    { color: #cdcdcd; }
+      
+      html.dark .mega-menu { background-color: #000000; }
+      html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
+      html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
+      html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+      
+      /* Text color overrides for dark mode */
+       html.dark .text-black { color: #ffffff; }
+      html.dark .text-\\[#4f4f4f\\],
+      html.dark .text-\\[#333\\],
+      html.dark .text-gray-500,
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-800 { color: #cdcdcd; }
+      
+      /* Background and border overrides for dark mode */
+      html.dark .bg-white { background-color: #1c1c1c; }
+      html.dark .bg-gray-100,
+      html.dark .bg-gray-200 { background-color: #2c2c2c; }
+      html.dark .border-gray-300,
+      html.dark .border-\\[#dbdbdb\\] { border-color: #444444; }
+      html.dark .shadow-\\[0px_4px_18.9px_rgba\\(0,0,0,0.25\\)\\] { box-shadow: 0px 4px 18.9px rgba(0,0,0,0.5); }
+
+      /* Product Guides section dark mode */
+      html.dark .product-guides-section { background-color: #373737 !important; }
+      
+      @media screen and (max-width: 780px) {
+  html.dark .heading_p { color: #ffffff !important; }
+}
+      
+      /* Form section dark mode */
+      html.dark .contact-form-container { background-color: #1c1c1c; }
+    </style>
   </head>
-  <body class="bg-white font-inter text-sm">
+  <body class="font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar xl:block hidden">
+     <nav class="navbar xl:block hidden">
       <div class="navbar-container container mx-auto px-4">
         <div class="logo-container">
           <a href="/index.html">
@@ -210,7 +276,8 @@
             />
           </div>
           <a href="#signin" class="nav-link">Sign in</a>
-          <button class="demo-btn"><span>Free Demo</span></button>
+          <a href="/free-demo.html"><button class="demo-btn"><span>Free Demo</span></button></a>
+          
         </div>
       </div>
     </nav>
@@ -223,12 +290,12 @@
         <div class="logo-container flex items-center">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="logo-light logo h-10"
+            class="logo-light logo h-auto"
             alt="Logo"
           />
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
-            class="logo-dark logo h-10"
+            class="logo-dark logo h-auto"
             alt="Logo"
           />
         </div>
@@ -329,7 +396,7 @@
             >Sign In</a
           >
           <a
-            href="#demo"
+            href="/free-demo.html"
             class="block text-center font-bold py-2 rounded shadow"
             style="background: #c89633; color: #000"
             >Free Demo</a
@@ -341,7 +408,7 @@
     <!-- hero section -->
     <!-- hero section -->
 <section class="py-20 md:pt-10">
-  <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
+  <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-20">
 
       <!-- IMAGE: shows first on mobile/tablet, second on desktop -->
@@ -357,7 +424,7 @@
       <div class="md:order-first">
         <div class="mx-auto">
           <h2 class="justify-start md:mb-20 mb-6 text-[18px]">
-            <span class="text-[#4f4f4f] font-bold">Fill in The Details Below,</span>
+            <span class="page-accent font-bold">Fill in The Details Below,</span>
             <span class="text-black font-bold"> And Our Team Get Back to You</span>
           </h2>
 
@@ -365,27 +432,27 @@
             <input
               type="text"
               placeholder="Your Name"
-              class="w-full border-b border-gray-300 focus:border-black outline-none py-2 mb-10 md:mb-14"
+              class="w-full border-b bg-transparent focus:border-black outline-none py-2 mb-10 md:mb-14"
             />
             <input
               type="text"
               placeholder="Your Address"
-              class="w-full border-b border-gray-300 focus:border-black outline-none py-2 mb-10 md:mb-14"
+              class="w-full border-b border-gray-300 bg-transparent focus:border-black outline-none py-2 mb-10 md:mb-14"
             />
             <input
               type="tel"
               placeholder="Your Phone No."
-              class="w-full border-b border-gray-300 focus:border-black outline-none py-2 mb-10 md:mb-14"
+              class="w-full border-b border-gray-300 bg-transparent focus:border-black outline-none py-2 mb-10 md:mb-14"
             />
             <textarea
               placeholder="Your Message"
-              class="w-full border-b border-gray-300 focus:border-black outline-none py-2 resize-none mb-10 md:mb-14"
+              class="w-full border-b border-gray-300 bg-transparent focus:border-black outline-none py-2 resize-none mb-10 md:mb-14"
               rows="1"
             ></textarea>
 
             <button
               type="submit"
-              class="ml-auto block uppercase tracking-wide text-sm font-semibold text-[#000000] border-b-2 border-black pb-1 hover:text-gray-700"
+              class="ml-auto block uppercase tracking-wide text-sm font-semibold border-b-2 pb-1 hover:text-gray-700"
             >
               Submit
             </button>
@@ -399,16 +466,16 @@
 
 <!-- Features Section -->
 <section id="features" class="bg-white py-20">
-  <div class="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 max-w-[1280px] xl:max-w-[1400px] 2xl:max-w-[1600px]">
+  <div class="container mx-auto px-4">
 
     <!-- Section Header -->
     <div class="text-center md:mb-20 mb-6">
       <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-        <span class="text-[#4f4f4f]">Call Or Email </span>
-        <span class="text-black">Us Directly</span>
+        <span class="page-accent">Call Or Email </span>
+        <span class="page-main">Us Directly</span>
       </h2>
       <div class="flex justify-center">
-        <p class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal">
+        <p class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal">
           Have questions or need support? We're here to help. Reach out to
           us anytime for product inquiries, demos, or assistance—our team is
           just a call or message away.
@@ -421,25 +488,27 @@
 
       <!-- PHONE CARD -->
       <div class="flex justify-center">
-        <div class="bg-white rounded-[32px] border border-[#dcdcdc] shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-center px-6 py-8 flex flex-col items-center justify-center w-full max-w-[422px] min-h-[186px]">
+        <div class="bg-white rounded-[32px] border shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-center px-6 py-8 flex flex-col items-center justify-center w-full max-w-[422px] min-h-[186px]">
           <div class="flex items-center gap-3 mb-4">
             <img src="/assets/images/contact/Phone.png" class="w-[50px] h-[50px] object-contain" />
-            <p class="text-black text-[20px] md:text-[24px] font-semibold">Phone Support</p>
+            <p class="page-main text-[20px] md:text-[24px] font-semibold">Phone Support</p>
           </div>
-          <p class="text-[#6b6b6b] text-[14px] md:text-[24px] mb-3">+61 8492395705</p>
-          <a class="text-black text-[12px] font-semibold underline uppercase tracking-wide cursor-pointer">CALL US NOW</a>
+          <p class="page-accent text-[14px] md:text-[24px] mb-3">+61 8492395705</p>
+          <a class="page-main text-[12px] font-semibold underline uppercase tracking-wide cursor-pointer">CALL US NOW</a>
         </div>
       </div>
 
       <!-- EMAIL CARD -->
       <div class="flex justify-center">
-        <div class="bg-white rounded-[32px] border border-[#dcdcdc] shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-center px-6 py-8 flex flex-col items-center justify-center w-full max-w-[422px] min-h-[186px]">
+        <div class="bg-white rounded-[32px] border shadow-[0_2px_8px_rgba(0,0,0,0.08)] text-center px-6 py-8 flex flex-col items-center justify-center w-full max-w-[422px] min-h-[186px]">
           <div class="flex items-center gap-3 mb-4">
             <img src="/assets/images/contact/Mail.png" class="w-[50px] h-[50px] object-contain" />
-            <p class="text-black text-[20px] md:text-[24px] font-semibold">Email Support</p>
+
+            <img src="/assets/images/contact/" alt="">
+            <p class="page-main text-[20px] md:text-[24px] font-semibold">Email Support</p>
           </div>
-          <p class="text-[#6b6b6b] text-[14px] md:text-[24px] mb-3">support@mail.com</p>
-          <a class="text-black text-[12px] font-semibold underline uppercase tracking-wide cursor-pointer">MAIL US NOW</a>
+          <p class="page-accent text-[14px] md:text-[24px] mb-3">support@mail.com</p>
+          <a class="page-main text-[12px] font-semibold underline uppercase tracking-wide cursor-pointer">MAIL US NOW</a>
         </div>
       </div>
 
@@ -448,20 +517,25 @@
 </section>
 
     <!-- Footer -->
-    <footer class="bg-white py-10">
-      <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+    <footer class="py-10">
+      <div class="container mx-auto px-4">
         <!-- Top Logo + Switch -->
         <div
           class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
         >
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="w-10 md:w-40 h-auto"
+            class="logo-light w-10 md:w-40 h-auto"
+            alt=""
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark w-10 md:w-40 h-auto"
             alt=""
           />
 
           <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+            <p class="text-[#4f4f4f] text-[11px] font-normal select-none footer-label">
               Switch to dark mode
             </p>
 
@@ -481,7 +555,7 @@
                 placeholder="Toggle dark mode"
               />
               <div
-                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black transition-colors duration-300"
               ></div>
               <div
                 class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
@@ -779,28 +853,6 @@
     <script src="../assets/js/navbar.js"></script>
     <script src="../assets/js/footer-accordion.js"></script>
 
-    <script>
-      const toggle = document.getElementById("dark-mode-toggle");
-
-      const currentPage = window.location.pathname.split("/").pop();
-
-      // Load saved mode
-      const savedTheme = localStorage.getItem("theme");
-
-      if (savedTheme === "dark") {
-        toggle.checked = true;
-      }
-
-      toggle.addEventListener("change", function () {
-        if (this.checked) {
-          localStorage.setItem("theme", "dark");
-          window.location.href = `/dark/${currentPage}`;
-        } else {
-          localStorage.setItem("theme", "light");
-          window.location.href = `/light/${currentPage}`;
-        }
-      });
-    </script>
 
     <script>
       function toggleFaq(element) {
