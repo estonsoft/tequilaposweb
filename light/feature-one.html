@@ -55,7 +55,7 @@
     .mobile-timeline::before {
       content: "";
       position: absolute;
-      left: 1rem;
+      left: 0.35rem;
       top: 0;
       bottom: 0;
       width: 2px;
@@ -560,14 +560,14 @@
     <section class="py-8 md:py-16">
       <div class="container mx-auto px-4">
         <h1
-          class="md:w-[652px] text-[30px] md:text-[64px] lg:text-7xl font-bold md:leading-[126.03px] leading-normal w-full"
+          class="md:w-[652px] text-[40px] md:text-[64px] lg:text-[96px] font-bold md:leading-[126.03px] leading-normal w-full"
         >
           <span class="page-accent">Offline</span
           ><span class="page-main"> Mode</span>
         </h1>
 
         <p
-          class="md:w-[611px] w-full page-sub md:text-[20px] text-[10px] md:leading-[25.20px] leading-normal mb-8"
+          class="md:w-[611px] w-full page-sub md:text-[20px] text-[12px] md:leading-[25.20px] leading-normal mb-8"
         >
           Seamless Transactions Anytime, Anywhere—With or Without Connectivity.
         </p>
@@ -578,7 +578,7 @@
     <section class="py-4">
       <div class="container mx-auto px-4">
         <section id="main-slider" class="splide" aria-label="Splide Slider">
-          <div class="my-slider-progress w-full mx-auto">
+          <div class="my-slider-progress w-[80%] mx-auto">
             <div class="my-slider-progress-bar"></div>
           </div>
 
@@ -587,7 +587,7 @@
               <button
                 class="splide__arrow splide__arrow--prev 
                 left-0
-                 text-4xl text-gray-900 hover:text-gray-900 transition"
+                 md:text-4xl text-2xl text-gray-900 hover:text-gray-900 transition"
                 aria-label="Previous Slide"
               >
                 <img src="/assets/images/feature-one/Left.png" alt="" class="logo-light" />
@@ -597,7 +597,7 @@
               <button
                 class="splide__arrow splide__arrow--next 
                 right-0
-                 text-4xl text-gray-900 hover:text-gray-900 transition"
+                 md:text-4xl text-2xl text-gray-900 hover:text-gray-900 transition"
                 aria-label="Next Slide"
               >
                 <img src="/assets/images/feature-one/Right.png" alt="" class="logo-light" />
@@ -610,7 +610,7 @@
             <ul class="splide__list">
               <li class="splide__slide pt-10">
                 <h1
-                  class="md:text-9xl text-3xl font-bold md:leading-[104.96px] leading-normal border-b border-gray-300 md:pb-5"
+                  class="lg:text-9xl md:text-7xl text-[48px] font-bold md:leading-[104.96px] leading-normal border-b border-gray-300 md:pb-5"
                 >
                   <span class="page-accent">What</span
                   ><span class="page-main"> it is</span>
@@ -634,14 +634,14 @@
               <li class="splide__slide relative pt-10">
                 <div class="p-4 md:p-8">
                   <h1
-                    class="md:text-9xl text-3xl font-bold md:leading-[104.96px] leading-normal"
+                    class="lg:text-9xl md:text-7xl text-[30px] font-bold md:leading-[104.96px] leading-normal"
                   >
                     <span class="page-accent">What users see</span
                     ><span class="page-main"> (waiters/cashiers)</span>
                   </h1>
 
                   <div
-                    class="desktop-timeline hidden lg:flex flex flex-row lg:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30 "
+                    class="desktop-timeline hidden lg:flex flex flex-row lg:flex-row justify-between items-start md:mt-18 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30 "
                   >
                     <div
                       class="flex flex-col items-center text-center flex-1 min-w-0"
@@ -740,7 +740,7 @@
                     </div>
                   </div>
 
-                  <div class="mobile-timeline lg:hidden">
+                  <div class="mobile-timeline lg:hidden mt-8">
                     <div class="timeline-item">
                       <span class="timeline-dot"></span>
                       <blockquote class="relative w-full">
@@ -843,20 +843,20 @@
         <!-- Left Content -->
         <div class="order-2 md:order-1 md:col-span-4">
           <h2
-            class="text-[20px] md:text-[38px] text-4xl font-[500] md:leading-[80.64px] leading-normal"
+            class="text-[20px] md:text-[55px] font-[600] md:leading-[80.64px] leading-normal w-full md:w-[760px]"
           >
             <span class="page-accent">Behind-the-Scenes Power for </span
             ><span class="page-main">Seamless POS Performance</span>
           </h2>
           <p
-            class="md:w-[512px] md:text-[18px] w-full text-[10px] page-sub md:mb-10 mb-6"
+            class="md:w-[560px] md:text-[15px] w-full text-[10px] page-sub md:mb-10 mb-6"
           >
             Discover the smart background systems that keep your sales flowing
             and data secure in any condition.
           </p>
 
-          <img src="/assets/images/Rectangle 289.png" alt="" class="md:hidden mb-4">
-          <p class="text-[10px] md:text-[18px] page-sub leading-relaxed">
+          <img src="/assets/images/Rectangle 289.png" alt="" class="lg:hidden mb-4 md:w-[750px]">
+          <p class="text-[10px] md:text-[24px] page-sub leading-relaxed md:w-[750px] w-full">
             When the internet goes down, the POS system automatically switches
             to offline mode and stores all transactions locally on the device.
             Each order is timestamped and safely queued. The system keeps
@@ -868,11 +868,11 @@
         </div>
 
         <!-- Right Images -->
-        <div class="order-1 md:order-2 md:col-span-2 h-full">
+        <div class="order-1 md:order-2 md:col-span-2 md:mt-36">
           <img
             src="/assets/images/feature-one/2ndSectionImg.png"
             alt="POS System"
-            class="w-full h-full hidden md:block"
+            class="w-full h-full hidden lg:block"
           />
         </div>
       </div>
@@ -881,15 +881,15 @@
     <!-- why choose us -->
     <section class="py-4">
       <div class="container mx-auto px-4">
-        <div class="mb-12 md:text-left text-center">
+        <div class="mb-12 text-left">
           <h2
-            class="text-[20px] md:text-[64px] lg:text-4xl font-[500] md:leading-[80.64px] leading-normal lg:w-[880px] w-full"
+            class="text-[20px] md:text-[60px] font-[600] md:leading-[80.64px] leading-normal lg:w-[880px] w-full"
           >
             <span class="page-accent">Why Offline </span
             ><span class="page-main">Capability Matters</span>
           </h2>
           <p
-            class="text-sm md:text-[15px] page-sub leading-relaxed md:w-[512px] w-full"
+            class="text-[10px] md:text-[15px] page-sub leading-relaxed md:w-[512px] w-full"
           >
             Because every second of downtime is a lost opportunity—our system
             keeps you selling without interruption.
