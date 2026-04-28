@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tequila POS - Smart POS Solutions</title>
+    <script src="/assets/js/theme.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Splide CSS -->
@@ -19,7 +20,7 @@
     />
 
     <!-- aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
 
     <link rel="stylesheet" href="/assets/style/global.css" />
 
@@ -47,7 +48,73 @@
         display: none;
       }
 
-      .splide__arrow {
+      .mobile-timeline {
+      position: relative;
+    }
+    .mobile-timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.35rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e7eb;
+    }
+    .mobile-timeline .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .mobile-timeline .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .mobile-timeline .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 9999px;
+      background: #000;
+    }
+    .mobile-timeline blockquote {
+      padding-left: 0.5rem;
+    }
+    html.dark .mobile-timeline::before { background: #4b5563; }
+    html.dark .mobile-timeline .timeline-dot { background: #fff; }
+
+    .mobile-svg-lines {
+      z-index: -1;
+      opacity: 0.7;
+    }
+    .mobile-diff-card {
+      position: absolute;
+      width: 163px;
+      height: 157px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+      z-index: 1;
+    }
+    .mobile-diff-card h2,
+    .mobile-diff-card h3,
+    .mobile-diff-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .mobile-diff-dot {
+      position: absolute;
+      left: 50%;
+      top: -0.75rem;
+      transform: translateX(-50%);
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 9999px;
+      background: #000;
+      z-index: 2;
+    }
+    html.dark .mobile-diff-dot { background: #fff; }
+
+
+      /* .splide__arrow {
         -ms-flex-align: center;
         align-items: center;
         background: transparent !important;
@@ -75,162 +142,262 @@
 
         .splide__arrow--prev {
           left: 0rem !important;
-        }
+        } */
+      /* } */
+
+      .splide__arrow {
+       position: relative !important;
+        /* top: -83px; */
+        /* width: full !important; */
+        
+        /* left: -10px;
+        right: -100px; */
+        transform: none !important;
       }
+      /* .splide__arrow--prev {
+        left: -50px;
+      }
+      .splide__arrow--next {
+        right: -1150px;
+      } */
     </style>
+
+    <style>
+      /* ---- Light defaults ---- */
+      /* body { background-color: #ffffff; color: #000000; }
+      footer { background-color: #ffffff; }
+      section { background-color: #ffffff; }
+      
+      .logo-dark { display: none; }
+      .logo-light { display: block; } */
+
+      /* Light mode defaults */
+     
+      .mega-menu { background-color: #ffffff; }
+      #mobile-menu { background-color: #ffffff; }
+      #dropdownBtn { background-color: #f3f4f6; }
+      #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
+
+      .slide-card  { background-color: #fafafa; }
+
+      .page-accent { color: #505050; }
+    .page-main   { color: #000000; }
+    .page-sub    { color: #4f4f4f; }
+    .page-btn { background-color: #000000; color: #ffffff; }
+      
+      /* ---- Dark mode overrides ---- */
+      html.dark body    { background-color: #1c1c1c; color: #ffffff; }
+      html.dark footer  { background-color: #1c1c1c; }
+      html.dark section { background-color: #1c1c1c; }
+
+      html.dark .slide-card  { background-color: #373737; }
+      
+      html.dark .logo-dark { display: block; }
+      html.dark .logo-light { display: none; }
+      html.dark .page-accent { color: #C98633; }
+    html.dark .page-main   { color: #ffffff; }
+    html.dark .page-sub    { color: #cdcdcd; }
+      html.dark .page-btn { background-color: #ffffff; color: #000000; }
+      
+      html.dark .mega-menu { background-color: #000000; }
+      html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
+      html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
+      html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+      
+      /* Text color overrides for dark mode */
+       html.dark .text-black { color: #ffffff; }
+      html.dark .text-\\[#4f4f4f\\],
+      html.dark .text-\\[#333\\],
+      html.dark .text-gray-500,
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-800 { color: #cdcdcd; }
+      
+      /* Background and border overrides for dark mode */
+      html.dark .bg-white { background-color: #1c1c1c; }
+      html.dark .bg-gray-100,
+      html.dark .bg-gray-200 { background-color: #2c2c2c; }
+      html.dark .border-gray-300,
+      html.dark .border-\\[#dbdbdb\\] { border-color: #444444; }
+      html.dark .shadow-\\[0px_4px_18.9px_rgba\\(0,0,0,0.25\\)\\] { box-shadow: 0px 4px 18.9px rgba(0,0,0,0.5); }
+
+      /* Product Guides section dark mode */
+      html.dark .product-guides-section { background-color: #373737 !important; }
+      
+      @media screen and (max-width: 780px) {
+  html.dark .heading_p { color: #ffffff !important; }
+}
+      
+      /* Form section dark mode */
+      html.dark .contact-form-container { background-color: #1c1c1c; }
+    </style>
+
+    
   </head>
   <body class="bg-white font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
-        <!-- Logo -->
+    <nav class="navbar xl:block hidden">
+      <div class="navbar-container container mx-auto px-4">
         <div class="logo-container">
-          <a href="/light/index.html">
+          <a href="/index.html">
             <img
               src="/assets/images/logo/tequila_pos_logo_transparent.png"
-              class="logo"
+              class="logo-light logo"
+              alt="Logo"
+            />
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+              class="logo-dark logo"
               alt="Logo"
             />
           </a>
-
           <div class="nav-links ml-4">
             <div class="nav-item relative group">
               <a href="#business-type" class="nav-link">Business Type</a>
-
-              <!-- Mega Menu -->
               <div
-                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
+                class="mega-menu mega-anim absolute left-0 top-full pt-10"
                 onmouseleave="clearActive()"
               >
                 <div class="flex flex-nowrap gap-10">
-                  <!-- LEFT: categories -->
                   <div
                     class="flex flex-col p-10 gap-4"
                     id="categoryList"
                     data-aos="fade-left"
                   >
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/food.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="food"
                       onmouseenter="setActive('food')"
                       onfocus="setActive('food')"
+                      >Food &amp; Beverage</a
                     >
-                      Food &amp; Beverage
-                    </a>
-
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/retail.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="retail"
                       onmouseenter="setActive('retail')"
                       onfocus="setActive('retail')"
+                      >Retail</a
                     >
-                      Retail
-                    </a>
                   </div>
-
-                  <!-- RIGHT: panels -->
                   <div class="flex gap-16 p-10">
-                    <!-- FOOD panel -->
                     <div class="flex justify-between gap-10" data-panel="food">
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
                         </ul>
                       </div>
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Capacity
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage order from one place</a
+                              href="/resturent-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Resturents</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Take payment</a
+                              href="/bar-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bars</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Keep customer coming back</a
+                              href="/food-truck-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Food Trucks and Pop-ups</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Scale your business</a
+                              href="/cafes-coffee-shop-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Cafes & Coffee Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Improve operation</a
+                              href="/juice-bars-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Juice Bars & Smoothie Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Schedule and pay your team</a
+                              href="/bakeries-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bakeries</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage your cash flow</a
+                              href="/ice-cream-shops-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Ice Creams & Desserts Shops</a
                             >
                           </li>
                         </ul>
                       </div>
                     </div>
-
-                    <!-- RETAIL panel -->
                     <div class="space-y-6 hidden" data-panel="retail">
-                      <div class="gap-10">
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
@@ -241,19 +408,15 @@
                 </div>
               </div>
             </div>
-
-            <!-- Other Links -->
-            <a href="/light/feature.html" class="nav-link">Feature</a>
-            <a href="/light/hardware.html" class="nav-link">Hardware</a>
-            <a href="/light/pricing.html" class="nav-link">Pricing</a>
-            <a href="/light/resourse.html" class="nav-link">Resources</a>
+            <a href="/feature.html" class="nav-link">Feature</a>
+            <a href="/hardware.html" class="nav-link">Hardware</a>
+            <a href="/pricing.html" class="nav-link">Pricing</a>
+            <a href="/resourse.html" class="nav-link">Resources</a>
           </div>
         </div>
-
-        <!-- Navigation Links -->
         <div class="nav-extra-links">
           <div
-            class="language-selector cursor-pointers"
+            class="language-selector cursor-pointer"
             onclick="toggleLanguage()"
           >
             <span id="language-text">ENGLISH</span>
@@ -264,32 +427,35 @@
               class="flag-icon"
             />
           </div>
-
           <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
-          </button>
+          <a href="/free-demo.html"><button class="demo-btn"><span>Free Demo</span></button></a>
+          
         </div>
       </div>
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-white shadow-md relative">
+    <nav class="navbar xl:hidden shadow-md relative">
       <div
-        class="navbar-container container mx-auto flex items-center justify-between py-4"
+        class="navbar-container container mx-auto flex items-center justify-between py-2 px-4"
       >
-        <!-- Logo -->
         <div class="logo-container flex items-center">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="logo h-10"
+            class="logo-light logo h-auto"
+            alt="Logo"
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark logo h-auto"
             alt="Logo"
           />
         </div>
-        <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
-          <!-- Hamburger Icon -->
+        <button
+          id="mobile-menu-btn"
+          class="xl:hidden p-2"
+          style="color: inherit"
+        >
           <svg
             id="hamburger-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -305,8 +471,6 @@
               d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>
-
-          <!-- Close Icon -->
           <svg
             id="close-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -324,123 +488,87 @@
           </svg>
         </button>
       </div>
-
-      <!-- Mobile Menu -->
-      <!-- Mobile Menu (White Version) -->
       <div
         id="mobile-menu"
-        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        style="background-color: var(--mobile-bg, #fff)"
       >
         <div class="p-4 space-y-4">
-          <!-- Dropdown -->
           <div class="relative">
             <button
               id="dropdownBtn"
-              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+              class="flex justify-between items-center w-full px-4 py-2 rounded"
+              style="color: inherit"
             >
               Business Type
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                class="w-5 h-5 transition-transform duration-200"
               >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
-        11.94l3.72-3.72a.75.75 0 1 1 
-        1.06 1.06l-4.25 4.25a.75.75 0 
-        0 1-1.06 0L5.22 9.28a.75.75 
-        0 0 1 0-1.06Z"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
                 />
               </svg>
             </button>
-
             <div
               id="dropdownMenu"
-              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+              class="hidden mt-2 rounded shadow-lg overflow-hidden border"
+              style="background: #f9fafb"
             >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Edit</a
+              <a href="/food.html" class="block px-4 py-2 hover:bg-gray-100"
+                >Food &amp; Beverage</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Duplicate</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Archive</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Delete</a
-              >
+              <a href="/retail.html" class="block px-4 py-2 hover:bg-gray-100">Retail</a>
             </div>
           </div>
-
-          <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="/feature.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Features</a
           >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="/hardware.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Hardware</a
           >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="/pricing.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Pricing</a
           >
           <a
-            href="/light/resourse.html"
-            class="block px-4 py-2 hover:bg-gray-100 rounded"
+            href="/resourse.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Resources</a
           >
-
-          <!-- Language Switcher -->
-          <div
-            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
-          >
-            <span class="text-sm">EN</span>
-            <label class="inline-flex items-center cursor-pointer">
-              <input type="checkbox" class="sr-only peer" />
-              <div
-                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
-              ></div>
-            </label>
-            <span class="text-sm">ES</span>
-          </div>
-
-          <!-- Sign in -->
-          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="#signin" class="block px-4 py-2 rounded hover:opacity-80"
             >Sign In</a
           >
-
-          <!-- CTA Button -->
           <a
-            href="#demo"
-            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
+            href="/free-demo.html"
+            class="block text-center font-bold py-2 rounded shadow"
+            style="background: #c89633; color: #000"
+            >Free Demo</a
           >
-            Free Demo
-          </a>
         </div>
       </div>
     </nav>
 
     <!-- hero section -->
-    <section class="bg-transparent-100 py-16">
-      <div class="container mx-auto md:px-2 px-4">
+    <section class="md:py-16 py-8">
+      <div class="container mx-auto px-4">
         <h1
-          class="md:w-[1052px] md:text-8xl text-6xl font-bold md:leading-[126.03px] leading-normal w-full"
+          class="lg:w-[1052px] md:text-[64px] lg:text-[96px] text-[40px] font-bold md:leading-[126.03px] leading-normal w-full"
         >
-          <span class="text-[#4f4f4f]">Inventory Tracking</span
-          ><span class="text-black"> & Low Stock Alerts</span>
+          <span class="page-accent">Inventory Tracking</span
+          ><span class="page-main"> & Low Stock Alerts</span>
         </h1>
 
         <p
-          class="md:w-[655px] w-full md:text-xl text-[#4f4f4f] text-sm font-normal"
+          class="md:w-[655px] w-full md:text-[20px] page-sub text-[12px] font-normal"
         >
           Boost customer retention with seamless rewards, personalized offers,
           and automated loyalty tracking—built right into your POS.
@@ -449,24 +577,27 @@
     </section>
 
     <!--behind  Section -->
-    <section class="bg-white py-16">
+    <section class="md:py-16 py-8">
       <div
-        class="container mx-auto px-4 md:px-2 grid grid-cols-1 md:grid-cols-6 gap-10 items-center md:items-start"
+        class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-6 gap-10 items-center md:items-start"
       >
         <!-- Left Content -->
         <div class="order-2 md:order-1 md:col-span-4">
           <h2
             class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal"
           >
-            <span class="text-[#4f4f4f]">Smart Inventory </span
-            ><span class="text-black">Alerts</span>
+            <span class="page-accent">Smart Inventory </span
+            ><span class="page-main">Alerts</span>
           </h2>
           <p
-            class="md:w-[512px] md:text-[15px] w-full text-sm text-[#4f4f4f] md:mb-10 mb-6"
+            class="md:w-[512px] md:text-[15px] w-full text-sm page-sub md:mb-10 mb-6"
           >
             Track stock in real time and get notified before you run low.
           </p>
-          <p class="text-xl md:text-2xl text-[#4f4f4f] leading-relaxed">
+
+          <img src="/assets/images/feature-3.png" alt="" class="lg:hidden w-full md:ml-[7.5rem]">
+
+          <p class="text-[12px] mt-6 lg:mt-0 md:text-2xl leading-relaxed md:w-[712px] w-full">
             Inventory Tracking & Low Stock Alerts is a built-in POS feature that
             lets you monitor inventory levels in real time. It automatically
             updates stock counts with every sale, return, or restock — across
@@ -476,7 +607,7 @@
         </div>
 
         <!-- Right Images -->
-        <div class="order-1 md:order-2 md:col-span-2 h-full">
+        <div class="hidden lg:block order-1 md:order-2 md:col-span-2 h-full">
           <img
             src="/assets/images/feature-one/feature-3-section-1.png"
             alt="POS System"
@@ -487,26 +618,33 @@
     </section>
 
     <!--slider-->
-    <section class="bg-white py-16">
+    <section class="md:py-16 py-8">
       <div class="container mx-auto px-4">
         <section id="main-slider" class="splide" aria-label="Splide Slider">
           <div class="my-slider-progress w-4/6 mx-auto">
             <div class="my-slider-progress-bar"></div>
           </div>
 
-          <div class="flex justify-end p-4">
-            <div class="splide__arrows flex space-x-4">
+          <div class="w-full absolute mx-0 left-0 right-0 z-10">
+            <div class="splide__arrows flex w-full ">
               <button
-                class="splide__arrow splide__arrow--prev text-4xl text-gray-900 hover:text-gray-900 transition"
+                class="splide__arrow splide__arrow--prev 
+                left-0
+                 md:text-4xl text-2xl text-gray-900 hover:text-gray-900 transition"
                 aria-label="Previous Slide"
               >
-                <img src="/assets/images/feature-one/Left.png" alt="" />
+                <img src="/assets/images/feature-one/Left.png" alt="" class="logo-light" />
+
+                <img src="/assets/images/feature-one/Left-white.png" alt="" class="logo-dark" />
               </button>
               <button
-                class="splide__arrow splide__arrow--next text-4xl text-gray-900 hover:text-gray-900 transition"
+                class="splide__arrow splide__arrow--next 
+                right-0
+                 md:text-4xl text-2xl text-gray-900 hover:text-gray-900 transition"
                 aria-label="Next Slide"
               >
-                <img src="/assets/images/feature-one/Right.png" alt="" />
+                <img src="/assets/images/feature-one/Right.png" alt="" class="logo-light" />
+                <img src="/assets/images/feature-one/Right-white.png" alt="" class="logo-dark" />
               </button>
             </div>
           </div>
@@ -515,13 +653,13 @@
             <ul class="splide__list">
               <li class="splide__slide relative pt-10">
                 <div class="p-4 md:p-8">
-                  <h1 class="md:text-8xl text-6xl font-bold leading-normal">
-                    <span class="text-[#4f4f4f]">Manager Gets a Warning: </span
-                    ><span class="text-black"> “Only 5 Avocados Left”</span>
+                  <h1 class="lg:text-8xl md:text-[4rem] text-[34px] font-bold md:leading-[85.64px] leading-normal">
+                    <span class="page-accent">Manager Gets a Warning: </span
+                    ><span class="page-main"> “Only 5 Avocados Left”</span>
                   </h1>
 
                   <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
+                    class="lg:block hidden lg:flex flex-row md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
                   >
                     <div
                       class="flex flex-col items-center text-center flex-1 min-w-0"
@@ -605,20 +743,65 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="mobile-timeline lg:hidden mt-8">
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">“</p>
+                        <p
+                          class="text-base text-gray-600 mt-2 leading-relaxed"
+                        >
+                          <strong>Instant Notifications:</strong> Get
+                          real-time alerts when stock drops below your set
+                          threshold.
+                        </p>
+                        <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">”</p>
+                      </blockquote>
+                    </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                        <blockquote class="relative w-full">
+                          <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">“</p>
+                          <p
+                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                          >
+                            <strong>Prevent Stockouts:</strong> Take action
+                            before popular items run out and affect service.
+                          </p>
+                          <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">”</p>
+                        </blockquote>
+                      </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                            <p class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block">“</p>
+                            <p
+                              class="text-base text-gray-600 mt-2 leading-relaxed"
+                            >
+                              <strong>Smarter Reordering:</strong> Helps plan
+                              restocks based on actual usage and demand.
+                            </p>
+                            <p class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block">”</p>
+                          </blockquote>
+                    </div>
+                  </div>
                 </div>
               </li>
 
               <li class="splide__slide relative pt-10">
                 <div class="p-4 md:p-8">
                   <h1
-                    class="md:text-8xl text-6xl font-bold md:leading-[120.96px] leading-normal"
+                    class="lg:text-8xl md:text-[4rem] text-[34px] font-bold md:leading-[85.96px] leading-normal"
                   >
-                    <span class="text-[#4f4f4f]">Auto-Updates When </span
-                    ><span class="text-black"> Sales are Made</span>
+                    <span class="page-sub">Auto-Updates When </span
+                    ><span class="page-main"> Sales are Made</span>
                   </h1>
 
                   <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
+                    class="lg:block hidden lg:flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
                   >
                     <div
                       class="flex flex-col items-center text-center flex-1 min-w-0"
@@ -701,20 +884,93 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="mobile-timeline lg:hidden mt-8">
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                        <blockquote class="relative w-full">
+                          <p
+                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+
+                          <p
+                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                          >
+                            <strong>Real-Time Tracking:</strong> Inventory
+                            levels adjust instantly as items are sold.
+                          </p>
+                          <p
+                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                        </blockquote>
+                      
+                    </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                        <blockquote class="relative w-full">
+                          <p
+                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+
+                          <p
+                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                          >
+                            <strong>Zero Manual Work:</strong> No need to update
+                            stock manually — it’s all automated.
+                          </p>
+                          <p
+                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                        </blockquote>
+                    </div>
+                      
+
+                      <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <blockquote class="relative w-full">
+                          <p
+                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+
+                          <p
+                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                          >
+                            <strong>Accurate Insights:</strong> Always see your
+                            current stock status for better decision-making.
+                          </p>
+                          <p
+                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                        </blockquote>
+                        </div>
+                    </div>
                 </div>
               </li>
 
               <li class="splide__slide relative pt-10">
                 <div class="p-4 md:p-8">
                   <h1
-                    class="md:text-8xl text-6xl font-bold md:leading-[120.96px] leading-normal"
+                    class="lg:text-8xl md:text-[4rem] text-[34px] font-bold md:leading-[85.96px] leading-normal"
                   >
-                    <span class="text-[#4f4f4f]">Option to Mark Items </span
-                    ><span class="text-black"> as “Out of Stock”</span>
+                    <span class="page-sub">Option to Mark Items </span
+                    ><span class="page-main"> as “Out of Stock”</span>
                   </h1>
 
                   <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
+                    class="lg:block hidden lg:flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
                   >
                     <div
                       class="flex flex-col items-center text-center flex-1 min-w-0"
@@ -797,6 +1053,79 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="mobile-timeline lg:hidden mt-12">
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                        <blockquote class="relative w-full">
+                          <p
+                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+
+                          <p
+                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                          >
+                            <strong>Clear Communication:</strong> Staff
+                            instantly knows which items are unavailable.
+                          </p>
+                          <p
+                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                        </blockquote>
+                      
+                    </div>
+
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                        <blockquote class="relative w-full">
+                          <p
+                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+
+                          <p
+                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                          >
+                            <strong>Avoids Customer Disappointment:</strong
+                            >Prevents orders of items you can’t fulfill.
+                          </p>
+                          <p
+                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                        </blockquote>
+                    </div>
+                      
+
+                      <div class="timeline-item">
+                        <span class="timeline-dot"></span>
+                        <blockquote class="relative w-full">
+                          <p
+                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+
+                          <p
+                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                          >
+                            <strong>Quick Action:</strong> Mark items out of
+                            stock with just a tap — no backend access needed.
+                          </p>
+                          <p
+                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                        </blockquote>
+                  </div>
+                </div>
                 </div>
               </li>
             </ul>
@@ -806,17 +1135,17 @@
     </section>
 
     <!-- why choose us -->
-    <section class="py-16 bg-white">
+    <section class="md:py-16 py-8">
       <div class="container mx-auto px-4">
         <div class="mb-12 md:text-left text-center">
           <h2
-            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal md:w-[880px] w-full"
+            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal lg:w-[880px] w-full"
           >
-            <span class="text-[#4f4f4f]">Why it </span
-            ><span class="text-black">matters</span>
+            <span class="page-accent">Why it </span
+            ><span class="page-main">matters</span>
           </h2>
           <p
-            class="text-sm md:text-[15px] text-[#4f4f4f] leading-relaxed md:w-[512px] w-full"
+            class="text-sm md:text-[15px] page-sub leading-relaxed md:w-[512px] w-full"
           >
             Prevent stockouts, reduce waste, and keep operations running
             smoothly with timely inventory insights.
@@ -827,19 +1156,24 @@
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
         >
           <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+            class="rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div class="flex justify-center mb-1">
               <img
                 src="/assets/images/feature-one/feature-3-card-1.png"
-                class="object-cover"
+                class="object-cover logo-light w-[70px] h-[70px]"
+                alt=""
+              />
+              <img
+                src="/assets/images/feature-one/feature-3-card-1-dark.png"
+                class="object-cover logo-dark w-[70px] h-[70px]"
                 alt=""
               />
             </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+            <h3 class="page-main md:text-xl text-sm font-bold mb-6">
               Improve Efficiency
             </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+            <p class="text-sm font-normal leading-tight">
               With real-time inventory updates, staff no longer needs to
               manually check shelves or backrooms. They can quickly view stock
               levels from the POS screen, allowing them to focus on customer
@@ -848,19 +1182,26 @@
           </div>
 
           <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+            class="rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div class="flex justify-center mb-1">
               <img
                 src="/assets/images/feature-one/feature-3-card-2.png"
-                class="object-cover"
+                class="object-cover logo-light w-[70px] h-[70px]"
                 alt=""
               />
+              <img
+                src="/assets/images/feature-one/feature-3-card-2-dark.png"
+                class="object-cover logo-dark w-[70px] h-[70px]"
+                alt=""
+              />
+                
+              
             </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+            <h3 class="page-main md:text-xl text-sm font-bold mb-6">
               Reduce Waste
             </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+            <p class="text-sm font-normal leading-tight">
               Accurate inventory tracking helps you avoid over-ordering items
               that may expire or go unused. By knowing exactly what’s in stock
               and what’s selling, you can make smarter purchasing decisions and
@@ -869,19 +1210,25 @@
           </div>
 
           <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+            class="rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div class="flex justify-center mb-1">
               <img
                 src="/assets/images/feature-one/feature-3-card-3.png"
                 alt="taquila-pos"
-                class="object-cover"
+                class="object-cover logo-light w-[70px] h-[70px]"
               />
+              <img
+                src="/assets/images/feature-one/feature-3-card-3-dark.png"
+                alt="taquila-pos"
+                class="object-cover logo-dark w-[70px] h-[70px]"
+              />
+              
             </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+            <h3 class="page-main md:text-xl text-sm font-bold mb-6">
               Make Informed Decisions
             </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+            <p class="text-sm font-normal leading-tight">
               Access real-time data on stock and sales to reorder smarter, run
               targeted promotions, and avoid overstocking slow-moving items.
             </p>
@@ -893,20 +1240,25 @@
     <!-- What Makes Us Different Section -->
 
     <!-- Footer -->
-    <footer class="bg-white py-10">
-      <div class="container mx-auto px-4 sm:px-8 lg:px-16">
+    <footer class="py-10">
+      <div class="container mx-auto px-4">
         <!-- Top Logo + Switch -->
         <div
           class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
         >
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="w-10 md:w-40 h-auto"
+            class="logo-light w-10 md:w-40 h-auto"
+            alt=""
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark w-10 md:w-40 h-auto"
             alt=""
           />
 
           <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+            <p class="text-[#4f4f4f] text-[11px] font-normal select-none footer-label">
               Switch to dark mode
             </p>
 
@@ -926,7 +1278,7 @@
                 placeholder="Toggle dark mode"
               />
               <div
-                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
+                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black transition-colors duration-300"
               ></div>
               <div
                 class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
@@ -1249,6 +1601,26 @@
 
         isEnglish = !isEnglish; // flip state
       }
+
+      // Main slider initialization
+      document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('#main-slider', {
+          type: 'loop',
+          perPage: 1,
+          autoplay: false,
+          arrows: true,
+          pagination: false,
+        });
+        splide.mount();
+
+        // Progress bar update
+        splide.on('moved', function () {
+          var bar = splide.root.querySelector('.my-slider-progress-bar');
+          var end = splide.Components.Controller.getEnd() + 1;
+          var rate = Math.min((splide.index + 1) / end, 1);
+          bar.style.width = String(100 * rate) + '%';
+        });
+      });
     </script>
   </body>
 </html>
