@@ -92,6 +92,10 @@
       
       /* Form section dark mode */
       html.dark .contact-form-container { background-color: #1c1c1c; }
+
+      /* Feature section icons */
+      .feature-icon-color { color: #505050; }
+      html.dark .feature-icon-color { color: #c98366 !important; }
     </style>
   </head>
   <body class="font-inter text-sm">
@@ -421,17 +425,17 @@
 
     <section class="lg:py-16 py-4">
       <div
-        class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12"
+        class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
       >
-        <div class="order-2 md:order-1 w-full md:w-1/2 text-left">
+        <div class="order-2 lg:order-1 w-full lg:w-1/2 lg:text-left">
           <h1
-            class="text-5xl md:text-6xl lg:text-7xl font-bold page-accent mb-8"
+            class="text-[32px] md:text-6xl lg:text-7xl font-semibold page-accent leading-tight mb-4 md:mb-8"
           >
-            DynaFlex <br /><span class="page-main">II Go</span>
+           <span class="page-accent">DynaFlex</span><span class="page-main"> II Go</span>
           </h1>
 
           <p
-            class="md:w-[611px] w-full page-sub md:text-xl text-sm font-semibold md:leading-[25.20px] leading-normal mb-8"
+            class="mx-auto lg:mx-0 max-w-[611px] w-full page-sub md:text-xl text-base font-semibold md:leading-[25.20px] leading-relaxed mb-8"
           >
             Compact, wireless, and built for mobility — accept EMV, contactless,
             and magstripe payments on the go.
@@ -439,19 +443,19 @@
 
           <a
             href="#"
-            class="inline-block page-btn w-72 h-12 rounded-[32px] text-center text-lg font-semibold px-8 py-3 hover:opacity-90 transition duration-300 transform hover:scale-105 shadow-lg"
+            class="inline-block page-btn w-64 md:w-72 h-12 rounded-full text-center text-lg font-semibold px-8 py-3 hover:opacity-90 transition duration-300 transform hover:scale-105 shadow-lg"
           >
             Buy now
           </a>
         </div>
 
         <div
-          class="w-full lg:w-1/2 flex justify-center lg:justify-end lg:order-last"
+          class="w-full lg:w-1/2 flex justify-center lg:justify-end order-1 lg:order-2"
         >
           <img
             src="/assets/images/magtek/magtek-hero.png"
             alt=""
-            class="w-full h-auto"
+            class="w-full max-w-[500px] h-auto"
           />
         </div>
       </div>
@@ -477,36 +481,36 @@
         </div>
 
         <div
-          class="flex flex-col lg:flex-row items-start gap-8 lg:gap-16"
+          class="flex flex-row items-start gap-4 lg:gap-16"
         >
-          <div class="w-full lg:w-auto flex flex-col items-center lg:items-start">
+          <div class="w-auto flex flex-col items-start space-y-4">
             <button
               id="tab-feature"
               data-tab="feature-content"
-              class="tab-button flex items-center justify-between w-full max-w-xs lg:max-w-none lg:w-[200px] bg-gray-800 text-white text-lg font-semibold px-6 py-3 rounded-full shadow-md mb-4 hover:bg-gray-700 transition"
+              class="tab-button flex items-center justify-between w-[140px] md:w-[250px] bg-black text-white text-[12px] md:text-xl font-bold px-4 md:px-8 py-3 md:py-4 rounded-full shadow-md transition"
             >
               <span>Feature</span>
-              <div class="w-3 h-3 bg-white rounded-full ml-2"></div>
+              <div class="tab-dot w-5 h-5 md:w-6 md:h-6 bg-white rounded-full border border-gray-300 ml-2"></div>
             </button>
             <button
               id="tab-best-for"
               data-tab="best-for-content"
-              class="tab-button flex items-center justify-between w-full max-w-xs lg:max-w-none lg:w-[200px] bg-gray-100 text-gray-800 text-lg font-semibold px-6 py-3 rounded-full shadow-sm hover:bg-gray-200 transition"
+              class="tab-button flex items-center justify-between w-[140px] md:w-[250px] bg-white border border-gray-300 text-gray-900 text-[12px] md:text-xl font-bold px-4 md:px-8 py-3 md:py-4 rounded-full shadow-sm hover:bg-gray-50 transition"
             >
               <span>Best For</span>
-              <div class="w-3 h-3 bg-gray-600 rounded-full ml-2"></div>
+              <div class="tab-dot w-5 h-5 md:w-6 md:h-6 bg-gray-700 rounded-full border border-gray-400 ml-2 shadow-inner"></div>
             </button>
           </div>
 
-          <div class="w-full lg:flex-1 relative">
+          <div class="flex-1 relative">
             <div id="tab-container" class="relative w-full">
               <div id="feature-content" class="tab-content">
                 <div
-                  class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8"
+                  class="grid grid-cols-2 gap-4 lg:gap-8"
                 >
                   <div class="flex flex-col items-center text-center">
                     <div
-                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                      class="w-16 h-16 flex items-center justify-center bg-transparent feature-icon-color mb-4"
                     >
                       <svg
                         width="50"
@@ -532,7 +536,7 @@
                           />
                         </mask>
                         <g mask="url(#mask0_176_1938)">
-                          <rect width="50" height="50" fill="#505050" />
+                          <rect width="50" height="50" fill="currentColor" />
                         </g>
                         <defs>
                           <pattern
@@ -557,7 +561,7 @@
                       </svg>
                     </div>
                     <h3
-                      class="md:text-lg text-base font-semibold text-gray-900"
+                      class="md:text-lg text-[10px] font-bold leading-tight"
                     >
                       EMV Contact + <br />Contactless + MSR <br />Support
                     </h3>
@@ -565,7 +569,7 @@
 
                   <div class="flex flex-col items-center text-center">
                     <div
-                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                      class="w-16 h-16 flex items-center justify-center bg-transparent feature-icon-color mb-4"
                     >
                       <svg
                         width="50"
@@ -621,7 +625,7 @@
                       </svg>
                     </div>
                     <h3
-                      class="md:text-lg text-base font-semibold text-gray-900"
+                      class="md:text-lg text-[10px] font-bold leading-tight"
                     >
                       Driverless USB-C <br />Plug-and-Play
                     </h3>
@@ -629,7 +633,7 @@
 
                   <div class="flex flex-col items-center text-center">
                     <div
-                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                      class="w-16 h-16 flex items-center justify-center bg-transparent feature-icon-color mb-4"
                     >
                       <svg
                         width="50"
@@ -655,7 +659,7 @@
                           />
                         </mask>
                         <g mask="url(#mask0_183_1944)">
-                          <rect width="50" height="50" fill="#505050" />
+                          <rect width="50" height="50" fill="currentColor" />
                         </g>
                         <defs>
                           <pattern
@@ -680,7 +684,7 @@
                       </svg>
                     </div>
                     <h3
-                      class="md:text-lg text-base font-semibold text-gray-900"
+                      class="md:text-lg text-[10px] font-bold leading-tight"
                     >
                       Audio Indicators & LEDs <br />for User Feedback
                     </h3>
@@ -688,7 +692,7 @@
 
                   <div class="flex flex-col items-center text-center">
                     <div
-                      class="w-16 h-16 flex items-center justify-center bg-transparent text-gray-700 mb-4"
+                      class="w-16 h-16 flex items-center justify-center bg-transparent feature-icon-color mb-4"
                     >
                       <svg
                         width="50"
@@ -718,7 +722,7 @@
                             x="-0.150391"
                             width="50"
                             height="50"
-                            fill="#505050"
+                            fill="currentColor"
                           />
                         </g>
                         <defs>
@@ -744,7 +748,7 @@
                       </svg>
                     </div>
                     <h3
-                      class="md:text-lg text-base font-semibold text-gray-900"
+                      class="md:text-lg text-[10px] font-bold leading-tight"
                     >
                       Optional Stand <br />Mounting
                     </h3>
@@ -757,99 +761,54 @@
                 class="tab-content absolute top-0 left-0 w-full opacity-0 pointer-events-none transition-opacity duration-300"
               >
                 <div
-                  class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8"
+                  class="grid grid-cols-2 gap-4 lg:gap-8"
                 >
+                  <!-- 1. Retail billing counters -->
                   <div class="flex flex-col items-center text-center">
-                    <div
-                      class="w-16 h-16 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 mb-4"
-                    >
-                      <svg
-                        class="w-8 h-8"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        ></path>
+                    <div class="w-16 h-16 flex items-center justify-center bg-transparent feature-icon-color mb-2">
+                      <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M11.5 8c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM12 13c-2.33 0-7 1.17-7 3.5V18h14v-1.5c0-2.33-4.67-3.5-7-3.5zM20 18v-3h2v5h-10v-2h8z"/>
                       </svg>
                     </div>
-                    <h3
-                      class="md:text-lg text-base font-semibold text-gray-900"
-                    >
-                      Restaurants
+                    <h3 class="md:text-lg text-[10px] font-bold leading-tight">
+                      Retail billing counters
                     </h3>
-                    <p class="text-gray-600">
-                      Ideal for tableside payments and order management.
-                    </p>
                   </div>
 
+                  <!-- 2. Restaurants and QSRs -->
                   <div class="flex flex-col items-center text-center">
-                    <div
-                      class="w-16 h-16 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 mb-4"
-                    >
-                      <svg
-                        class="w-8 h-8"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                        ></path>
+                    <div class="w-16 h-16 flex items-center justify-center bg-transparent feature-icon-color mb-2">
+                      <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18 17h2v-7h-2v7zm-4 0h2V4h-2v13zm-4 0h2v-4h-2v4zm-4 0h2v-2H6v2zm14 2H4v2h16v-2z"/>
                       </svg>
                     </div>
-                    <h3
-                      class="md:text-lg text-base font-semibold text-gray-900"
-                    >
-                      Retail Stores
+                    <h3 class="md:text-lg text-[10px] font-bold leading-tight">
+                      Restaurants and <br/>QSRs
                     </h3>
-                    <p class="text-gray-600">
-                      Perfect for secure, fast checkout at the counter.
-                    </p>
                   </div>
 
+                  <!-- 3. Self-checkout kiosks -->
                   <div class="flex flex-col items-center text-center">
-                    <div
-                      class="w-16 h-16 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 mb-4"
-                    >
-                      <svg
-                        class="w-8 h-8"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        ></path>
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        ></path>
+                    <div class="w-16 h-16 flex items-center justify-center bg-transparent feature-icon-color mb-2">
+                      <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
                       </svg>
                     </div>
-                    <h3
-                      class="md:text-lg text-base font-semibold text-gray-900"
-                    >
-                      Pop-up Shops
+                    <h3 class="md:text-lg text-[10px] font-bold leading-tight">
+                      Self-checkout kiosks
                     </h3>
-                    <p class="text-gray-600">
-                      Portable and reliable for on-the-go payments and events.
-                    </p>
+                  </div>
+
+                  <!-- 4. Curbside & mobile payment setups -->
+                  <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 flex items-center justify-center bg-transparent feature-icon-color mb-2">
+                      <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14zm-4-10h-2v2h2V9zm0 4h-2v2h2v-2zm3-4h-2v2h2V9zm0 4h-2v2h2v-2z"/>
+                      </svg>
+                    </div>
+                    <h3 class="md:text-lg text-[10px] font-bold leading-tight">
+                      Curbside & mobile <br/>payment setups
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -878,7 +837,7 @@
         </div>
 
         <!-- TIMELINE -->
-        <div class="relative max-w-6xl mx-auto mt-16 pb-12">
+        <div class="relative max-w-6xl mx-auto mt-8 md:mt-16 pb-12">
           <!-- Desktop Horizontal Spine -->
           <div
             class="hidden md:block absolute inset-x-0 top-0 h-0.5 bg-gray-200 mx-auto z-0"
@@ -899,29 +858,29 @@
               ></span>
               <!-- Vertical line to horizontal connector -->
               <span
-                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[80px]"
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[80px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[0ms]"
               ></span>
               <!-- Horizontal connector line with dots -->
               <div
-                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[80px]"
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[80px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[0ms]"
               >
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
-                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-[30px] lg:w-[40px] h-[2px] bg-gray-200"></span>
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
               </div>
 
               <!-- Card -->
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[0ms]"
+                class="bg-white p-3 lg:p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[0ms]"
               >
                 <div
-                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-8 lg:w-10 h-8 lg:h-10 flex items-center justify-center"
                 >
                   <img src="/assets/images/a920/os.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl page-main">OS</h3>
-                  <p class="page-sub text-sm">Android 10</p>
+                  <h3 class="font-bold text-[14px] lg:text-xl page-main">OS</h3>
+                  <p class="page-sub text-[10px] lg:text-sm">Android 10</p>
                 </div>
               </div>
             </li>
@@ -932,27 +891,27 @@
                 class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
               ></span>
               <span
-                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[200px]"
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[200px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[100ms]"
               ></span>
               <div
-                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[200px]"
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[200px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[100ms]"
               >
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
-                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-[30px] lg:w-[40px] h-[2px] bg-gray-200"></span>
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[100ms]"
+                class="bg-white p-3 lg:p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[100ms]"
               >
                 <div
-                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-8 lg:w-10 h-8 lg:h-10 flex items-center justify-center"
                 >
                   <img src="/assets/images/a920/display.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl page-main">Display</h3>
-                  <p class="page-sub text-sm">
+                  <h3 class="font-bold text-[14px] lg:text-xl page-main">Display</h3>
+                  <p class="page-sub text-[10px] lg:text-sm">
                     4.0" Capacitive Touchscreen
                   </p>
                 </div>
@@ -965,27 +924,27 @@
                 class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
               ></span>
               <span
-                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[80px]"
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[80px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[200ms]"
               ></span>
               <div
-                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[80px]"
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[80px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[200ms]"
               >
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
-                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-[30px] lg:w-[40px] h-[2px] bg-gray-200"></span>
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[200ms]"
+                class="bg-white p-3 lg:p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[200ms]"
               >
                 <div
-                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-8 lg:w-10 h-8 lg:h-10 flex items-center justify-center"
                 >
                   <img src="/assets/images/a920/processor.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl page-main">Processor</h3>
-                  <p class="page-sub text-sm">Secure ARM Cortex-A53</p>
+                  <h3 class="font-bold text-[14px] lg:text-xl page-main">Processor</h3>
+                  <p class="page-sub text-[10px] lg:text-sm">Secure ARM Cortex-A53</p>
                 </div>
               </div>
             </li>
@@ -996,27 +955,27 @@
                 class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
               ></span>
               <span
-                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[200px]"
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[200px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[300ms]"
               ></span>
               <div
-                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[200px]"
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[200px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[300ms]"
               >
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
-                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-[30px] lg:w-[40px] h-[2px] bg-gray-200"></span>
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[300ms]"
+                class="bg-white p-3 lg:p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[300ms]"
               >
                 <div
-                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-8 lg:w-10 h-8 lg:h-10 flex items-center justify-center"
                 >
                   <img src="/assets/images/a920/memory.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl page-main">Memory</h3>
-                  <p class="page-sub text-sm">1GB RAM / 8GB ROM</p>
+                  <h3 class="font-bold text-[14px] lg:text-xl page-main">Memory</h3>
+                  <p class="page-sub text-[10px] lg:text-sm">1GB RAM / 8GB ROM</p>
                 </div>
               </div>
             </li>
@@ -1027,27 +986,27 @@
                 class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
               ></span>
               <span
-                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[80px]"
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[80px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[400ms]"
               ></span>
               <div
-                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[80px]"
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[80px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[400ms]"
               >
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
-                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-[30px] lg:w-[40px] h-[2px] bg-gray-200"></span>
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[400ms]"
+                class="bg-white p-3 lg:p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[400ms]"
               >
                 <div
-                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-8 lg:w-10 h-8 lg:h-10 flex items-center justify-center"
                 >
                   <img src="/assets/images/a920/card.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl page-main">Card Reader</h3>
-                  <p class="page-sub text-sm">EMV L1/L2, NFC, Magstripe</p>
+                  <h3 class="font-bold text-[14px] lg:text-xl page-main">Card Reader</h3>
+                  <p class="page-sub text-[10px] lg:text-sm">EMV L1/L2, NFC, Magstripe</p>
                 </div>
               </div>
             </li>
@@ -1058,27 +1017,27 @@
                 class="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-300 z-10"
               ></span>
               <span
-                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[200px]"
+                class="hidden md:block absolute left-1/2 -translate-x-1/2 w-px bg-gray-200 top-[1px] h-[200px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[500ms]"
               ></span>
               <div
-                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[200px]"
+                class="hidden md:flex items-center justify-center absolute left-1/2 -translate-x-1/2 top-[200px] opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[500ms]"
               >
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
-                <span class="w-[40px] h-[2px] bg-gray-200"></span>
+                <span class="w-[30px] lg:w-[40px] h-[2px] bg-gray-200"></span>
                 <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[500ms]"
+                class="bg-white p-3 lg:p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[500ms]"
               >
                 <div
-                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
+                  class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-8 lg:w-10 h-8 lg:h-10 flex items-center justify-center"
                 >
                   <img src="/assets/images/a920/connectivity.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl page-main">Connectivity</h3>
-                  <p class="page-sub text-sm">USB-C, Wi-Fi, Bluetooth</p>
+                  <h3 class="font-bold text-[14px] lg:text-xl page-main">Connectivity</h3>
+                  <p class="page-sub text-[10px] lg:text-sm">USB-C, Wi-Fi, Bluetooth</p>
                 </div>
               </div>
             </li>
@@ -1159,9 +1118,9 @@
         </div>
 
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
+          class="grid grid-cols-2 gap-4 md:gap-8 items-stretch"
         >
-          <div class="">
+          <div class="flex items-center justify-center">
             <img
               src="/assets/images/magtek/dynaflex-unsplash-1.png"
               alt=""
@@ -1169,22 +1128,33 @@
             />
           </div>
           <div
-            class="rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-6 text-center"
+            class="rounded-2xl md:rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-4 md:p-6 text-center"
           >
             <div class="">
-              <h3 class="text-xl font-semibold page-main mb-2">
+              <h3 class="text-xs md:text-xl font-semibold page-main mb-1 md:mb-2">
                 All-in-One Payment <br />Solution
               </h3>
-              <p class="page-sub">
+              <p class="page-sub text-[10px] md:text-base leading-tight md:leading-normal">
                 The DynaFlex II Go supports EMV chip, magstripe, and contactless
-                payments in one sleek device—eliminating the need for multiple
-                readers. Whether it's a tap, dip, or swipe, it handles every
-                transaction type with ease and security.
+                payments in one sleek device.
               </p>
             </div>
           </div>
 
-          <div class="">
+          <div
+            class="rounded-2xl md:rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-4 md:p-6 text-center order-2 md:order-none"
+          >
+            <div class="">
+              <h3 class="text-xs md:text-xl font-semibold page-main mb-1 md:mb-2">
+                Compact & Durable
+              </h3>
+              <p class="page-sub text-[10px] md:text-base leading-tight md:leading-normal">
+                Designed for demanding environments, the DynaFlex II Go features
+                a rugged, compact build.
+              </p>
+            </div>
+          </div>
+          <div class="order-1 md:order-none flex items-center justify-center">
             <img
               src="/assets/images/magtek/dynaflex-unsplash-2.png"
               alt=""
@@ -1192,43 +1162,23 @@
             />
           </div>
 
-          <div
-            class="rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-6 text-center"
-          >
-            <div class="">
-              <h3 class="text-xl font-semibold page-main mb-2">
-                Compact & Durable
-              </h3>
-              <p class="page-sub">
-                Designed for demanding environments, the DynaFlex II Go features
-                a rugged, compact build that fits easily in the palm of your
-                hand. Its durable housing ensures reliable performance in both
-                countertop and mobile settings, making it ideal for businesses
-                on the move.
-              </p>
-            </div>
-          </div>
-
-          <div class="">
+          <div class="flex items-center justify-center">
             <img
               src="/assets/images/magtek/dynaflex-unsplash-3.png"
               alt=""
               class="rounded-lg object-cover w-full h-auto"
             />
           </div>
-
           <div
-            class="rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-6 text-center"
+            class="rounded-2xl md:rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-4 md:p-6 text-center"
           >
             <div class="">
-              <h3 class="text-xl font-semibold page-main mb-2">
+              <h3 class="text-xs md:text-xl font-semibold page-main mb-1 md:mb-2">
                 Flexible Connectivity
               </h3>
-              <p class="page-sub">
-                With support for USB-C, Bluetooth, and optional Ethernet, the
-                DynaFlex II Go seamlessly integrates with a wide range of POS
-                systems and mobile devices. Its plug-and-play setup ensures fast
-                deployment in any environment—whether wired or wireless.
+              <p class="page-sub text-[10px] md:text-base leading-tight md:leading-normal">
+                With support for USB-C, Bluetooth, and optional Ethernet, it
+                integrates seamlessly.
               </p>
             </div>
           </div>
