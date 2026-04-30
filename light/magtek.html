@@ -24,159 +24,240 @@
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
 
     <link rel="stylesheet" href="/assets/style/global.css" />
+
+    <style>
+      /* ---- Light defaults ---- */
+      .mega-menu { background-color: #ffffff; }
+      #mobile-menu { background-color: #ffffff; }
+      #dropdownBtn { background-color: #f3f4f6; }
+      #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
+
+      .slide-card  { background-color: #fafafa; }
+
+      .page-accent { color: #505050; }
+      .page-main   { color: #000000; }
+      .page-sub    { color: #4f4f4f; }
+      .page-btn { background-color: #000000; color: #ffffff; }
+      
+      /* ---- Dark mode overrides ---- */
+      html.dark body    { background-color: #1c1c1c; color: #ffffff; }
+      html.dark footer  { background-color: #1c1c1c; }
+      html.dark section { background-color: #1c1c1c; }
+
+      html.dark .slide-card  { background-color: #373737; }
+      
+      html.dark .logo-dark { display: block; }
+      html.dark .logo-light { display: none; }
+      html.dark .page-accent { color: #C98633; }
+      html.dark .page-main   { color: #ffffff; }
+      html.dark .page-sub    { color: #cdcdcd; }
+      html.dark .page-btn { background-color: #ffffff; color: #000000; }
+      
+      html.dark .mega-menu { background-color: #000000; }
+      html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
+      html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
+      html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+
+      html.dark .splide__arrow {
+        background: #111827 !important;
+        color: #ffffff !important;
+      }
+      
+      /* Text color overrides for dark mode */
+      html.dark .text-black { color: #ffffff; }
+      html.dark .text-\[#4f4f4f\],
+      html.dark .text-\[#333\],
+      html.dark .text-gray-500,
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-800 { color: #cdcdcd; }
+      
+      /* Background and border overrides for dark mode */
+      html.dark .bg-white { background-color: #1c1c1c; }
+      html.dark .bg-gray-100,
+      html.dark .bg-gray-200 { background-color: #2c2c2c; }
+      html.dark .border-gray-100,
+      html.dark .border-gray-200,
+      html.dark .border-gray-300,
+      html.dark .border-[#dbdbdb],
+      html.dark .border-[#d9d9d9] { border-color: #444444; }
+      html.dark .shadow-\[0px_4px_18.9px_rgba\(0,0,0,0.25\)\] { box-shadow: 0px 4px 18.9px rgba(0,0,0,0.5); }
+
+      /* Product Guides section dark mode */
+      html.dark .product-guides-section { background-color: #373737 !important; }
+      
+      @media screen and (max-width: 780px) {
+        html.dark .heading_p { color: #ffffff !important; }
+      }
+      
+      /* Form section dark mode */
+      html.dark .contact-form-container { background-color: #1c1c1c; }
+    </style>
   </head>
-  <body class="bg-white font-inter text-sm">
+  <body class="font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
-        <!-- Logo -->
+    <nav class="navbar xl:block hidden">
+      <div class="navbar-container container mx-auto px-4">
         <div class="logo-container">
-          <a href="/light/index.html">
+          <a href="/index.html">
             <img
               src="/assets/images/logo/tequila_pos_logo_transparent.png"
-              class="logo"
+              class="logo-light logo"
+              alt="Logo"
+            />
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+              class="logo-dark logo"
               alt="Logo"
             />
           </a>
-
           <div class="nav-links ml-4">
             <div class="nav-item relative group">
               <a href="#business-type" class="nav-link">Business Type</a>
-
-              <!-- Mega Menu -->
               <div
-                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
+                class="mega-menu mega-anim absolute left-0 top-full pt-10"
                 onmouseleave="clearActive()"
               >
                 <div class="flex flex-nowrap gap-10">
-                  <!-- LEFT: categories -->
                   <div
                     class="flex flex-col p-10 gap-4"
                     id="categoryList"
                     data-aos="fade-left"
                   >
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/food.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="food"
                       onmouseenter="setActive('food')"
                       onfocus="setActive('food')"
+                      >Food &amp; Beverage</a
                     >
-                      Food &amp; Beverage
-                    </a>
-
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/retail.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="retail"
                       onmouseenter="setActive('retail')"
                       onfocus="setActive('retail')"
+                      >Retail</a
                     >
-                      Retail
-                    </a>
                   </div>
-
-                  <!-- RIGHT: panels -->
                   <div class="flex gap-16 p-10">
-                    <!-- FOOD panel -->
                     <div class="flex justify-between gap-10" data-panel="food">
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
                         </ul>
                       </div>
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Capacity
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage order from one place</a
+                              href="/resturent-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Resturents</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Take payment</a
+                              href="/bar-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bars</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Keep customer coming back</a
+                              href="/food-truck-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Food Trucks and Pop-ups</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Scale your business</a
+                              href="/cafes-coffee-shop-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Cafes & Coffee Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Improve operation</a
+                              href="/juice-bars-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Juice Bars & Smoothie Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Schedule and pay your team</a
+                              href="/bakeries-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bakeries</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage your cash flow</a
+                              href="/ice-cream-shops-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Ice Creams & Desserts Shops</a
                             >
                           </li>
                         </ul>
                       </div>
                     </div>
-
-                    <!-- RETAIL panel -->
                     <div class="space-y-6 hidden" data-panel="retail">
-                      <div class="gap-10">
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
@@ -187,19 +268,15 @@
                 </div>
               </div>
             </div>
-
-            <!-- Other Links -->
-            <a href="/light/feature.html" class="nav-link">Feature</a>
-            <a href="/light/hardware.html" class="nav-link">Hardware</a>
-            <a href="/light/pricing.html" class="nav-link">Pricing</a>
-            <a href="/light/resourse.html" class="nav-link">Resources</a>
+            <a href="/feature.html" class="nav-link">Feature</a>
+            <a href="/hardware.html" class="nav-link">Hardware</a>
+            <a href="/pricing.html" class="nav-link">Pricing</a>
+            <a href="/resourse.html" class="nav-link">Resources</a>
           </div>
         </div>
-
-        <!-- Navigation Links -->
         <div class="nav-extra-links">
           <div
-            class="language-selector cursor-pointers"
+            class="language-selector cursor-pointer"
             onclick="toggleLanguage()"
           >
             <span id="language-text">ENGLISH</span>
@@ -210,32 +287,35 @@
               class="flag-icon"
             />
           </div>
-
           <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
-          </button>
+          <a href="/free-demo.html"><button class="demo-btn"><span>Free Demo</span></button></a>
+          
         </div>
       </div>
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-white shadow-md relative">
+    <nav class="navbar xl:hidden shadow-md relative">
       <div
-        class="navbar-container container mx-auto flex items-center justify-between py-4"
+        class="navbar-container container mx-auto flex items-center justify-between py-2 px-4"
       >
-        <!-- Logo -->
         <div class="logo-container flex items-center">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="logo h-10"
+            class="logo-light logo h-auto"
+            alt="Logo"
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark logo h-auto"
             alt="Logo"
           />
         </div>
-        <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
-          <!-- Hamburger Icon -->
+        <button
+          id="mobile-menu-btn"
+          class="xl:hidden p-2"
+          style="color: inherit"
+        >
           <svg
             id="hamburger-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -251,8 +331,6 @@
               d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>
-
-          <!-- Close Icon -->
           <svg
             id="close-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -270,126 +348,90 @@
           </svg>
         </button>
       </div>
-
-      <!-- Mobile Menu -->
-      <!-- Mobile Menu (White Version) -->
       <div
         id="mobile-menu"
-        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        style="background-color: var(--mobile-bg, #fff)"
       >
         <div class="p-4 space-y-4">
-          <!-- Dropdown -->
           <div class="relative">
             <button
               id="dropdownBtn"
-              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+              class="flex justify-between items-center w-full px-4 py-2 rounded"
+              style="color: inherit"
             >
               Business Type
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                class="w-5 h-5 transition-transform duration-200"
               >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
-        11.94l3.72-3.72a.75.75 0 1 1 
-        1.06 1.06l-4.25 4.25a.75.75 0 
-        0 1-1.06 0L5.22 9.28a.75.75 
-        0 0 1 0-1.06Z"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
                 />
               </svg>
             </button>
-
             <div
               id="dropdownMenu"
-              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+              class="hidden mt-2 rounded shadow-lg overflow-hidden border"
+              style="background: #f9fafb"
             >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Edit</a
+              <a href="/food.html" class="block px-4 py-2 hover:bg-gray-100"
+                >Food &amp; Beverage</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Duplicate</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Archive</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Delete</a
-              >
+              <a href="/retail.html" class="block px-4 py-2 hover:bg-gray-100">Retail</a>
             </div>
           </div>
-
-          <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="/feature.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Features</a
           >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="/hardware.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Hardware</a
           >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="/pricing.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Pricing</a
           >
           <a
-            href="/light/resourse.html"
-            class="block px-4 py-2 hover:bg-gray-100 rounded"
+            href="/resourse.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Resources</a
           >
-
-          <!-- Language Switcher -->
-          <div
-            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
-          >
-            <span class="text-sm">EN</span>
-            <label class="inline-flex items-center cursor-pointer">
-              <input type="checkbox" class="sr-only peer" />
-              <div
-                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
-              ></div>
-            </label>
-            <span class="text-sm">ES</span>
-          </div>
-
-          <!-- Sign in -->
-          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="#signin" class="block px-4 py-2 rounded hover:opacity-80"
             >Sign In</a
           >
-
-          <!-- CTA Button -->
           <a
-            href="#demo"
-            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
+            href="/free-demo.html"
+            class="block text-center font-bold py-2 rounded shadow"
+            style="background: #c89633; color: #000"
+            >Free Demo</a
           >
-            Free Demo
-          </a>
         </div>
       </div>
     </nav>
 
     <!-- hero section -->
 
-    <section class="bg-transparent-100 py-16">
+    <section class="lg:py-16 py-4">
       <div
         class="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12"
       >
         <div class="order-2 md:order-1 w-full md:w-1/2 text-left">
           <h1
-            class="text-5xl md:text-6xl lg:text-7xl font-bold text-[#505050] mb-8"
+            class="text-5xl md:text-6xl lg:text-7xl font-bold page-accent mb-8"
           >
-            DynaFlex <br /><span class="text-gray-900">II Go</span>
+            DynaFlex <br /><span class="page-main">II Go</span>
           </h1>
 
           <p
-            class="md:w-[611px] w-full text-[4F4F4F] md:text-xl text-sm font-semibold md:leading-[25.20px] leading-normal mb-8"
+            class="md:w-[611px] w-full page-sub md:text-xl text-sm font-semibold md:leading-[25.20px] leading-normal mb-8"
           >
             Compact, wireless, and built for mobility — accept EMV, contactless,
             and magstripe payments on the go.
@@ -397,7 +439,7 @@
 
           <a
             href="#"
-            class="inline-block bg-black w-72 h-12 bg-black rounded-[32px] text-center text-white text-lg font-semibold px-8 py-3 rounded-full hover:bg-gray-800 transition duration-300 transform hover:scale-105 shadow-lg"
+            class="inline-block page-btn w-72 h-12 rounded-[32px] text-center text-lg font-semibold px-8 py-3 hover:opacity-90 transition duration-300 transform hover:scale-105 shadow-lg"
           >
             Buy now
           </a>
@@ -416,16 +458,16 @@
     </section>
 
     <!-- features section -->
-    <section class="bg-white py-16 lg:py-24">
+    <section class="py-4 lg:py-16">
       <div class="container mx-auto px-4">
         <div class="text-center md:mb-10 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#4f4f4f]">Smart. Secure.</span>
-            <span class="text-black">Seamless.</span>
+            <span class="page-accent">Smart. Secure.</span>
+            <span class="page-main">Seamless.</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               Explore the powerful features of the A35 Android PINpad — designed
               for fast transactions, enhanced security, and effortless customer
@@ -435,9 +477,9 @@
         </div>
 
         <div
-          class="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16"
+          class="flex flex-col lg:flex-row items-start gap-8 lg:gap-16"
         >
-          <div class="w-full lg:w-1/4 flex flex-col items-center lg:items-end">
+          <div class="w-full lg:w-auto flex flex-col items-center lg:items-start">
             <button
               id="tab-feature"
               data-tab="feature-content"
@@ -456,7 +498,7 @@
             </button>
           </div>
 
-          <div class="w-full lg:w-3/4 relative">
+          <div class="w-full lg:flex-1 relative">
             <div id="tab-container" class="relative w-full">
               <div id="feature-content" class="tab-content">
                 <div
@@ -818,16 +860,16 @@
     </section>
 
     <!-- Technical Specifications Section -->
-    <section class="bg-white py-16 md:m-8">
+    <section class="lg:py-16 py-4 lg:m-8 group/specs">
       <div class="container mx-auto px-4 text-center">
         <!-- Title -->
         <div class="text-center md:mb-10 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-5xl text-3xl font-inter">
-            <span class="text-gray-600">Technical</span>
-            <span class="text-gray-900"> Specifications</span>
+            <span class="page-accent">Technical</span>
+            <span class="page-main"> Specifications</span>
           </h2>
           <div class="flex justify-center">
-            <p class="md:w-[562px] w-full text-gray-500 md:text-lg text-base">
+            <p class="md:w-[562px] w-full page-sub md:text-lg text-base">
               Discover the core hardware and software capabilities that power
               the performance of the A35 Android PINpad. Built for reliability,
               speed, and security.
@@ -870,7 +912,7 @@
 
               <!-- Card -->
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[0ms]"
               >
                 <div
                   class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
@@ -878,8 +920,8 @@
                   <img src="/assets/images/a920/os.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl text-gray-900">OS</h3>
-                  <p class="text-gray-600 text-sm">Android 10</p>
+                  <h3 class="font-bold text-xl page-main">OS</h3>
+                  <p class="page-sub text-sm">Android 10</p>
                 </div>
               </div>
             </li>
@@ -901,7 +943,7 @@
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[100ms]"
               >
                 <div
                   class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
@@ -909,8 +951,8 @@
                   <img src="/assets/images/a920/display.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl text-gray-900">Display</h3>
-                  <p class="text-gray-600 text-sm">
+                  <h3 class="font-bold text-xl page-main">Display</h3>
+                  <p class="page-sub text-sm">
                     4.0" Capacitive Touchscreen
                   </p>
                 </div>
@@ -934,7 +976,7 @@
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[200ms]"
               >
                 <div
                   class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
@@ -942,8 +984,8 @@
                   <img src="/assets/images/a920/processor.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl text-gray-900">Processor</h3>
-                  <p class="text-gray-600 text-sm">Secure ARM Cortex-A53</p>
+                  <h3 class="font-bold text-xl page-main">Processor</h3>
+                  <p class="page-sub text-sm">Secure ARM Cortex-A53</p>
                 </div>
               </div>
             </li>
@@ -965,7 +1007,7 @@
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[300ms]"
               >
                 <div
                   class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
@@ -973,8 +1015,8 @@
                   <img src="/assets/images/a920/memory.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl text-gray-900">Memory</h3>
-                  <p class="text-gray-600 text-sm">1GB RAM / 8GB ROM</p>
+                  <h3 class="font-bold text-xl page-main">Memory</h3>
+                  <p class="page-sub text-sm">1GB RAM / 8GB ROM</p>
                 </div>
               </div>
             </li>
@@ -996,7 +1038,7 @@
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[90px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[400ms]"
               >
                 <div
                   class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
@@ -1004,8 +1046,8 @@
                   <img src="/assets/images/a920/card.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl text-gray-900">Card Reader</h3>
-                  <p class="text-gray-600 text-sm">EMV L1/L2, NFC, Magstripe</p>
+                  <h3 class="font-bold text-xl page-main">Card Reader</h3>
+                  <p class="page-sub text-sm">EMV L1/L2, NFC, Magstripe</p>
                 </div>
               </div>
             </li>
@@ -1027,7 +1069,7 @@
               </div>
 
               <div
-                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0"
+                class="bg-white p-5 rounded-2xl shadow-xl border border-gray-100 md:mt-[210px] md:mb-0 mt-0 flex md:block text-left md:text-center md:ml-0 opacity-0 -translate-y-10 group-hover/specs:opacity-100 group-hover/specs:translate-y-0 transition-all duration-700 ease-in-out delay-[500ms]"
               >
                 <div
                   class="flex-shrink-0 mr-4 md:mx-auto md:mb-2 w-10 h-10 flex items-center justify-center"
@@ -1035,8 +1077,8 @@
                   <img src="/assets/images/a920/connectivity.png" alt="" />
                 </div>
                 <div>
-                  <h3 class="font-bold text-xl text-gray-900">Connectivity</h3>
-                  <p class="text-gray-600 text-sm">USB-C, Wi-Fi, Bluetooth</p>
+                  <h3 class="font-bold text-xl page-main">Connectivity</h3>
+                  <p class="page-sub text-sm">USB-C, Wi-Fi, Bluetooth</p>
                 </div>
               </div>
             </li>
@@ -1050,12 +1092,12 @@
       <div class="container px-4 md:px-2 mx-auto">
         <div class="text-center md:mb-10 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#4f4f4f]">Watch the</span>
-            <span class="text-black">Dynaflex in Action</span>
+            <span class="page-accent">Watch the</span>
+            <span class="page-main">Dynaflex in Action</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               See how the A35 Android PINpad delivers smooth, secure, and
               efficient payment experiences—right at your fingertips.
@@ -1098,16 +1140,16 @@
     </section>
 
     <!-- Why Choose the Dynaflex Section -->
-    <section class="bg-gray-50 py-16">
+    <section class="py-16">
       <div class="container mx-auto px-4 text-center">
         <div class="text-center md:mb-10 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#4f4f4f]">Why Choose the</span>
-            <span class="text-black"> Dynaflex ?</span>
+            <span class="page-accent">Why Choose the</span>
+            <span class="page-main"> Dynaflex ?</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               Unlock faster payments, enhanced customer satisfaction, and
               seamless integration with a device built for modern retail and
@@ -1130,10 +1172,10 @@
             class="rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-6 text-center"
           >
             <div class="">
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              <h3 class="text-xl font-semibold page-main mb-2">
                 All-in-One Payment <br />Solution
               </h3>
-              <p class="text-gray-600">
+              <p class="page-sub">
                 The DynaFlex II Go supports EMV chip, magstripe, and contactless
                 payments in one sleek device—eliminating the need for multiple
                 readers. Whether it's a tap, dip, or swipe, it handles every
@@ -1154,10 +1196,10 @@
             class="rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-6 text-center"
           >
             <div class="">
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              <h3 class="text-xl font-semibold page-main mb-2">
                 Compact & Durable
               </h3>
-              <p class="text-gray-600">
+              <p class="page-sub">
                 Designed for demanding environments, the DynaFlex II Go features
                 a rugged, compact build that fits easily in the palm of your
                 hand. Its durable housing ensures reliable performance in both
@@ -1179,10 +1221,10 @@
             class="rounded-[38px] border border-[#d9d9d9] flex flex-col justify-center items-center p-6 text-center"
           >
             <div class="">
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+              <h3 class="text-xl font-semibold page-main mb-2">
                 Flexible Connectivity
               </h3>
-              <p class="text-gray-600">
+              <p class="page-sub">
                 With support for USB-C, Bluetooth, and optional Ethernet, the
                 DynaFlex II Go seamlessly integrates with a wide range of POS
                 systems and mobile devices. Its plug-and-play setup ensures fast
@@ -1197,16 +1239,16 @@
     </section>
 
     <!-- Documentation Section -->
-    <section class="bg-white py-16">
+    <section class="py-16">
       <div class="container mx-auto md:px-4 px-2">
         <div class="text-center md:mb-10 mb-6">
           <h2 class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl">
-            <span class="text-[#4f4f4f]">Explore</span>
-            <span class="text-black"> Our Guides</span>
+            <span class="page-accent">Explore</span>
+            <span class="page-main"> Our Guides</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               Access user guides, setup instructions, and technical
               documentation to get the most out of your A35 Android PINpad.
@@ -1216,19 +1258,19 @@
       </div>
     </section>
     <!-- Single Guide Highlight -->
-    <section class="bg-[#FAFAFA] py-8">
+    <section class="slide-card py-8">
       <div class="container mx-auto md:px-4 px-2">
-        <h3 class="text-lg font-semibold text-gray-900 mb-6">
+        <h3 class="text-lg font-semibold page-main mb-6">
           Product Guides & Manuals
         </h3>
 
         <div class="flex flex-col md:flex-row items-start justify-between">
           <div class="flex-1 pr-0 md:pr-8 mb-6 md:mb-0">
-            <h4 class="text-2xl font-bold text-gray-800 mb-2">
+            <h4 class="text-2xl font-bold page-main mb-2">
               Setup and Installation Manual
             </h4>
-            <p class="text-sm text-gray-500 mb-4">Published Sep 12, 2025</p>
-            <p class="text-gray-600">
+            <p class="text-sm page-sub mb-4">Published Sep 12, 2025</p>
+            <p class="page-sub">
               Our Setup and Installation Manual provides a step-by-step guide to
               get your POS system up and running quickly.<br />
               From hardware connections to software configuration, it ensures a
@@ -1250,7 +1292,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white py-10">
+    <footer class="py-10">
       <div class="container mx-auto px-4">
         <!-- Top Logo + Switch -->
         <div
@@ -1258,12 +1300,17 @@
         >
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="w-10 md:w-40 h-auto"
+            class="logo-light w-10 md:w-40 h-auto"
+            alt=""
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark w-10 md:w-40 h-auto"
             alt=""
           />
 
           <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+            <p class="text-[#4f4f4f] text-[11px] font-normal select-none footer-label">
               Switch to dark mode
             </p>
 
