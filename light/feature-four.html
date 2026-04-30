@@ -208,6 +208,11 @@
       html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
       html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
       html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+
+       html.dark .splide__arrow {
+        background: #111827 !important;
+        color: #ffffff !important;
+      }
       
       /* Text color overrides for dark mode */
        html.dark .text-black { color: #ffffff; }
@@ -561,7 +566,7 @@
     </nav>
 
     <!-- hero section -->
-    <section class="md:py-16 py-6">
+    <section class="lg:py-16 py-6">
       <div class="container mx-auto px-4">
         <h1
           class="lg:w-[1052px] lg:text-8xl md:text-6xl text-[32px] font-bold lg:leading-[86.03px] leading-normal w-full"
@@ -571,7 +576,7 @@
         </h1>
 
         <p
-          class="md:w-[655px] w-full md:text-xl page-sub text-sm font-normal"
+          class="md:w-[655px] mt-4 w-full md:text-xl page-sub text-sm font-normal"
         >
           Track Attendance & Manage Staff Access with Ease
         </p>
@@ -581,12 +586,12 @@
     <!--behind  Section -->
     <section class="lg:py-16 py-4">
       <div
-        class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-6 gap-10 items-center md:items-start"
+        class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-6 gap-10 items-center md:items-start"
       >
         <!-- Left Content -->
         <div class="order-2 md:order-1 md:col-span-4">
           <h2
-            class="md:text-[64px] text-[20px] font-bold md:leading-[80.64px] leading-normal"
+            class="md:text-[43px] lg:text-[64px] text-[20px] font-bold lg:leading-[80.64px] leading-normal"
           >
             <span class="page-accent">Understanding What It Is </span
             ><span class="page-main">Permission Control</span>
@@ -598,8 +603,8 @@
             across your POS platform.
           </p>
 
-          <img src="/assets/images/feature-4.png" alt="" class="lg:hidden md:w-[512px] w-full md:ml-[7.5rem] mb-4">
-          <p class="text-[12px] md:text-2xl leading-relaxed">
+          <img src="/assets/images/feature-4.png" alt="" class="lg:hidden  w-full mb-4">
+          <p class="text-[12px] md:text-[15px] lg:text-2xl leading-relaxed">
             Employee Clock-In & Permission Control is a feature in POS systems
             that allows staff to log their working hours directly through the
             system and ensures that only authorized personnel can access
@@ -621,10 +626,10 @@
     </section>
 
     <!--slider-->
-    <section class="md:py-16 py-4">
+    <section class="lg:py-16 py-4">
       <div class="container mx-auto px-4">
         <section id="main-slider" class="splide" aria-label="Splide Slider">
-          <div class="absolute bottom-5 md:bottom-28 left-8 z-10">
+          <div class="absolute -bottom-0 md:bottom-6 left-8 z-10">
             <div class="splide__arrows flex w-auto space-x-4">
               <button
                 class="splide__arrow splide__arrow--prev text-4xl bg-slate-300 text-gray-900 hover:text-gray-900 transition"
@@ -650,15 +655,15 @@ arrow_forward
             <ul class="splide__list">
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="md:order-1 order-2 col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="md:order-1 order-2 col-span-1 md:col-span-8 mt-4 lg:mt-16">
                     <h1
-                      class="justify-start text-black md:text-5xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start text-black lg:text-5xl md:text-3xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
                     >
                       Secure Clock-In
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-[10px] md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[508px] text-black text-[10px] lg:text-xl text-[1rem] font-normal leading-normal md:leading-7 mt-2 lg:mt-14"
                     >
                       Employees clock in using a unique PIN, QR code, or
                       fingerprint—preventing buddy punching and ensuring
@@ -678,15 +683,15 @@ arrow_forward
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="order-2 md:order-1 col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="order-2 md:order-1 col-span-1 md:col-span-8 mt-4 lg:mt-16">
                     <h1
-                      class="justify-start text-black md:text-5xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start text-black lg:text-5xl md:text-3xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
                     >
                       Role-Based Access
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-[10px] md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[508px] text-black text-[10px] lg:text-xl text-[1rem] font-normal leading-normal md:leading-7 mt-2 lg:mt-14"
                     >
                       Each employee is given access only to the functions they
                       need. For example, cashiers can take orders and payments,
@@ -706,15 +711,15 @@ arrow_forward
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16 order-2 md:order-1">
+                  <div class="col-span-1 md:col-span-8 mt-4 lg:mt-16 order-2 md:order-1">
                     <h1
-                      class="justify-start text-black md:text-5xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start text-black lg:text-5xl md:text-3xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
                     >
                       Action Logging
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-[10px] md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[508px] text-black text-[10px] lg:text-xl text-[1rem] font-normal leading-normal md:leading-7 mt-2 lg:mt-14"
                     >
                       All critical actions—such as voids, refunds, and
                       clock-outs—are automatically recorded with the employee’s
@@ -734,15 +739,15 @@ arrow_forward
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="order-2 md:order-1 col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="order-2 md:order-1 col-span-1 md:col-span-8 mt-4 lg:mt-14 md:mt-4">
                     <h1
-                      class="justify-start text-black md:text-5xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start text-black lg:text-5xl md:text-3xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
                     >
                       Instant Alerts
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-[10px] md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[508px] text-black text-[10px] lg:text-xl text-[1rem] font-normal leading-normal md:leading-7 mt-2 lg:mt-10"
                     >
                       Managers receive real-time alerts for sensitive actions
                       like refunds, voids, or opening the cash drawer without a
@@ -761,15 +766,15 @@ arrow_forward
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="order-2 md:order-1 col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="order-2 md:order-1 col-span-1 md:col-span-8 mt-4 lg:mt-14 md:mt-4">
                     <h1
-                      class="justify-start text-black md:text-5xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start text-black lg:text-5xl md:text-3xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
                     >
                       Sensitive Action Alerts
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-[10px] md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[508px] text-black text-[10px] lg:text-xl text-[1rem] font-normal leading-normal md:leading-7 mt-2 lg:mt-10"
                     >
                       Actions like refunds, voids, manual labor edits, or
                       unauthorized discounts trigger instant alerts to managers
@@ -777,8 +782,8 @@ arrow_forward
                       misuse or irregularities.
                     </p>
 
-                    <p class="text-gray-600">Common alert triggers include:</p>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <p class="text-gray-600 text-[10px] md:text-xl">Common alert triggers include:</p>
+                    <ul class="list-disc list-inside text-[10px] md:text-xl">
                       <li>Voiding tickets</li>
                       <li>Issuing refunds</li>
                       <li>Applying unauthorized discounts</li>
@@ -799,7 +804,7 @@ arrow_forward
     </section>
 
     <!-- why choose us -->
-    <section class="md:py-16 py-4">
+    <section class="lg:py-16 py-4">
       <div class="container mx-auto px-4">
         <div class="mb-12 text-left">
           <h2

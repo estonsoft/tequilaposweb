@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tequila POS - Smart POS Solutions</title>
+    <script src="/assets/js/theme.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Splide CSS -->
@@ -12,6 +13,11 @@
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
     />
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&
+    icon_names=arrow_back" />
+
     <!-- Optional: Default Theme -->
     <link
       rel="stylesheet"
@@ -19,7 +25,7 @@
     />
 
     <!-- aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
 
     <link rel="stylesheet" href="/assets/style/global.css" />
 
@@ -47,7 +53,73 @@
         display: none;
       }
 
-      .splide__arrow {
+      .mobile-timeline {
+      position: relative;
+    }
+    .mobile-timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.35rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e7eb;
+    }
+    .mobile-timeline .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .mobile-timeline .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .mobile-timeline .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 9999px;
+      background: #000;
+    }
+    .mobile-timeline blockquote {
+      padding-left: 0.5rem;
+    }
+    html.dark .mobile-timeline::before { background: #4b5563; }
+    html.dark .mobile-timeline .timeline-dot { background: #fff; }
+
+    .mobile-svg-lines {
+      z-index: -1;
+      opacity: 0.7;
+    }
+    .mobile-diff-card {
+      position: absolute;
+      width: 163px;
+      height: 157px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+      z-index: 1;
+    }
+    .mobile-diff-card h2,
+    .mobile-diff-card h3,
+    .mobile-diff-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .mobile-diff-dot {
+      position: absolute;
+      left: 50%;
+      top: -0.75rem;
+      transform: translateX(-50%);
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 9999px;
+      background: #000;
+      z-index: 2;
+    }
+    html.dark .mobile-diff-dot { background: #fff; }
+
+
+      /* .splide__arrow {
         -ms-flex-align: center;
         align-items: center;
         background: transparent !important;
@@ -75,162 +147,263 @@
 
         .splide__arrow--prev {
           left: 0rem !important;
-        }
+        } */
+      /* } */
+
+      .splide__arrow {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
       }
+      /* .splide__arrow--prev {
+        left: -50px;
+      }
+      .splide__arrow--next {
+        right: -1150px;
+      } */
+    </style>
+
+    <style>
+      /* ---- Light defaults ---- */
+      /* body { background-color: #ffffff; color: #000000; }
+      footer { background-color: #ffffff; }
+      section { background-color: #ffffff; }
+      
+      .logo-dark { display: none; }
+      .logo-light { display: block; } */
+
+      /* Light mode defaults */
+     
+      .mega-menu { background-color: #ffffff; }
+      #mobile-menu { background-color: #ffffff; }
+      #dropdownBtn { background-color: #f3f4f6; }
+      #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
+
+      .slide-card  { background-color: #fafafa; }
+
+      .page-accent { color: #505050; }
+    .page-main   { color: #000000; }
+    .page-sub    { color: #4f4f4f; }
+    .page-btn { background-color: #000000; color: #ffffff; }
+      
+      /* ---- Dark mode overrides ---- */
+      html.dark body    { background-color: #1c1c1c; color: #ffffff; }
+      html.dark footer  { background-color: #1c1c1c; }
+      html.dark section { background-color: #1c1c1c; }
+
+      html.dark .slide-card  { background-color: #373737; }
+      
+      html.dark .logo-dark { display: block; }
+      html.dark .logo-light { display: none; }
+      html.dark .page-accent { color: #C98633; }
+    html.dark .page-main   { color: #ffffff; }
+    html.dark .page-sub    { color: #cdcdcd; }
+      html.dark .page-btn { background-color: #ffffff; color: #000000; }
+      
+      html.dark .mega-menu { background-color: #000000; }
+      html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
+      html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
+      html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+
+       html.dark .splide__arrow {
+        background: #111827 !important;
+        color: #ffffff !important;
+      }
+      
+      /* Text color overrides for dark mode */
+       html.dark .text-black { color: #ffffff; }
+      html.dark .text-\\[#4f4f4f\\],
+      html.dark .text-\\[#333\\],
+      html.dark .text-gray-500,
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-800 { color: #cdcdcd; }
+      
+      /* Background and border overrides for dark mode */
+      html.dark .bg-white { background-color: #1c1c1c; }
+      html.dark .bg-gray-100,
+      html.dark .bg-gray-200 { background-color: #2c2c2c; }
+      html.dark .border-gray-300,
+      html.dark .border-\\[#dbdbdb\\] { border-color: #444444; }
+      html.dark .shadow-\\[0px_4px_18.9px_rgba\\(0,0,0,0.25\\)\\] { box-shadow: 0px 4px 18.9px rgba(0,0,0,0.5); }
+
+      /* Product Guides section dark mode */
+      html.dark .product-guides-section { background-color: #373737 !important; }
+      
+      @media screen and (max-width: 780px) {
+  html.dark .heading_p { color: #ffffff !important; }
+}
+      
+      /* Form section dark mode */
+      html.dark .contact-form-container { background-color: #1c1c1c; }
     </style>
   </head>
-  <body class="bg-white font-inter text-sm">
+  <body class="font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
-        <!-- Logo -->
+    <nav class="navbar xl:block hidden">
+      <div class="navbar-container container mx-auto px-4">
         <div class="logo-container">
-          <a href="/light/index.html">
+          <a href="/index.html">
             <img
               src="/assets/images/logo/tequila_pos_logo_transparent.png"
-              class="logo"
+              class="logo-light logo"
+              alt="Logo"
+            />
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+              class="logo-dark logo"
               alt="Logo"
             />
           </a>
-
           <div class="nav-links ml-4">
             <div class="nav-item relative group">
               <a href="#business-type" class="nav-link">Business Type</a>
-
-              <!-- Mega Menu -->
               <div
-                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
+                class="mega-menu mega-anim absolute left-0 top-full pt-10"
                 onmouseleave="clearActive()"
               >
                 <div class="flex flex-nowrap gap-10">
-                  <!-- LEFT: categories -->
                   <div
                     class="flex flex-col p-10 gap-4"
                     id="categoryList"
                     data-aos="fade-left"
                   >
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/food.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="food"
                       onmouseenter="setActive('food')"
                       onfocus="setActive('food')"
+                      >Food &amp; Beverage</a
                     >
-                      Food &amp; Beverage
-                    </a>
-
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/retail.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="retail"
                       onmouseenter="setActive('retail')"
                       onfocus="setActive('retail')"
+                      >Retail</a
                     >
-                      Retail
-                    </a>
                   </div>
-
-                  <!-- RIGHT: panels -->
                   <div class="flex gap-16 p-10">
-                    <!-- FOOD panel -->
                     <div class="flex justify-between gap-10" data-panel="food">
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
                         </ul>
                       </div>
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Capacity
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage order from one place</a
+                              href="/resturent-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Resturents</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Take payment</a
+                              href="/bar-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bars</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Keep customer coming back</a
+                              href="/food-truck-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Food Trucks and Pop-ups</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Scale your business</a
+                              href="/cafes-coffee-shop-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Cafes & Coffee Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Improve operation</a
+                              href="/juice-bars-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Juice Bars & Smoothie Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Schedule and pay your team</a
+                              href="/bakeries-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bakeries</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage your cash flow</a
+                              href="/ice-cream-shops-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Ice Creams & Desserts Shops</a
                             >
                           </li>
                         </ul>
                       </div>
                     </div>
-
-                    <!-- RETAIL panel -->
                     <div class="space-y-6 hidden" data-panel="retail">
-                      <div class="gap-10">
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
                               href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
@@ -241,19 +414,15 @@
                 </div>
               </div>
             </div>
-
-            <!-- Other Links -->
-            <a href="/light/feature.html" class="nav-link">Feature</a>
-            <a href="/light/hardware.html" class="nav-link">Hardware</a>
-            <a href="/light/pricing.html" class="nav-link">Pricing</a>
-            <a href="/light/resourse.html" class="nav-link">Resources</a>
+            <a href="/feature.html" class="nav-link">Feature</a>
+            <a href="/hardware.html" class="nav-link">Hardware</a>
+            <a href="/pricing.html" class="nav-link">Pricing</a>
+            <a href="/resourse.html" class="nav-link">Resources</a>
           </div>
         </div>
-
-        <!-- Navigation Links -->
         <div class="nav-extra-links">
           <div
-            class="language-selector cursor-pointers"
+            class="language-selector cursor-pointer"
             onclick="toggleLanguage()"
           >
             <span id="language-text">ENGLISH</span>
@@ -264,32 +433,35 @@
               class="flag-icon"
             />
           </div>
-
           <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
-          </button>
+          <a href="/free-demo.html"><button class="demo-btn"><span>Free Demo</span></button></a>
+          
         </div>
       </div>
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-white shadow-md relative">
+    <nav class="navbar xl:hidden shadow-md relative">
       <div
-        class="navbar-container container mx-auto flex items-center justify-between py-4"
+        class="navbar-container container mx-auto flex items-center justify-between py-2 px-4"
       >
-        <!-- Logo -->
         <div class="logo-container flex items-center">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="logo h-10"
+            class="logo-light logo h-auto"
+            alt="Logo"
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark logo h-auto"
             alt="Logo"
           />
         </div>
-        <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
-          <!-- Hamburger Icon -->
+        <button
+          id="mobile-menu-btn"
+          class="xl:hidden p-2"
+          style="color: inherit"
+        >
           <svg
             id="hamburger-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -305,8 +477,6 @@
               d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>
-
-          <!-- Close Icon -->
           <svg
             id="close-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -324,123 +494,87 @@
           </svg>
         </button>
       </div>
-
-      <!-- Mobile Menu -->
-      <!-- Mobile Menu (White Version) -->
       <div
         id="mobile-menu"
-        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        style="background-color: var(--mobile-bg, #fff)"
       >
         <div class="p-4 space-y-4">
-          <!-- Dropdown -->
           <div class="relative">
             <button
               id="dropdownBtn"
-              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+              class="flex justify-between items-center w-full px-4 py-2 rounded"
+              style="color: inherit"
             >
               Business Type
               <svg
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                class="w-5 h-5 transition-transform duration-200"
               >
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
-        11.94l3.72-3.72a.75.75 0 1 1 
-        1.06 1.06l-4.25 4.25a.75.75 0 
-        0 1-1.06 0L5.22 9.28a.75.75 
-        0 0 1 0-1.06Z"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
                 />
               </svg>
             </button>
-
             <div
               id="dropdownMenu"
-              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
+              class="hidden mt-2 rounded shadow-lg overflow-hidden border"
+              style="background: #f9fafb"
             >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Edit</a
+              <a href="/food.html" class="block px-4 py-2 hover:bg-gray-100"
+                >Food &amp; Beverage</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Duplicate</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Archive</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Delete</a
-              >
+              <a href="/retail.html" class="block px-4 py-2 hover:bg-gray-100">Retail</a>
             </div>
           </div>
-
-          <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="/feature.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Features</a
           >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="/hardware.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Hardware</a
           >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a
+            href="/pricing.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Pricing</a
           >
           <a
-            href="/light/resourse.html"
-            class="block px-4 py-2 hover:bg-gray-100 rounded"
+            href="/resourse.html"
+            class="block px-4 py-2 rounded hover:opacity-80"
             >Resources</a
           >
-
-          <!-- Language Switcher -->
-          <div
-            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
-          >
-            <span class="text-sm">EN</span>
-            <label class="inline-flex items-center cursor-pointer">
-              <input type="checkbox" class="sr-only peer" />
-              <div
-                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
-              ></div>
-            </label>
-            <span class="text-sm">ES</span>
-          </div>
-
-          <!-- Sign in -->
-          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="#signin" class="block px-4 py-2 rounded hover:opacity-80"
             >Sign In</a
           >
-
-          <!-- CTA Button -->
           <a
-            href="#demo"
-            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
+            href="/free-demo.html"
+            class="block text-center font-bold py-2 rounded shadow"
+            style="background: #c89633; color: #000"
+            >Free Demo</a
           >
-            Free Demo
-          </a>
         </div>
       </div>
     </nav>
 
     <!-- hero section -->
-    <section class="bg-transparent-100 py-16">
-      <div class="container mx-auto md:px-2 px-4">
+    <section class="lg:py-16 py-4">
+      <div class="container mx-auto px-4">
         <h1
-          class="md:w-[1052px] md:text-8xl text-6xl font-bold md:leading-[126.03px] leading-normal w-full"
+          class="lg:w-[1052px] lg:text-8xl md:text-6xl text-[32px] font-bold lg:leading-[86.03px] leading-normal w-full"
         >
-          <span class="text-[#4f4f4f]">Integrated Online & </span
-          ><span class="text-black">Delivery Orders</span>
+          <span class="page-accent">Integrated Online & </span
+          ><span class="page-main">Delivery Orders</span>
         </h1>
 
         <p
-          class="md:w-[655px] w-full md:text-xl text-[#4f4f4f] text-sm font-normal"
+          class="md:w-[655px] w-full md:text-xl page-sub text-sm font-normal"
         >
           treamline all third-party and direct online orders into one unified
           system.
@@ -449,25 +583,26 @@
     </section>
 
     <!--behind  Section -->
-    <section class="bg-white py-16">
+    <section class="lg:py-16 py-4">
       <div
-        class="container mx-auto px-4 md:px-2 grid grid-cols-1 md:grid-cols-6 gap-10 items-center md:items-start"
+        class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-6 gap-10 items-center md:items-start"
       >
         <!-- Left Content -->
         <div class="order-2 md:order-1 md:col-span-4">
           <h2
-            class="md:w-1/2 w-full md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal"
+            class="md:w-1/2 w-full md:text-[43px] lg:text-[64px] text-[20px] font-bold md:leading-[80.64px] leading-normal"
           >
-            <span class="text-[#4f4f4f]">Understanding </span
-            ><span class="text-black">What It Is</span>
+            <span class="page-accent">Understanding </span
+            ><span class="page-main">What It Is</span>
           </h2>
           <p
-            class="md:w-[512px] md:text-[15px] w-full text-sm text-[#4f4f4f] md:mb-10 mb-6"
+            class="md:w-[512px] md:text-[15px] w-full text-sm page-sub md:mb-10 mb-6"
           >
             A unified system that connects online platforms and delivery
             services directly to your POS for faster, error-free order handling.
           </p>
-          <p class="text-xl md:text-2xl text-[#4f4f4f] leading-relaxed">
+          <img src="/assets/images/feature-9.png" alt="" class="lg:hidden mb-4 w-full">
+          <p class="text-[12px] md:text-[15px] lg:text-2xl leading-relaxed">
             Integrated Online & Delivery Orders refers to the seamless
             connection between your restaurant’s POS system (Point of Sale) and
             online ordering platforms (like Zomato, Swiggy, Uber Eats, or your
@@ -478,7 +613,7 @@
         </div>
 
         <!-- Right Images -->
-        <div class="order-1 md:order-2 md:col-span-2 h-full">
+        <div class="hidden lg:block order-1 md:order-2 md:col-span-2 h-full">
           <img
             src="/assets/images/feature-one/feature-nine-behind.png"
             alt="POS System"
@@ -489,26 +624,34 @@
     </section>
 
     <!--slider 1-->
-    <section class="bg-white py-16">
+    <section class="lg:py-16 py-4">
       <div class="container mx-auto px-4">
         <section id="main-slider" class="splide" aria-label="Splide Slider">
           <div class="my-slider-progress w-4/6 mx-auto">
             <div class="my-slider-progress-bar"></div>
           </div>
 
-          <div class="flex justify-end p-4">
-            <div class="splide__arrows flex space-x-4">
+          <div class="w-full absolute mx-0 left-0 right-0 z-10">
+            <div class="splide__arrows flex w-full ">
               <button
-                class="splide__arrow splide__arrow--prev text-4xl text-gray-900 hover:text-gray-900 transition"
+                class="splide__arrow splide__arrow--prev 
+                left-0
+                 md:text-4xl text-2xl text-gray-900 hover:text-gray-900 transition"
                 aria-label="Previous Slide"
               >
-                <img src="/assets/images/feature-one/Left.png" alt="" />
+                <span class="material-symbols-outlined">
+arrow_back
+</span>
               </button>
               <button
-                class="splide__arrow splide__arrow--next text-4xl text-gray-900 hover:text-gray-900 transition"
+                class="splide__arrow splide__arrow--next 
+                right-0
+                 md:text-4xl text-2xl text-gray-900 hover:text-gray-900 transition"
                 aria-label="Next Slide"
               >
-                <img src="/assets/images/feature-one/Right.png" alt="" />
+                <span class="material-symbols-outlined">
+arrow_forward
+</span>
               </button>
             </div>
           </div>
@@ -518,14 +661,14 @@
               <li class="splide__slide relative pt-10">
                 <div class="p-4 md:p-8">
                   <h1
-                    class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal"
+                    class="lg:text-9xl md:text-6xl text-[30px] font-bold md:leading-[85.96px] leading-normal"
                   >
-                    <span class="text-[#4f4f4f]">Orders auto</span
-                    ><span class="text-black">-appear on POS</span>
+                    <span class="page-accent">Orders auto</span
+                    ><span class="page-main">-appear on POS</span>
                   </h1>
 
                   <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
+                    class="lg:block hidden lg:flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
                   >
                     <div
                       class="flex flex-col items-center text-center flex-1 min-w-0"
@@ -534,19 +677,19 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Instant Sync: Online orders are automatically pushed
                             to the POS in real time—no delays or manual entry.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -567,13 +710,13 @@
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Reduces Errors: Eliminates the risk of mistakes from
                             copying orders between platforms.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -588,19 +731,19 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Saves Time: Frees up staff from re-entering orders,
                             allowing them to focus on service and prep.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -608,20 +751,87 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="mobile-timeline lg:hidden mt-8">
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="md:text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Instant Sync: Online orders are automatically pushed to
+                          the POS in real time—no delays or manual entry.
+                        </p>
+                        <p
+                            class="md:text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                          <p
+                              class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            >
+                              “
+                            </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Reduces Errors: Eliminates the risk of mistakes from
+                          copying orders between platforms.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Saves Time: Frees up staff from re-entering orders,
+                          allowing them to focus on service and prep.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+
+                  </div>
                 </div>
               </li>
 
               <li class="splide__slide relative pt-10">
                 <div class="p-4 md:p-8">
                   <h1
-                    class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal"
+                    class="lg:text-9xl md:text-6xl text-[30px] font-bold md:leading-[120.96px] leading-normal"
                   >
-                    <span class="text-[#4f4f4f]">Clearly labeled </span
-                    ><span class="text-black">by source</span>
+                    <span class="page-accent">Clearly labeled </span
+                    ><span class="page-main">by source</span>
                   </h1>
 
                   <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
+                    class="lg:block hidden lg:flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
                   >
                     <div
                       class="flex flex-col items-center text-center flex-1 min-w-0"
@@ -630,19 +840,19 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Easy Identification: Each order displays the source
                             platform (e.g., Grubhub, Uber Eats, Website)
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -657,19 +867,19 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Faster Fulfillment: Staff can prioritize based on
                             order type—pickup, delivery, or dine-in.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -684,19 +894,19 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Reduces Confusion: Minimizes mix-ups by clearly
                             tagging where each order came from.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -704,20 +914,86 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="mobile-timeline lg:hidden mt-8">
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Easy Identification: Each order displays the source
+                          platform (e.g., Grubhub, Uber Eats, Website)
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                          <p
+                              class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            >
+                              “
+                            </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Faster Fulfillment: Staff can prioritize based on
+                          order type—pickup, delivery, or dine-in.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Reduces Confusion: Minimizes mix-ups by clearly
+                          tagging where each order came from.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                      </div>
+                  </div>
                 </div>
               </li>
 
               <li class="splide__slide relative pt-10">
                 <div class="p-4 md:p-8">
                   <h1
-                    class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal"
+                    class="lg:text-9xl md:text-6xl text-[30px] font-bold md:leading-[120.96px] leading-normal"
                   >
-                    <span class="text-[#4f4f4f]">Seamless </span
-                    ><span class="text-black">kitchen flow</span>
+                    <span class="page-accent">Seamless </span
+                    ><span class="page-main">kitchen flow</span>
                   </h1>
 
                   <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
+                    class="lg:block hidden lg:flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
                   >
                     <div
                       class="flex flex-col items-center text-center flex-1 min-w-0"
@@ -726,20 +1002,20 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Direct to Kitchen: Online orders go straight to the
                             kitchen display or printer, just like dine-in
                             tickets.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -754,19 +1030,19 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             No Re-entry Needed: Staff don’t waste time retyping
                             orders—everything flows automatically.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -781,13 +1057,13 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl  text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Consistent Workflow: The kitchen handles all orders
                             the same way, reducing confusion and speeding up
@@ -795,7 +1071,7 @@
                           </p>
 
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -803,19 +1079,85 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="mobile-timeline lg:hidden mt-8">
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Direct to Kitchen: Online orders go straight to the
+                          kitchen display or printer, just like dine-in tickets.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                          <p
+                              class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            >
+                              “
+                            </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          No Re-entry Needed: Staff don’t waste time retyping
+                          orders—everything flows automatically.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="text-6xl  text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Consistent Workflow: The kitchen handles all orders
+                          the same way, reducing confusion and speeding up prep.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li class="splide__slide relative pt-10">
                 <div class="p-4 md:p-8">
                   <h1
-                    class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal"
+                    class="lg:text-9xl md:text-6xl text-[30px] font-bold md:leading-[120.96px] leading-normal"
                   >
-                    <span class="text-[#4f4f4f]">Complete </span
-                    ><span class="text-black">order details</span>
+                    <span class="page-accent">Complete </span
+                    ><span class="page-main">order details</span>
                   </h1>
 
                   <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
+                    class="lg:block hidden lg:flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
                   >
                     <div
                       class="flex flex-col items-center text-center flex-1 min-w-0"
@@ -836,7 +1178,7 @@
                             special modifiers (e.g., no onions, extra cheese).
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -851,19 +1193,19 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Timing Included: Orders display pickup or delivery
                             time, helping staff manage prep schedules.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -878,20 +1220,20 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Customer Details: Contact info is included for
                             smoother handoff or delivery coordination.
                           </p>
 
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -899,19 +1241,85 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="mobile-timeline lg:hidden mt-8">
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Full Order Info: Each ticket shows all items and any
+                          special modifiers (e.g., no onions, extra cheese).
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                          <p
+                              class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            >
+                              “
+                            </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Timing Included: Orders display pickup or delivery time,
+                          helping staff manage prep schedules.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Customer Details: Contact info is included for smoother
+                          handoff or delivery coordination.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                      </div>
+                  </div>
                 </div>
               </li>
               <li class="splide__slide relative pt-10">
                 <div class="p-4 md:p-8">
                   <h1
-                    class="md:text-9xl text-6xl font-bold md:leading-[120.96px] leading-normal"
+                    class="lg:text-9xl md:text-6xl text-[30px] font-bold md:leading-[120.96px] leading-normal"
                   >
-                    <span class="text-[#4f4f4f]">Smart </span
-                    ><span class="text-black">order filtering</span>
+                    <span class="page-accent">Smart </span
+                    ><span class="page-main">order filtering</span>
                   </h1>
 
                   <div
-                    class="flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
+                    class="lg:block hidden lg:flex flex-col md:flex-row justify-between items-start md:mt-12 mt-8 md:space-x-8 space-y-8 md:space-y-0 border-t border-gray-30"
                   >
                     <div
                       class="flex flex-col items-center text-center flex-1 min-w-0"
@@ -920,19 +1328,19 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Easy Sorting: Staff can quickly filter orders by
                             type—Dine-In, Pickup, or Delivery.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -947,19 +1355,19 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Better Organization: Keeps the order screen clean
                             and focused during busy hours.
                           </p>
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
@@ -974,26 +1382,92 @@
                       <div class="w-full flex justify-center">
                         <blockquote class="relative w-full">
                           <p
-                            class="text-4xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
                           >
                             “
                           </p>
 
                           <p
-                            class="text-base text-gray-600 mt-2 leading-relaxed"
+                            class="text-[24px] text-gray-600 mt-2 leading-relaxed"
                           >
                             Faster Fulfillment: Helps prioritize tasks based on
                             order type and urgency.
                           </p>
 
                           <p
-                            class="text-4xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
                           >
                             ”
                           </p>
                         </blockquote>
                       </div>
                     </div>
+                  </div>
+
+                  <div class="mobile-timeline lg:hidden mt-8">
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Easy Sorting: Staff can quickly filter orders by
+                          type—Dine-In, Pickup, or Delivery.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                          <p
+                              class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                            >
+                              “
+                            </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Better Organization: Keeps the order screen clean and
+                          focused during busy hours.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                    </div>
+                    <div class="timeline-item">
+                      <span class="timeline-dot"></span>
+                      <blockquote class="relative w-full">
+                        <p
+                            class="text-6xl text-gray-300 absolute -top-4 -left-3 hidden sm:block"
+                          >
+                            “
+                          </p>
+                        <p
+                          class="text-[18px] text-gray-600 mt-2 leading-relaxed"
+                        >
+                          Faster Fulfillment: Helps prioritize tasks based on
+                          order type and urgency.
+                        </p>
+                        <p
+                            class="text-6xl text-gray-300 absolute -bottom-4 -right-3 hidden sm:block"
+                          >
+                            ”
+                          </p>
+                      </blockquote>
+                      </div>
                   </div>
                 </div>
               </li>
@@ -1004,35 +1478,57 @@
     </section>
 
     <!--slider 2-->
-    <section class="bg-white py-16">
+    <section class="lg:py-16 py-4">
       <div class="container mx-auto px-4">
-        <div class="mb-12 md:text-left text-center">
+        <div class="mb-12 text-left">
           <h2
-            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal md:w-[661px] w-full"
+            class="lg:text-[64px] md:text-4xl text-[20px] font-bold md:leading-[80.64px] leading-normal md:w-[661px] w-full"
           >
-            <span class="text-[#4f4f4f]">Empowering </span
-            ><span class="text-black">Restaurant Owners</span>
+            <span class="page-accent">Empowering </span
+            ><span class="page-main">Restaurant Owners</span>
           </h2>
           <p
-            class="text-sm md:text-[15px] text-[#4f4f4f] leading-relaxed md:w-[512px] w-full"
+            class="text-sm md:text-[15px] page-sub leading-relaxed md:w-[512px] w-full"
           >
             Key Actions You Can Take to Streamline Operations and Drive Growth
           </p>
         </div>
         <section id="main-slider-two" class="splide" aria-label="Splide Slider">
+
+           <div class="absolute -bottom-0 md:-bottom-[0.5rem] left-8 z-10">
+            <div class="splide__arrows flex w-auto space-x-4">
+              <button
+                class="splide__arrow splide__arrow--prev text-4xl bg-slate-300 text-gray-900 hover:text-gray-900 transition"
+              aria-label="Previous Slide"
+              >
+                <span class="material-symbols-outlined">
+arrow_back
+</span>
+              </button>
+              <button
+                class="splide__arrow splide__arrow--next 
+                 md:text-4xl text-2xl text-gray-900 hover:text-gray-900 transition"
+                aria-label="Next Slide"
+              >
+                <span class="material-symbols-outlined">
+arrow_forward
+</span>
+              </button>
+            </div>
+          </div>
           <div class="splide__track">
             <ul class="splide__list">
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="md:order-1 order-2 col-span-1 md:col-span-8 mt-4 md:mt-16">
                     <h1
-                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start text-black lg:text-5xl md:text-3xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
                     >
                       Track all online orders in one dashboard
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[508px] text-black text-[10px] lg:text-xl font-normal leading-normal md:leading-7 mt-2 lg:mt-14"
                     >
                       Employees clock in using a unique PIN, QR code, or
                       fingerprint—preventing buddy punching and ensuring
@@ -1041,7 +1537,7 @@
                       payroll reliability.
                     </p>
                   </div>
-                  <div class="col-span-1 md:col-span-4">
+                  <div class="md:order-2 order-1 col-span-1 md:col-span-4">
                     <img
                       src="/assets/images/feature-one/feature-nine-carousel-one.png"
                       alt=""
@@ -1052,15 +1548,15 @@
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="md:order-1 order-2 col-span-1 md:col-span-8 mt-4 md:mt-16">
                     <h1
-                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start text-black lg:text-5xl md:text-3xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
                     >
                       View total sales from Grubhub and Uber Eats
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[508px] text-black text-[10px] lg:text-xl font-normal leading-normal md:leading-7 mt-2 lg:mt-14"
                     >
                       Owners can easily view total sales from platforms like
                       Grubhub and Uber Eats in one place. This helps track
@@ -1068,7 +1564,7 @@
                       without logging into multiple accounts.
                     </p>
                   </div>
-                  <div class="col-span-1 md:col-span-4">
+                  <div class="md:order-2 order-1 col-span-1 md:col-span-4">
                     <img
                       src="/assets/images/feature-one/feature-nine-carousel-two.png"
                       alt=""
@@ -1079,15 +1575,15 @@
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="md:order-1 order-2 col-span-1 md:col-span-8 mt-4 md:mt-16">
                     <h1
-                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start text-black lg:text-5xl md:text-3xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
                     >
                       Monitor fees and commissions from those platforms
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[508px] text-black text-[10px] lg:text-xl font-normal leading-normal md:leading-7 mt-2 lg:mt-14"
                     >
                       Keep track of fees and commissions from platforms like
                       Grubhub and Uber Eats directly in your dashboard. This
@@ -1095,7 +1591,7 @@
                       and manage costs more effectively.
                     </p>
                   </div>
-                  <div class="col-span-1 md:col-span-4">
+                  <div class="md:order-2 order-1 col-span-1 md:col-span-4">
                     <img
                       src="/assets/images/feature-one/feature-nine-carousel-three.png"
                       alt=""
@@ -1106,16 +1602,16 @@
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="md:order-1 order-2 col-span-1 md:col-span-8 mt-4 md:mt-16">
                     <h1
-                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start text-black lg:text-5xl md:text-3xl text-[20px] font-bold leading-normal md:leading-[50.99px]"
                     >
                       Adjust menu availability by platform (e.g., some items
                       only available for dine-in)
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[508px] text-black text-[10px] md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
                     >
                       Owners can customize menu availability by
                       platform—offering certain items exclusively for dine-in,
@@ -1124,7 +1620,7 @@
                       channel.
                     </p>
                   </div>
-                  <div class="col-span-1 md:col-span-4">
+                  <div class="md:order-2 order-1 col-span-1 md:col-span-4">
                     <img
                       src="/assets/images/feature-one/feature-nine-carousel-four.png"
                       alt=""
@@ -1139,17 +1635,17 @@
     </section>
 
     <!-- why choose us -->
-    <section class="py-16 bg-white">
+    <section class="lg:py-16 py-4">
       <div class="container mx-auto px-4">
-        <div class="mb-12 md:text-left text-center">
+        <div class="mb-12 text-left">
           <h2
-            class="md:text-[64px] text-4xl font-bold md:leading-[80.64px] leading-normal md:w-[880px] w-full"
+            class="md:text-[64px] text-[20px] font-bold md:leading-[80.64px] leading-normal lg:w-[880px] w-full"
           >
-            <span class="text-[#4f4f4f]">Why it </span
-            ><span class="text-black">matters</span>
+            <span class="page-accent">Why it </span
+            ><span class="page-main">matters</span>
           </h2>
           <p
-            class="text-sm md:text-[15px] text-[#4f4f4f] leading-relaxed md:w-[512px] w-full"
+            class="text-sm md:text-[15px] page-sub leading-relaxed md:w-[512px] w-full"
           >
             Ensure accurate time tracking and limit access to sensitive
             functions, reducing errors and misuse.
@@ -1160,19 +1656,25 @@
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center"
         >
           <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+            class="rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div class="flex justify-center mb-1">
               <img
                 src="/assets/images/feature-one/feature-nine-card-one.png"
-                class="object-cover"
+                class="object-cover logo-light"
                 alt=""
               />
+              <img
+                src="/assets/images/feature-one/feature-nine-card-one-dark.png"
+                class="object-cover logo-dark"
+                alt=""
+              />
+              
             </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+            <h3 class="page-main md:text-xl text-sm font-bold mb-6">
               No Manual Entry Errors
             </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+            <p class="text-sm font-normal leading-tight">
               Orders flow directly from the customer to the POS, eliminating
               manual entry errors like wrong items, quantities, or modifiers.
               This ensures greater accuracy and fewer mistakes reaching the
@@ -1181,19 +1683,24 @@
           </div>
 
           <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+            class="rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div class="flex justify-center mb-1">
               <img
                 src="/assets/images/feature-one/feature-nine-card-two.png"
-                class="object-cover"
+                class="object-cover logo-light"
+                alt=""
+              />
+              <img
+                src="/assets/images/feature-one/feature-nine-card-two-dark.png"
+                class="object-cover logo-dark"
                 alt=""
               />
             </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+            <h3 class="page-sub md:text-xl text-sm font-bold mb-6">
               Faster Counter Service
             </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+            <p class="text-sm font-normal leading-tight">
               Staff no longer need to re-enter online or third-party orders into
               the system, speeding up service and reducing bottlenecks at the
               register or order station.
@@ -1201,19 +1708,25 @@
           </div>
 
           <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+            class="rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div class="flex justify-center mb-1">
               <img
                 src="/assets/images/feature-one/feature-nine-card-three.png"
+                class="object-cover logo-light"
                 alt="taquila-pos"
-                class="object-cover"
               />
+              <img
+                src="/assets/images/feature-one/feature-nine-card-three-dark.png"
+                class="object-cover logo-dark"
+                alt="taquila-pos"
+              />
+
             </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+            <h3 class="page-main md:text-xl text-sm font-bold mb-6">
               Quicker Prep & Delivery
             </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+            <p class="text-sm font-normal leading-tight">
               As orders go straight to the kitchen display system (KDS) or
               printer, kitchen staff can start preparing meals
               immediately—reducing wait times and improving delivery speed.
@@ -1221,19 +1734,24 @@
           </div>
 
           <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+            class="rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div class="flex justify-center mb-1">
               <img
                 src="/assets/images/feature-one/feature-nine-card-four.png"
                 alt="taquila-pos"
-                class="object-cover"
+                class="object-cover logo-light"
+              />
+              <img
+                src="/assets/images/feature-one/feature-nine-card-four-dark.png"
+                alt="taquila-pos"
+                class="object-cover logo-dark"
               />
             </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+            <h3 class="page-main md:text-xl text-sm font-bold mb-6">
               No Tablet Juggling
             </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+            <p class="text-sm font-normal leading-tight">
               Instead of toggling between multiple third-party apps and devices,
               all online orders are integrated into a single
               platform—streamlining workflows and reducing stress for
@@ -1241,38 +1759,48 @@
             </p>
           </div>
           <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+            class="rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div class="flex justify-center mb-1">
               <img
                 src="/assets/images/feature-one/feature-nine-card-five.png"
                 alt="taquila-pos"
-                class="object-cover"
+                class="object-cover logo-light"
+              />
+              <img
+                src="/assets/images/feature-one/feature-nine-card-five-dark.png"
+                alt="taquila-pos"
+                class="object-cover logo-dark"
               />
             </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+            <h3 class="page-sub md:text-xl text-sm font-bold mb-6">
               Better Guest Experience
             </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+            <p class="text-sm font-normal leading-tight">
               With faster order transmission and fewer mistakes, guests receive
               their meals quicker and exactly how they ordered them, leading to
               higher satisfaction and more efficient kitchen performance.
             </p>
           </div>
           <div
-            class="bg-white rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
+            class="rounded-[38px] shadow-[0px_1px_2px_1px_rgba(0,0,0,0.13)] p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div class="flex justify-center mb-1">
               <img
                 src="/assets/images/feature-one/feature-nine-card-six.png"
                 alt="taquila-pos"
-                class="object-cover"
+                class="object-cover logo-light"
+              />
+              <img
+                src="/assets/images/feature-one/feature-nine-card-six-dark.png"
+                alt="taquila-pos"
+                class="object-cover logo-dark"
               />
             </div>
-            <h3 class="text-black md:text-xl text-sm font-bold mb-6">
+            <h3 class="page-main md:text-xl text-sm font-bold mb-6">
               Clear Sales Breakdown
             </h3>
-            <p class="text-[#4f4f4f] text-sm font-normal leading-tight">
+            <p class="text-sm font-normal leading-tight">
               Integrated systems automatically categorize sales channels,
               helping managers track performance, plan staffing, and make
               informed business decisions based on clear data.
@@ -1622,8 +2150,8 @@
       document.addEventListener("DOMContentLoaded", function () {
         // 1. Initialize Splide
         var splide = new Splide("#main-slider-two", {
-          type: "slide", // Use 'slide' for simple progression (no loop)
-          rewind: false, // Disable rewind to keep the progress bar accurate
+          type: "loop", // Use 'loop' for continuous navigation
+          rewind: false, // Keep rewind false because loop handles continuous movement
           arrows: true, // Keep the arrows for navigation (we will style them)
           pagination: false, // Explicitly hide the default Splide dots
           speed: 500, // Match the transition speed to the CSS transition
@@ -1636,9 +2164,10 @@
         splide.on("mounted move", function () {
           // Get the last index of the slides
           var end = splide.Components.Controller.getEnd() + 1;
+          var currentIndex = splide.index % end;
 
           // Calculate the percentage: (current index + 1) / total slides * 100
-          var percentage = String((100 * (splide.index + 1)) / end) + "%";
+          var percentage = String((100 * (currentIndex + 1)) / end) + "%";
 
           // Apply the calculated width to the progress bar element
           bar.style.width = percentage;

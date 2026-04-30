@@ -1623,8 +1623,8 @@
       document.addEventListener("DOMContentLoaded", function () {
         // 1. Initialize Splide
         var splide = new Splide("#main-slider-two", {
-          type: "slide", // Use 'slide' for simple progression (no loop)
-          rewind: false, // Disable rewind to keep the progress bar accurate
+          type: "loop", // Use 'loop' for continuous navigation
+          rewind: false, // Keep rewind false because loop handles continuous movement
           arrows: true, // Keep the arrows for navigation (we will style them)
           pagination: false, // Explicitly hide the default Splide dots
           speed: 500, // Match the transition speed to the CSS transition
@@ -1637,9 +1637,10 @@
         splide.on("mounted move", function () {
           // Get the last index of the slides
           var end = splide.Components.Controller.getEnd() + 1;
+          var currentIndex = splide.index % end;
 
           // Calculate the percentage: (current index + 1) / total slides * 100
-          var percentage = String((100 * (splide.index + 1)) / end) + "%";
+          var percentage = String((100 * (currentIndex + 1)) / end) + "%";
 
           // Apply the calculated width to the progress bar element
           bar.style.width = percentage;

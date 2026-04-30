@@ -375,12 +375,17 @@ h6 {
   width: 40px;
   height: 40px;
   border: none;
+  color: white !important;
 }
 
 .splide__arrow svg {
-  fill: white;
+  fill: white !important;
   width: 16px;
   height: 16px;
+}
+
+.splide__arrow:disabled {
+  opacity: 1 !important;
 }
 
 @media (max-width: 767px) {

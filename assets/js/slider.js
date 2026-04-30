@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!root) return;
 
     var splide = new Splide(selector, {
-      type: "slide", // Use 'slide' for simple progression (no loop)
-      rewind: false, // Disable rewind to keep the progress bar accurate
+      type: "loop", // Use 'loop' for continuous navigation
+      rewind: false, // Keep rewind false because loop handles continuous movement
       arrows: true, // Keep the arrows for navigation (we will style them)
       pagination: false, // Explicitly hide the default Splide dots
       speed: 500, // Match the transition speed to the CSS transition
@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     splide.on("mounted move", function () {
       if (!bar) return;
       var end = splide.Components.Controller.getEnd() + 1;
-      var percentage = String((100 * (splide.index + 1)) / end) + "%";
+      var currentIndex = splide.index % end;
+      var percentage = String(100 * (currentIndex + 1) / end) + "%";
       bar.style.width = percentage;
     });
 

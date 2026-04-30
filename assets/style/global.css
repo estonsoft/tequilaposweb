@@ -431,12 +431,17 @@ h6 {
   width: 40px;
   height: 40px;
   border: none;
+  color: black !important;
 }
 
 .splide__arrow svg {
-  fill: black;
+  fill: black !important;
   width: 16px;
   height: 16px;
+}
+
+.splide__arrow:disabled {
+  opacity: 1 !important;
 }
 
 @media (max-width: 767px) {
