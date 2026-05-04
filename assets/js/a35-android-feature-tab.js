@@ -19,18 +19,28 @@
         targetTab.classList.remove('opacity-0', 'pointer-events-none');
 
         // Update button styles
+        const activeBtnClasses = ['bg-black', 'text-white', 'shadow-md', 'dark:bg-white', 'dark:text-black'];
+        const inactiveBtnClasses = ['bg-white', 'text-gray-900', 'shadow-sm', 'hover:bg-gray-50', 'border', 'border-gray-300', 'dark:bg-[#1c1c1c]', 'dark:text-gray-300', 'dark:border-gray-600', 'dark:hover:bg-[#2c2c2c]'];
+        
+        const activeDotClasses = ['bg-white', 'dark:bg-black', 'border-transparent'];
+        const inactiveDotClasses = ['bg-gray-700', 'dark:bg-gray-400', 'border-gray-400', 'dark:border-gray-500'];
+
         tabButtons.forEach((btn) => {
-          const innerCircle = btn.querySelector('.w-3');
+          const dot = btn.querySelector('.tab-dot');
           if (btn.dataset.tab === targetTabId) {
-            btn.classList.add('bg-gray-800', 'text-white', 'shadow-md', 'hover:bg-gray-700');
-            btn.classList.remove('bg-gray-100', 'text-gray-800', 'shadow-sm', 'hover:bg-gray-200');
-            innerCircle.classList.add('bg-white');
-            innerCircle.classList.remove('bg-gray-600');
+            btn.classList.add(...activeBtnClasses);
+            btn.classList.remove(...inactiveBtnClasses);
+            if (dot) {
+              dot.classList.add(...activeDotClasses);
+              dot.classList.remove(...inactiveDotClasses);
+            }
           } else {
-            btn.classList.add('bg-gray-100', 'text-gray-800', 'shadow-sm', 'hover:bg-gray-200');
-            btn.classList.remove('bg-gray-800', 'text-white', 'shadow-md', 'hover:bg-gray-700');
-            innerCircle.classList.add('bg-gray-600');
-            innerCircle.classList.remove('bg-white');
+            btn.classList.add(...inactiveBtnClasses);
+            btn.classList.remove(...activeBtnClasses);
+            if (dot) {
+              dot.classList.add(...inactiveDotClasses);
+              dot.classList.remove(...activeDotClasses);
+            }
           }
         });
       });
