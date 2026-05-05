@@ -1420,11 +1420,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-10">
-    <div class="container mx-auto px-4">
-      <!-- Top Logo + Switch -->
-    <!-- Footer -->
-    <footer class="bg-white py-10">
+<footer class="py-10">
       <div class="container mx-auto px-4">
         <!-- Top Logo + Switch -->
         <div
@@ -1442,7 +1438,7 @@
           />
 
           <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none footer-label">
+            <p id="theme-toggle-label" class="text-[11px] font-normal select-none footer-label">
               Switch to dark mode
             </p>
 
@@ -1451,24 +1447,34 @@
               for="dark-mode-toggle"
               class="relative inline-flex items-center cursor-pointer"
             >
-              <label for="dark-mode-toggle" class="sr-only">Toggle dark mode</label>
-              <input type="checkbox" id="dark-mode-toggle" class="sr-only peer" />
+              <label for="dark-mode-toggle" class="sr-only"
+                >Toggle dark mode</label
+              >
+              <input
+                type="checkbox"
+                id="dark-mode-toggle"
+                class="sr-only peer"
+                title="Toggle dark mode"
+                placeholder="Toggle dark mode"
+              />
               <div
-                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black transition-colors duration-300"
+                class="md:w-[80px] md:h-[40px] w-[40px] h-[20px] bg-gray-300 rounded-full peer transition-colors duration-300"
               ></div>
               <div
-                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
+                class="absolute left-[5px] top-auto lg:w-[44px] lg:h-[33px] w-[22px] h-[16px] bg-white rounded-full shadow transform peer-checked:translate-x-3 md:peer-checked:translate-x-7 transition-transform duration-300"
               ></div>
             </label>
           </div>
         </div>
 
+        <!-- Links -->
         <div class="border-t border-gray-300 pt-6">
           <div
             class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-12"
           >
             <!-- Company -->
             <div>
+              <!-- Accordion Header Button -->
               <button
                 class="w-full flex justify-start items-center font-roboto font-medium text-gray-800 text-xl sm:text-2xl mb-4 sm:mb-6 focus:outline-none sm:cursor-default sm:pointer-events-none"
                 aria-expanded="false"
@@ -1491,6 +1497,7 @@
                 </svg>
               </button>
 
+              <!-- Links Container -->
               <div
                 id="company-links"
                 class="space-y-3 max-h-0 overflow-hidden transition-[max-height] duration-300 sm:max-h-full sm:overflow-visible"
@@ -1743,7 +1750,7 @@
           </div>
         </div>
       </div>
-</footer>
+    </footer>
 
 
   <!-- Splide JS -->
