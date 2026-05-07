@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tequila POS - Smart POS Solutions</title>
+    <script src="/assets/js/theme.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
     />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&
+    icon_names=arrow_back" />
 
     <!-- Optional: Default Theme -->
     <link
@@ -30,11 +36,203 @@
     />
 
     <!-- aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
 
     <link rel="stylesheet" href="/assets/style/global.css" />
 
     <style>
+      /* Custom CSS for the progress bar */
+      .my-slider-progress {
+        /* This is the background/track of the progress bar */
+        height: 4px;
+        background: #e5e7eb; /* Tailwind gray-200 */
+        /* Responsive width: centered with max-width on smaller screens, full width on 1440px+ */
+      }
+
+      /* On 1440px and larger screens, use full width */
+
+      .my-slider-progress-bar {
+        /* This is the actual progress fill */
+        background: #1f2937; /* Tailwind gray-800 for the fill color */
+        height: 100%;
+        width: 0; /* Starts at 0, JavaScript changes this */
+        transition: width 0.5s ease-in-out; /* Match slider transition speed */
+      }
+
+      /* Hide default pagination dots that Splide includes */
+      .splide__pagination {
+        display: none;
+      }
+
+      .mobile-timeline {
+      position: relative;
+    }
+    .mobile-timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.35rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e7eb;
+    }
+    .mobile-timeline .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .mobile-timeline .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .mobile-timeline .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 9999px;
+      background: #000;
+    }
+    .mobile-timeline blockquote {
+      padding-left: 0.5rem;
+    }
+    html.dark .mobile-timeline::before { background: #4b5563; }
+    html.dark .mobile-timeline .timeline-dot { background: #fff; }
+
+    .mobile-svg-lines {
+      z-index: -1;
+      opacity: 0.7;
+    }
+    .mobile-diff-card {
+      position: absolute;
+      width: 163px;
+      height: 157px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+      z-index: 1;
+    }
+    .mobile-diff-card h2,
+    .mobile-diff-card h3,
+    .mobile-diff-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .mobile-diff-dot {
+      position: absolute;
+      left: 50%;
+      top: -0.75rem;
+      transform: translateX(-50%);
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 9999px;
+      background: #000;
+      z-index: 2;
+    }
+    html.dark .mobile-diff-dot { background: #fff; }
+
+
+      /* .splide__arrow {
+        -ms-flex-align: center;
+        align-items: center;
+        background: transparent !important;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        display: -ms-flexbox;
+        display: flex;
+        height: 2em;
+        -ms-flex-pack: center;
+        justify-content: center;
+        opacity: 0.7;
+        padding: 0;
+        position: absolute;
+        top: 0%;
+        transform: translateY(-53%) !important;
+        width: 2em;
+        z-index: 1;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .splide__arrow--next {
+          right: 0rem !important;
+        }
+
+        .splide__arrow--prev {
+          left: 0rem !important;
+        } */
+      /* } */
+
+      .splide__arrow {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+      }
+      /* .splide__arrow--prev {
+        left: -50px;
+      }
+      .splide__arrow--next {
+        right: -1150px;
+      } */
+    </style>
+
+    <style>
+      /* ---- Light defaults ---- */
+      .mega-menu { background-color: #ffffff; }
+      #mobile-menu { background-color: #ffffff; }
+      #dropdownBtn { background-color: #f3f4f6; }
+      #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
+
+      .slide-card  { background-color: #fafafa; }
+
+      .page-accent { color: #505050; }
+      .page-main   { color: #000000; }
+      .page-sub    { color: #4f4f4f; }
+      .page-btn { background-color: #000000; color: #ffffff; }
+      
+      /* ---- Dark mode overrides ---- */
+      html.dark body    { background-color: #1c1c1c; color: #ffffff; }
+      html.dark footer  { background-color: #1c1c1c; }
+      html.dark section { background-color: #1c1c1c; }
+
+      html.dark .slide-card  { background-color: #373737; }
+      
+      html.dark .logo-dark { display: block; }
+      html.dark .logo-light { display: none; }
+      html.dark .page-accent { color: #C98633; }
+      html.dark .page-main   { color: #ffffff; }
+      html.dark .page-sub    { color: #cdcdcd; }
+      html.dark .page-btn { background-color: #ffffff; color: #000000; }
+      
+      html.dark .mega-menu { background-color: #000000; }
+      html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
+      html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
+      html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+
+      html.dark .splide__arrow {
+        background: #111827 !important;
+        color: #ffffff !important;
+      }
+      
+      /* Text color overrides for dark mode */
+      html.dark .text-black { color: #ffffff; }
+      html.dark .text-\[#4f4f4f\],
+      html.dark .text-\[#333\],
+      html.dark .text-gray-500,
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-800 { color: #cdcdcd; }
+      
+      /* Background and border overrides for dark mode */
+      html.dark .bg-white { background-color: #1c1c1c; }
+      html.dark .bg-gray-100,
+      html.dark .bg-gray-200 { background-color: #2c2c2c; }
+      html.dark .border-gray-100,
+      html.dark .border-gray-200,
+      html.dark .border-gray-300,
+      html.dark .border-[#dbdbdb],
+      html.dark .border-[#d9d9d9] { border-color: #444444; }
+
       /* Custom CSS for the progress bar */
 
       /* Hide default pagination dots that Splide includes */
@@ -79,157 +277,133 @@
   </head>
   <body class="bg-white font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
-        <!-- Logo -->
+    <nav class="navbar xl:block hidden">
+      <div class="navbar-container container mx-auto px-4">
         <div class="logo-container">
-          <a href="/light/index.html">
+          <a href="/index.html">
             <img
               src="/assets/images/logo/tequila_pos_logo_transparent.png"
-              class="logo"
+              class="logo-light logo"
+              alt="Logo"
+            />
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+              class="logo-dark logo"
               alt="Logo"
             />
           </a>
-
           <div class="nav-links ml-4">
             <div class="nav-item relative group">
               <a href="#business-type" class="nav-link">Business Type</a>
-
-              <!-- Mega Menu -->
               <div
-                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
+                class="mega-menu mega-anim absolute left-0 top-full pt-10"
                 onmouseleave="clearActive()"
               >
                 <div class="flex flex-nowrap gap-10">
-                  <!-- LEFT: categories -->
                   <div
                     class="flex flex-col p-10 gap-4"
                     id="categoryList"
                     data-aos="fade-left"
                   >
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/food.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="food"
                       onmouseenter="setActive('food')"
                       onfocus="setActive('food')"
+                      >Food &amp; Beverage</a
                     >
-                      Food &amp; Beverage
-                    </a>
-
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/retail.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="retail"
                       onmouseenter="setActive('retail')"
                       onfocus="setActive('retail')"
+                      >Retail</a
                     >
-                      Retail
-                    </a>
                   </div>
-
-                  <!-- RIGHT: panels -->
                   <div class="flex gap-16 p-10">
-                    <!-- FOOD panel -->
                     <div class="flex justify-between gap-10" data-panel="food">
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/overview.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/feature.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
                         </ul>
                       </div>
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Capacity
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage order from one place</a
+                              href="/resturent-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Resturents</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Take payment</a
+                              href="/bar-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bars</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Keep customer coming back</a
+                              href="/food-truck-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Food Trucks and Pop-ups</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Scale your business</a
+                              href="/cafes-coffee-shop-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Cafes & Coffee Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Improve operation</a
+                              href="/juice-bars-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Juice Bars & Smoothie Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Schedule and pay your team</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage your cash flow</a
-                            >
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <!-- RETAIL panel -->
-                    <div class="space-y-6 hidden" data-panel="retail">
-                      <div class="gap-10">
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
-                          Discover
-                        </h6>
-                        <ul class="space-y-2 text-sm">
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Overview</a
-                            >
-                          </li>
-                          <li>
-                            <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Switch to Tequila</a
+                              href="/bakeries-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bakeries</a
                             >
                           </li>
                         </ul>
@@ -239,16 +413,12 @@
                 </div>
               </div>
             </div>
-
-            <!-- Other Links -->
-            <a href="/light/feature.html" class="nav-link">Feature</a>
-            <a href="/light/hardware.html" class="nav-link">Hardware</a>
-            <a href="/light/pricing.html" class="nav-link">Pricing</a>
-            <a href="/light/resourse.html" class="nav-link">Resources</a>
+            <a href="/feature.html" class="nav-link">Feature</a>
+            <a href="/hardware.html" class="nav-link">Hardware</a>
+            <a href="/pricing.html" class="nav-link">Pricing</a>
+            <a href="/resourse.html" class="nav-link">Resources</a>
           </div>
         </div>
-
-        <!-- Navigation Links -->
         <div class="nav-extra-links">
           <div
             class="language-selector cursor-pointers"
@@ -262,9 +432,7 @@
               class="flag-icon"
             />
           </div>
-
-          <a href="#signin" class="nav-link">Sign in</a>
-
+          <a href="/login.html" class="nav-link">Sign in</a>
           <button class="demo-btn">
             <span>Free Demo</span>
           </button>
@@ -273,21 +441,25 @@
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-white shadow-md relative">
+    <nav class="navbar xl:hidden bg-white shadow-md relative">
       <div
         class="navbar-container container mx-auto flex items-center justify-between py-4"
       >
-        <!-- Logo -->
         <div class="logo-container flex items-center">
-          <img
-            src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="logo h-10"
-            alt="Logo"
-          />
+          <a href="/index.html">
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent.png"
+              class="logo-light logo h-10"
+              alt="Logo"
+            />
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+              class="logo-dark logo h-10"
+              alt="Logo"
+            />
+          </a>
         </div>
-        <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
-          <!-- Hamburger Icon -->
+        <button id="mobile-menu-btn" class="xl:hidden p-2 text-black">
           <svg
             id="hamburger-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -303,8 +475,6 @@
               d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>
-
-          <!-- Close Icon -->
           <svg
             id="close-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -323,14 +493,11 @@
         </button>
       </div>
 
-      <!-- Mobile Menu -->
-      <!-- Mobile Menu (White Version) -->
       <div
         id="mobile-menu"
         class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
       >
         <div class="p-4 space-y-4">
-          <!-- Dropdown -->
           <div class="relative">
             <button
               id="dropdownBtn"
@@ -345,59 +512,34 @@
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
-        11.94l3.72-3.72a.75.75 0 1 1 
-        1.06 1.06l-4.25 4.25a.75.75 0 
-        0 1-1.06 0L5.22 9.28a.75.75 
-        0 0 1 0-1.06Z"
+                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
                 />
               </svg>
             </button>
-
             <div
               id="dropdownMenu"
               class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
             >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Edit</a
+              <a href="/food.html" class="block px-4 py-2 hover:bg-gray-100"
+                >Food & Beverage</a
               >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Duplicate</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Archive</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Delete</a
+              <a href="/retail.html" class="block px-4 py-2 hover:bg-gray-100"
+                >Retail</a
               >
             </div>
           </div>
-
-          <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="/feature.html" class="block px-4 py-2 hover:bg-gray-100 rounded"
             >Features</a
           >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="/hardware.html" class="block px-4 py-2 hover:bg-gray-100 rounded"
             >Hardware</a
           >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="/pricing.html" class="block px-4 py-2 hover:bg-gray-100 rounded"
             >Pricing</a
           >
-          <a
-            href="/light/resourse.html"
-            class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="/resourse.html" class="block px-4 py-2 hover:bg-gray-100 rounded"
             >Resources</a
           >
-
-          <!-- Language Switcher -->
           <div
             class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
           >
@@ -410,13 +552,9 @@
             </label>
             <span class="text-sm">ES</span>
           </div>
-
-          <!-- Sign in -->
-          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
+          <a href="/login.html" class="block px-4 py-2 hover:bg-gray-100 rounded"
             >Sign In</a
           >
-
-          <!-- CTA Button -->
           <a
             href="#demo"
             class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
@@ -428,20 +566,20 @@
     </nav>
     <!-- hero section -->
 
-    <section class="bg-transparent-100 py-8 md:py-16">
+    <section class="bg-white py-8 md:py-16">
       <div
-        class="container mx-auto px-4 flex flex-row items-center justify-between gap-4 md:gap-12"
+        class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12"
       >
         <div class="w-full md:w-[750px] text-left">
           <h1
-            class="text-[20px] md:text-[64px] lg:text-7xl font-bold text-[#505050] mb-4 md:mb-8"
+            class="text-[20px] md:text-[64px] lg:text-7xl font-bold page-accent mb-4 md:mb-8"
           >
             5 Features Your Restaurant POS Must Have
-            <span class="text-gray-900">(That Ours Does)</span>
+            <span class="page-main">(That Ours Does)</span>
           </h1>
 
           <p
-            class="md:w-[611px] w-full text-[#4f4f4f] md:text-[20px] text-[10px] font-semibold md:leading-[25.20px] leading-normal md:mb-8"
+            class="md:w-[611px] w-full page-sub md:text-[20px] text-[10px] font-semibold md:leading-[25.20px] leading-normal md:mb-8"
           >
             Essential Tools That Drive Efficiency, Accuracy, and Profit — Built
             Right Into TequilaPOS
@@ -459,36 +597,35 @@
     </section>
 
     <!--5 Must-Have POS Features for Modern Restaurantsn -->
-    <section class="md:mt-10 mt-5">
-      <div class="container px-4 md:px-2 mx-auto">
+    <section class="bg-white py-8 md:py-16">
+      <div class="container px-4 mx-auto">
         <div class="text-center md:mb-10 mb-6">
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[325px] md:max-w-[677px] mx-auto"
           >
-            <span class="text-[#4f4f4f]">5 Must-Have POS Features for</span>
-            <span class="text-black">Modern Restaurants</span>
+            <span class="page-accent">5 Must-Have POS Features for</span>
+            <span class="page-main">Modern Restaurants</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               From offline reliability to real-time insights — here’s what your
               POS system must deliver to stay competitive and efficient.
             </p>
           </div>
         </div>
-
         <!--need to change image-->
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
           <div class="md:h-[33.333333%] w-full">
             <div
-              class="relative w-full md:h-[510px] h-full rounded-2xl overflow-hidden shadow-lg bg-black mb-6"
+              class="relative w-full h-[260px] md:h-[510px] rounded-2xl overflow-hidden shadow-lg bg-black mb-6"
             >
               <img
                 src="/assets/images/blog-three/bento-one.png"
                 alt="Real-time inventory tracking"
-                class="absolute inset-0 w-full h-full object-cover opacity-70"
+                class="absolute inset-0 w-full h-auto object-cover opacity-70"
               />
               <div class="absolute bottom-0 left-0 right-0 p-4">
                 <h3 class="text-white font-semibold text-sm md:text-base">
@@ -502,7 +639,7 @@
             </div>
 
             <div
-              class="relative w-full md:h-[317px] h-full rounded-2xl overflow-hidden shadow-lg bg-black"
+              class="relative w-full h-[220px] md:h-[317px] rounded-2xl overflow-hidden shadow-lg bg-black"
             >
               <img
                 src="/assets/images/blog-three/bento-two.png"
@@ -523,7 +660,7 @@
           <!-- 2nd bento -->
           <div class="md:h-[33.333333%] w-full">
             <div
-              class="relative w-full md:h-[315px] h-full rounded-2xl overflow-hidden shadow-lg bg-black mb-6"
+              class="relative w-full h-[220px] md:h-[315px] rounded-2xl overflow-hidden shadow-lg bg-black mb-6"
             >
               <img
                 src="/assets/images/blog-three/bento-three.png"
@@ -542,7 +679,7 @@
             </div>
 
             <div
-              class="relative w-full md:h-[511px] h-full rounded-2xl overflow-hidden shadow-lg bg-black"
+              class="relative w-full h-[260px] md:h-[511px] rounded-2xl overflow-hidden shadow-lg bg-black"
             >
               <img
                 src="/assets/images/blog-three/bento-four.png"
@@ -562,7 +699,7 @@
           </div>
           <div class="md:h-[33.333333%] w-full">
             <div
-              class="relative w-full md:h-[315px] h-full rounded-2xl overflow-hidden shadow-lg bg-black mb-6"
+              class="relative w-full h-[220px] md:h-[315px] rounded-2xl overflow-hidden shadow-lg bg-black mb-6"
             >
               <img
                 src="/assets/images/blog-three/bento-five.png"
@@ -586,18 +723,18 @@
 
     <!--Why These Features Matter for Restaurants
 -->
-    <section class="md:mt-10 mt-5">
+    <section class="bg-white md:mt-10 mt-5">
       <div class="container px-4 md:px-2 mx-auto">
         <div class="text-center md:mb-10 mb-6">
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[350px] md:max-w-[550px] mx-auto"
           >
-            <span class="text-[#4f4f4f]">Why These Features </span>
-            <span class="text-black">Matter for Restaurants</span>
+            <span class="page-accent">Why These Features </span>
+            <span class="page-main">Matter for Restaurants</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               Each feature solves a real-world problem — here’s how they make
               daily operations smoother and more profitable.
@@ -606,19 +743,24 @@
         </div>
 
         <div id="main-slider" class="splide" aria-label="Splide Slider">
-          <div class="flex justify-end p-4">
-            <div class="splide__arrows flex space-x-4">
+          <div class="absolute -bottom-0 md:-bottom-[.5rem]  left-8 z-10">
+            <div class="splide__arrows flex w-auto space-x-4">
               <button
                 class="splide__arrow splide__arrow--prev text-4xl bg-slate-300 text-gray-900 hover:text-gray-900 transition"
-                aria-label="Previous Slide"
+              aria-label="Previous Slide"
               >
-                <img src="/assets/images/feature-one/Left.png" alt="" />
+                <span class="material-symbols-outlined">
+arrow_back
+</span>
               </button>
               <button
-                class="splide__arrow splide__arrow--next text-4xl text-gray-900 bg-slate-300 hover:text-gray-900 transition"
+                class="splide__arrow splide__arrow--next 
+                 md:text-4xl text-2xl text-gray-900 hover:text-gray-900 transition"
                 aria-label="Next Slide"
               >
-                <img src="/assets/images/feature-one/Right.png" alt="" />
+                <span class="material-symbols-outlined">
+arrow_forward
+</span>
               </button>
             </div>
           </div>
@@ -628,19 +770,19 @@
             <ul class="splide__list">
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16 md:order-1 order-2">
                     <h1
-                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start page-main md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
                     >
                       Real-time inventory tracking
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[808px] page-sub text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
                     >
                      Restaurants are fast-paced environments where every second counts. An unexpected internet outage can bring service to a halt, causing long wait times, missed orders, and unhappy guests. With offline mode, your team keeps operating without interruption — taking orders, printing receipts, and completing transactions as if nothing happened.</p>
                   </div>
-                  <div class="col-span-1 md:col-span-4">
+                  <div class="col-span-1 md:col-span-4 md:order-2 order-1">
                     <img
                       src="/assets/images/blog-three/slider_one.png"
                       alt=""
@@ -651,20 +793,20 @@
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16 md:order-1 order-2">
                     <h1
-                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start page-main md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
                     >
                       Offline Functionality
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[808px] page-sub text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
                     >
                       Internet outages are unpredictable — but your service shouldn’t be. Without offline functionality, a lost connection can mean lost orders, halted operations, and frustrated guests. Staff are forced to scramble, handwrite tickets, or even stop taking orders entirely, leading to chaos during peak hours.
                     </p>
                   </div>
-                  <div class="col-span-1 md:col-span-4">
+                  <div class="col-span-1 md:col-span-4 md:order-2 order-1">
                     <img
                       src="/assets/images/blog-three/slide_two.png"
                       alt=""
@@ -675,18 +817,18 @@
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16 md:order-1 order-2">
                     <h1
-                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start page-main md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
                     >
                       Mobile Order-Taking
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[808px] page-sub text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
                     >
                       Walking back and forth to a stationary POS wastes time and opens the door to mistakes. With mobile order-taking:
-                      <ul class="list-disc list-inside text-gray-600">
+                      <ul class="list-disc list-inside page-sub">
   <li>Orders are more accurate, since they're entered immediately at the table</li>
   <li>Service is faster, with no bottlenecks at a single terminal</li>
   <li>Staff efficiency improves, especially during rushes or in large dining spaces</li>
@@ -695,7 +837,7 @@
 
                     </p>
                   </div>
-                  <div class="col-span-1 md:col-span-4">
+                  <div class="col-span-1 md:col-span-4 md:order-2 order-1">
                     <img
                       src="/assets/images/blog-three/slide_three.png"
                       alt=""
@@ -706,27 +848,27 @@
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16 md:order-1 order-2">
                     <h1
-                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start page-main md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
                     >
                       Sales and tax reports
                     </h1>
 
                      <p
-                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[808px] page-sub text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
                     >
                       Running a restaurant means juggling a lot — and manual reports shouldn’t be one of them. With real-time, automated reporting:
                     </p>
 
                   
-                    <ul class="list-disc list-inside text-gray-600">
+                    <ul class="list-disc list-inside page-sub">
                       <li>You stay tax-compliant, with accurate, up-to-date tax totals at your fingertips</li>
                       <li>You save time, eliminating hours of manual data entry and end-of-day reconciliation</li>
                       <li>You gain insights, spotting trends in sales, staff performance, and peak hours</li>
                     </ul>
                   </div>
-                  <div class="col-span-1 md:col-span-4">
+                  <div class="col-span-1 md:col-span-4 md:order-2 order-1">
                     <img
                       src="/assets/images/blog-three/slide_four.png"
                       alt=""
@@ -737,28 +879,28 @@
 
               <li class="splide__slide relative">
                 <div class="grid grid-cols-1 md:grid-cols-12 md:gap-4 gap-2">
-                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16">
+                  <div class="col-span-1 md:col-span-8 mt-4 md:mt-16 md:order-1 order-2">
                     <h1
-                      class="justify-start text-black md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
+                      class="justify-start page-main md:text-5xl text-3xl font-bold leading-normal md:leading-[50.99px]"
                     >
                       Staff Permissions & Login Security
                     </h1>
 
                     <p
-                      class="md:w-[808px] text-black text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
+                      class="md:w-[808px] page-sub text-lg md:text-xl font-normal leading-normal md:leading-7 mt-6 md:mt-10"
                     >
                       Not all staff need full access — permissions protect data and keep actions accountable.
                     </p>
 
-                    <p class="text-gray-600">Common alert triggers include:</p>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <p class="page-sub">Common alert triggers include:</p>
+                    <ul class="list-disc list-inside page-sub">
                       <li>Sensitive data stays secure, visible only to those who need it</li>
                       <li>Errors and fraud are reduced, with trackable user activity</li>
                       <li>Managers gain control, without micromanaging every transaction</li>
                       <li>Training is easier, as roles are customized to each position</li>
                     </ul>
                   </div>
-                  <div class="col-span-1 md:col-span-4">
+                  <div class="col-span-1 md:col-span-4 md:order-2 order-1">
                     <img
                       src="/assets/images/blog-three/slide_five.png"
                       alt=""
@@ -770,23 +912,29 @@
           </div>
         </div>
       </div>
+        <!-- Footer Section -->
+    
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-white py-10">
+    <footer class="py-10">
       <div class="container mx-auto px-4">
         <!-- Top Logo + Switch -->
-        <div
+         <div
           class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
         >
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="w-10 md:w-40 h-auto"
+            class="w-10 md:w-40 h-auto logo-light"
+            alt=""
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="w-10 md:w-40 h-auto logo-dark"
             alt=""
           />
 
           <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+            <p id="theme-toggle-label" class="page-sub text-[11px] font-normal select-none">
               Switch to dark mode
             </p>
 
@@ -805,12 +953,8 @@
                 title="Toggle dark mode"
                 placeholder="Toggle dark mode"
               />
-              <div
-                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
-              ></div>
-              <div
-                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
-              ></div>
+              <div class="theme-toggle-track w-[88px] h-[44px] rounded-full bg-[#e0e0e0] peer-checked:bg-[#252525]"></div>
+              <div class="theme-toggle-knob absolute left-[3px] top-[3px] w-[38px] h-[38px] bg-white rounded-full peer-checked:translate-x-[44px]"></div>
             </label>
           </div>
         </div>

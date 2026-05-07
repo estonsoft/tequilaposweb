@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tequila POS - Smart POS Solutions</title>
+    <script src="/assets/js/theme.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <!--for Cash Discount slider-->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
       body {
         font-family: "Inter", sans-serif;
-        background-color: #242424;
+        /* background-color: #242424; */
       }
       /* Hide scrollbar for a cleaner look */
       .hide-scrollbar::-webkit-scrollbar {
@@ -41,162 +42,246 @@
     />
 
     <!-- aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
 
     <link rel="stylesheet" href="/assets/style/global.css" />
+    <style>
+      /* ---- Light defaults ---- */
+      .mega-menu { background-color: #ffffff; }
+      #mobile-menu { background-color: #ffffff; }
+      #dropdownBtn { background-color: #f3f4f6; }
+      #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
+
+      .slide-card  { background-color: #fafafa; }
+
+      .page-accent { color: #505050; }
+      .page-main   { color: #000000; }
+      .page-sub    { color: #4f4f4f; }
+      .page-btn { background-color: #000000; color: #ffffff; }
+      
+      /* ---- Dark mode overrides ---- */
+      html.dark body    { background-color: #1c1c1c; color: #ffffff; }
+      html.dark footer  { background-color: #1c1c1c; }
+      html.dark section { background-color: #1c1c1c; }
+
+      html.dark .slide-card  { background-color: #373737; }
+      
+      html.dark .logo-dark { display: block; }
+      html.dark .logo-light { display: none; }
+      html.dark .page-accent { color: #C98633; }
+      html.dark .page-main   { color: #ffffff; }
+      html.dark .page-sub    { color: #cdcdcd; }
+      html.dark .page-btn { background-color: #ffffff; color: #000000; }
+      
+      html.dark .mega-menu { background-color: #000000; }
+      html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
+      html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
+      html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+
+      html.dark .splide__arrow {
+        background: #111827 !important;
+        color: #ffffff !important;
+      }
+      
+      /* Text color overrides for dark mode */
+      html.dark .text-black { color: #ffffff; }
+      html.dark .text-\[#4f4f4f\],
+      html.dark .text-\[#333\],
+      html.dark .text-gray-500,
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-800 { color: #cdcdcd; }
+      
+      /* Background and border overrides for dark mode */
+      html.dark .bg-white { background-color: #1c1c1c; }
+      html.dark .bg-gray-100,
+      html.dark .bg-gray-200 { background-color: #2c2c2c; }
+      html.dark .border-gray-100,
+      html.dark .border-gray-200,
+      html.dark .border-gray-300,
+      html.dark .border-[#dbdbdb],
+      html.dark .border-[#d9d9d9] { border-color: #444444; }
+      html.dark .shadow-\[0px_4px_18.9px_rgba\(0,0,0,0.25\)\] { box-shadow: 0px 4px 18.9px rgba(0,0,0,0.5); }
+
+      /* Product Guides section dark mode */
+      html.dark .product-guides-section { background-color: #373737 !important; }
+      
+      @media screen and (max-width: 780px) {
+        html.dark .heading_p { color: #ffffff !important; }
+      }
+      
+      /* Form section dark mode */
+      html.dark .contact-form-container { background-color: #1c1c1c; }
+
+      /* Feature section icons */
+      .feature-icon-color { color: #505050; }
+      html.dark .feature-icon-color { color: #c98366 !important; }
+    </style>
   </head>
-  <body class="bg-white font-inter text-sm">
+  <body class="font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
-        <!-- Logo -->
+    <nav class="navbar xl:block hidden">
+      <div class="navbar-container container mx-auto px-4">
         <div class="logo-container">
-          <a href="/light/index.html">
+          <a href="/index.html">
             <img
               src="/assets/images/logo/tequila_pos_logo_transparent.png"
-              class="logo"
+              class="logo-light logo"
+              alt="Logo"
+            />
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+              class="logo-dark logo"
               alt="Logo"
             />
           </a>
-
           <div class="nav-links ml-4">
             <div class="nav-item relative group">
               <a href="#business-type" class="nav-link">Business Type</a>
-
-              <!-- Mega Menu -->
               <div
-                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
+                class="mega-menu mega-anim absolute left-0 top-full pt-10"
                 onmouseleave="clearActive()"
               >
                 <div class="flex flex-nowrap gap-10">
-                  <!-- LEFT: categories -->
                   <div
                     class="flex flex-col p-10 gap-4"
                     id="categoryList"
                     data-aos="fade-left"
                   >
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/food.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="food"
                       onmouseenter="setActive('food')"
                       onfocus="setActive('food')"
+                      >Food &amp; Beverage</a
                     >
-                      Food &amp; Beverage
-                    </a>
-
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/retail.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="retail"
                       onmouseenter="setActive('retail')"
                       onfocus="setActive('retail')"
+                      >Retail</a
                     >
-                      Retail
-                    </a>
                   </div>
-
-                  <!-- RIGHT: panels -->
                   <div class="flex gap-16 p-10">
-                    <!-- FOOD panel -->
                     <div class="flex justify-between gap-10" data-panel="food">
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/overview.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/feature.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
                         </ul>
                       </div>
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Capacity
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage order from one place</a
+                              href="/resturent-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Resturents</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Take payment</a
+                              href="/bar-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bars</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Keep customer coming back</a
+                              href="/food-truck-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Food Trucks and Pop-ups</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Scale your business</a
+                              href="/cafes-coffee-shop-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Cafes & Coffee Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Improve operation</a
+                              href="/juice-bars-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Juice Bars & Smoothie Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Schedule and pay your team</a
+                              href="/bakeries-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bakeries</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage your cash flow</a
+                              href="/ice-cream-shops-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Ice Creams & Desserts Shops</a
                             >
                           </li>
                         </ul>
                       </div>
                     </div>
-
-                    <!-- RETAIL panel -->
                     <div class="space-y-6 hidden" data-panel="retail">
-                      <div class="gap-10">
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/overview.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/feature.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
@@ -207,19 +292,15 @@
                 </div>
               </div>
             </div>
-
-            <!-- Other Links -->
-            <a href="/light/feature.html" class="nav-link">Feature</a>
-            <a href="/light/hardware.html" class="nav-link">Hardware</a>
-            <a href="/light/pricing.html" class="nav-link">Pricing</a>
-            <a href="/light/resourse.html" class="nav-link">Resources</a>
+            <a href="/feature.html" class="nav-link">Feature</a>
+            <a href="/hardware.html" class="nav-link">Hardware</a>
+            <a href="/pricing.html" class="nav-link">Pricing</a>
+            <a href="/resourse.html" class="nav-link">Resources</a>
           </div>
         </div>
-
-        <!-- Navigation Links -->
         <div class="nav-extra-links">
           <div
-            class="language-selector cursor-pointers"
+            class="language-selector cursor-pointer"
             onclick="toggleLanguage()"
           >
             <span id="language-text">ENGLISH</span>
@@ -230,32 +311,35 @@
               class="flag-icon"
             />
           </div>
-
           <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
-          </button>
+          <a href="/free-demo.html"><button class="demo-btn"><span>Free Demo</span></button></a>
+          
         </div>
       </div>
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-white shadow-md relative">
+    <nav class="navbar xl:hidden shadow-md relative">
       <div
-        class="navbar-container container mx-auto flex items-center justify-between py-4"
+        class="navbar-container container mx-auto flex items-center justify-between py-2 px-4"
       >
-        <!-- Logo -->
         <div class="logo-container flex items-center">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="logo h-10"
+            class="logo-light logo"
+            alt="Logo"
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark logo"
             alt="Logo"
           />
         </div>
-        <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
-          <!-- Hamburger Icon -->
+        <button
+          id="mobile-menu-btn"
+          class="xl:hidden p-2"
+          style="color: inherit"
+        >
           <svg
             id="hamburger-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -271,8 +355,6 @@
               d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>
-
-          <!-- Close Icon -->
           <svg
             id="close-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -290,127 +372,111 @@
           </svg>
         </button>
       </div>
-
-      <!-- Mobile Menu -->
-      <!-- Mobile Menu (White Version) -->
       <div
         id="mobile-menu"
-        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg overflow-y-auto"
+        style="background-color: var(--nav-bg, #fff)"
       >
-        <div class="p-4 space-y-4">
-          <!-- Dropdown -->
-          <div class="relative">
+        <div class="p-4 space-y-2">
+          <!-- Business Type (Level 1 Accordion) -->
+          <div class="mobile-nav-accordion">
             <button
-              id="dropdownBtn"
-              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+              class="accordion-header flex justify-between items-center w-full px-4 py-3 font-bold text-lg"
+              style="color: var(--text-primary)"
             >
               Business Type
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5 text-gray-500 transition-transform duration-200"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
-        11.94l3.72-3.72a.75.75 0 1 1 
-        1.06 1.06l-4.25 4.25a.75.75 0 
-        0 1-1.06 0L5.22 9.28a.75.75 
-        0 0 1 0-1.06Z"
-                />
+              <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 transition-transform duration-200">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" />
               </svg>
             </button>
-
-            <div
-              id="dropdownMenu"
-              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
-            >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Edit</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Duplicate</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Archive</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Delete</a
-              >
+            <div class="accordion-content hidden border-l-2 border-gray-200 ml-4">
+              <!-- Food & Beverage (Level 2 Accordion) -->
+              <div class="mobile-sub-accordion">
+                <button class="accordion-header flex justify-between items-center w-full px-4 py-2 font-semibold">
+                  Food & Beverage
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 transition-transform duration-200">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" />
+                  </svg>
+                </button>
+                <div class="accordion-content hidden pl-4 space-y-4 py-2">
+                  <div>
+                    <h6 class="text-[10px] uppercase opacity-60 font-normal mb-2">Discover</h6>
+                    <a href="/overview.html" class="block py-1 text-sm font-bold">Overview</a>
+                    <a href="/feature.html" class="block py-1 text-sm font-bold">Switch to Tequila</a>
+                  </div>
+                  <div>
+                    <h6 class="text-[10px] uppercase opacity-60 font-normal mb-2">Capacity</h6>
+                    <div class="grid grid-cols-1 gap-1">
+                      <a href="/resturent-capabilities.html" class="block py-1 text-sm font-bold">Restaurants</a>
+                      <a href="/bar-capabilities.html" class="block py-1 text-sm font-bold">Bars</a>
+                      <a href="/food-truck-capabilities.html" class="block py-1 text-sm font-bold">Food Trucks & Pop-ups</a>
+                      <a href="/cafes-coffee-shop-capabilities.html" class="block py-1 text-sm font-bold">Cafes & Coffee Shops</a>
+                      <a href="/juice-bars-capabilities.html" class="block py-1 text-sm font-bold">Juice Bars & Smoothie Shops</a>
+                      <a href="/bakeries-capabilities.html" class="block py-1 text-sm font-bold">Bakeries</a>
+                      <a href="/ice-cream-shops-capabilities.html" class="block py-1 text-sm font-bold">Ice Creams & Desserts</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Retail (Level 2 Accordion) -->
+              <div class="mobile-sub-accordion">
+                <button class="accordion-header flex justify-between items-center w-full px-4 py-2 font-semibold">
+                  Retail
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 transition-transform duration-200">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" />
+                  </svg>
+                </button>
+                <div class="accordion-content hidden pl-4 space-y-4 py-2">
+                  <div>
+                    <h6 class="text-[10px] uppercase opacity-60 font-normal mb-2">Discover</h6>
+                    <a href="/overview.html" class="block py-1 text-sm font-bold">Overview</a>
+                    <a href="/feature.html" class="block py-1 text-sm font-bold">Switch to Tequila</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Features</a
-          >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Hardware</a
-          >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Pricing</a
-          >
-          <a
-            href="/light/resourse.html"
-            class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Resources</a
-          >
-
-          <!-- Language Switcher -->
-          <div
-            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
-          >
-            <span class="text-sm">EN</span>
-            <label class="inline-flex items-center cursor-pointer">
-              <input type="checkbox" class="sr-only peer" />
-              <div
-                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
-              ></div>
-            </label>
-            <span class="text-sm">ES</span>
+          <a href="/feature.html" class="block px-4 py-3 font-bold text-lg">Features</a>
+          <a href="/hardware.html" class="block px-4 py-3 font-bold text-lg">Hardware</a>
+          <a href="/pricing.html" class="block px-4 py-3 font-bold text-lg">Pricing</a>
+          <a href="/resourse.html" class="block px-4 py-3 font-bold text-lg">Resources</a>
+          
+          <div class="px-4 py-3 border-t border-gray-100">
+            <div class="language-selector flex items-center gap-2 cursor-pointer" onclick="toggleLanguage()">
+              <span id="mobile-language-text" class="font-bold text-sm">ENGLISH</span>
+              <img id="mobile-flag-icon" src="/assets/images/flags/usa.png" alt="USA" class="w-6 h-4 object-cover">
+            </div>
           </div>
 
-          <!-- Sign in -->
-          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Sign In</a
-          >
-
-          <!-- CTA Button -->
-          <a
-            href="#demo"
-            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
-          >
-            Free Demo
-          </a>
+          <div class="px-4 py-4 space-y-4 border-t border-gray-100">
+            <a href="#signin" class="block font-bold text-lg">Sign In</a>
+            <a href="/free-demo.html" class="block">
+              <button class="demo-btn w-full"><span>Free Demo</span></button>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
     <!-- hero section -->
 
-    <section class="bg-transparent-100 py-8 md:py-16">
+    <section class="py-8 md:py-16">
       <div
         class="container mx-auto px-4 flex flex-row items-center justify-between gap-4 md:gap-12"
       >
-        <div class="w-full md:w-[900px] text-left">
+        <div class="w-full lg:w-[900px] text-left">
           <h1
-            class="text-[20px] md:text-[64px] lg:text-7xl font-bold text-[#505050] mb-4 md:mb-8"
+            class="text-[20px] md:text-[64px] lg:text-7xl font-bold mb-4 md:mb-8"
           >
-            How This Restaurant Cut Credit Card<span class="text-gray-900"
+
+          <span class="page-accent"> How This Restaurant Cut Credit Card</span>
+           <span class="page-main"
               >Fees by 30% with TequilaPOS</span
             >
           </h1>
 
           <p
-            class="md:w-[611px] w-full text-[4F4F4F] md:text-[20px] text-[10px] font-semibold md:leading-[25.20px] leading-normal md:mb-8"
+            class="md:w-[611px] w-full page-sub md:text-[20px] text-[10px] font-semibold md:leading-[25.20px] leading-normal md:mb-8"
           >
             Understanding the Real Cost of Card Payments
           </p>
@@ -434,14 +500,14 @@
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[325px] md:max-w-[677px] mx-auto"
           >
-            <span class="text-[#4f4f4f]"
+            <span class="page-accent"
               >Real Restaurants. Real Challenges.</span
             >
-            <span class="text-black"> Real Results.</span>
+            <span class="page-main"> Real Results.</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               Whether it’s a 30-seat pizzeria in Ohio or a multi-location brunch
               spot in Los Angeles, restaurants nationwide have simplified
@@ -454,13 +520,102 @@
         <div class="grid md:grid-cols-2 gap-6 items-center">
           <!-- Left: details (tabbed) -->
           <div
-            class="bg-white rounded-2xl shadow-sm border border-black/5 p-5 md:p-7"
+            id="caseCard"
+            class="bg-white rounded-2xl shadow-sm border border-black/5 p-5 md:p-7 transition-all duration-500"
           >
             <!-- Tab chips -->
-            <div class="flex flex-wrap gap-2 mb-4" id="caseChips"></div>
+            <div class="flex flex-wrap gap-2 mb-4" id="caseChips">
+              <button type="button" data-case="0" class="case-chip px-4 py-2 rounded-full text-xs md:text-sm border transition-all duration-300 font-semibold active">Maple</button>
+              <button type="button" data-case="1" class="case-chip px-4 py-2 rounded-full text-xs md:text-sm border transition-all duration-300 font-semibold">BBQ</button>
+              <button type="button" data-case="2" class="case-chip px-4 py-2 rounded-full text-xs md:text-sm border transition-all duration-300 font-semibold">Diner</button>
+            </div>
 
             <!-- Panels -->
-            <div id="casePanels" class="space-y-4 text-[12px] md:text-sm"></div>
+            <div id="casePanels" class="relative overflow-hidden">
+              <!-- Panel 0: Maple -->
+              <div class="case-panel transition-all duration-500" data-case="0">
+                <dl class="space-y-4">
+                  <div class="flex gap-4">
+                    <dt class="w-32 opacity-60 font-medium panel-label">Restaurant Name:</dt>
+                    <dd class="font-bold text-base panel-value">Maple & Main Café</dd>
+                  </div>
+                  <div class="flex gap-4">
+                    <dt class="w-32 opacity-60 font-medium panel-label">Size:</dt>
+                    <dd class="panel-value">Small café with 25 seats, 4 staff members</dd>
+                  </div>
+                  <div class="flex gap-4">
+                    <dt class="w-32 opacity-60 font-medium panel-label">Location:</dt>
+                    <dd class="panel-value">Downtown Seattle, Washington</dd>
+                  </div>
+                  <div class="pt-2 border-t border-black/5 panel-divider">
+                    <dt class="opacity-60 mb-2 font-medium panel-label">Previous Challenges</dt>
+                    <dd>
+                      <ul class="list-disc list-inside space-y-2 panel-value">
+                        <li class="leading-relaxed">Manual order taking and handwritten tickets</li>
+                        <li class="leading-relaxed">Long wait times during peak morning rush</li>
+                        <li class="leading-relaxed">No ability to accept mobile payments</li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+
+              <!-- Panel 1: BBQ -->
+              <div class="case-panel transition-all duration-500 hidden opacity-0 translate-y-2" data-case="1">
+                <dl class="space-y-4">
+                  <div class="flex gap-4">
+                    <dt class="w-32 opacity-60 font-medium panel-label">Restaurant Name:</dt>
+                    <dd class="font-bold text-base panel-value">Smokey Ridge BBQ</dd>
+                  </div>
+                  <div class="flex gap-4">
+                    <dt class="w-32 opacity-60 font-medium panel-label">Size:</dt>
+                    <dd class="panel-value">Mid-sized chain with seating for 80+ per location</dd>
+                  </div>
+                  <div class="flex gap-4">
+                    <dt class="w-32 opacity-60 font-medium panel-label">Location:</dt>
+                    <dd class="panel-value">3 locations across Nashville, Tennessee</dd>
+                  </div>
+                  <div class="pt-2 border-t border-black/5 panel-divider">
+                    <dt class="opacity-60 mb-2 font-medium panel-label">Previous Challenges</dt>
+                    <dd>
+                      <ul class="list-disc list-inside space-y-2 panel-value">
+                        <li class="leading-relaxed">No centralized reporting between locations</li>
+                        <li class="leading-relaxed">Difficulty training staff on complex POS features</li>
+                        <li class="leading-relaxed">No cash discount option or fee transparency</li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+
+              <!-- Panel 2: Diner -->
+              <div class="case-panel transition-all duration-500 hidden opacity-0 translate-y-2" data-case="2">
+                <dl class="space-y-4">
+                  <div class="flex gap-4">
+                    <dt class="w-32 opacity-60 font-medium panel-label">Restaurant Name:</dt>
+                    <dd class="font-bold text-base panel-value">Sunny Side Diner</dd>
+                  </div>
+                  <div class="flex gap-4">
+                    <dt class="w-32 opacity-60 font-medium panel-label">Size:</dt>
+                    <dd class="panel-value">Medium-sized diner with 60 seats and 400+ weekend covers</dd>
+                  </div>
+                  <div class="flex gap-4">
+                    <dt class="w-32 opacity-60 font-medium panel-label">Location:</dt>
+                    <dd class="panel-value">Suburbs of Austin, Texas</dd>
+                  </div>
+                  <div class="pt-2 border-t border-black/5 panel-divider">
+                    <dt class="opacity-60 mb-2 font-medium panel-label">Previous Challenges</dt>
+                    <dd>
+                      <ul class="list-disc list-inside space-y-2 panel-value">
+                        <li class="leading-relaxed">Rising credit card fees eating into profits</li>
+                        <li class="leading-relaxed">No system to track daily sales or staff shifts</li>
+                        <li class="leading-relaxed">Legacy POS system with outdated hardware</li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
           </div>
 
           <!-- Right: 3-image expanding rail -->
@@ -468,180 +623,144 @@
             class="h-[210px] md:h-[300px] flex gap-3"
             id="imageRail"
             aria-label="Case study gallery"
-          ></div>
+          >
+            <button type="button" data-case="0" class="rail-item relative overflow-hidden rounded-2xl flex-grow-0 flex-shrink-0 transition-all duration-500" style="flex-basis: 65%;">
+              <img src="/assets/images/blog-two/second-section-one.png" alt="Maple & Main" class="absolute inset-0 w-full h-full object-cover scale-100 grayscale-0 transition-all duration-500">
+              <span class="absolute inset-0 bg-black/0 transition-colors duration-300"></span>
+              <span class="absolute bottom-4 left-4 text-xs font-bold text-white uppercase tracking-widest opacity-0">Maple</span>
+            </button>
+            <button type="button" data-case="1" class="rail-item relative overflow-hidden rounded-2xl flex-grow-0 flex-shrink-0 transition-all duration-500" style="flex-basis: 17.5%;">
+              <img src="/assets/images/blog-two/second-section-two.png" alt="Smokey Ridge" class="absolute inset-0 w-full h-full object-cover scale-110 grayscale-[30%] transition-all duration-500">
+              <span class="absolute inset-0 bg-black/40 transition-colors duration-300"></span>
+              <span class="absolute bottom-4 left-4 text-xs font-bold text-white uppercase tracking-widest opacity-100">BBQ</span>
+            </button>
+            <button type="button" data-case="2" class="rail-item relative overflow-hidden rounded-2xl flex-grow-0 flex-shrink-0 transition-all duration-500" style="flex-basis: 17.5%;">
+              <img src="/assets/images/blog-two/second-section-three.png" alt="Sunny Side" class="absolute inset-0 w-full h-full object-cover scale-110 grayscale-[30%] transition-all duration-500">
+              <span class="absolute inset-0 bg-black/40 transition-colors duration-300"></span>
+              <span class="absolute bottom-4 left-4 text-xs font-bold text-white uppercase tracking-widest opacity-100">Diner</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <script>
-      // ---------- Data (replace image URLs & copy as needed) ----------
-      const CASES = [
-        {
-          id: "maple-main",
-          name: "Maple & Main Café",
-          tabLabel: "Maple",
-          size: "Small café with 25 seats, 4 staff members",
-          location: "Downtown Seattle, Washington",
-          challenges: [
-            "Manual order taking and handwritten tickets",
-            "Long wait times during peak morning rush",
-            "No ability to accept mobile payments",
-          ],
-          img: "https://ucarecdn.com/2fed0d50-c755-4215-876c-bccbd4ab7e6f/secondsectionone.png", // replace
-        },
-        {
-          id: "smokey-ridge",
-          name: "Smokey Ridge BBQ",
-          tabLabel: "BBQ",
-          size: "Mid-sized chain with seating for 80+ per location",
-          location: "3 locations across Nashville, Tennessee",
-          challenges: [
-            "No centralized reporting between locations",
-            "Difficulty training staff on complex POS features",
-            "No cash discount option or fee transparency",
-          ],
-          img: "https://ucarecdn.com/eb7edb8f-c382-4f92-afd6-7d52504c2250/secondsectiontwo.png", // replace
-        },
-        {
-          id: "Sunny Side Diner",
-          name: "Sunny Side Diner",
-          tabLabel: " Diner",
-          size: "Medium-sized diner with 60 seats and weekend traffic of 400+ covers",
-          location: "Suburbs of Austin, Texas",
-          challenges: [
-            "Rising credit card fees eating into profits",
-            "No system to track daily sales or staff shifts",
-            "Legacy POS system with outdated hardware",
-          ],
-          img: "https://ucarecdn.com/0b32591c-a40a-4459-be03-aa81881742eb/secondsectionthree.png", // replace
-        },
-      ];
+   <script>
+      (function() {
+        const CASES = [
+          {
+            theme: { bg: "#FFF9F0", text: "#5D4037", chip: "#E67E22", chipText: "#FFFFFF" },
+            darkTheme: { bg: "#2D2418", text: "#FFEDD5", chip: "#F97316", chipText: "#FFFFFF" }
+          },
+          {
+            theme: { bg: "#FDF2F2", text: "#7F1D1D", chip: "#C0392B", chipText: "#FFFFFF" },
+            darkTheme: { bg: "#2D1A1A", text: "#FEE2E2", chip: "#EF4444", chipText: "#FFFFFF" }
+          },
+          {
+            theme: { bg: "#F0F9FF", text: "#0C4A6E", chip: "#0284C7", chipText: "#FFFFFF" },
+            darkTheme: { bg: "#162D3D", text: "#E0F2FE", chip: "#38BDF8", chipText: "#FFFFFF" }
+          }
+        ];
 
-      // ---------- State ----------
-      let active = 0;
+        let active = 0;
+        const caseCard = document.getElementById("caseCard");
+        const chips = document.querySelectorAll(".case-chip");
+        const panels = document.querySelectorAll(".case-panel");
+        const railItems = document.querySelectorAll(".rail-item");
 
-      // ---------- DOM refs ----------
-      const chips = document.getElementById("caseChips");
-      const panels = document.getElementById("casePanels");
-      const rail = document.getElementById("imageRail");
+        function isDarkMode() {
+          return document.documentElement.classList.contains("dark");
+        }
 
-      // ---------- Render helpers ----------
-      function renderChips() {
-        chips.innerHTML = "";
-        CASES.forEach((c, i) => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className =
-            "px-3 py-1.5 rounded-full text-xs md:text-sm border transition " +
-            (i === active
-              ? "bg-black text-white border-black"
-              : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50");
-          btn.textContent = c.tabLabel || c.name.split(" ")[0];
-          btn.setAttribute("aria-pressed", i === active ? "true" : "false");
-          btn.addEventListener("click", () => setActive(i));
-          chips.appendChild(btn);
+        function updateUI() {
+          const isDark = isDarkMode();
+          const currentCase = CASES[active];
+          const theme = isDark ? currentCase.darkTheme : currentCase.theme;
+
+          // Update Card
+          if (caseCard) {
+            caseCard.style.backgroundColor = theme.bg;
+            caseCard.style.borderColor = isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)";
+          }
+
+          // Update Chips
+          chips.forEach((btn, i) => {
+            if (i === active) {
+              const cTheme = isDark ? CASES[i].darkTheme : CASES[i].theme;
+              btn.style.backgroundColor = cTheme.chip;
+              btn.style.color = cTheme.chipText;
+              btn.style.borderColor = cTheme.chip;
+              btn.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+            } else {
+              btn.style.backgroundColor = isDark ? "#2A2A2A" : "#FFFFFF";
+              btn.style.color = isDark ? "#CDCDCD" : "#4B5563";
+              btn.style.borderColor = isDark ? "#4B5563" : "#D1D5DB";
+              btn.style.boxShadow = "none";
+            }
+          });
+
+          // Update Panels
+          panels.forEach((p, i) => {
+            if (i === active) {
+              p.classList.remove("hidden", "opacity-0", "translate-y-2");
+              p.classList.add("opacity-100", "translate-y-0");
+              
+              // Apply colors to text inside panel
+              p.querySelectorAll(".panel-label, .panel-value").forEach(el => {
+                el.style.color = theme.text;
+              });
+              p.querySelectorAll(".panel-divider").forEach(el => {
+                el.style.borderColor = isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)";
+              });
+            } else {
+              p.classList.add("hidden", "opacity-0", "translate-y-2");
+              p.classList.remove("opacity-100", "translate-y-0");
+            }
+          });
+
+          // Update Rail
+          const inactiveBasis = (100 - 65) / (CASES.length - 1);
+          railItems.forEach((el, i) => {
+            const isActive = i === active;
+            el.style.flexBasis = isActive ? "65%" : `${inactiveBasis}%`;
+            
+            const img = el.querySelector("img");
+            const ov = el.querySelector("span");
+            const label = el.querySelector("span + span");
+            
+            if (img) {
+              img.className = `absolute inset-0 w-full h-full object-cover transition-all duration-500 ${isActive ? 'scale-100 grayscale-0' : 'scale-110 grayscale-[30%]'}`;
+            }
+            if (ov) {
+              ov.className = `absolute inset-0 transition-colors duration-300 ${isActive ? 'bg-black/0' : 'bg-black/40'}`;
+            }
+            if (label) {
+              label.style.opacity = isActive ? "0" : "1";
+            }
+          });
+        }
+
+        function setActive(i) {
+          active = i;
+          updateUI();
+        }
+
+        // Attach listeners
+        chips.forEach((btn, i) => btn.addEventListener("click", () => setActive(i)));
+        railItems.forEach((btn, i) => btn.addEventListener("click", () => setActive(i)));
+
+        // Theme observer
+        const observer = new MutationObserver(updateUI);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
+        // Initial render
+        updateUI();
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight") setActive((active + 1) % CASES.length);
+          if (e.key === "ArrowLeft") setActive((active - 1 + CASES.length) % CASES.length);
         });
-      }
-
-      function renderPanels() {
-        const c = CASES[active];
-        panels.innerHTML = `
-        <dl class="space-y-3">
-          <div class="flex gap-2">
-            <dt class="w-28 text-gray-500">Restaurant Name:</dt>
-            <dd class="font-medium text-gray-900">${c.name}</dd>
-          </div>
-          <div class="flex gap-2">
-            <dt class="w-28 text-gray-500">Size:</dt>
-            <dd class="text-gray-800">${c.size}</dd>
-          </div>
-          <div class="flex gap-2">
-            <dt class="w-28 text-gray-500">Location:</dt>
-            <dd class="text-gray-800">${c.location}</dd>
-          </div>
-          <div class="pt-1">
-            <dt class="text-gray-500 mb-1">Previous Challenges</dt>
-            <dd>
-              <ul class="list-disc list-inside space-y-1 text-gray-800">
-                ${c.challenges.map((x) => `<li>${x}</li>`).join("")}
-              </ul>
-            </dd>
-          </div>
-        </dl>
-      `;
-      }
-
-      function renderRail() {
-        rail.innerHTML = "";
-        CASES.forEach((c, i) => {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className =
-            "relative rail-item overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 ring-offset-2 ring-black/60";
-          // Flex-basis sizes; active grows to ~65%, others shrink.
-          btn.style.flexBasis = i === active ? "65%" : "17.5%";
-          btn.addEventListener("click", () => setActive(i));
-
-          // Image
-          const img = document.createElement("img");
-          img.src = c.img;
-          img.alt = c.name;
-          img.className =
-            "absolute inset-0 w-full h-full object-cover " +
-            (i === active ? "rounded-2xl" : "rounded-xl");
-
-          // Dim overlay for non-active
-          const ov = document.createElement("span");
-          ov.className =
-            "absolute inset-0 pointer-events-none transition-colors duration-300 " +
-            (i === active ? "bg-black/0" : "bg-black/20");
-
-          // Label on non-active
-          const label = document.createElement("span");
-          label.textContent = c.name;
-          label.className =
-            "absolute bottom-2 left-2 text-[10px] md:text-xs font-medium text-white drop-shadow";
-          if (i === active) label.style.display = "none";
-
-          btn.appendChild(img);
-          btn.appendChild(ov);
-          btn.appendChild(label);
-          rail.appendChild(btn);
-        });
-      }
-
-      function setActive(i) {
-        active = i;
-        renderChips();
-        renderPanels();
-        // Animate rail by only updating flex-basis of children (faster/less layout trashing)
-        const children = [...rail.children];
-        children.forEach((el, idx) => {
-          el.style.flexBasis = idx === active ? "65%" : "17.5%";
-          const img = el.querySelector("img");
-          const ov = el.querySelector("span");
-          const label = el.querySelector("span + span");
-          // visual states
-          img.classList.toggle("rounded-2xl", idx === active);
-          img.classList.toggle("rounded-xl", idx !== active);
-          ov.className =
-            "absolute inset-0 pointer-events-none transition-colors duration-300 " +
-            (idx === active ? "bg-black/0" : "bg-black/20");
-          label.style.display = idx === active ? "none" : "block";
-        });
-      }
-
-      // ---------- Initial render ----------
-      renderChips();
-      renderPanels();
-      renderRail();
-
-      // Optional: keyboard arrows to navigate
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight") setActive((active + 1) % CASES.length);
-        if (e.key === "ArrowLeft")
-          setActive((active - 1 + CASES.length) % CASES.length);
-      });
+      })();
     </script>
 
     <!--Uncovering the True Cost of Card Payments-->
@@ -651,12 +770,13 @@
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[350px] md:max-w-[550px] mx-auto"
           >
-            <span class="text-[#4f4f4f]">Uncovering the True Cost </span>
-            <span class="text-black">of Card Payments</span>
+            <span class="page-accent
+            ">Uncovering the True Cost </span>
+            <span class="page-main">of Card Payments</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               High processing fees and unclear pricing models have left many
               restaurants overpaying — without even knowing it.
@@ -688,44 +808,44 @@
             <div class="md:w-1/2 p-6 md:p-8">
               <header class="mb-4">
                 <h3
-                  class="text-[18px] md:text[24px] font-semibold tracking-wide text-black"
+                  class="text-[18px] md:text[24px] font-semibold tracking-wide page-main"
                 >
                   The Problems
                 </h3>
               </header>
 
               <p
-                class="text-slate-700 text-sm md:text-base leading-relaxed mb-5"
+                class="page-sub text-sm md:text-base leading-relaxed mb-5"
               >
                 Many restaurants were paying up to
-                <span class="font-semibold">3–4% per card transaction</span>,
+                <span class="font-semibold text-sm md:text-base">3–4% per card transaction</span>,
                 often without understanding the breakdown. Monthly statements
                 were complex, fee structures weren’t transparent, and owners had
                 little control to reduce costs.
               </p>
 
-              <ul class="space-y-3 text-slate-900">
-                <li class="flex gap-3">
+              <ul class="space-y-3 page-sub text-xl">
+                <li class="flex gap-3 text-sm md:text-base">
                   <span
-                    class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-white text-xs"
+                    class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full page-accent"
                     >•</span
                   >
                   <span class="font-semibold"
                     >High credit card processing fees</span
                   >
                 </li>
-                <li class="flex gap-3">
+                <li class="flex gap-3 text-sm md:text-base">
                   <span
-                    class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-white text-xs"
+                    class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full page-accent text-xs"
                     >•</span
                   >
                   <span class="font-semibold"
                     >Vague, hard-to-read monthly statements</span
                   >
                 </li>
-                <li class="flex gap-3">
+                <li class="flex gap-3 text-sm md:text-base">
                   <span
-                    class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-white text-xs"
+                    class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full page-accent text-xs"
                     >•</span
                   >
                   <span class="font-semibold"
@@ -737,7 +857,7 @@
               <div class="mt-8 flex justify-end">
                 <button
                   data-switch="solutions"
-                  class="group inline-flex items-center gap-2 text-[11px] md:text-xs font-semibold tracking-wide text-slate-900 hover:text-black"
+                  class="group inline-flex items-center gap-2 text-[11px] md:text-xs font-semibold tracking-wide"
                 >
                   EXPLORE THE SOLUTIONS
                   <svg
@@ -780,7 +900,7 @@
             <div class="md:w-1/2 p-6 md:p-8">
               <header class="mb-2">
                 <h3
-                  class="text-[18px] md:text[24px] font-semibold tracking-wide text-black"
+                  class="text-[18px] md:text[24px] font-semibold tracking-wide page-main"
                 >
                   The Solutions
                 </h3>
@@ -789,30 +909,30 @@
               <!-- Solution 1 -->
               <div class="mb-6">
                 <h4
-                  class="flex items-center gap-2 text-lg md:text-xl font-bold text-slate-900"
+                  class="flex items-center gap-2 text-lg md:text-xl font-bold page-sub"
                 >
                   <span
-                    class="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-slate-900 text-white text-[14px] md:text-[20px]"
+                    class="inline-flex h-6 w-6 items-center justify-center rounded-lg page-accent text-[14px] md:text-[20px]"
                     >✓</span
                   >
                   Cash Discount Program
                 </h4>
-                <ul class="mt-3 space-y-2 text-slate-700 text-sm md:text-base">
+                <ul class="mt-3 space-y-2  text-sm md:text-base page-sub">
                   <li class="flex gap-3">
                     <span
-                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                      class="mt-1 h-1.5 w-1.5 rounded-full"
                     ></span
                     >Automatically applies a small fee to non-cash payments
                   </li>
                   <li class="flex gap-3">
                     <span
-                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                      class="mt-1 h-1.5 w-1.5 rounded-full"
                     ></span
                     >Clear discount for cash customers
                   </li>
                   <li class="flex gap-3">
                     <span
-                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                      class="mt-1 h-1.5 w-1.5 rounded-full"
                     ></span
                     >Fully legal and receipt-compliant
                   </li>
@@ -822,31 +942,31 @@
               <!-- Solution 2 -->
               <div>
                 <h4
-                  class="flex items-center gap-2 text-lg md:text-xl font-bold text-slate-900"
+                  class="flex items-center gap-2 text-lg md:text-xl font-bold page-sub"
                 >
                   <span
-                    class="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-slate-900 text-white text-[14px] md:text-[20px]"
+                    class="inline-flex h-6 w-6 items-center justify-center rounded-lg page-accent text-[14px] md:text-[20px]"
                     >✓</span
                   >
                   Lower Negotiated Card Rates
                 </h4>
-                <ul class="mt-3 space-y-2 text-slate-700 text-sm md:text-base">
+                <ul class="mt-3 space-y-2 page-sub text-sm md:text-base">
                   <li class="flex gap-3">
                     <span
-                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                      class="mt-1 h-1.5 w-1.5 rounded-full"
                     ></span
                     >TequilaPOS partners with processors to offer lower,
                     flat-rate fees
                   </li>
                   <li class="flex gap-3">
                     <span
-                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                      class="mt-1 h-1.5 w-1.5 rounded-full "
                     ></span
                     >Transparent, easy-to-read statements
                   </li>
                   <li class="flex gap-3">
                     <span
-                      class="mt-1 h-1.5 w-1.5 rounded-full bg-slate-900"
+                      class="mt-1 h-1.5 w-1.5 rounded-full "
                     ></span
                     >Keep current pricing while reducing costs
                   </li>
@@ -856,7 +976,7 @@
               <div class="mt-8 flex justify-end">
                 <button
                   data-switch="problems"
-                  class="inline-flex items-center gap-2 rounded-lg bg-slate-100 px-3 py-2 text-xs font-medium text-slate-900 hover:bg-slate-200"
+                  class="inline-flex items-center gap-2 rounded-lg page-btn px-3 py-2 text-xs font-medium  hover:bg-slate-200"
                 >
                   Back
                 </button>
@@ -919,18 +1039,18 @@
       </div>
     </section>
 
-    <section class="md:mt-10 mt-5">
+    <section class="lg:py-20 py-6">
       <div class="container px-4 md:px-2 mx-auto">
         <div class="text-center md:mb-10 mb-6">
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[325px] md:max-w-[677px] mx-auto"
           >
-            <span class="text-[#4f4f4f]">What Restaurants Are </span>
-            <span class="text-black">Saving with TequilaPOS</span>
+            <span class="page-accent">What Restaurants Are </span>
+            <span class="page-main">Saving with TequilaPOS</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               From $400/month at a small café to $15,000/year at a busy diner —
               our customers are seeing real financial impact with every swipe.
@@ -950,28 +1070,29 @@
             <!-- Icon -->
             <div class="flex justify-center mb-4 md:mb-6">
               <!-- Money / fees icon (replace if you have an asset) -->
-              <img src="/assets/images/blog-two/card-one.png" alt="" />
+              <img src="/assets/images/blog-two/card-one.png" alt="" class="logo-light" />
+              <img src="/assets/images/blog-two/card-one-dark.png" alt="" class="logo-dark" />
             </div>
             <h3
-              class="text-center text-xl md:text-2xl font-bold text-slate-900 mb-4 md:mb-6"
+              class="text-center text-xl md:text-2xl font-bold mb-4 md:mb-6"
             >
               Total Fees Before vs After
             </h3>
 
             <ul class="space-y-4 text-slate-800 text-sm md:text-base">
               <li class="flex gap-3">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
-                <span
+                <span class="mt-2 h-1.5 w-1.5 rounded-full page-btn"></span>
+                <span class="page-main"
                   >“Before TequilaPOS: ₹18,000/month in processing fees”</span
                 >
               </li>
               <li class="flex gap-3">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
-                <span>After Cash Discount: ₹1,200/month</span>
+                <span class="mt-2 h-1.5 w-1.5 rounded-full page-btn"></span>
+                <span class="page-main">After Cash Discount: ₹1,200/month</span>
               </li>
               <li class="flex gap-3">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
-                <span>Saved: ₹16,800/month or ₹2,00,000+ yearly</span>
+                <span class="mt-2 h-1.5 w-1.5 rounded-full page-btn"></span>
+                <span class="page-main">Saved: ₹16,800/month or ₹2,00,000+ yearly</span>
               </li>
             </ul>
           </div>
@@ -987,25 +1108,26 @@
             <!-- Icon -->
             <div class="flex justify-center mb-4 md:mb-6">
               <!-- Percent badge icon (replace if you have an asset) -->
-              <img src="/assets/images/blog-two/card-two.png" alt="" />
+              <img src="/assets/images/blog-two/card-two.png" alt="" class="logo-light" />
+              <img src="/assets/images/blog-two/card-two-dark.png" alt="" class="logo-dark" />
             </div>
             <h3
-              class="text-center text-xl md:text-2xl font-bold text-slate-900 mb-4 md:mb-6"
+              class="text-center text-xl md:text-2xl font-bold mb-4 md:mb-6"
             >
               Percentage Reduction
             </h3>
 
             <ul class="space-y-6 text-slate-800 text-sm md:text-base">
               <li class="flex gap-3">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
-                <span
+                <span class="mt-2 h-1.5 w-1.5 rounded-full page-btn"></span>
+                <span class="page-main"
                   >Reduced card processing costs by
                   <span class="font-semibold">90%</span></span
                 >
               </li>
               <li class="flex gap-3">
-                <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-900"></span>
-                <span
+                <span class="mt-2 h-1.5 w-1.5 rounded-full page-btn"></span>
+                <span class="page-main"
                   >Cut monthly fees from
                   <span class="font-semibold">3.5%</span> to just
                   <span class="font-semibold">0.5%</span> of revenue</span
@@ -1018,18 +1140,18 @@
     </section>
     <!--Trusted by Owners slider-->
 
-    <section class="bg-white py-8 md:py-16 lg:py-24 mt-8">
+    <section class="py-8 lg:py-16">
       <div class="container mx-auto px-4">
         <div class="text-center md:mb-10 mb-6">
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[504px] mx-auto"
           >
-            <span class="text-[#4f4f4f]">Trusted by Restaurant </span>
-            <span class="text-black">Owners Nationwide</span>
+            <span class="page-accent">Trusted by Restaurant </span>
+            <span class="page-main">Owners Nationwide</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               Operators across the U.S. share how TequilaPOS helped reduce
               costs, improve efficiency, and streamline operations.
@@ -1059,17 +1181,17 @@
                 <!-- Text Content Column -->
                 <div class="pt-8 md:pt-0">
                   <p
-                    class="text-gray-700 text-lg md:text-xl leading-relaxed mb-4"
+                    class="page-sub text-lg md:text-xl leading-relaxed mb-4"
                   >
                     We used to pay over $1,500 a month in credit card fees. With
                     the cash discount program, we’re down to under $100. Our
                     customers don’t mind the small service fee — and now we
                     actually understand every charge. Total game-changer
                   </p>
-                  <p class="font-bold text-gray-900 text-lg mt-4">
+                  <p class="font-bold page-main text-lg mt-4">
                     — Maria Lopez, Owner
                   </p>
-                  <p class="text-gray-600 text-base">
+                  <p class="page-sub text-base">
                     Sunny Side Diner, Austin, TX
                   </p>
                 </div>
@@ -1091,17 +1213,17 @@
                 <!-- Text Content Column -->
                 <div class="pt-8 md:pt-0">
                   <p
-                    class="text-gray-700 text-lg md:text-xl leading-relaxed mb-4"
+                    class="page-sub text-lg md:text-xl leading-relaxed mb-4"
                   >
                     We were worried about legal risks with cash discounting.
                     TequilaPOS walked us through everything and made sure the
                     signage, receipts, and pricing were compliant. And we saved
-                    thousands every mont
+                    thousands every month.
                   </p>
-                  <p class="font-bold text-gray-900 text-lg mt-4">
+                  <p class="font-bold page-main text-lg mt-4">
                     — Alicia Fernandes, Co-owner
                   </p>
-                  <p class="text-gray-600 text-base">
+                  <p class="page-sub text-base">
                     La Mesa Bistro, Seattle, WA
                   </p>
                 </div>
@@ -1116,7 +1238,7 @@
               aria-label="Previous slide"
             >
               <svg
-                class="w-6 h-6 text-gray-700"
+                class="w-6 h-6 page-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1137,7 +1259,7 @@
               aria-label="Next slide"
             >
               <svg
-                class="w-6 h-6 text-gray-700"
+                class="w-6 h-6 page-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -1156,20 +1278,25 @@
       </div>
     </section>
     <!-- Footer -->
-    <footer class="bg-white py-10">
+    <footer class="py-10">
       <div class="container mx-auto px-4">
         <!-- Top Logo + Switch -->
-        <div
+         <div
           class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
         >
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="w-10 md:w-40 h-auto"
+            class="w-10 md:w-40 h-auto logo-light"
+            alt=""
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="w-10 md:w-40 h-auto logo-dark"
             alt=""
           />
 
           <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+            <p id="theme-toggle-label" class="page-sub text-[11px] font-normal select-none">
               Switch to dark mode
             </p>
 
@@ -1188,12 +1315,8 @@
                 title="Toggle dark mode"
                 placeholder="Toggle dark mode"
               />
-              <div
-                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
-              ></div>
-              <div
-                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
-              ></div>
+              <div class="theme-toggle-track w-[88px] h-[44px] rounded-full bg-[#e0e0e0] peer-checked:bg-[#252525]"></div>
+              <div class="theme-toggle-knob absolute left-[3px] top-[3px] w-[38px] h-[38px] bg-white rounded-full peer-checked:translate-x-[44px]"></div>
             </label>
           </div>
         </div>

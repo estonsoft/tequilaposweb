@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tequila POS - Smart POS Solutions</title>
+    <script src="/assets/js/theme.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <!--for Cash Discount slider-->
     <style>
@@ -35,162 +37,385 @@
     />
 
     <!-- aos -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /> -->
 
     <link rel="stylesheet" href="/assets/style/global.css" />
+
+    <style>
+      /* Custom CSS for the progress bar */
+      .my-slider-progress {
+        /* This is the background/track of the progress bar */
+        height: 4px;
+        background: #e5e7eb; /* Tailwind gray-200 */
+        /* Responsive width: centered with max-width on smaller screens, full width on 1440px+ */
+      }
+
+      /* On 1440px and larger screens, use full width */
+
+      .my-slider-progress-bar {
+        /* This is the actual progress fill */
+        background: #1f2937; /* Tailwind gray-800 for the fill color */
+        height: 100%;
+        width: 0; /* Starts at 0, JavaScript changes this */
+        transition: width 0.5s ease-in-out; /* Match slider transition speed */
+      }
+
+      /* Hide default pagination dots that Splide includes */
+      .splide__pagination {
+        display: none;
+      }
+
+      .mobile-timeline {
+      position: relative;
+    }
+    .mobile-timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.35rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e7eb;
+    }
+    .mobile-timeline .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .mobile-timeline .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .mobile-timeline .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 9999px;
+      background: #000;
+    }
+    .mobile-timeline blockquote {
+      padding-left: 0.5rem;
+    }
+    html.dark .mobile-timeline::before { background: #4b5563; }
+    html.dark .mobile-timeline .timeline-dot { background: #fff; }
+
+    .mobile-svg-lines {
+      z-index: -1;
+      opacity: 0.7;
+    }
+    .mobile-diff-card {
+      position: absolute;
+      width: 163px;
+      height: 157px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+      z-index: 1;
+    }
+    .mobile-diff-card h2,
+    .mobile-diff-card h3,
+    .mobile-diff-card p {
+      position: relative;
+      z-index: 1;
+    }
+    .mobile-diff-dot {
+      position: absolute;
+      left: 50%;
+      top: -0.75rem;
+      transform: translateX(-50%);
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 9999px;
+      background: #000;
+      z-index: 2;
+    }
+    html.dark .mobile-diff-dot { background: #fff; }
+
+
+      /* .splide__arrow {
+        -ms-flex-align: center;
+        align-items: center;
+        background: transparent !important;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        display: -ms-flexbox;
+        display: flex;
+        height: 2em;
+        -ms-flex-pack: center;
+        justify-content: center;
+        opacity: 0.7;
+        padding: 0;
+        position: absolute;
+        top: 0%;
+        transform: translateY(-53%) !important;
+        width: 2em;
+        z-index: 1;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .splide__arrow--next {
+          right: 0rem !important;
+        }
+
+        .splide__arrow--prev {
+          left: 0rem !important;
+        } */
+      /* } */
+
+      .splide__arrow {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+      }
+      /* .splide__arrow--prev {
+        left: -50px;
+      }
+      .splide__arrow--next {
+        right: -1150px;
+      } */
+    </style>
+
+    <style>
+      /* ---- Light defaults ---- */
+      /* body { background-color: #ffffff; color: #000000; }
+      footer { background-color: #ffffff; }
+      section { background-color: #ffffff; }
+      
+      .logo-dark { display: none; }
+      .logo-light { display: block; } */
+
+      /* Light mode defaults */
+     
+      .mega-menu { background-color: #ffffff; }
+      #mobile-menu { background-color: #ffffff; }
+      #dropdownBtn { background-color: #f3f4f6; }
+      #dropdownMenu { background-color: #f9fafb; border-color: #e5e7eb; }
+
+      .slide-card  { background-color: #fafafa; }
+
+      .page-accent { color: #505050; }
+    .page-main   { color: #000000; }
+    .page-sub    { color: #4f4f4f; }
+    .page-btn { background-color: #000000; color: #ffffff; }
+      
+      /* ---- Dark mode overrides ---- */
+      html.dark body    { background-color: #1c1c1c; color: #ffffff; }
+      html.dark footer  { background-color: #1c1c1c; }
+      html.dark section { background-color: #1c1c1c; }
+
+      html.dark .slide-card  { background-color: #373737; }
+      
+      html.dark .logo-dark { display: block; }
+      html.dark .logo-light { display: none; }
+      html.dark .page-accent { color: #C98633; }
+    html.dark .page-main   { color: #ffffff; }
+    html.dark .page-sub    { color: #cdcdcd; }
+      html.dark .page-btn { background-color: #ffffff; color: #000000; }
+      
+      html.dark .mega-menu { background-color: #000000; }
+      html.dark #mobile-menu { background-color: #1c1c1c; color: #ffffff; }
+      html.dark #dropdownBtn { background-color: #1f2937; color: #ffffff; }
+      html.dark #dropdownMenu { background-color: #111827; border-color: #374151; }
+
+       html.dark .splide__arrow {
+        background: #111827 !important;
+        color: #ffffff !important;
+      }
+      
+      /* Text color overrides for dark mode */
+       html.dark .text-black { color: #ffffff; }
+      html.dark .text-\\[#4f4f4f\\],
+      html.dark .text-\\[#333\\],
+      html.dark .text-gray-500,
+      html.dark .text-gray-600,
+      html.dark .text-gray-700,
+      html.dark .text-gray-800 { color: #cdcdcd; }
+      
+      /* Background and border overrides for dark mode */
+      html.dark .bg-white { background-color: #1c1c1c; }
+      html.dark .bg-gray-100,
+      html.dark .bg-gray-200 { background-color: #2c2c2c; }
+      html.dark .border-gray-300,
+      html.dark .border-\\[#dbdbdb\\] { border-color: #444444; }
+      html.dark .shadow-\\[0px_4px_18.9px_rgba\\(0,0,0,0.25\\)\\] { box-shadow: 0px 4px 18.9px rgba(0,0,0,0.5); }
+
+      /* Product Guides section dark mode */
+      html.dark .product-guides-section { background-color: #373737 !important; }
+      
+      @media screen and (max-width: 780px) {
+  html.dark .heading_p { color: #ffffff !important; }
+}
+      
+      /* Form section dark mode */
+      html.dark .contact-form-container { background-color: #1c1c1c; }
+    </style>
   </head>
   <body class="bg-white font-inter text-sm">
     <!-- Navigation -->
-    <nav class="navbar md:block hidden">
-      <div class="navbar-container container mx-auto">
-        <!-- Logo -->
+    <nav class="navbar xl:block hidden">
+      <div class="navbar-container container mx-auto px-4">
         <div class="logo-container">
-          <a href="/light/index.html">
+          <a href="/index.html">
             <img
               src="/assets/images/logo/tequila_pos_logo_transparent.png"
-              class="logo"
+              class="logo-light logo"
+              alt="Logo"
+            />
+            <img
+              src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+              class="logo-dark logo"
               alt="Logo"
             />
           </a>
-
           <div class="nav-links ml-4">
             <div class="nav-item relative group">
               <a href="#business-type" class="nav-link">Business Type</a>
-
-              <!-- Mega Menu -->
               <div
-                class="mega-menu mega-anim absolute left-0 top-full bg-white pt-10"
+                class="mega-menu mega-anim absolute left-0 top-full pt-10"
                 onmouseleave="clearActive()"
               >
                 <div class="flex flex-nowrap gap-10">
-                  <!-- LEFT: categories -->
                   <div
                     class="flex flex-col p-10 gap-4"
                     id="categoryList"
                     data-aos="fade-left"
                   >
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/food.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="food"
                       onmouseenter="setActive('food')"
                       onfocus="setActive('food')"
+                      >Food &amp; Beverage</a
                     >
-                      Food &amp; Beverage
-                    </a>
-
                     <a
-                      href="#"
-                      class="text-black text-[26px] font-bold hover:underline"
+                      href="/retail.html"
+                      class="text-[26px] font-bold hover:underline"
                       data-cat="retail"
                       onmouseenter="setActive('retail')"
                       onfocus="setActive('retail')"
+                      >Retail</a
                     >
-                      Retail
-                    </a>
                   </div>
-
-                  <!-- RIGHT: panels -->
                   <div class="flex gap-16 p-10">
-                    <!-- FOOD panel -->
                     <div class="flex justify-between gap-10" data-panel="food">
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/overview.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/feature.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
                         </ul>
                       </div>
                       <div>
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Capacity
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage order from one place</a
+                              href="/resturent-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Resturents</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Take payment</a
+                              href="/bar-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bars</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Keep customer coming back</a
+                              href="/food-truck-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Food Trucks and Pop-ups</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Scale your business</a
+                              href="/cafes-coffee-shop-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Cafes & Coffee Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Improve operation</a
+                              href="/juice-bars-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Juice Bars & Smoothie Shops</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Schedule and pay your team</a
+                              href="/bakeries-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Bakeries</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
-                              >Manage your cash flow</a
+                              href="/ice-cream-shops-capabilities.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
+                              >Ice Creams & Desserts Shops</a
                             >
                           </li>
                         </ul>
                       </div>
                     </div>
-
-                    <!-- RETAIL panel -->
                     <div class="space-y-6 hidden" data-panel="retail">
-                      <div class="gap-10">
-                        <h6 class="text-black text-xs font-normal mb-[10px]">
+                      <div>
+                        <h6
+                          class="text-xs font-normal mb-[10px]"
+                          style="color: inherit"
+                        >
                           Discover
                         </h6>
                         <ul class="space-y-2 text-sm">
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/overview.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Overview</a
                             >
                           </li>
                           <li>
                             <a
-                              href="#"
-                              class="hover:underline text-black text-xl font-bold"
+                              href="/feature.html"
+                              class="hover:underline text-xl font-bold"
+                              style="color: inherit"
                               >Switch to Tequila</a
                             >
                           </li>
@@ -201,19 +426,15 @@
                 </div>
               </div>
             </div>
-
-            <!-- Other Links -->
-            <a href="/light/feature.html" class="nav-link">Feature</a>
-            <a href="/light/hardware.html" class="nav-link">Hardware</a>
-            <a href="/light/pricing.html" class="nav-link">Pricing</a>
-            <a href="/light/resourse.html" class="nav-link">Resources</a>
+            <a href="/feature.html" class="nav-link">Feature</a>
+            <a href="/hardware.html" class="nav-link">Hardware</a>
+            <a href="/pricing.html" class="nav-link">Pricing</a>
+            <a href="/resourse.html" class="nav-link">Resources</a>
           </div>
         </div>
-
-        <!-- Navigation Links -->
         <div class="nav-extra-links">
           <div
-            class="language-selector cursor-pointers"
+            class="language-selector cursor-pointer"
             onclick="toggleLanguage()"
           >
             <span id="language-text">ENGLISH</span>
@@ -224,32 +445,35 @@
               class="flag-icon"
             />
           </div>
-
           <a href="#signin" class="nav-link">Sign in</a>
-
-          <button class="demo-btn">
-            <span>Free Demo</span>
-          </button>
+          <a href="/free-demo.html"><button class="demo-btn"><span>Free Demo</span></button></a>
+          
         </div>
       </div>
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav class="navbar md:hidden bg-white shadow-md relative">
+    <nav class="navbar xl:hidden shadow-md relative">
       <div
-        class="navbar-container container mx-auto flex items-center justify-between py-4"
+        class="navbar-container container mx-auto flex items-center justify-between py-2 px-4"
       >
-        <!-- Logo -->
         <div class="logo-container flex items-center">
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="logo h-10"
+            class="logo-light logo"
+            alt="Logo"
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="logo-dark logo"
             alt="Logo"
           />
         </div>
-        <!-- Hamburger Button -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 text-black">
-          <!-- Hamburger Icon -->
+        <button
+          id="mobile-menu-btn"
+          class="xl:hidden p-2"
+          style="color: inherit"
+        >
           <svg
             id="hamburger-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -265,8 +489,6 @@
               d="M4 6h16M4 12h16M4 18h16"
             />
           </svg>
-
-          <!-- Close Icon -->
           <svg
             id="close-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -284,130 +506,113 @@
           </svg>
         </button>
       </div>
-
-      <!-- Mobile Menu -->
-      <!-- Mobile Menu (White Version) -->
       <div
         id="mobile-menu"
-        class="fixed top-0 left-0 h-full w-72 bg-white text-gray-900 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg"
+        class="fixed top-0 left-0 h-full w-72 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg overflow-y-auto"
+        style="background-color: var(--nav-bg, #fff)"
       >
-        <div class="p-4 space-y-4">
-          <!-- Dropdown -->
-          <div class="relative">
+        <div class="p-4 space-y-2">
+          <!-- Business Type (Level 1 Accordion) -->
+          <div class="mobile-nav-accordion">
             <button
-              id="dropdownBtn"
-              class="flex justify-between items-center w-full px-4 py-2 bg-gray-100 rounded hover:bg-gray-200"
+              class="accordion-header flex justify-between items-center w-full px-4 py-3 font-bold text-lg"
+              style="color: var(--text-primary)"
             >
               Business Type
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5 text-gray-500 transition-transform duration-200"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 
-        11.94l3.72-3.72a.75.75 0 1 1 
-        1.06 1.06l-4.25 4.25a.75.75 0 
-        0 1-1.06 0L5.22 9.28a.75.75 
-        0 0 1 0-1.06Z"
-                />
+              <svg viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 transition-transform duration-200">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" />
               </svg>
             </button>
-
-            <div
-              id="dropdownMenu"
-              class="hidden mt-2 bg-gray-50 rounded shadow-lg overflow-hidden border border-gray-200"
-            >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Edit</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Duplicate</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Archive</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                >Delete</a
-              >
+            <div class="accordion-content hidden border-l-2 border-gray-200 ml-4">
+              <!-- Food & Beverage (Level 2 Accordion) -->
+              <div class="mobile-sub-accordion">
+                <button class="accordion-header flex justify-between items-center w-full px-4 py-2 font-semibold">
+                  Food & Beverage
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 transition-transform duration-200">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" />
+                  </svg>
+                </button>
+                <div class="accordion-content hidden pl-4 space-y-4 py-2">
+                  <div>
+                    <h6 class="text-[10px] uppercase opacity-60 font-normal mb-2">Discover</h6>
+                    <a href="/overview.html" class="block py-1 text-sm font-bold">Overview</a>
+                    <a href="/feature.html" class="block py-1 text-sm font-bold">Switch to Tequila</a>
+                  </div>
+                  <div>
+                    <h6 class="text-[10px] uppercase opacity-60 font-normal mb-2">Capacity</h6>
+                    <div class="grid grid-cols-1 gap-1">
+                      <a href="/resturent-capabilities.html" class="block py-1 text-sm font-bold">Restaurants</a>
+                      <a href="/bar-capabilities.html" class="block py-1 text-sm font-bold">Bars</a>
+                      <a href="/food-truck-capabilities.html" class="block py-1 text-sm font-bold">Food Trucks & Pop-ups</a>
+                      <a href="/cafes-coffee-shop-capabilities.html" class="block py-1 text-sm font-bold">Cafes & Coffee Shops</a>
+                      <a href="/juice-bars-capabilities.html" class="block py-1 text-sm font-bold">Juice Bars & Smoothie Shops</a>
+                      <a href="/bakeries-capabilities.html" class="block py-1 text-sm font-bold">Bakeries</a>
+                      <a href="/ice-cream-shops-capabilities.html" class="block py-1 text-sm font-bold">Ice Creams & Desserts</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Retail (Level 2 Accordion) -->
+              <div class="mobile-sub-accordion">
+                <button class="accordion-header flex justify-between items-center w-full px-4 py-2 font-semibold">
+                  Retail
+                  <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 transition-transform duration-200">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" />
+                  </svg>
+                </button>
+                <div class="accordion-content hidden pl-4 space-y-4 py-2">
+                  <div>
+                    <h6 class="text-[10px] uppercase opacity-60 font-normal mb-2">Discover</h6>
+                    <a href="/overview.html" class="block py-1 text-sm font-bold">Overview</a>
+                    <a href="/feature.html" class="block py-1 text-sm font-bold">Switch to Tequila</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- Regular Links -->
-          <a href="#features" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Features</a
-          >
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Hardware</a
-          >
-          <a href="#pricing" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Pricing</a
-          >
-          <a
-            href="/light/resourse.html"
-            class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Resources</a
-          >
-
-          <!-- Language Switcher -->
-          <div
-            class="flex items-center justify-between px-4 py-2 bg-gray-100 rounded"
-          >
-            <span class="text-sm">EN</span>
-            <label class="inline-flex items-center cursor-pointer">
-              <input type="checkbox" class="sr-only peer" />
-              <div
-                class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-500 rounded-full relative after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 after:rounded-full after:transition-all peer-checked:after:translate-x-full"
-              ></div>
-            </label>
-            <span class="text-sm">ES</span>
+          <a href="/feature.html" class="block px-4 py-3 font-bold text-lg">Features</a>
+          <a href="/hardware.html" class="block px-4 py-3 font-bold text-lg">Hardware</a>
+          <a href="/pricing.html" class="block px-4 py-3 font-bold text-lg">Pricing</a>
+          <a href="/resourse.html" class="block px-4 py-3 font-bold text-lg">Resources</a>
+          
+          <div class="px-4 py-3 border-t border-gray-100">
+            <div class="language-selector flex items-center gap-2 cursor-pointer" onclick="toggleLanguage()">
+              <span id="mobile-language-text" class="font-bold text-sm">ENGLISH</span>
+              <img id="mobile-flag-icon" src="/assets/images/flags/usa.png" alt="USA" class="w-6 h-4 object-cover">
+            </div>
           </div>
 
-          <!-- Sign in -->
-          <a href="#signin" class="block px-4 py-2 hover:bg-gray-100 rounded"
-            >Sign In</a
-          >
-
-          <!-- CTA Button -->
-          <a
-            href="#demo"
-            class="block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-black font-bold py-2 rounded shadow hover:from-yellow-300 hover:to-yellow-400"
-          >
-            Free Demo
-          </a>
+          <div class="px-4 py-4 space-y-4 border-t border-gray-100">
+            <a href="#signin" class="block font-bold text-lg">Sign In</a>
+            <a href="/free-demo.html" class="block">
+              <button class="demo-btn w-full"><span>Free Demo</span></button>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
 
     <!-- hero section -->
 
-    <section class="bg-transparent-100 py-8 md:py-16">
+    <section class="py-8 lg:py-16">
       <div
         class="container mx-auto px-4 flex flex-row items-center justify-between gap-4 md:gap-12"
       >
-        <div class="w-full md:w-[900px] text-left">
+        <div class="w-full lg:w-[900px] text-left">
           <h1
-            class="text-[20px] md:text-[64px] lg:text-7xl font-bold text-[#505050] mb-4 md:mb-8"
+            class="text-[20px] md:text-[64px] lg:text-7xl font-bold mb-4 md:mb-8"
           >
-            Cash Discount vs Traditional Processing -<span
-              class="text-gray-900"
+          <span class="page-accent">Cash Discount vs Traditional Processing -</span>
+            <span
+              class="page-main"
             >
               Which One Saves You More</span
             >
           </h1>
 
           <p
-            class="md:w-[611px] w-full text-[4F4F4F] md:text-[20px] text-[10px] font-semibold md:leading-[25.20px] leading-normal md:mb-8"
+            class="md:w-[611px] w-full page-sub md:text-[20px] text-[10px] font-semibold md:leading-[25.20px] leading-normal md:mb-8"
           >
             Understanding the Real Cost of Card Payments
           </p>
@@ -424,20 +629,20 @@
     </section>
 
     <!--Cash Discount slider-->
-    <section class="bg-white py-8 md:py-16 lg:py-24">
+    <section class="py-8 lg:py-16">
       <div class="container mx-auto px-4">
         <div class="text-center md:mb-10 mb-6">
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
           >
-            <span class="text-[#4f4f4f]"
+            <span class="page-accent"
               >Understanding Cash Discount: A Smart
             </span>
-            <span class="text-black">Way to Cut Processing Fees</span>
+            <span class="page-main">Way to Cut Processing Fees</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               A clear explanation of what a Cash Discount is, how it works, and
               how it benefits both businesses and customers.
@@ -467,17 +672,17 @@
                 <!-- Text Content Column -->
                 <div class="p-8 sm:p-12">
                   <h2
-                    class="text-2xl sm:text-3xl font-extrabold tracking-wide text-gray-900 mb-4"
+                    class="text-2xl sm:text-3xl font-extrabold tracking-wide page-main mb-4"
                   >
                     WHAT IS CASH DISCOUNT?
                   </h2>
-                  <p class="text-gray-700 leading-relaxed mb-4">
+                  <p class="page-sub leading-relaxed mb-4">
                     A Cash Discount is a business-friendly pricing strategy
                     where customers receive a discount when they choose to pay
                     using cash, debit card, or ACH (bank transfer) instead of a
                     credit card.
                   </p>
-                  <p class="text-gray-700 leading-relaxed">
+                  <p class="page-sub leading-relaxed">
                     This method is designed to help merchants recover the cost
                     of credit card processing fees, which can range from 2% to
                     4% per transaction. Instead of increasing prices across the
@@ -504,7 +709,7 @@
                 <!-- Text Content Column -->
                 <div class="p-8 sm:p-12">
                   <h2
-                    class="text-2xl sm:text-3xl font-extrabold tracking-wide text-black mb-4"
+                    class="text-2xl sm:text-3xl font-extrabold tracking-wide page-main mb-4"
                   >
                     HOW DOES IT WORK WITH A POS SOLUTION ?
                   </h2>
@@ -518,12 +723,12 @@
                         <div
                           class="text-xl font-semibold mb-2 flex items-baseline"
                         >
-                          <span class="text-3xl font-extrabold mr-2 text-black"
+                          <span class="text-3xl font-extrabold mr-2 page-main"
                             >01</span
                           >
                           Two-Tier Pricing Setup
                         </div>
-                        <p class="text-[#505050]">
+                        <p class="page-sub">
                           The POS system is programmed to show a standard price
                           (card price) and automatically apply a discount when
                           the customer chooses cash, debit, or ACH payment.
@@ -536,12 +741,12 @@
                         <div
                           class="text-xl font-semibold mb-2 flex items-baseline"
                         >
-                          <span class="text-3xl font-extrabold mr-2 text-black"
+                          <span class="text-3xl font-extrabold mr-2 page-main"
                             >02</span
                           >
                           Automatic Discount Application
                         </div>
-                        <p class="text-[#505050]">
+                        <p class="page-sub">
                           When a customer selects a cash or debit payment
                           option, the POS automatically applies the discount—no
                           manual calculation needed.
@@ -554,12 +759,12 @@
                         <div
                           class="text-xl font-semibold mb-2 flex items-baseline"
                         >
-                          <span class="text-3xl font-extrabold mr-2 text-black"
+                          <span class="text-3xl font-extrabold mr-2 page-main"
                             >03</span
                           >
                           Receipt Transparency
                         </div>
-                        <p class="text-[#505050]">
+                        <p class="page-sub">
                           The receipt clearly shows whether a discount was
                           applied or not, ensuring full visibility and
                           compliance with legal and card network rules.
@@ -572,12 +777,12 @@
                         <div
                           class="text-xl font-semibold mb-2 flex items-baseline"
                         >
-                          <span class="text-3xl font-extrabold mr-2 text-black"
+                          <span class="text-3xl font-extrabold mr-2 page-main"
                             >04</span
                           >
                           Fully Integrated Workflow
                         </div>
-                        <p class="text-[#505050]">
+                        <p class="page-sub">
                           The cash discount feature is built into the POS
                           system, making it seamless for staff and easy for
                           customers—no changes to your existing process.
@@ -604,7 +809,7 @@
                 <!-- Text Content Column -->
                 <div class="p-8 sm:p-12">
                   <h2
-                    class="text-2xl sm:text-3xl font-extrabold tracking-wide text-black mb-4"
+                    class="text-2xl sm:text-3xl font-extrabold tracking-wide page-main mb-4"
                   >
                     WHY IS THIS IMPORTANT?
                   </h2>
@@ -618,12 +823,12 @@
                         <div
                           class="text-xl font-semibold mb-2 flex items-baseline"
                         >
-                          <span class="text-3xl font-extrabold mr-2 text-black"
+                          <span class="text-3xl font-extrabold mr-2 page-main"
                             >01</span
                           >
                           Eliminates Credit Card Processing Fees
                         </div>
-                        <p class="text-[#505050]">
+                        <p class="page-sub">
                           Businesses can offset or completely remove costly
                           credit card fees, saving thousands annually.
                         </p>
@@ -635,12 +840,12 @@
                         <div
                           class="text-xl font-semibold mb-2 flex items-baseline"
                         >
-                          <span class="text-3xl font-extrabold mr-2 text-black"
+                          <span class="text-3xl font-extrabold mr-2 page-main"
                             >02</span
                           >
                           Increases Profit Margins
                         </div>
-                        <p class="text-[#505050]">
+                        <p class="page-sub">
                           By encouraging lower-cost payment methods, businesses
                           retain more revenue from each sale.
                         </p>
@@ -652,12 +857,12 @@
                         <div
                           class="text-xl font-semibold mb-2 flex items-baseline"
                         >
-                          <span class="text-3xl font-extrabold mr-2 text-black"
+                          <span class="text-3xl font-extrabold mr-2 page-main"
                             >03</span
                           >
                           Encourages Cost-Effective Payment Behavior
                         </div>
-                        <p class="text-[#505050]">
+                        <p class="page-sub">
                           Customers are incentivized to pay with cash or debit,
                           reducing the business’s dependency on card networks.
                         </p>
@@ -669,12 +874,12 @@
                         <div
                           class="text-xl font-semibold mb-2 flex items-baseline"
                         >
-                          <span class="text-3xl font-extrabold mr-2 text-black"
+                          <span class="text-3xl font-extrabold mr-2 page-main"
                             >04</span
                           >
                           Provides Transparent, Legal Compliance
                         </div>
-                        <p class="text-[#505050]">
+                        <p class="page-sub">
                           With the right POS setup, pricing is clearly
                           displayed, and discounts are applied in a compliant,
                           customer-friendly way.
@@ -695,7 +900,7 @@
               aria-label="Previous slide"
             >
               <svg
-                class="w-6 h-6 text-gray-700"
+                class="w-6 h-6 page-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -716,7 +921,7 @@
               aria-label="Next slide"
             >
               <svg
-                class="w-6 h-6 text-gray-700"
+                class="w-6 h-6 page-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -735,18 +940,18 @@
       </div>
     </section>
     <!--traditional payment section-->
-    <section class="bg-white py-8 md:py-16 lg:py-24">
+    <section class="py-8 lg:py-16">
       <div class="container mx-auto px-4">
         <div class="text-center md:mb-10 mb-6">
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
           >
-            <span class="text-[#4f4f4f]">Traditional Payment Processing: </span>
-            <span class="text-black">What It Means for Your Business</span>
+            <span class="page-accent">Traditional Payment Processing: </span>
+            <span class="page-main">What It Means for Your Business</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               A breakdown of how traditional card payments work and why
               merchants end up paying a percentage of every transaction.
@@ -758,16 +963,16 @@
         >
           <div class="w-full lg:w-1/2 text-center lg:text-left">
             <h1
-              class="text-left mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto text-[#505050]"
+              class="text-left mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto page-main"
             >
               The Cost of Convenience: Understanding
-              <span class="text-gray-900"
+              <span class="page-sub"
                 >Traditional<br />Credit Card Processing</span
               >
             </h1>
 
             <p
-              class="md:w-[562px] w-full text-left text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-left page-sub md:text-[15px] text-[10px] font-normal"
             >
               Learn how businesses are charged through interchange, processor
               markups, and hidden fees in the standard payment model.
@@ -785,20 +990,20 @@
       </div>
     </section>
     <!--Real Savings section-->
-    <section class="bg-white py-16 lg:py-24">
+    <section class="py-6 lg:py-20">
       <div class="container mx-auto px-4">
         <div class="text-center md:mb-10 mb-6">
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
           >
-            <span class="text-[#4f4f4f]"
+            <span class="page-accent"
               >Cash Discount vs. Traditional Processing:</span
             >
-            <span class="text-black">Real Savings in Real Numbers</span>
+            <span class="page-main">Real Savings in Real Numbers</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               A clear explanation of what a Cash Discount is, how it works, and
               how it benefits both businesses and customers.
@@ -806,12 +1011,12 @@
           </div>
         </div>
 
-        <div class="bg-transparent p-0">
+        <div class="p-0">
           <div class="container mx-auto max-w-7xl">
             <!-- Table Header -->
             <div class="text-center mb-10">
               <h3
-                class="md:text-[15px] text-[10px] font-normal text-left text-[#4f4f4f]"
+                class="md:text-[15px] text-[10px] font-normal text-left page-sub"
               >
                 Traditional Processing vs Cash Discount — Real Example
                 Comparison
@@ -822,41 +1027,41 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
               <!-- Aspect Column (first column) -->
               <div
-                class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
+                class="rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
               >
                 <div
-                  class="text-center font-bold md:text-[36px] p-6 md:p-8 text-2xl bg-gray-50 border-b border-gray-200"
+                  class="text-center font-bold md:text-[36px] p-6 md:p-8 text-2xl border-b border-gray-200"
                 >
                   Aspect
                 </div>
                 <div class="divide-y divide-gray-200">
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     POS Price
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Card Payment
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Cash Payment
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Processing Fee
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Business Keeps
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Impact
                   </div>
@@ -865,41 +1070,41 @@
 
               <!-- Traditional Column (second column) -->
               <div
-                class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
+                class="rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
               >
                 <div
-                  class="text-center font-bold md:text-[36px] p-6 md:p-8 text-2xl bg-gray-50 border-b border-gray-200"
+                  class="text-center font-bold md:text-[36px] p-6 md:p-8 text-2xl border-b border-gray-200"
                 >
                   Traditional
                 </div>
                 <div class="divide-y divide-gray-200">
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     ₹1,000
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Customer pays ₹1,000
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Customer pays ₹1,000
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     30 (paid by business)
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     ₹970 (card) / ₹1,000 (cash)
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Lower profit on card sales
                   </div>
@@ -908,41 +1113,41 @@
 
               <!-- Cash Discount Column (third column) -->
               <div
-                class="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
+                class="rounded-2xl shadow-lg border border-gray-200 overflow-hidden"
               >
                 <div
-                  class="text-center font-bold md:text-[36px] p-6 md:p-8 text-2xl bg-gray-50 border-b border-gray-200"
+                  class="text-center font-bold md:text-[36px] p-6 md:p-8 text-2xl border-b border-gray-200"
                 >
                   Cash Discount
                 </div>
                 <div class="divide-y divide-gray-200">
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     ₹1,030 (includes card fee markup)
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Customer pays ₹1,030
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Customer pays ₹1,000 (₹30 discount)
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     ₹0 (if paid by cash)
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     ₹1,000 (both card & cash)
                   </div>
                   <div
-                    class="p-4 md:p-6 text-center text-black-400 text-[14px] md:text-[18px]"
+                    class="p-4 md:p-6 text-center page-sub text-[14px] md:text-[18px]"
                   >
                     Full profit on all payments
                   </div>
@@ -954,19 +1159,19 @@
       </div>
     </section>
     <!--Payment Models section-->
-    <section class="bg-white py-16 lg:py-24">
+    <section class="py-6 lg:py-20">
       <div class="container mx-auto px-4">
         <div class="text-center md:mb-10 mb-6">
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
           >
-            <span class="text-[#4f4f4f]"
-              >Addressing Common Objections to Payment Models</span
-            >
+            <span class="page-accent"
+              >Addressing Common Objections </span
+            > <span class="page-main">to Payment Models</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               From legality concerns to customer reactions — here’s how
               TequilaPOS helps you navigate and overcome the most common
@@ -1028,11 +1233,11 @@
                 class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
               >
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Traditional Processing
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       Yes, standard model — but you can’t add extra card fees
@@ -1040,11 +1245,11 @@
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Cash Discount Program
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       Yes, when implemented with clear pricing and receipts
@@ -1052,11 +1257,11 @@
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     How To Address It
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       Cash Discount is legal if the listed price is the card
@@ -1072,21 +1277,21 @@
                 class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
               >
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Traditional Processing
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">No</p>
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Cash Discount Program
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       No, when implemented with clear pricing and receipts
@@ -1094,11 +1299,11 @@
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     How To Address It
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       Clear signage and communication prevent customer
@@ -1114,31 +1319,31 @@
                 class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
               >
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Traditional Processing
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">No</p>
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Cash Discount Program
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">No, customers appreciate discounts</p>
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     How To Address It
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       Customers view this as a positive incentive rather than a
@@ -1154,21 +1359,21 @@
                 class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
               >
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Traditional Processing
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">No</p>
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Cash Discount Program
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       No, as you are offering a discount, not adding a fee
@@ -1176,11 +1381,11 @@
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     How To Address It
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       This is a key legal distinction. The price is already
@@ -1196,11 +1401,11 @@
                 class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
               >
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Traditional Processing
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       Yes, it significantly increases profit on card sales
@@ -1208,11 +1413,11 @@
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Cash Discount Program
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       Yes, it significantly increases profit on card sales
@@ -1220,11 +1425,11 @@
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     How To Address It
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       By recovering fees, the business keeps more of its gross
@@ -1240,11 +1445,11 @@
                 class="tab-content hidden grid grid-cols-1 md:grid-cols-3 gap-6 p-4 md:p-6 h-full"
               >
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Traditional Processing
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       No, with modern software and hardware, it is fully
@@ -1253,11 +1458,11 @@
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     Cash Discount Program
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       No, with modern software and hardware, it is fully
@@ -1266,11 +1471,11 @@
                   </div>
                 </div>
                 <div class="flex flex-col">
-                  <div class="text-center text-lg mb-4 text-#000000">
+                  <div class="text-center text-lg mb-4 page-main">
                     How To Address It
                   </div>
                   <div
-                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 text-gray-700 text-center flex-grow flex items-center justify-center"
+                    class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 page-accent text-center flex-grow flex items-center justify-center"
                   >
                     <p class="text-sm">
                       The PINPad and POS system automatically calculate the
@@ -1292,12 +1497,12 @@
           <h2
             class="mb-1 md:mb-6 font-bold md:text-[40px] text-xl md:leading-[46px] max-w-[804px] mx-auto"
           >
-            <span class="text-[#4f4f4f]">Flexible Payment Solutions </span>
-            <span class="text-black">with TequilaPOS</span>
+            <span class="page-accent">Flexible Payment Solutions </span>
+            <span class="page-main">with TequilaPOS</span>
           </h2>
           <div class="flex justify-center">
             <p
-              class="md:w-[562px] w-full text-center text-[#4f4f4f] md:text-[15px] text-[10px] font-normal"
+              class="md:w-[562px] w-full text-center page-sub md:text-[15px] text-[10px] font-normal"
             >
               Whether you prefer Traditional Processing or the Cash Discount
               Program, TequilaPOS supports both — and guides you to the best
@@ -1333,10 +1538,10 @@
             <h2
               class="mb-1 md:mb-6 font-bold md:text-[36px] text-xl md:leading-[46px] md:w-[604px] w-full"
             >
-              <span class="text-[#4f4f4f]">How TequilaPOS Supports Both </span>
-              <span class="text-black"> Models — and Helps You Decide</span>
+              <span class="page-sub">How TequilaPOS Supports Both </span>
+              <span class="page-main"> Models — and Helps You Decide</span>
             </h2>
-            <p class="text-sm md:text-base text-[#4f4f4f] leading-relaxed mb-4">
+            <p class="text-sm md:text-base page-sub leading-relaxed mb-4">
               TequilaPOS is designed with flexibility in mind, offering full
               support for both Traditional Payment Processing and the Cash
               Discount Program. Whether your business prefers to absorb
@@ -1441,20 +1646,25 @@
     </script>
 
     <!-- Footer -->
-    <footer class="bg-white py-10">
+    <footer class="py-10">
       <div class="container mx-auto px-4">
         <!-- Top Logo + Switch -->
-        <div
+         <div
           class="border-t border-gray-300 pt-6 mb-10 flex justify-between items-center"
         >
           <img
             src="/assets/images/logo/tequila_pos_logo_transparent.png"
-            class="w-10 md:w-40 h-auto"
+            class="w-10 md:w-40 h-auto logo-light"
+            alt=""
+          />
+          <img
+            src="/assets/images/logo/tequila_pos_logo_transparent 1-dark.png"
+            class="w-10 md:w-40 h-auto logo-dark"
             alt=""
           />
 
           <div class="flex items-center space-x-2">
-            <p class="text-[#4f4f4f] text-[11px] font-normal select-none">
+            <p id="theme-toggle-label" class="page-sub text-[11px] font-normal select-none">
               Switch to dark mode
             </p>
 
@@ -1473,12 +1683,8 @@
                 title="Toggle dark mode"
                 placeholder="Toggle dark mode"
               />
-              <div
-                class="w-9 h-5 bg-gray-300 rounded-full peer peer-checked:bg-black peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-black transition-colors duration-300"
-              ></div>
-              <div
-                class="absolute left-[2px] top-[2px] w-4 h-4 bg-white rounded-full shadow transform peer-checked:translate-x-4 transition-transform duration-300"
-              ></div>
+              <div class="theme-toggle-track w-[88px] h-[44px] rounded-full bg-[#e0e0e0] peer-checked:bg-[#252525]"></div>
+              <div class="theme-toggle-knob absolute left-[3px] top-[3px] w-[38px] h-[38px] bg-white rounded-full peer-checked:translate-x-[44px]"></div>
             </label>
           </div>
         </div>
