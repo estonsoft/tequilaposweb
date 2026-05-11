@@ -267,6 +267,28 @@ h6 {
   padding: 4rem 0;
   border-top: 1px solid #e5e7eb; /* border-gray-200 */
 }
+
+/* ---- Laptop (1024px to 1300px) Navbar Adjustments ---- */
+@media (min-width: 1024px) and (max-width: 1300px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  .nav-extra-links {
+    gap: 0.75rem;
+  }
+  .nav-link {
+    font-size: 0.9rem;
+  }
+  .logo {
+    height: 3rem;
+  }
+  .demo-btn {
+    padding: 0 0.75rem;
+  }
+  .demo-btn span {
+    font-size: 0.9rem;
+  }
+}
 /* end */
 
 /* Custom CSS for 3D Flip Effect (from Tequila folder) */
