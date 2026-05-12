@@ -1,3 +1,85 @@
+// ── Mega-Menu Full-Width / 50vh Override (Desktop & Laptop ≥1024px) ──
+// Injected once here so every page that loads theme.js automatically gets
+// the correct dropdown geometry – no per-page HTML edits required.
+(function () {
+  var s = document.createElement('style');
+  s.id = 'mega-menu-fullwidth-override';
+  s.textContent = [
+    /* Only apply on laptop / desktop screens */
+    '@media (min-width: 1024px) {',
+    '  /*',
+    '   * Switch from absolute (constrained by .nav-item) to fixed so the panel',
+    '   * can span the full viewport width regardless of the container\'s width.',
+    '   * top: 6rem  = the navbar height defined in global.css (.navbar { height: 6rem }).',
+    '   */',
+    '  .mega-anim {',
+    '    position: fixed !important;',
+    '    top: 6rem !important;',   /* aligns flush with bottom of sticky navbar  */
+    '    left: 0 !important;',
+    '    width: 100vw !important;',
+    '    height: 50vh !important;',
+    '    overflow-y: auto !important;',
+    '    border-radius: 0 !important;',  /* flat, full-bleed look */
+    '    box-shadow: 0 8px 32px rgba(0,0,0,0.15) !important;',
+    '    padding: 2rem 4rem !important;', /* generous inner padding */
+    '    box-sizing: border-box !important;',
+    '  }',
+    '  /* The inner flex wrapper should fill the 50vh panel neatly */',
+    '  .mega-anim > div {',
+    '    height: 100%;',
+    '    align-items: flex-start;',
+    '  }',
+    '}',
+    '',
+    '.mega-open .mega-anim {',
+    '  opacity: 1 !important;',
+    '  transform: translateY(0) scale(1) !important;',
+    '  visibility: visible !important;',
+    '  pointer-events: auto !important;',
+    '  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0s !important;',
+    '}'
+  ].join('\n');
+  /* Append before </head> so it wins over global.css rules */
+  (document.head || document.documentElement).appendChild(s);
+})();
+
+// ── Hover-intent fix for fixed-position mega-menus ──
+// Because .mega-anim is position:fixed it is detached from .nav-item in the DOM.
+// Moving the cursor from the trigger label down into the panel exits .nav-item,
+// so the browser loses CSS :hover and the dropdown closes immediately.
+// Fix: use a JS close-delay (300 ms) so the user has time to reach the content.
+document.addEventListener('DOMContentLoaded', function () {
+  var CLOSE_DELAY = 300;
+
+  function wireNavItem(navItem) {
+    var panel = navItem.querySelector('.mega-anim');
+    if (!panel) return;
+    var closeTimer = null;
+
+    function openMenu() {
+      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+      navItem.classList.add('mega-open');
+    }
+
+    function scheduleClose() {
+      closeTimer = setTimeout(function () {
+        navItem.classList.remove('mega-open');
+        closeTimer = null;
+      }, CLOSE_DELAY);
+    }
+
+    navItem.addEventListener('mouseenter', openMenu);
+    navItem.addEventListener('mouseleave', scheduleClose);
+    panel.addEventListener('mouseenter', openMenu);
+    panel.addEventListener('mouseleave', scheduleClose);
+  }
+
+  document.querySelectorAll('.nav-item').forEach(wireNavItem);
+
+  // Expose so the Resources injector (below) can wire its dynamically-created nav-item
+  window.__wireNavItem = wireNavItem;
+});
+
 // ── Global Tailwind Configuration Override ──
 // This forces the 'xl' breakpoint (used by the navbar) to trigger at 1024px instead of 1280px.
 // This ensures that the desktop navbar shows on all laptops (13-inch, 15-inch, etc) 
@@ -207,4 +289,72 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add our global event listener
     selector.addEventListener('click', window.handleGlobalLanguageToggle);
   });
+});
+
+// ── Resources Mega-Menu Injection ──
+// Runs on every page that loads theme.js (desktop navbar only, ≥1024px).
+// Finds the plain <a href="/resourse.html">Resources</a> nav-link and
+// replaces it with a full mega-menu dropdown matching the Business Type style.
+document.addEventListener('DOMContentLoaded', function () {
+  // Only inject on the desktop navbar (xl:block hidden nav)
+  // Look for the Resources link inside the desktop nav (.navbar.xl\\:block)
+  var desktopNavs = document.querySelectorAll('nav.navbar');
+  var resourcesLink = null;
+
+  desktopNavs.forEach(function (nav) {
+    // The desktop nav has class "xl:block hidden" – pick the one that is NOT xl:hidden
+    if (!nav.classList.contains('xl:hidden')) {
+      var links = nav.querySelectorAll('a.nav-link');
+      links.forEach(function (link) {
+        if (link.textContent.trim() === 'Resources') {
+          resourcesLink = link;
+        }
+      });
+    }
+  });
+
+  if (!resourcesLink) return; // Guard: if no Resources link found, stop.
+
+  // Build the mega-menu wrapper HTML (mirrors Business Type dropdown structure)
+  var wrapper = document.createElement('div');
+  wrapper.className = 'nav-item relative group';
+
+  wrapper.innerHTML = [
+    '<a href="/resourse.html" class="nav-link">Resources</a>',
+    '<div class="mega-menu mega-anim absolute left-0 top-full pt-10">',
+    '  <div class="flex flex-nowrap gap-10">',
+
+    // ── Left column: category links ──
+    '    <div class="flex flex-col p-10 gap-4">',
+    '      <a href="/resourse.html#blogs"    class="text-[26px] font-bold hover:underline" style="color:inherit">Blogs</a>',
+    '      <a href="/resourse.html#tutorials" class="text-[26px] font-bold hover:underline" style="color:inherit">Tutorials</a>',
+    '      <a href="/resourse.html#manuals"  class="text-[26px] font-bold hover:underline" style="color:inherit">Manuals</a>',
+    '    </div>',
+
+    // ── Right column: Discover + blog post links ──
+    '    <div class="flex gap-16 p-10">',
+    '      <div>',
+    '        <h6 class="text-xs font-normal mb-[10px]" style="color:inherit">Discover</h6>',
+    '        <ul class="space-y-3 text-sm">',
+    '          <li><a href="/blog-one.html"  class="hover:underline text-base font-bold" style="color:inherit">Cash Discount vs Traditional Processing &ndash; Which One Saves You More?</a></li>',
+    '          <li><a href="/blog-two.html"  class="hover:underline text-base font-bold" style="color:inherit">How This Restaurant Cut Credit Card Fees by 30% with TequilaPOS</a></li>',
+    '          <li><a href="/blog-three.html" class="hover:underline text-base font-bold" style="color:inherit">5 Features Your Restaurant POS Must Have (That Ours Does)</a></li>',
+    '          <li><a href="/blog-four.html" class="hover:underline text-base font-bold" style="color:inherit">Stop Employee Theft Before It Starts: Tools You Already Have</a></li>',
+    '          <li><a href="/blog-five.html" class="hover:underline text-base font-bold" style="color:inherit">Why Accepting Bitcoin Is the Future of Restaurant Payments</a></li>',
+    '          <li><a href="/blog-six.html"  class="hover:underline text-base font-bold" style="color:inherit">Free Download: Weekly Sales &amp; Expense Tracker for Restaurant Owners</a></li>',
+    '        </ul>',
+    '      </div>',
+    '    </div>',
+
+    '  </div>',
+    '</div>'
+  ].join('\n');
+
+  // Replace the plain <a> tag with the full nav-item wrapper
+  resourcesLink.parentNode.replaceChild(wrapper, resourcesLink);
+
+  // Apply the hover-intent delay to the newly created Resources nav-item
+  if (typeof window.__wireNavItem === 'function') {
+    window.__wireNavItem(wrapper);
+  }
 });

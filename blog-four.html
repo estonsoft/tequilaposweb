@@ -8,12 +8,12 @@
      <script src="/assets/js/theme.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <!--for Cash Discount slider-->
-    <style>
+    <!-- <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
-      body {
+      /* body {
         font-family: "Inter", sans-serif;
         background-color: #242424;
-      }
+      } */
       /* Hide scrollbar for a cleaner look */
       .hide-scrollbar::-webkit-scrollbar {
         display: none;
@@ -22,7 +22,7 @@
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
       }
-    </style>
+    </style> -->
 
     <!-- Splide CSS -->
     <link
@@ -648,21 +648,21 @@
           <div class="flex space-x-2 mb-8 bg-gray-100 p-1 rounded-full w-fit">
             <button
               id="tab-permissions"
-              class="tab-button px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-200 bg-black text-white"
+              class="tab-button px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-200 bg-black page-main"
               data-target="content-permissions"
             >
               User Permissions
             </button>
             <button
               id="tab-audit"
-              class="tab-button px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-200 text-gray-700 hover:bg-gray-200"
+              class="tab-button px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-200 page-sub hover:page-main"
               data-target="content-audit"
             >
               Audit Trails
             </button>
             <button
               id="tab-reports"
-              class="tab-button px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-200 text-gray-700 hover:bg-gray-200"
+              class="tab-button px-6 py-2 text-sm font-semibold rounded-full transition-colors duration-200 page-sub hover:page-main"
               data-target="content-reports"
             >
               Shift Reports
@@ -672,7 +672,7 @@
           <div class="flex flex-col lg:flex-row gap-8">
             <div class="lg:w-2/3">
               <div id="content-permissions" class="tab-content space-y-4">
-                <p class="page-sub">
+                <p class="page-sub text-[12px] md:text-[18px]">
                   User permissions allow you to control what each employee can
                   do in the POS system. Not every staff member should have
                   access to sensitive functions like voiding sales, applying
@@ -680,7 +680,7 @@
                   transaction.
                 </p>
 
-                <h3 class="text-lg font-bold mt-6">How it helps:</h3>
+                <h3 class="text-xl font-bold mt-6">How it helps:</h3>
                 <ul class="list-none space-y-3 px-2 page-sub">
                   <li class="flex items-start">
                     <span
@@ -688,7 +688,7 @@
                       >&bull;</span
                     >
                     <p>
-                      <span class="font-semibold"
+                      <span class="font-semibold text-[10px] md:text-[18px]"
                         >Prevents unauthorized discounts or voids.</span
                       >
                     </p>
@@ -699,7 +699,7 @@
                       >&bull;</span
                     >
                     <p>
-                      <span class="font-semibold"
+                      <span class="font-semibold text-[10px] md:text-[18px]"
                         >Limits the ability to manipulate transactions.</span
                       >
                     </p>
@@ -710,7 +710,7 @@
                       >&bull;</span
                     >
                     <p>
-                      <span class="font-semibold"
+                      <span class="font-semibold text-[10px] md:text-[18px]"
                         >Ensures only managers can approve critical
                         actions.</span
                       >
@@ -720,14 +720,14 @@
               </div>
 
               <div id="content-audit" class="tab-content hidden space-y-4">
-                <p class="page-sub">
+                <p class="page-sub text-[12px] md:text-[18px]">
                   An audit trail is a detailed log of every action taken in the
                   POS system—who did what, when, and from which terminal. This
                   includes voids, discounts, no-sale drawer openings, deleted
                   items, and more.
                 </p>
 
-                <h3 class="text-lg font-bold mt-6">How it helps:</h3>
+                <h3 class="text-xl font-bold mt-6">How it helps:</h3>
                 <ul class="list-none space-y-3 px-2 page-sub">
                   <li class="flex items-start">
                     <span
@@ -735,7 +735,7 @@
                       >&bull;</span
                     >
                     <p>
-                      <span class="font-semibold"
+                      <span class="font-semibold text-[10px] md:text-[18px]"
                         >Provides a clear record of employee activity.</span
                       >
                     </p>
@@ -746,7 +746,7 @@
                       >&bull;</span
                     >
                     <p>
-                      <span class="font-semibold"
+                      <span class="font-semibold text-[10px] md:text-[18px]"
                         >Helps identify patterns linked to theft,</span
                       >
                       like repeated voids or excessive discounts.
@@ -758,7 +758,7 @@
                       >&bull;</span
                     >
                     <p>
-                      <span class="font-semibold">Builds accountability</span
+                      <span class="font-semibold text-[10px] md:text-[18px]">Builds accountability</span
                       >—employees are less likely to steal if they know their
                       actions are tracked.
                     </p>
@@ -767,14 +767,14 @@
               </div>
 
               <div id="content-reports" class="tab-content hidden space-y-4">
-                <p class="page-sub">
+                <p class="page-sub text-[12px] md:text-[18px]">
                   End-of-shift reports give managers a snapshot of key metrics
                   like total sales, cash collected, number of voids, discounts
                   applied, and drawer over/short amounts. These can be broken
                   down by employee.
                 </p>
 
-                <h3 class="text-lg font-bold mt-6">How it helps:</h3>
+                <h3 class="text-xl font-bold mt-6">How it helps:</h3>
                 <ul class="list-none space-y-3 px-2 page-sub">
                   <li class="flex items-start">
                     <span
@@ -782,7 +782,7 @@
                       >&bull;</span
                     >
                     <p>
-                      <span class="font-semibold"
+                      <span class="font-semibold text-[10px] md:text-[18px]"
                         >Makes it easy to spot red flags</span
                       >
                       at the end of each shift.
@@ -794,7 +794,7 @@
                       >&bull;</span
                     >
                     <p>
-                      <span class="font-semibold"
+                      <span class="font-semibold text-[10px] md:text-[18px]"
                         >Helps compare staff performance</span
                       >
                       and identify anomalies.
@@ -806,7 +806,7 @@
                       >&bull;</span
                     >
                     <p>
-                      <span class="font-semibold"
+                      <span class="font-semibold text-[10px] md:text-[18px]"
                         >Supports quick resolution</span
                       >
                       of cash drawer discrepancies.
@@ -822,42 +822,42 @@
                   <input
                     type="text"
                     placeholder="Enter your name here"
-                    class="w-full border-b border-gray-300 focus:border-black focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
+                    class="w-full border-b border-gray-300 focus:border-black bg-transparent focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
                   />
                 </div>
                 <div>
                   <input
                     type="email"
                     placeholder="Enter your email here"
-                    class="w-full border-b border-gray-300 focus:border-black focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
+                    class="w-full border-b bg-transparent border-gray-300 focus:border-black focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
                   />
                 </div>
                 <div>
                   <input
                     type="text"
                     placeholder="Business name"
-                    class="w-full border-b border-gray-300 focus:border-black focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
+                    class="w-full border-b bg-transparent border-gray-300 focus:border-black focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
                   />
                 </div>
                 <div>
                   <input
                     type="tel"
                     placeholder="Phone no."
-                    class="w-full border-b border-gray-300 focus:border-black focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
+                    class="w-full border-b bg-transparent border-gray-300 focus:border-black focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
                   />
                 </div>
                 <div>
                   <input
                     type="text"
                     placeholder="Product you want"
-                    class="w-full border-b border-gray-300 focus:border-black focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
+                    class="w-full border-b bg-transparent border-gray-300 focus:border-black focus:outline-none pb-2 text-sm page-main placeholder-gray-400"
                   />
                 </div>
                 <div>
                   <textarea
                     placeholder="Have any question?"
                     rows="4"
-                    class="w-full border border-gray-300 focus:border-black focus:outline-none p-3 text-sm text-gray-800 placeholder-gray-400 rounded-lg"
+                    class="w-full border bg-transparent border-gray-300 focus:border-black focus:outline-none p-3 text-sm text-gray-800 placeholder-gray-400 rounded-lg"
                   ></textarea>
                 </div>
                 <button
@@ -899,14 +899,14 @@
             <div class="flex flex-col space-y-4 lg:w-1/5">
               <button
                 id="tab-daily-reports"
-                class="tab-button w-full lg:w-auto h-24 flex items-center justify-center rounded-xl transition-colors duration-200 bg-black text-white text-lg font-bold"
+                class="tab-button w-full lg:w-auto h-24 flex items-center justify-center rounded-xl transition-colors duration-200 bg-black page-main text-lg font-bold"
                 data-target="content-daily-reports"
               >
                 Daily Reports
               </button>
               <button
                 id="tab-weekly-report"
-                class="tab-button w-full lg:w-auto h-24 flex items-center justify-center rounded-xl transition-colors duration-200 bg-gray-100 text-gray-700 text-lg font-bold hover:bg-gray-200"
+                class="tab-button w-full lg:w-auto h-24 flex items-center justify-center rounded-xl transition-colors duration-200 bg-gray-100 page-sub text-lg font-bold hover:bg-gray-200"
                 data-target="content-weekly-report"
               >
                 Weekly Report
@@ -920,7 +920,7 @@
               >
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -948,7 +948,7 @@
 
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -974,7 +974,7 @@
 
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1004,7 +1004,7 @@
 
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1034,7 +1034,7 @@
 
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1062,7 +1062,7 @@
 
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1095,7 +1095,7 @@
               >
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1124,7 +1124,7 @@
 
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1152,7 +1152,7 @@
 
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1180,7 +1180,7 @@
 
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1209,7 +1209,7 @@
 
                 <div class="p-4 flex items-start space-x-4">
                   <svg
-                    class="w-8 h-8 text-gray-700 flex-shrink-0 mt-1"
+                    class="w-8 h-8 page-accent flex-shrink-0 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1277,6 +1277,7 @@
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="page-accent"
                 >
                   <mask
                     id="mask0_2_12575"
@@ -1294,7 +1295,7 @@
                     />
                   </mask>
                   <g mask="url(#mask0_2_12575)">
-                    <rect width="50" height="50" fill="#505050" />
+                    <rect width="50" height="50" fill="currentColor" />
                   </g>
                   <defs>
                     <pattern
@@ -1355,6 +1356,7 @@
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="page-accent"
                 >
                   <mask
                     id="mask0_2_12578"
@@ -1372,7 +1374,7 @@
                     />
                   </mask>
                   <g mask="url(#mask0_2_12578)">
-                    <rect width="50" height="50" fill="#505050" />
+                    <rect width="50" height="50" fill="currentColor" />
                   </g>
                   <defs>
                     <pattern
@@ -1430,6 +1432,7 @@
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="page-accent"
                 >
                   <mask
                     id="mask0_2_12581"
@@ -1447,7 +1450,7 @@
                     />
                   </mask>
                   <g mask="url(#mask0_2_12581)">
-                    <rect width="50" height="50" fill="#505050" />
+                    <rect width="50" height="50" fill="currentColor" />
                   </g>
                   <defs>
                     <pattern
@@ -1506,6 +1509,7 @@
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="page-accent"
                 >
                   <mask
                     id="mask0_2_12584"
@@ -1523,7 +1527,7 @@
                     />
                   </mask>
                   <g mask="url(#mask0_2_12584)">
-                    <rect width="50" height="50" fill="#505050" />
+                    <rect width="50" height="50" fill="currentColor" />
                   </g>
                   <defs>
                     <pattern
@@ -1583,6 +1587,7 @@
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="page-accent"
                 >
                   <mask
                     id="mask0_2_12587"
@@ -1600,7 +1605,7 @@
                     />
                   </mask>
                   <g mask="url(#mask0_2_12587)">
-                    <rect width="50" height="50" fill="#505050" />
+                    <rect width="50" height="50" fill="currentColor" />
                   </g>
                   <defs>
                     <pattern
@@ -1661,6 +1666,7 @@
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
+                  class="page-accent"
                 >
                   <mask
                     id="mask0_2_12590"
@@ -1678,7 +1684,7 @@
                     />
                   </mask>
                   <g mask="url(#mask0_2_12590)">
-                    <rect x="-0.492188" width="52" height="50" fill="#505050" />
+                    <rect x="-0.492188" width="52" height="50" fill="currentColor" />
                   </g>
                   <defs>
                     <pattern
